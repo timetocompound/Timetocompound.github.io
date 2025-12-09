@@ -11,39 +11,42 @@
 
     <style>
         :root {
-            /* Light Mode Colors */
-            --bg-body: #f8fafc;        /* Πολύ απαλό γκρι-μπλε για ξεκούραση */
+            /* Light Mode */
+            --bg-body: #f8fafc;
             --bg-card: #ffffff;
             --bg-nav: #ffffff;
-            --text-main: #0f172a;      /* Σκούρο Navy για κείμενο (Ευκρίνεια) */
+            --text-main: #0f172a;      /* Σκούρο Μπλε */
             --text-muted: #64748b;
-            --accent: #2563eb;         /* Royal Blue για links */
+            --accent: #2563eb;
             --border: #e2e8f0;
             --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            --hero-gradient: linear-gradient(to top, rgba(15, 23, 42, 0.9), transparent);
+            --hero-overlay: linear-gradient(to top, rgba(15, 23, 42, 0.95), transparent);
         }
 
-        /* Dark Mode Colors - ΔΙΟΡΘΩΜΕΝΑ */
+        /* Dark Mode - FIX ΓΙΑ ΤΑ ΓΡΑΜΜΑΤΑ */
         [data-theme="dark"] {
-            --bg-body: #0f172a;        /* Deep Navy Background */
-            --bg-card: #1e293b;        /* Lighter Slate for cards */
+            --bg-body: #0f172a;        /* Σκούρο Φόντο */
+            --bg-card: #1e293b;        /* Κάρτες Slate */
             --bg-nav: #1e293b;
-            --text-main: #f1f5f9;      /* Σχεδόν Λευκό για να φαινεται! */
-            --text-muted: #cbd5e1;     /* Ανοιχτό γκρι */
-            --accent: #38bdf8;         /* Sky Blue για να φεγγίζει */
+            --text-main: #ffffff;      /* ΛΕΥΚΟ ΚΕΙΜΕΝΟ */
+            --text-muted: #cbd5e1;     /* Ανοιχτό Γκρι */
+            --accent: #38bdf8;         /* Φωτεινό Μπλε */
             --border: #334155;
             --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
         }
 
+        /* Global Reset για να πιάνει το Dark Mode παντού */
         body { 
             font-family: 'Manrope', sans-serif; 
             background: var(--bg-body); 
             color: var(--text-main); 
             margin: 0; 
-            transition: background 0.3s, color 0.3s; 
+            transition: all 0.3s ease; 
         }
         
-        a { text-decoration: none; color: inherit; transition: 0.2s; }
+        h1, h2, h3, h4, p, span, div, a { color: inherit; } /* FORCE INHERIT COLOR */
+
+        a { text-decoration: none; transition: 0.2s; }
         a:hover { color: var(--accent); }
 
         /* --- Navigation --- */
@@ -55,22 +58,23 @@
         }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 70px; }
         
-        .logo { font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; gap: 10px; cursor: pointer; color: var(--text-main); }
+        .logo { font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; gap: 10px; cursor: pointer; }
         .logo i { color: var(--accent); }
 
         .menu { display: flex; gap: 10px; }
         .menu-btn { 
-            background: none; border: none; font-size: 0.95rem; font-weight: 600; color: var(--text-muted); cursor: pointer; padding: 8px 16px; border-radius: 6px; transition: 0.2s; 
+            background: none; border: none; font-size: 0.95rem; font-weight: 600; 
+            color: var(--text-muted); cursor: pointer; padding: 8px 16px; border-radius: 6px; transition: 0.2s; 
         }
         .menu-btn:hover, .menu-btn.active { color: var(--accent); background: rgba(37, 99, 235, 0.1); }
         
-        .theme-toggle { cursor: pointer; padding: 10px; border-radius: 50%; background: transparent; border: 1px solid var(--border); color: var(--text-main); }
+        .theme-toggle { cursor: pointer; padding: 10px; border-radius: 50%; background: transparent; border: 1px solid var(--border); }
         .theme-toggle:hover { background: var(--border); }
 
         /* --- Layout --- */
         .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; display: grid; grid-template-columns: 2.5fr 1fr; gap: 30px; }
         
-        /* --- Sidebar Widgets --- */
+        /* --- Sidebar --- */
         .sidebar { display: flex; flex-direction: column; gap: 25px; }
         .widget { background: var(--bg-card); border-radius: 12px; padding: 20px; border: 1px solid var(--border); box-shadow: var(--shadow); }
         .widget-title { font-weight: 800; margin-bottom: 15px; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px; border-left: 3px solid var(--accent); padding-left: 10px; }
@@ -78,23 +82,24 @@
         /* Freedom24 Box */
         .freedom-box {
             background: linear-gradient(135deg, #064e3b 0%, #10b981 100%);
-            color: white;
+            color: white !important; /* Force White Text */
             border: none;
             position: relative;
             overflow: hidden;
             transition: transform 0.2s;
         }
+        .freedom-box h3, .freedom-box p { color: white !important; }
         .freedom-box:hover { transform: translateY(-3px); }
         .freedom-btn {
-            background: white; color: #064e3b; padding: 12px; border-radius: 6px; font-weight: 800; display: block; margin-top: 15px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            background: white; color: #064e3b !important; padding: 12px; border-radius: 6px; font-weight: 800; display: block; margin-top: 15px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
-        .freedom-btn:hover { background: #f0fdf4; color: #047857; }
+        .freedom-btn:hover { background: #f0fdf4; }
 
-        /* --- Main Sections --- */
+        /* --- Sections --- */
         .section { display: none; animation: fadeIn 0.4s ease; }
         .section.active { display: block; }
 
-        /* HERO SECTION (New) */
+        /* HERO SECTION */
         .hero-card {
             position: relative;
             height: 400px;
@@ -108,16 +113,17 @@
         .hero-card:hover .hero-bg { transform: scale(1.03); }
         .hero-overlay {
             position: absolute; bottom: 0; left: 0; right: 0;
-            background: var(--hero-gradient);
-            padding: 30px; color: white;
+            background: var(--hero-overlay);
+            padding: 30px; color: white !important;
         }
-        .hero-tag { background: var(--accent); color: white; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: inline-block; }
+        .hero-overlay h2, .hero-overlay div { color: white !important; } /* Force White */
+        .hero-tag { background: var(--accent); color: white !important; padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: inline-block; }
         .hero-title { font-size: 1.8rem; font-weight: 800; margin: 0; line-height: 1.2; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
 
-        /* NEWS GRID (New Layout) */
+        /* NEWS GRID */
         .news-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* ΔΥΟ ΣΤΗΛΕΣ */
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
             gap: 20px;
         }
         
@@ -134,18 +140,18 @@
         .news-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--accent); }
         .news-img { width: 100%; height: 180px; object-fit: cover; background: #e2e8f0; }
         .news-content { padding: 20px; flex: 1; display: flex; flex-direction: column; }
-        .news-meta { font-size: 0.75rem; font-weight: 700; color: var(--accent); margin-bottom: 8px; text-transform: uppercase; }
-        .news-title { font-size: 1.1rem; font-weight: 700; color: var(--text-main); margin: 0 0 10px 0; line-height: 1.4; }
-        .news-desc { font-size: 0.9rem; color: var(--text-muted); line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
+        .news-meta { font-size: 0.75rem; font-weight: 700; color: var(--accent) !important; margin-bottom: 8px; text-transform: uppercase; }
+        .news-title { font-size: 1.1rem; font-weight: 700; margin: 0 0 10px 0; line-height: 1.4; }
+        .news-desc { font-size: 0.9rem; color: var(--text-muted) !important; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
-        /* Mobile Responsive */
+        /* Mobile */
         @media (max-width: 768px) {
             .container { grid-template-columns: 1fr; }
             .hero-card { height: 250px; }
             .hero-title { font-size: 1.3rem; }
-            .news-grid { grid-template-columns: 1fr; } /* Μια στήλη στα κινητά */
+            .news-grid { grid-template-columns: 1fr; }
             .nav-container { flex-direction: column; height: auto; padding: 15px; gap: 15px; }
             .menu { width: 100%; justify-content: center; }
         }
@@ -196,8 +202,8 @@
             
             <div id="hero-container"></div>
 
-            <h2 style="color:var(--text-main); margin-bottom:20px; display:flex; align-items:center; gap:10px;">
-                <i class="fas fa-bolt" style="color:#eab308;"></i> Latest Briefings
+            <h2 style="margin-bottom:20px; display:flex; align-items:center; gap:10px;">
+                <i class="fas fa-bolt" style="color:#eab308;"></i> Latest Headlines
             </h2>
             
             <div id="feed-container" class="news-grid">
@@ -208,7 +214,7 @@
         </div>
 
         <div id="markets" class="section">
-            <h2 style="color:var(--text-main);">📊 Market Dashboard</h2>
+            <h2>📊 Market Dashboard</h2>
             <div style="height: 500px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 30px;">
                 <div class="tradingview-widget-container" style="height:100%;width:100%">
                     <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
@@ -229,7 +235,7 @@
                 </div>
             </div>
             
-            <h3 style="color:var(--text-main);">Top Gainers & Losers</h3>
+            <h3>Top Gainers & Losers</h3>
             <div class="tradingview-widget-container">
               <div class="tradingview-widget-container__widget"></div>
               <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
@@ -250,7 +256,7 @@
         </div>
 
         <div id="articles" class="section">
-            <h2 style="color:var(--text-main);">📑 Analysis & Opinion</h2>
+            <h2>📑 Analysis & Opinion</h2>
             <div id="articles-container" class="news-grid">
                 <div style="grid-column: 1/-1; text-align:center; padding:40px; color:var(--text-muted);">Φόρτωση αναλύσεων...</div>
             </div>
@@ -340,14 +346,15 @@
         event.target.classList.add('active');
     }
 
-    // --- 2. News Aggregator Logic ---
+    // --- 2. News Logic (With Date Fix) ---
+    // Προσθέτουμε το Yahoo Finance που είναι πολύ αξιόπιστο
     const FEEDS = [
+        { url: 'https://finance.yahoo.com/news/rssindex', source: 'Yahoo Finance' },
         { url: 'https://www.investing.com/rss/news.rss', source: 'Investing.com' },
-        { url: 'https://www.coindesk.com/arc/outboundfeeds/rss/', source: 'CoinDesk' },
-        { url: 'https://search.cnbc.com/rs/search/combinedcms/view.xml?partnerId=wrss01&id=10000664', source: 'CNBC' }
+        { url: 'https://cointelegraph.com/rss', source: 'CoinTelegraph' }
     ];
 
-    // Εικόνες Fallback
+    // Images Fallback
     const images = [
         'https://images.unsplash.com/photo-1611974765270-ca1258634369?w=600',
         'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600',
@@ -356,12 +363,22 @@
     ];
     function getImg() { return images[Math.floor(Math.random() * images.length)]; }
 
+    // Συναρτηση για Ελληνική Ημερομηνία
+    function formatDate(dateString) {
+        const date = new Date(dateString);
+        // Επιστρέφει μορφή Ημέρα/Μήνας/Έτος (π.χ. 09/12/2025)
+        return date.toLocaleDateString('el-GR', {
+            day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute:'2-digit'
+        });
+    }
+
     async function loadNews() {
         let allItems = [];
         const container = document.getElementById('feed-container');
 
+        // Προσθέτουμε τυχαίο αριθμό στο URL για να μη κρατάει cache (Cache Buster)
         const promises = FEEDS.map(feed => 
-            fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(feed.url))
+            fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(feed.url) + '&t=' + Date.now())
             .then(res => res.json())
             .then(data => {
                 if(data.status === 'ok') {
@@ -384,11 +401,10 @@
                     <div class="hero-overlay">
                         <span class="hero-tag">${hero.source}</span>
                         <h2 class="hero-title">${hero.title}</h2>
-                        <div style="font-size:0.85rem; margin-top:5px; opacity:0.9;">${hero.pubDate}</div>
+                        <div style="font-size:0.85rem; margin-top:5px; opacity:0.9;">${formatDate(hero.pubDate)}</div>
                     </div>
                 </div>
             `;
-            // Remove first item from list
             allItems.shift();
         }
 
@@ -405,15 +421,16 @@
                         <span class="news-meta">${item.source}</span>
                         <h3 class="news-title">${item.title}</h3>
                         <p class="news-desc">${desc}</p>
+                        <div style="font-size:0.75rem; color:var(--text-muted); margin-top:auto;">${formatDate(item.pubDate)}</div>
                     </div>
                 </a>
             `;
         });
     }
     
-    // --- 3. Articles (Grid Fix) ---
+    // --- 3. Articles ---
     async function loadArticles() {
-        fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent('https://www.investing.com/rss/market_overview.rss'))
+        fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent('https://www.investing.com/rss/market_overview.rss') + '&t=' + Date.now())
         .then(res => res.json())
         .then(data => {
             const container = document.getElementById('articles-container');
@@ -421,7 +438,7 @@
             if(data.items) {
                 data.items.forEach(item => {
                     let desc = item.description.replace(/<[^>]*>?/gm, '').substring(0, 120) + '...';
-                    let img = getImg(); // Random image for consistency
+                    let img = getImg(); 
                     container.innerHTML += `
                         <a href="${item.link}" target="_blank" class="news-card">
                              <img src="${img}" class="news-img" loading="lazy">
@@ -429,6 +446,7 @@
                                 <span class="news-meta">ANALYSIS</span>
                                 <h3 class="news-title">${item.title}</h3>
                                 <p class="news-desc">${desc}</p>
+                                <div style="font-size:0.75rem; color:var(--text-muted); margin-top:auto;">${formatDate(item.pubDate)}</div>
                             </div>
                         </a>
                     `;
@@ -437,7 +455,7 @@
         });
     }
 
-    // --- 4. Theme Logic ---
+    // --- 4. Theme Logic (FIXED) ---
     function toggleTheme() {
         const body = document.body;
         const icon = document.getElementById('theme-icon');
