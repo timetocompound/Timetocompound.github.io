@@ -7,44 +7,63 @@
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { font-family: 'Manrope', sans-serif; background: #f8fafc; color: #0f172a; margin: 0; padding: 20px; line-height: 1.6; }
-        .container { max-width: 800px; margin: 0 auto; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05); }
-        h1 { color: #0f172a; font-size: 2rem; margin-bottom: 10px; }
-        .meta { color: #64748b; font-size: 0.9rem; margin-bottom: 30px; display: flex; gap: 15px; }
-        .tag { background: #eab308; color: white; padding: 2px 8px; border-radius: 4px; font-weight: bold; }
-        img { width: 100%; border-radius: 8px; margin-bottom: 30px; }
-        h2 { color: #2563eb; margin-top: 30px; }
+        body { font-family: 'Manrope', sans-serif; background: #f8fafc; color: #334155; margin: 0; padding: 20px; line-height: 1.8; }
+        .container { max-width: 800px; margin: 0 auto; background: white; padding: 50px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
+        h1 { color: #0f172a; font-size: 2.2rem; margin-bottom: 10px; line-height: 1.3; }
+        .meta { color: #64748b; font-size: 0.9rem; margin-bottom: 40px; display: flex; gap: 15px; border-bottom: 1px solid #e2e8f0; padding-bottom: 20px; }
+        .tag { background: #eab308; color: white; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 0.8rem; align-self: center; }
+        img { width: 100%; border-radius: 12px; margin-bottom: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
+        h2 { color: #0f172a; margin-top: 40px; border-left: 4px solid #eab308; padding-left: 15px; }
         p { margin-bottom: 20px; font-size: 1.1rem; }
-        .back-btn { display: inline-block; text-decoration: none; color: #64748b; margin-bottom: 20px; font-weight: 600; }
-        .back-btn:hover { color: #2563eb; }
+        ul { margin-bottom: 20px; }
+        li { margin-bottom: 10px; font-size: 1.1rem; }
+        .pro-tip { background: #f0f9ff; border: 1px solid #bae6fd; padding: 20px; border-radius: 8px; color: #0369a1; font-weight: 500; margin: 30px 0; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: #64748b; margin-bottom: 20px; font-weight: 700; transition: 0.2s; }
+        .back-btn:hover { color: #2563eb; transform: translateX(-5px); }
     </style>
 </head>
 <body>
     <div class="container">
         <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Επιστροφή στο Dashboard</a>
-        <span class="tag">BEGINNER</span>
-        <h1>Τι είναι τα Candlesticks; Οδηγός για αρχάριους</h1>
+        <br>
+        <span class="tag">BEGINNER GUIDE</span>
+        <h1>Τι είναι τα Candlesticks; Ο πλήρης οδηγός για να διαβάζετε τα διαγράμματα</h1>
         <div class="meta">
-            <span><i class="far fa-clock"></i> 5 λεπτά ανάγνωση</span>
-            <span><i class="far fa-user"></i> TimeToCompound Team</span>
+            <span><i class="far fa-clock"></i> 6 λεπτά ανάγνωση</span>
+            <span><i class="far fa-user"></i> Συντακτική Ομάδα</span>
         </div>
-        <img src="https://images.unsplash.com/photo-1611974765270-ca1258634369?w=800" alt="Candlesticks">
+        <img src="https://images.unsplash.com/photo-1611974765270-ca1258634369?w=1000" alt="Candlesticks Chart">
         
-        <p>Τα ιαπωνικά κεριά (Japanese Candlesticks) είναι ο πιο δημοφιλής τρόπος απεικόνισης της κίνησης των τιμών στις χρηματοοικονομικές αγορές. Κάθε «κερί» μας λέει μια ιστορία για το τι συνέβη σε ένα συγκεκριμένο χρονικό διάστημα.</p>
+        <p>Αν ανοίξετε οποιαδήποτε πλατφόρμα επενδύσεων, το πρώτο πράγμα που θα δείτε είναι ένα διάγραμμα γεμάτο με κόκκινα και πράσινα ορθογώνια. Αυτά ονομάζονται <strong>Ιαπωνικά Κεριά (Japanese Candlesticks)</strong> και αποτελούν τη «γλώσσα» των traders.</p>
+        <p>Δεν είναι απλώς γραμμές. Κάθε κερί αφηγείται μια ιστορία για τη μάχη που δόθηκε μεταξύ αγοραστών (Bulls) και πωλητών (Bears) σε ένα συγκεκριμένο χρονικό διάστημα.</p>
 
-        <h2>Τα 4 Σημεία Κλειδιά</h2>
-        <p>Κάθε κερί αποτελείται από 4 βασικές τιμές:</p>
+        <h2>Η Ανατομία του Κεριού</h2>
+        <p>Κάθε κερί μας δίνει 4 κρίσιμες πληροφορίες (OHLC):</p>
         <ul>
-            <li><strong>Open (Άνοιγμα):</strong> Η τιμή που ξεκίνησε η περίοδος.</li>
-            <li><strong>Close (Κλείσιμο):</strong> Η τιμή που τελείωσε η περίοδος.</li>
-            <li><strong>High (Υψηλό):</strong> Η ανώτερη τιμή που έφτασε (η κορυφή της πάνω "σκιάς").</li>
-            <li><strong>Low (Χαμηλό):</strong> Η κατώτερη τιμή που έφτασε (η κορυφή της κάτω "σκιάς").</li>
+            <li><strong>Open (Άνοιγμα):</strong> Η τιμή στην οποία ξεκίνησε η διαπραγμάτευση.</li>
+            <li><strong>Close (Κλείσιμο):</strong> Η τελευταία τιμή πριν κλείσει το κερί.</li>
+            <li><strong>High (Υψηλό):</strong> Η ανώτερη τιμή που άγγιξε (η κορυφή της πάνω "σκιάς").</li>
+            <li><strong>Low (Χαμηλό):</strong> Η κατώτερη τιμή που άγγιξε (η άκρη της κάτω "σκιάς").</li>
         </ul>
 
-        <h2>Πράσινο vs Κόκκινο</h2>
-        <p>Το χρώμα του σώματος είναι το πιο σημαντικό στοιχείο:</p>
-        <p>🟢 <strong>Πράσινο (Bullish):</strong> Η τιμή έκλεισε υψηλότερα από ό,τι άνοιξε. Οι αγοραστές κέρδισαν τη μάχη.</p>
-        <p>🔴 <strong>Κόκκινο (Bearish):</strong> Η τιμή έκλεισε χαμηλότερα από ό,τι άνοιξε. Οι πωλητές πίεσαν την τιμή προς τα κάτω.</p>
+        <h2>Τι σημαίνει το "Σώμα" και η "Σκιά";</h2>
+        <p>Το χρωματιστό ορθογώνιο λέγεται <strong>Σώμα (Body)</strong>. 
+        <br>Οι λεπτές γραμμές πάνω και κάτω λέγονται <strong>Σκιές (Wicks ή Shadows)</strong>.</p>
+        
+        <p>Το μέγεθος του σώματος δείχνει τη δύναμη της κίνησης. Ένα μεγάλο πράσινο σώμα σημαίνει ότι οι αγοραστές είχαν τον απόλυτο έλεγχο. Ένα μικρό σώμα με μεγάλες σκιές δείχνει αβεβαιότητα και «μάχη».</p>
+
+        <h2>Πράσινο vs Κόκκινο: Ποιος κερδίζει;</h2>
+        <ul>
+            <li>🟢 <strong>Bullish (Πράσινο):</strong> Η τιμή έκλεισε υψηλότερα από ό,τι άνοιξε. Οι επενδυτές είναι αισιόδοξοι και αγοράζουν.</li>
+            <li>🔴 <strong>Bearish (Κόκκινο):</strong> Η τιμή έκλεισε χαμηλότερα από ό,τι άνοιξε. Υπάρχει πίεση πωλήσεων και απαισιοδοξία.</li>
+        </ul>
+
+        <div class="pro-tip">
+            <i class="fas fa-lightbulb"></i> <strong>Pro Tip:</strong> Μην κοιτάτε ποτέ ένα κερί μόνο του. Τα κεριά λειτουργούν συνδυαστικά. Τρία συνεχόμενα κόκκινα κεριά με μεγάλο σώμα δείχνουν μια ισχυρή πτωτική τάση που δύσκολα θα αντιστραφεί άμεσα.
+        </div>
+
+        <h2>Συμπέρασμα</h2>
+        <p>Η εκμάθηση των candlesticks είναι το πρώτο βήμα στην Τεχνική Ανάλυση. Πριν τοποθετήσετε τα χρήματά σας, αφιερώστε χρόνο να παρατηρήσετε πώς αντιδρούν τα κεριά σε σημαντικά νέα ή επίπεδα τιμών.</p>
     </div>
 </body>
 </html>
