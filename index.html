@@ -71,6 +71,7 @@
             align-items: center;
             gap: 8px;
             text-decoration: none;
+            cursor: pointer;
         }
         .logo i { color: var(--accent); }
 
@@ -122,7 +123,7 @@
         .hero-section {
             grid-column: 1 / -1;
             margin-bottom: 10px;
-            display: none;
+            display: none; /* Hidden until loaded */
         }
 
         .hero-card {
@@ -320,7 +321,7 @@
 
 <nav>
     <div class="nav-container">
-        <a href="#" class="logo" onclick="location.reload()"><i class="fas fa-chart-line"></i> TimeToCompound</a>
+        <a class="logo" onclick="location.reload()"><i class="fas fa-chart-line"></i> TimeToCompound</a>
         <div class="nav-links">
             <button class="nav-btn active" onclick="filterNews('all')">Όλα</button>
             <button class="nav-btn" onclick="filterNews('finance')">Αγορές</button>
@@ -362,7 +363,7 @@
               "width": "100%",
               "isTransparent": true,
               "height": 280,
-              "symbol": "FOREXCOM:SPXUSD",
+              "symbol": "OANDA:SPX500USD", 
               "showIntervalTabs": false,
               "displayMode": "single",
               "locale": "el",
@@ -381,7 +382,7 @@
               "colorTheme": "light",
               "isTransparent": true,
               "width": "100%",
-              "height": "400",
+              "height": "450",
               "locale": "en",
               "importanceFilter": "0,1",
               "currencyFilter": "USD,EUR"
@@ -400,6 +401,9 @@
 
 <script>
     // --- Setup & Configuration ---
+    // Χρησιμοποιούμε την αξιόπιστη μέθοδο rss2json που λειτουργεί καλύτερα
+    const RSS_API = 'https://api.rss2json.com/v1/api.json?rss_url=';
+    
     const FEEDS = [
         { url: 'https://www.investing.com/rss/news.rss', category: 'finance', label: 'MARKETS' },
         { url: 'https://www.investing.com/rss/cryptocurrency_news.rss', category: 'crypto', label: 'CRYPTO' },
@@ -419,68 +423,38 @@
 
     function getRandomImage() { return fallbackImages[Math.floor(Math.random() * fallbackImages.length)]; }
 
-    // --- XML Parsing Logic (No API Keys needed) ---
-    async function fetchRSS(feed) {
-        // Χρησιμοποιούμε το allorigins.win ως Proxy για να παρακάμψουμε το CORS
-        const proxyUrl = 'https://api.allorigins.win/get?url=' + encodeURIComponent(feed.url);
-        
-        try {
-            const response = await fetch(proxyUrl);
-            const data = await response.json();
-            
-            // Το allorigins επιστρέφει το XML ως string μέσα στο πεδίο contents
-            const parser = new DOMParser();
-            const xmlDoc = parser.parseFromString(data.contents, "text/xml");
-            const items = xmlDoc.querySelectorAll("item");
-            
-            const parsedItems = [];
-            items.forEach(item => {
-                const title = item.querySelector("title")?.textContent || "No Title";
-                const link = item.querySelector("link")?.textContent || "#";
-                const pubDate = item.querySelector("pubDate")?.textContent || "";
-                
-                // Προσπάθεια εξαγωγής περιγραφής και εικόνας
-                let description = item.querySelector("description")?.textContent || "";
-                // Καθαρισμός HTML tags από την περιγραφή
-                let cleanDesc = description.replace(/<[^>]*>?/gm, ''); 
-                
-                // Προσπάθεια εύρεσης εικόνας από το enclosure ή το media:content
-                let img = item.querySelector("enclosure")?.getAttribute("url");
-                if (!img) {
-                    const media = item.getElementsByTagNameNS("*", "content"); // media:content
-                    if (media.length > 0) img = media[0].getAttribute("url");
-                }
-                if (!img) img = getRandomImage(); // Fallback
-
-                parsedItems.push({
-                    title: title,
-                    link: link,
-                    pubDate: pubDate,
-                    description: cleanDesc,
-                    thumbnail: img,
-                    category: feed.category,
-                    label: feed.label
-                });
-            });
-            
-            return parsedItems;
-
-        } catch (error) {
-            console.error(`Error fetching ${feed.label}:`, error);
-            return []; // Επιστρέφουμε κενό πίνακα αν αποτύχει ένα feed, για να μην κρασάρει όλο το site
-        }
-    }
-
+    // --- Data Fetching Logic (Fixed) ---
     async function initApp() {
-        const promises = FEEDS.map(feed => fetchRSS(feed));
+        const promises = FEEDS.map(feed => 
+            fetch(RSS_API + encodeURIComponent(feed.url))
+            .then(res => res.json())
+            .then(data => {
+                if(data.status === 'ok') {
+                    return data.items.map(item => ({
+                        title: item.title,
+                        link: item.link,
+                        pubDate: item.pubDate,
+                        description: item.description,
+                        thumbnail: item.thumbnail || item.enclosure?.link || getRandomImage(),
+                        category: feed.category,
+                        label: feed.label
+                    }));
+                } else {
+                    return [];
+                }
+            })
+            .catch(err => {
+                console.error('Feed failed:', feed.label);
+                return [];
+            })
+        );
+
         const results = await Promise.all(promises);
-        
-        // Ενώνουμε όλα τα αποτελέσματα (Flat)
-        allNews = results.flat();
+        allNews = results.flat(); // Flatten arrays
 
         if (allNews.length === 0) {
             document.getElementById('news-feed').innerHTML = 
-                '<div class="error-msg">Η σύνδεση με τις πηγές ειδήσεων καθυστερεί. Παρακαλώ δοκιμάστε ανανέωση (Refresh).</div>';
+                '<div class="error-msg">Η σύνδεση με τις πηγές καθυστερεί. Δοκιμάστε σε λίγο.</div>';
             return;
         }
 
@@ -493,20 +467,22 @@
     function renderDashboard() {
         // 1. Hero Section (Το πρώτο νέο)
         const heroItem = allNews[0];
-        document.getElementById('hero-section').innerHTML = `
-            <div class="hero-card" onclick="window.open('${heroItem.link}', '_blank')">
-                <img src="${heroItem.thumbnail}" class="hero-img" alt="Hero News">
-                <div class="hero-content">
-                    <span class="hero-tag">${heroItem.label}</span>
-                    <h2 class="hero-title">${heroItem.title}</h2>
-                    <div class="hero-date">${new Date(heroItem.pubDate).toLocaleString('el-GR')}</div>
+        if (heroItem) {
+            document.getElementById('hero-section').innerHTML = `
+                <div class="hero-card" onclick="window.open('${heroItem.link}', '_blank')">
+                    <img src="${heroItem.thumbnail}" class="hero-img" alt="Hero News">
+                    <div class="hero-content">
+                        <span class="hero-tag">${heroItem.label}</span>
+                        <h2 class="hero-title">${heroItem.title}</h2>
+                        <div class="hero-date">${heroItem.pubDate}</div>
+                    </div>
                 </div>
-            </div>
-        `;
-        document.getElementById('hero-section').style.display = 'block';
-
-        // 2. Render List (Τα υπόλοιπα)
-        renderList(allNews.slice(1));
+            `;
+            document.getElementById('hero-section').style.display = 'block';
+        
+            // 2. Render List (Τα υπόλοιπα)
+            renderList(allNews.slice(1));
+        }
     }
 
     function renderList(items) {
@@ -514,7 +490,8 @@
         container.innerHTML = '';
         
         items.forEach(item => {
-            let shortDesc = item.description.substring(0, 140) + '...';
+            // Καθαρισμός περιγραφής από HTML tags
+            let shortDesc = item.description.replace(/<[^>]*>?/gm, '').substring(0, 140) + '...';
             
             container.innerHTML += `
                 <a href="${item.link}" target="_blank" class="article-card">
@@ -523,7 +500,7 @@
                         <div>
                             <div class="article-meta">
                                 <span>${item.label}</span>
-                                <span>${new Date(item.pubDate).toLocaleTimeString('el-GR', {hour: '2-digit', minute:'2-digit'})}</span>
+                                <span>${item.pubDate.split(' ')[1]}</span>
                             </div>
                             <h3 class="article-title">${item.title}</h3>
                             <div class="article-desc">${shortDesc}</div>
