@@ -8,6 +8,7 @@
       gtag('js', new Date());
       gtag('config', 'G-Y9DENNW7FP');
     </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stock Market 101 | TimeToCompound</title>
@@ -17,7 +18,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
     <style>
-        /* --- ΙΔΙΟ ΣΤΥΛ ΜΕ ΤΗΝ ΑΡΧΙΚΗ --- */
+        /* --- ΒΑΣΙΚΟ ΣΤΥΛ (ΙΔΙΟ ΜΕ ΤΗΝ ΑΡΧΙΚΗ) --- */
         :root {
             --bg-body: #f8fafc; --bg-card: #ffffff; --bg-nav: #ffffff; --bg-footer: #0f172a;
             --text-main: #0f172a; --text-muted: #64748b; --accent: #2563eb; --border: #e2e8f0;
@@ -26,7 +27,7 @@
             --bg-body: #0f172a; --bg-card: #1e293b; --bg-nav: #1e293b; --bg-footer: #020617;
             --text-main: #ffffff; --text-muted: #cbd5e1; --accent: #38bdf8; --border: #334155;
         }
-        body { font-family: 'Manrope', sans-serif; background: var(--bg-body); color: var(--text-main); margin: 0; line-height: 1.8; }
+        body { font-family: 'Manrope', sans-serif; background: var(--bg-body); color: var(--text-main); margin: 0; line-height: 1.8; transition: all 0.3s ease; }
         
         /* Navigation */
         nav { background: var(--bg-nav); border-bottom: 1px solid var(--border); padding: 0 20px; position: sticky; top: 0; z-index: 1000; }
@@ -42,14 +43,18 @@
         .article-tag { background: #eab308; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
         .article-title { font-size: 2.5rem; font-weight: 800; margin: 15px 0; line-height: 1.2; }
         .article-meta { color: var(--text-muted); font-size: 0.9rem; }
-        .article-img { width: 100%; height: 400px; object-fit: cover; border-radius: 12px; margin-bottom: 40px; }
         
-        .content { font-size: 1.1rem; }
-        .content h3 { font-size: 1.5rem; margin-top: 40px; margin-bottom: 15px; color: var(--accent); }
-        .content ul { margin-bottom: 20px; }
+        /* Εικόνα Άρθρου */
+        .article-img { width: 100%; height: auto; border-radius: 12px; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        
+        /* Περιεχόμενο */
+        .content { font-size: 1.15rem; color: var(--text-main); }
+        .content h3 { font-size: 1.6rem; margin-top: 40px; margin-bottom: 20px; color: var(--accent); font-weight: 700; }
+        .content ul, .content ol { margin-bottom: 20px; padding-left: 20px; }
         .content li { margin-bottom: 10px; }
+        .content p { margin-bottom: 20px; }
         
-        .highlight-box { background: rgba(37, 99, 235, 0.1); border-left: 4px solid var(--accent); padding: 20px; border-radius: 0 8px 8px 0; margin: 30px 0; }
+        .highlight-box { background: rgba(37, 99, 235, 0.1); border-left: 4px solid var(--accent); padding: 25px; border-radius: 0 8px 8px 0; margin: 30px 0; font-style: italic; }
         
         /* Language Logic */
         .lang-en { display: none; }
@@ -59,8 +64,32 @@
         body.english-mode span.lang-en { display: inline !important; }
 
         /* Back Button */
-        .back-btn { display: inline-flex; align-items: center; gap: 5px; color: var(--text-muted); text-decoration: none; font-weight: 600; margin-bottom: 20px; }
-        .back-btn:hover { color: var(--accent); }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-weight: 700; margin-bottom: 30px; transition: 0.2s; }
+        .back-btn:hover { color: var(--accent); transform: translateX(-5px); }
+
+        /* Footer (Ίδιο με Index) */
+        .site-footer { background: var(--bg-footer); color: #94a3b8 !important; padding: 60px 0 30px; margin-top: 80px; border-top: 1px solid #1e293b; }
+        .footer-grid { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 40px; }
+        .footer-col h3 { color: white !important; font-size: 1.1rem; margin-bottom: 20px; }
+        .footer-desc { font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: #94a3b8; text-decoration: none; transition: 0.2s; font-size: 0.95rem; }
+        .footer-links a:hover { color: var(--accent) !important; padding-left: 5px; }
+        .newsletter-form { display: flex; gap: 10px; margin-top: 15px; }
+        .newsletter-input { padding: 12px; border-radius: 6px; border: 1px solid #334155; background: #1e293b; color: white; flex: 1; outline: none; }
+        .newsletter-btn { background: var(--accent); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 700; cursor: pointer; }
+        .newsletter-btn:hover { opacity: 0.9; }
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icons a { width: 35px; height: 35px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white; transition: 0.3s; text-decoration: none; }
+        .social-icons a:hover { background: var(--accent); transform: translateY(-3px); }
+        .footer-bottom { text-align: center; border-top: 1px solid #1e293b; margin-top: 40px; padding-top: 20px; font-size: 0.85rem; }
+
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .newsletter-form { flex-direction: column; }
+            .social-icons { justify-content: center; }
+        }
     </style>
 </head>
 <body>
@@ -79,7 +108,9 @@
 
 <div class="article-container">
     <a href="index.html" class="back-btn">
-        <i class="fas fa-arrow-left"></i> <span class="lang-el">Πίσω στην Αρχική</span><span class="lang-en">Back to Home</span>
+        <i class="fas fa-arrow-left"></i> 
+        <span class="lang-el">Πίσω στην Αρχική</span>
+        <span class="lang-en">Back to Home</span>
     </a>
 
     <article>
@@ -96,7 +127,8 @@
             </div>
         </header>
 
-<img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?auto=format&fit=crop&w=1200&q=80" class="article-img">
+        <img src="chart.jpg" class="article-img" alt="Stock Market Chart">
+
         <div class="content">
             
             <div class="lang-el">
@@ -179,8 +211,57 @@
     </article>
 </div>
 
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h3>TimeToCompound</h3>
+            <div class="footer-desc">
+                <span class="lang-el">Ο αξιόπιστος οδηγός σου για τις διεθνείς αγορές, το χρηματιστήριο και τα κρυπτονομίσματα. Μάθετε, Επενδύστε, Αναπτυχθείτε.</span>
+                <span class="lang-en">Your trusted guide to international markets, stocks, and cryptocurrencies. Learn, Invest, Grow.</span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3>
+                <span class="lang-el">Σύνδεσμοι</span>
+                <span class="lang-en">Quick Links</span>
+            </h3>
+            <ul class="footer-links">
+                <li><a href="index.html"><span class="lang-el">Αρχική</span><span class="lang-en">Home</span></a></li>
+                <li><a href="index.html"><span class="lang-el">Ροή Ειδήσεων</span><span class="lang-en">News Feed</span></a></li>
+                <li><a href="https://freedom24.com/invite_from/1767598" target="_blank"><span class="lang-el">Επενδύστε</span><span class="lang-en">Start Investing</span></a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Newsletter</h3>
+            <p class="footer-desc">
+                <span class="lang-el">Λάβετε τα σημαντικότερα νέα της ημέρας στο email σας.</span>
+                <span class="lang-en">Get the most important news of the day directly to your email.</span>
+            </p>
+            
+            <form action="https://formspree.io/f/xpwvyare" method="POST" class="newsletter-form">
+                <input type="email" name="email" class="newsletter-input" placeholder="Email..." required>
+                <button type="submit" class="newsletter-btn">
+                    <span class="lang-el">Εγγραφή</span>
+                    <span class="lang-en">Subscribe</span>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2025 TimeToCompound. All rights reserved. | <a href="#">Terms</a> | <a href="#">Privacy</a>
+    </div>
+</footer>
+
 <script>
-    /* Javascript για Αλλαγή Γλώσσας & Theme (Ακριβώς ίδια λογική με το index) */
+    /* Javascript για Αλλαγή Γλώσσας & Theme */
     function toggleLanguage() {
         const body = document.body;
         if (body.classList.contains('english-mode')) {
