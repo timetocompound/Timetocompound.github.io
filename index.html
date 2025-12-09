@@ -1,99 +1,171 @@
-
 <!DOCTYPE html>
 <html lang="el">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Investing News Live</title>
-    <meta name="description" content="Άμεση ενημέρωση για τις διεθνείς αγορές, το χρηματιστήριο και την οικονομία.">
+    <meta name="description" content="Άμεση ενημέρωση για τις διεθνείς αγορές, Magnificent 7, Crypto και χρηματιστήριο.">
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;800&display=swap" rel="stylesheet">
     
     <style>
         :root {
-            --primary-color: #0f172a; /* Σκούρο μπλε (Business) */
-            --accent-color: #2563eb; /* Έντονο μπλε για links */
-            --bg-color: #f3f4f6;
+            --primary: #0f172a;
+            --accent: #3b82f6;
+            --bg: #f8fafc;
             --card-bg: #ffffff;
-            --text-color: #333;
-            --ad-bg: #e5e7eb;
+            --text: #334155;
+            --text-light: #64748b;
         }
 
-        body { font-family: 'Inter', sans-serif; background-color: var(--bg-color); margin: 0; padding: 0; color: var(--text-color); }
+        body { 
+            font-family: 'Manrope', sans-serif; 
+            background-color: var(--bg); 
+            margin: 0; 
+            padding: 0; 
+            color: var(--text); 
+            overflow-x: hidden;
+        }
         
-        /* Layout */
-        .main-wrapper {
-            max-width: 1100px;
+        /* Container */
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 20px;
-            display: grid;
-            grid-template-columns: 2fr 1fr; /* 2 μέρη ειδήσεις, 1 μέρος διαφημίσεις */
-            gap: 25px;
+            padding: 40px 20px;
         }
 
         /* Header */
         header {
-            background: var(--card-bg);
-            padding: 20px 0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
             text-align: center;
-            margin-bottom: 20px;
-        }
-        h1 { margin: 0; color: var(--primary-color); font-weight: 800; letter-spacing: -1px; }
-        .subtitle { color: #666; margin-top: 5px; font-size: 0.95rem; }
-
-        /* News Section */
-        .news-card {
-            background: var(--card-bg);
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 20px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.03);
-            transition: transform 0.2s;
-            border-left: 4px solid var(--accent-color);
-        }
-        .news-card:hover { transform: translateY(-2px); box-shadow: 0 8px 15px rgba(0,0,0,0.1); }
-        .news-title { font-size: 1.25rem; font-weight: 700; color: var(--primary-color); text-decoration: none; display: block; margin-bottom: 8px; line-height: 1.4; }
-        .news-title:hover { color: var(--accent-color); }
-        .news-meta { font-size: 0.85rem; color: #888; margin-bottom: 12px; display: flex; align-items: center; }
-        .news-desc { font-size: 0.95rem; line-height: 1.6; color: #4b5563; margin-bottom: 15px; }
-        .read-more {
-            display: inline-block;
-            background: var(--primary-color);
-            color: white;
-            padding: 8px 16px;
-            border-radius: 6px;
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 600;
-        }
-        .read-more:hover { background: var(--accent-color); }
-
-        /* Sidebar & Ads */
-        .sidebar { display: flex; flex-direction: column; gap: 20px; }
-        .ad-box {
-            background: var(--ad-bg);
-            height: 250px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 8px;
-            color: #9ca3af;
-            font-weight: 600;
-            border: 2px dashed #cbd5e1;
-            text-align: center;
-            padding: 20px;
-        }
-        .ad-label { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 1px; }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .main-wrapper { grid-template-columns: 1fr; } /* Στα κινητά όλα μία στήλη */
-            .sidebar { order: -1; margin-bottom: 20px; } /* Βάζουμε μια διαφήμιση πάνω στα κινητά; Ή κάτω (άλλαξε το order σε 2) */
-            .sidebar { display: none; } /* Προσωρινά κρύβουμε την sidebar στα κινητά για καθαρότητα, ή αφαίρεσε αυτή τη γραμμή αν θες διαφημίσεις και στο κινητό */
+            margin-bottom: 60px;
+            padding-top: 20px;
         }
         
-        .loading { text-align: center; padding: 40px; color: #666; }
+        h1 { 
+            margin: 0; 
+            color: var(--primary); 
+            font-weight: 800; 
+            font-size: 2.5rem;
+            letter-spacing: -1.5px;
+            text-transform: uppercase;
+        }
+        
+        .subtitle { 
+            color: var(--accent); 
+            margin-top: 10px; 
+            font-size: 1.1rem; 
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        /* News Grid Layout */
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        /* News Card Design */
+        .news-card {
+            background: var(--card-bg);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: fadeInUp 0.5s forwards;
+        }
+
+        .news-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-image {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+            background-color: #e2e8f0;
+        }
+
+        .card-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .news-meta {
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: 1px;
+        }
+
+        .news-title {
+            font-size: 1.25rem;
+            font-weight: 800;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 12px;
+            line-height: 1.4;
+            display: block;
+        }
+
+        .news-title:hover {
+            color: var(--accent);
+        }
+
+        .news-desc {
+            font-size: 0.95rem;
+            line-height: 1.6;
+            color: var(--text-light);
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .read-more-btn {
+            align-self: flex-start;
+            color: var(--primary);
+            font-weight: 700;
+            text-decoration: none;
+            font-size: 0.9rem;
+            border-bottom: 2px solid var(--accent);
+            padding-bottom: 2px;
+            transition: all 0.2s;
+        }
+
+        .read-more-btn:hover {
+            color: var(--accent);
+            border-color: transparent;
+        }
+
+        .loading { text-align: center; grid-column: 1/-1; padding: 50px; color: var(--text-light); font-size: 1.2rem; }
+        
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-top: 40px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        @keyframes fadeInUp {
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 768px) {
+            h1 { font-size: 1.8rem; }
+            .container { padding: 20px 15px; }
+            .news-grid { grid-template-columns: 1fr; }
+        }
     </style>
 </head>
 <body>
@@ -105,93 +177,84 @@
   "symbols": [
     { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" },
     { "proName": "FOREXCOM:NSXUSD", "title": "Nasdaq 100" },
-    { "proName": "FX_IDC:EURUSD", "title": "EUR/USD" },
     { "proName": "BITSTAMP:BTCUSD", "title": "Bitcoin" },
-    { "proName": "BINANCE:ETHUSDT", "title": "Ethereum" }
+    { "proName": "BINANCE:ETHUSDT", "title": "Ethereum" },
+    { "description": "Nvidia", "proName": "NASDAQ:NVDA" },
+    { "description": "Tesla", "proName": "NASDAQ:TSLA" },
+    { "description": "Apple", "proName": "NASDAQ:AAPL" },
+    { "description": "Microsoft", "proName": "NASDAQ:MSFT" },
+    { "description": "Amazon", "proName": "NASDAQ:AMZN" },
+    { "description": "Google", "proName": "NASDAQ:GOOGL" },
+    { "description": "Meta", "proName": "NASDAQ:META" },
+    { "description": "MicroStrategy", "proName": "NASDAQ:MSTR" },
+    { "description": "Coinbase", "proName": "NASDAQ:COIN" },
+    { "description": "AMD", "proName": "NASDAQ:AMD" },
+    { "description": "Palantir", "proName": "NYSE:PLTR" }
   ],
   "showSymbolLogo": true,
   "colorTheme": "light",
   "isTransparent": false,
-  "displayMode": "regular",
+  "displayMode": "adaptive",
   "locale": "el"
 }
   </script>
 </div>
 
-<header>
-    <h1>INVESTING NEWS LIVE</h1>
-    <p class="subtitle">Η καθημερινή σου ροή για τις αγορές και την οικονομία</p>
-</header>
+<div class="container">
+    <header>
+        <h1>Investing News Live</h1>
+        <p class="subtitle">GLOBAL MARKETS, CRYPTO & MAGNIFICENT 7</p>
+    </header>
 
-<div class="main-wrapper">
-    
-    <main id="news-container">
-        <div class="loading">⏳ Φόρτωση ροής ειδήσεων...</div>
+    <main id="news-grid" class="news-grid">
+        <div class="loading">⏳ Συλλέγουμε τα νέα...</div>
     </main>
-
-    <aside class="sidebar">
-        <div class="ad-box">
-            <div>
-                <div class="ad-label">Διαφημιστικος Χωρος</div>
-                <br>Square Banner<br>(300x250)
-            </div>
-        </div>
-
-        <div style="background:white; padding:15px; border-radius:8px; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-            <h3 style="margin-top:0; font-size:1rem;">Top Crypto</h3>
-            <div class="tradingview-widget-container">
-              <div class="tradingview-widget-container__widget"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
-              {
-              "symbol": "BINANCE:BTCUSDT",
-              "width": "100%",
-              "height": 220,
-              "locale": "el",
-              "dateRange": "12M",
-              "colorTheme": "light",
-              "isTransparent": true,
-              "autosize": false,
-              "largeChartUrl": ""
-            }
-              </script>
-            </div>
-        </div>
-
-        <div class="ad-box" style="height: 600px;">
-            <div>
-                <div class="ad-label">Διαφημιστικος Χωρος</div>
-                <br>Skyscraper Banner<br>(160x600)
-            </div>
-        </div>
-    </aside>
-
 </div>
 
-<footer style="text-align:center; padding:20px; color:#888; font-size:0.8rem; border-top:1px solid #eee; margin-top:40px;">
-    &copy; 2025 Investing News Live | Powered by GitHub Pages
+<footer>
+    &copy; 2025 Investing News Live | Real-time Data
 </footer>
 
 <script>
     const RSS_URL = 'https://www.investing.com/rss/news.rss';
     const API_ENDPOINT = 'https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(RSS_URL);
 
+    // Εικόνες Fallback
+    const fallbackImages = [
+        'https://images.unsplash.com/photo-1611974765270-ca1258634369?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1621504450168-b8c493a95f26?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1526304640152-d4619684e484?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+        'https://images.unsplash.com/photo-1642543492481-44e81e3914a7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80'
+    ];
+
+    function getRandomImage() {
+        return fallbackImages[Math.floor(Math.random() * fallbackImages.length)];
+    }
+
     fetch(API_ENDPOINT)
         .then(response => response.json())
         .then(data => {
-            const container = document.getElementById('news-container');
+            const container = document.getElementById('news-grid');
             let htmlContent = '';
             
-            data.items.slice(0, 15).forEach(item => {
-                // Καθαρισμός περιγραφής από τυχόν HTML tags
+            data.items.slice(0, 20).forEach((item, index) => {
                 let cleanDesc = item.description.replace(/<[^>]*>?/gm, '');
-                if(cleanDesc.length > 180) cleanDesc = cleanDesc.substring(0, 180) + '...';
+                if(cleanDesc.length > 120) cleanDesc = cleanDesc.substring(0, 120) + '...';
+
+                let imageUrl = item.thumbnail || item.enclosure?.link || getRandomImage();
+                let styleDelay = `animation-delay: ${index * 0.1}s`;
 
                 htmlContent += `
-                    <article class="news-card">
-                        <div class="news-meta">📅 ${item.pubDate.split(' ')[0]} • Investing.com</div>
-                        <a href="${item.link}" target="_blank" class="news-title">${item.title}</a>
-                        <p class="news-desc">${cleanDesc}</p>
-                        <a href="${item.link}" target="_blank" class="read-more">Διαβάστε περισσότερα →</a>
+                    <article class="news-card" style="${styleDelay}">
+                        <img src="${imageUrl}" alt="News Image" class="card-image" loading="lazy">
+                        <div class="card-content">
+                            <div class="news-meta">INVESTING.COM • ${item.pubDate.split(' ')[1]}</div>
+                            <a href="${item.link}" target="_blank" class="news-title">${item.title}</a>
+                            <p class="news-desc">${cleanDesc}</p>
+                            <a href="${item.link}" target="_blank" class="read-more-btn">ΔΙΑΒΑΣΤΕ ΠΕΡΙΣΣΟΤΕΡΑ</a>
+                        </div>
                     </article>
                 `;
             });
@@ -199,7 +262,7 @@
             container.innerHTML = htmlContent;
         })
         .catch(error => {
-            document.getElementById('news-container').innerHTML = '<p style="text-align:center; color:red;">Σφάλμα σύνδεσης. Παρακαλώ ανανεώστε τη σελίδα.</p>';
+            document.getElementById('news-grid').innerHTML = '<p style="text-align:center; color:red;">Σφάλμα σύνδεσης.</p>';
         });
 </script>
 
