@@ -9,9 +9,11 @@
 
       gtag('config', 'G-Y9DENNW7FP');
     </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TimeToCompound | Financial Portal</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
     <meta name="description" content="TimeToCompound: Ενημέρωση για αγορές, crypto και επενδύσεις.">
     
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
@@ -19,7 +21,6 @@
 
     <style>
         :root {
-            /* Light Mode */
             --bg-body: #f8fafc;
             --bg-card: #ffffff;
             --bg-nav: #ffffff;
@@ -31,7 +32,6 @@
             --hero-overlay: linear-gradient(to top, rgba(15, 23, 42, 0.95), transparent);
         }
 
-        /* Dark Mode */
         [data-theme="dark"] {
             --bg-body: #0f172a;
             --bg-card: #1e293b;
@@ -43,138 +43,55 @@
             --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
         }
 
-        body { 
-            font-family: 'Manrope', sans-serif; 
-            background: var(--bg-body); 
-            color: var(--text-main); 
-            margin: 0; 
-            transition: all 0.3s ease; 
-        }
-        
+        body { font-family: 'Manrope', sans-serif; background: var(--bg-body); color: var(--text-main); margin: 0; transition: all 0.3s ease; }
         h1, h2, h3, h4, p, span, div, a { color: inherit; } 
-
         a { text-decoration: none; transition: 0.2s; }
         a:hover { color: var(--accent); }
 
-        /* --- Navigation --- */
-        nav { 
-            background: var(--bg-nav); 
-            border-bottom: 1px solid var(--border); 
-            position: sticky; top: 0; z-index: 1000; padding: 0 20px; 
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-        }
+        nav { background: var(--bg-nav); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; padding: 0 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 70px; }
-        
         .logo { font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; gap: 10px; cursor: pointer; }
         .logo i { color: var(--accent); }
-
         .menu { display: flex; gap: 10px; }
-        .menu-btn { 
-            background: none; border: none; font-size: 0.95rem; font-weight: 600; 
-            color: var(--text-muted); cursor: pointer; padding: 8px 16px; border-radius: 6px; transition: 0.2s; 
-        }
+        .menu-btn { background: none; border: none; font-size: 0.95rem; font-weight: 600; color: var(--text-muted); cursor: pointer; padding: 8px 16px; border-radius: 6px; transition: 0.2s; }
         .menu-btn:hover, .menu-btn.active { color: var(--accent); background: rgba(37, 99, 235, 0.1); }
-        
         .theme-toggle { cursor: pointer; padding: 10px; border-radius: 50%; background: transparent; border: 1px solid var(--border); }
         .theme-toggle:hover { background: var(--border); }
 
-        /* --- Layout --- */
         .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; display: grid; grid-template-columns: 2.5fr 1fr; gap: 30px; }
-        
         .sidebar { display: flex; flex-direction: column; gap: 25px; }
-        
-        .widget { 
-            border-radius: 12px; 
-            overflow: hidden; 
-            border: 1px solid var(--border); 
-            box-shadow: var(--shadow); 
-            background: var(--bg-card);
-        }
-        
-        .widget-title { 
-            font-weight: 800; margin: 15px; font-size: 0.85rem; text-transform: uppercase; 
-            color: var(--text-muted); letter-spacing: 1px; border-left: 3px solid var(--accent); padding-left: 10px; 
-        }
+        .widget { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow); background: var(--bg-card); }
+        .widget-title { font-weight: 800; margin: 15px; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px; border-left: 3px solid var(--accent); padding-left: 10px; }
 
-        /* Freedom24 Box */
-        .freedom-box {
-            background: linear-gradient(135deg, #064e3b 0%, #10b981 100%);
-            padding: 20px;
-            color: white !important;
-        }
+        .freedom-box { background: linear-gradient(135deg, #064e3b 0%, #10b981 100%); padding: 20px; color: white !important; }
         .freedom-box h3, .freedom-box p { color: white !important; }
         .freedom-box:hover { transform: translateY(-3px); transition: 0.2s; }
-        .freedom-btn {
-            background: white; color: #064e3b !important; padding: 12px; border-radius: 6px; font-weight: 800; display: block; margin-top: 15px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
+        .freedom-btn { background: white; color: #064e3b !important; padding: 12px; border-radius: 6px; font-weight: 800; display: block; margin-top: 15px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
         .freedom-btn:hover { background: #f0fdf4; }
 
-        /* --- Sections --- */
         .section { display: none; animation: fadeIn 0.4s ease; }
         .section.active { display: block; }
 
-        /* HERO SECTION */
-        .hero-card {
-            position: relative;
-            height: 400px;
-            border-radius: 16px;
-            overflow: hidden;
-            margin-bottom: 30px;
-            box-shadow: var(--shadow);
-            cursor: pointer;
-        }
+        .hero-card { position: relative; height: 400px; border-radius: 16px; overflow: hidden; margin-bottom: 30px; box-shadow: var(--shadow); cursor: pointer; }
         .hero-bg { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
         .hero-card:hover .hero-bg { transform: scale(1.03); }
-        .hero-overlay {
-            position: absolute; bottom: 0; left: 0; right: 0;
-            background: var(--hero-overlay);
-            padding: 30px; color: white !important;
-        }
+        .hero-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: var(--hero-overlay); padding: 30px; color: white !important; }
         .hero-overlay h2, .hero-overlay div, .hero-overlay span { color: white !important; } 
         .hero-tag { background: var(--accent); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: inline-block; }
         .hero-title { font-size: 1.8rem; font-weight: 800; margin: 0; line-height: 1.2; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
 
-        /* NEWS GRID */
-        .news-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-        }
-        
-        .news-card { 
-            background: var(--bg-card); 
-            border-radius: 12px; 
-            overflow: hidden; 
-            border: 1px solid var(--border); 
-            transition: 0.2s; 
-            display: flex; 
-            flex-direction: column;
-            height: 100%;
-            cursor: pointer;
-        }
+        .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
+        .news-card { background: var(--bg-card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); transition: 0.2s; display: flex; flex-direction: column; height: 100%; cursor: pointer; }
         .news-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--accent); }
         .news-img { width: 100%; height: 180px; object-fit: cover; background: #e2e8f0; }
         .news-content { padding: 20px; flex: 1; display: flex; flex-direction: column; }
         .news-meta { font-size: 0.75rem; font-weight: 700; color: var(--accent) !important; margin-bottom: 8px; text-transform: uppercase; }
         .news-title { font-size: 1.1rem; font-weight: 700; margin: 0 0 10px 0; line-height: 1.4; }
         .news-desc { font-size: 0.9rem; color: var(--text-muted) !important; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-
-        /* Academy Label Style */
-        .academy-label {
-            background: #eab308; color: white !important; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem;
-        }
+        .academy-label { background: #eab308; color: white !important; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; }
 
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* Mobile */
-        @media (max-width: 768px) {
-            .container { grid-template-columns: 1fr; }
-            .hero-card { height: 250px; }
-            .hero-title { font-size: 1.3rem; }
-            .news-grid { grid-template-columns: 1fr; }
-            .nav-container { flex-direction: column; height: auto; padding: 15px; gap: 15px; }
-            .menu { width: 100%; justify-content: center; flex-wrap: wrap; }
-        }
+        @media (max-width: 768px) { .container { grid-template-columns: 1fr; } .hero-card { height: 250px; } .hero-title { font-size: 1.3rem; } .news-grid { grid-template-columns: 1fr; } .nav-container { flex-direction: column; height: auto; padding: 15px; gap: 15px; } .menu { width: 100%; justify-content: center; flex-wrap: wrap; } }
     </style>
 </head>
 <body>
@@ -218,16 +135,11 @@
 <div class="container">
     
     <main>
-        
         <div id="news" class="section active">
             <div id="hero-container"></div>
-            <h2 style="margin-bottom:20px; display:flex; align-items:center; gap:10px;">
-                <i class="fas fa-bolt" style="color:#eab308;"></i> Latest Headlines
-            </h2>
+            <h2 style="margin-bottom:20px; display:flex; align-items:center; gap:10px;"><i class="fas fa-bolt" style="color:#eab308;"></i> Latest Headlines</h2>
             <div id="feed-container" class="news-grid">
-                <div style="grid-column: 1/-1; text-align:center; padding:50px; color:var(--text-muted);">
-                    <i class="fas fa-circle-notch fa-spin fa-2x"></i><br><br>Συλλογή ειδήσεων...
-                </div>
+                <div style="grid-column: 1/-1; text-align:center; padding:50px; color:var(--text-muted);"><i class="fas fa-circle-notch fa-spin fa-2x"></i><br><br>Συλλογή ειδήσεων...</div>
             </div>
         </div>
 
@@ -237,38 +149,15 @@
                 <div class="tradingview-widget-container" style="height:100%;width:100%">
                     <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
                     <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-                    {
-                    "autosize": true,
-                    "symbol": "NASDAQ:AAPL",
-                    "interval": "D",
-                    "timezone": "Etc/UTC",
-                    "theme": "light",
-                    "style": "1",
-                    "locale": "en",
-                    "enable_publishing": false,
-                    "allow_symbol_change": true,
-                    "support_host": "https://www.tradingview.com"
-                  }
+                    { "autosize": true, "symbol": "NASDAQ:AAPL", "interval": "D", "timezone": "Etc/UTC", "theme": "light", "style": "1", "locale": "en", "enable_publishing": false, "allow_symbol_change": true, "support_host": "https://www.tradingview.com" }
                     </script>
                 </div>
             </div>
-            
             <h3>Top Gainers & Losers</h3>
             <div class="tradingview-widget-container">
               <div class="tradingview-widget-container__widget"></div>
               <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
-              {
-              "colorTheme": "light",
-              "dateRange": "12M",
-              "exchange": "US",
-              "showChart": true,
-              "locale": "en",
-              "largeChartUrl": "",
-              "isTransparent": false,
-              "showSymbolLogo": true,
-              "width": "100%",
-              "height": "400"
-            }
+              { "colorTheme": "light", "dateRange": "12M", "exchange": "US", "showChart": true, "locale": "en", "largeChartUrl": "", "isTransparent": false, "showSymbolLogo": true, "width": "100%", "height": "400" }
               </script>
             </div>
         </div>
@@ -283,9 +172,7 @@
         <div id="academy" class="section">
             <h2>🎓 Trading Academy</h2>
             <p style="color:var(--text-muted); margin-bottom:30px;">Εκπαιδευτικό υλικό, οδηγοί και επεξηγήσεις για αρχάριους και προχωρημένους.</p>
-            
             <div class="news-grid">
-                
                 <a href="article1.html" class="news-card">
                     <img src="https://images.unsplash.com/photo-1611974765270-ca1258634369?w=600" class="news-img">
                     <div class="news-content">
@@ -294,7 +181,6 @@
                         <p class="news-desc">Μάθετε πώς να διαβάζετε τα "κεριά" στα διαγράμματα και τι σημαίνουν το σώμα και η σκιά τους.</p>
                     </div>
                 </a>
-
                 <a href="article2.html" class="news-card">
                     <img src="https://images.unsplash.com/photo-1621504450168-b8c493a95f26?w=600" class="news-img">
                     <div class="news-content">
@@ -303,7 +189,6 @@
                         <p class="news-desc">Μια απλή εξήγηση της τεχνολογίας πίσω από το Bitcoin και γιατί θεωρείται ασφαλής.</p>
                     </div>
                 </a>
-
                 <a href="article3.html" class="news-card">
                     <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600" class="news-img">
                     <div class="news-content">
@@ -312,10 +197,8 @@
                         <p class="news-desc">Γιατί ο ανατοκισμός είναι ο καλύτερος φίλος του μακροπρόθεσμου επενδυτή.</p>
                     </div>
                 </a>
-
             </div>
         </div>
-
     </main>
 
     <aside class="sidebar">
@@ -326,9 +209,7 @@
             </div>
             <h3 style="font-size:1.2rem; margin:15px 0 5px 0;">Invest with Freedom24</h3>
             <p style="font-size:0.9rem; margin:0; opacity:0.9;">Access US, EU & Asian markets. Get up to 5.8% p.a. on your cash.</p>
-            <a href="https://freedom24.com/invite_from/1767598" target="_blank" class="freedom-btn">
-                Start Investing <i class="fas fa-arrow-right"></i>
-            </a>
+            <a href="https://freedom24.com/invite_from/1767598" target="_blank" class="freedom-btn">Start Investing <i class="fas fa-arrow-right"></i></a>
         </div>
 
         <div class="widget">
@@ -353,15 +234,12 @@
                     { "s": "FOREXCOM:SPXUSD", "d": "S&P 500" },
                     { "s": "FOREXCOM:NSXUSD", "d": "Nasdaq 100" },
                     { "s": "FOREXCOM:DJI", "d": "Dow 30" },
-                    { "s": "FOREXCOM:RUT", "d": "Russell 2000" },
                     { "s": "INDEX:NKY", "d": "Nikkei 225" },
                     { "s": "INDEX:DEU40", "d": "DAX 40" },
                     { "s": "FOREXCOM:UK100", "d": "FTSE 100" },
                     { "s": "INDEX:CAC40", "d": "CAC 40" },
                     { "s": "INDEX:HSI", "d": "Hang Seng" },
-                    { "s": "CBOE:VIX", "d": "VIX Volatility" },
-                    { "s": "FOREXCOM:EU50", "d": "Euro Stoxx 50" },
-                    { "s": "TVC:DXY", "d": "US Dollar Index" }
+                    { "s": "FOREXCOM:EU50", "d": "Euro Stoxx 50" }
                   ]
                 },
                 {
@@ -391,32 +269,21 @@
             <div class="tradingview-widget-container">
               <div class="tradingview-widget-container__widget"></div>
               <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
-              {
-              "colorTheme": "light",
-              "isTransparent": false,
-              "width": "100%",
-              "height": "400",
-              "locale": "en",
-              "importanceFilter": "0,1"
-            }
+              { "colorTheme": "light", "isTransparent": false, "width": "100%", "height": "400", "locale": "en", "importanceFilter": "0,1" }
               </script>
             </div>
         </div>
     </aside>
-
 </div>
 
 <script>
-    // Navigation
     function switchSection(id) {
         document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
         document.getElementById(id).classList.add('active');
-        
         document.querySelectorAll('.menu-btn').forEach(btn => btn.classList.remove('active'));
         event.target.classList.add('active');
     }
 
-    // Feeds & News Logic
     const FEEDS = [
         { url: 'https://finance.yahoo.com/news/rssindex', source: 'Yahoo Finance' },
         { url: 'https://www.investing.com/rss/news.rss', source: 'Investing.com' },
@@ -433,65 +300,44 @@
 
     function formatDate(dateString) {
         const date = new Date(dateString);
-        return date.toLocaleDateString('el-GR', {
-            day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute:'2-digit'
-        });
+        return date.toLocaleDateString('el-GR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute:'2-digit' });
     }
 
     async function loadNews() {
         let allItems = [];
         const container = document.getElementById('feed-container');
-
         const promises = FEEDS.map(feed => 
             fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(feed.url) + '&t=' + Date.now())
             .then(res => res.json())
-            .then(data => {
-                if(data.status === 'ok') {
-                    return data.items.map(item => ({...item, source: feed.source}));
-                }
-                return [];
-            })
+            .then(data => { if(data.status === 'ok') return data.items.map(item => ({...item, source: feed.source})); return []; })
         );
-
         const results = await Promise.all(promises);
         allItems = results.flat().sort((a,b) => new Date(b.pubDate) - new Date(a.pubDate));
 
         if(allItems.length > 0) {
             const hero = allItems[0];
-            const heroImg = hero.thumbnail || hero.enclosure?.link || getImg();
+            const heroImg = (hero.thumbnail && hero.thumbnail.length > 10) ? hero.thumbnail : (hero.enclosure?.link && hero.enclosure.link.length > 10) ? hero.enclosure.link : getImg();
             document.getElementById('hero-container').innerHTML = `
                 <div class="hero-card" onclick="window.open('${hero.link}', '_blank')">
                     <img src="${heroImg}" class="hero-bg">
-                    <div class="hero-overlay">
-                        <span class="hero-tag">${hero.source}</span>
-                        <h2 class="hero-title">${hero.title}</h2>
-                        <div style="font-size:0.85rem; margin-top:5px; opacity:0.9;">${formatDate(hero.pubDate)}</div>
-                    </div>
-                </div>
-            `;
+                    <div class="hero-overlay"><span class="hero-tag">${hero.source}</span><h2 class="hero-title">${hero.title}</h2><div style="font-size:0.85rem; margin-top:5px; opacity:0.9;">${formatDate(hero.pubDate)}</div></div>
+                </div>`;
             allItems.shift();
         }
 
         container.innerHTML = '';
         allItems.forEach(item => {
-            let img = item.thumbnail || item.enclosure?.link || getImg();
+            // FIX για εικόνες: Ελέγχουμε αν υπάρχει thumbnail, αλλιώς enclosure, αλλιώς Fallback
+            let img = (item.thumbnail && item.thumbnail.length > 10) ? item.thumbnail : (item.enclosure?.link && item.enclosure.link.length > 10) ? item.enclosure.link : getImg();
             let desc = item.description.replace(/<[^>]*>?/gm, '').substring(0, 100) + '...';
-            
             container.innerHTML += `
                 <a href="${item.link}" target="_blank" class="news-card">
                     <img src="${img}" class="news-img" loading="lazy">
-                    <div class="news-content">
-                        <span class="news-meta">${item.source}</span>
-                        <h3 class="news-title">${item.title}</h3>
-                        <p class="news-desc">${desc}</p>
-                        <div style="font-size:0.75rem; color:var(--text-muted); margin-top:auto;">${formatDate(item.pubDate)}</div>
-                    </div>
-                </a>
-            `;
+                    <div class="news-content"><span class="news-meta">${item.source}</span><h3 class="news-title">${item.title}</h3><p class="news-desc">${desc}</p><div style="font-size:0.75rem; color:var(--text-muted); margin-top:auto;">${formatDate(item.pubDate)}</div></div>
+                </a>`;
         });
     }
     
-    // Articles Fetch
     async function loadArticles() {
         fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent('https://www.investing.com/rss/market_overview.rss') + '&t=' + Date.now())
         .then(res => res.json())
@@ -501,24 +347,18 @@
             if(data.items) {
                 data.items.forEach(item => {
                     let desc = item.description.replace(/<[^>]*>?/gm, '').substring(0, 120) + '...';
+                    // FIX για εικόνες στα Articles: Αναγκαστικό fallback επειδή το συγκεκριμένο feed σπάνια έχει εικόνες
                     let img = getImg(); 
                     container.innerHTML += `
                         <a href="${item.link}" target="_blank" class="news-card">
                              <img src="${img}" class="news-img" loading="lazy">
-                            <div class="news-content">
-                                <span class="news-meta">ANALYSIS</span>
-                                <h3 class="news-title">${item.title}</h3>
-                                <p class="news-desc">${desc}</p>
-                                <div style="font-size:0.75rem; color:var(--text-muted); margin-top:auto;">${formatDate(item.pubDate)}</div>
-                            </div>
-                        </a>
-                    `;
+                            <div class="news-content"><span class="news-meta">ANALYSIS</span><h3 class="news-title">${item.title}</h3><p class="news-desc">${desc}</p><div style="font-size:0.75rem; color:var(--text-muted); margin-top:auto;">${formatDate(item.pubDate)}</div></div>
+                        </a>`;
                 });
             }
         });
     }
 
-    // Theme Logic
     function toggleTheme() {
         const body = document.body;
         const icon = document.getElementById('theme-icon');
@@ -533,7 +373,6 @@
 
     loadNews();
     loadArticles();
-
 </script>
 </body>
 </html>
