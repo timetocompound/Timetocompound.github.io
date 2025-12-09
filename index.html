@@ -217,6 +217,29 @@
                 <span class="lang-el">📊 Ταμπλό Αγορών</span>
                 <span class="lang-en">📊 Market Dashboard</span>
             </h2>
+
+            <div class="widget" style="margin-bottom: 30px;">
+                <div class="widget-title" style="border-left: 3px solid #00c7e2; padding-left: 10px;">
+                    <span class="lang-el">ΚΙΝΗΣΗ ΕΠΙΤΟΚΙΩΝ & ΣΥΝΑΛΛΑΓΜΑ</span>
+                    <span class="lang-en">RATES & CURRENCY MOVEMENT</span>
+                </div>
+                <div class="tradingview-widget-container">
+                    <div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
+                    {
+                        "width": "100%",
+                        "height": "350",
+                        "currencies": ["EUR", "USD", "JPY", "GBP", "CAD", "AUD", "NZD"],
+                        "isTransparent": false,
+                        "colorTheme": "light",
+                        "locale": "en",
+                        "showBorders": false,
+                        "showHeaders": false
+                    }
+                    </script>
+                </div>
+            </div>
+            
             <div style="height: 500px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 30px;">
                 <div class="tradingview-widget-container" style="height:100%;width:100%">
                     <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
@@ -225,6 +248,7 @@
                     </script>
                 </div>
             </div>
+
             <h3>
                 <span class="lang-el">Κερδισμένοι & Χαμένοι</span>
                 <span class="lang-en">Top Gainers & Losers</span>
@@ -269,7 +293,7 @@
                         
                         <div class="lang-el">
                             <h3 class="news-title">Γιατί κινούνται οι τιμές; Η αλήθεια για την αγορά</h3>
-                            <p class="news-desc">Ξεχάστε τα μοτίβα. Μάθετε πώς η Προσφορά και η Ζήτηση κινούν τα πάντα και πώς τα κεριά λένε την ιστορία αυτής της μάχης.</p>
+                            <p class="news-desc">Ξεχάστε τα μοτίμα. Μάθετε πώς η Προσφορά και η Ζήτηση κινούν τα πάντα και πώς τα κεριά λένε την ιστορία αυτής της μάχης.</p>
                         </div>
                         
                         <div class="lang-en">
@@ -433,6 +457,7 @@
                 <span class="lang-el">Λάβετε τα σημαντικότερα νέα της ημέρας στο email σας.</span>
                 <span class="lang-en">Get the most important news of the day directly to your email.</span>
             </p>
+            
             <form action="https://formspree.io/f/xpwvyare" method="POST" class="newsletter-form">
                 <input type="email" name="email" class="newsletter-input" placeholder="Email..." required>
                 <button type="submit" class="newsletter-btn">
