@@ -23,7 +23,7 @@
             --bg-body: #f8fafc;
             --bg-card: #ffffff;
             --bg-nav: #ffffff;
-            --bg-footer: #0f172a; /* Dark Navy for Footer */
+            --bg-footer: #0f172a;
             --text-main: #0f172a;
             --text-muted: #64748b;
             --accent: #2563eb;
@@ -36,7 +36,7 @@
             --bg-body: #0f172a;
             --bg-card: #1e293b;
             --bg-nav: #1e293b;
-            --bg-footer: #020617; /* Even Darker for Footer */
+            --bg-footer: #020617;
             --text-main: #ffffff;      
             --text-muted: #cbd5e1;     
             --accent: #38bdf8;
@@ -58,7 +58,11 @@
         .menu { display: flex; gap: 10px; }
         .menu-btn { background: none; border: none; font-size: 0.95rem; font-weight: 600; color: var(--text-muted); cursor: pointer; padding: 8px 16px; border-radius: 6px; transition: 0.2s; }
         .menu-btn:hover, .menu-btn.active { color: var(--accent); background: rgba(37, 99, 235, 0.1); }
-        .theme-toggle { cursor: pointer; padding: 10px; border-radius: 50%; background: transparent; border: 1px solid var(--border); }
+        
+        /* Icons Group (Theme + Lang) */
+        .icons-group { display: flex; gap: 15px; align-items: center; }
+        .theme-toggle, .lang-toggle { cursor: pointer; padding: 8px; border-radius: 50%; background: transparent; border: 1px solid var(--border); width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; }
+        .lang-toggle { font-size: 1.2rem; border: none; }
 
         /* Layout */
         .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; display: grid; grid-template-columns: 2.5fr 1fr; gap: 30px; flex: 1; }
@@ -116,6 +120,18 @@
 
         .footer-bottom { text-align: center; border-top: 1px solid #1e293b; margin-top: 40px; padding-top: 20px; font-size: 0.85rem; }
 
+        /* --- LOGIC FOR LANGUAGES --- */
+        /* By default, show Greek, hide English */
+        .lang-en { display: none; }
+        
+        /* If body has class 'english-mode', hide Greek, show English */
+        body.english-mode .lang-el { display: none !important; }
+        body.english-mode .lang-en { display: block !important; }
+        
+        /* Special handling for inline elements (spans) */
+        span.lang-en { display: none; }
+        body.english-mode span.lang-en { display: inline !important; }
+
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
         @media (max-width: 768px) { 
             .container { grid-template-columns: 1fr; } 
@@ -145,7 +161,7 @@
   "colorTheme": "light",
   "isTransparent": false,
   "displayMode": "adaptive",
-  "locale": "el"
+  "locale": "en"
 }
   </script>
 </div>
@@ -156,12 +172,28 @@
             <i class="fas fa-chart-pie"></i> TimeToCompound
         </div>
         <div class="menu">
-            <button class="menu-btn active" onclick="switchSection('news')">News</button>
-            <button class="menu-btn" onclick="switchSection('markets')">Markets</button>
-            <button class="menu-btn" onclick="switchSection('articles')">Articles</button>
-            <button class="menu-btn" onclick="switchSection('academy')">Academy 🎓</button>
+            <button class="menu-btn active" onclick="switchSection('news')">
+                <span class="lang-el">Ειδήσεις</span><span class="lang-en">News</span>
+            </button>
+            <button class="menu-btn" onclick="switchSection('markets')">
+                <span class="lang-el">Αγορές</span><span class="lang-en">Markets</span>
+            </button>
+            <button class="menu-btn" onclick="switchSection('articles')">
+                <span class="lang-el">Αναλύσεις</span><span class="lang-en">Analysis</span>
+            </button>
+            <button class="menu-btn" onclick="switchSection('academy')">
+                <span class="lang-el">Ακαδημία 🎓</span><span class="lang-en">Academy 🎓</span>
+            </button>
         </div>
-        <div class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon" id="theme-icon"></i></div>
+        
+        <div class="icons-group">
+            <button class="lang-toggle" onclick="toggleLanguage()" title="Change Language">
+                <span class="lang-el">🇬🇧</span> <span class="lang-en">🇬🇷</span> </button>
+            
+            <div class="theme-toggle" onclick="toggleTheme()">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </div>
+        </div>
     </div>
 </nav>
 
@@ -170,14 +202,25 @@
     <main>
         <div id="news" class="section active">
             <div id="hero-container"></div>
-            <h2 style="margin-bottom:20px; display:flex; align-items:center; gap:10px;"><i class="fas fa-bolt" style="color:#eab308;"></i> Latest Headlines</h2>
+            <h2 style="margin-bottom:20px; display:flex; align-items:center; gap:10px;">
+                <i class="fas fa-bolt" style="color:#eab308;"></i> 
+                <span class="lang-el">Τελευταίες Ειδήσεις</span>
+                <span class="lang-en">Latest Headlines</span>
+            </h2>
             <div id="feed-container" class="news-grid">
-                <div style="grid-column: 1/-1; text-align:center; padding:50px; color:var(--text-muted);"><i class="fas fa-circle-notch fa-spin fa-2x"></i><br><br>Συλλογή ειδήσεων...</div>
+                <div style="grid-column: 1/-1; text-align:center; padding:50px; color:var(--text-muted);">
+                    <i class="fas fa-circle-notch fa-spin fa-2x"></i><br><br>
+                    <span class="lang-el">Συλλογή ειδήσεων...</span>
+                    <span class="lang-en">Loading news...</span>
+                </div>
             </div>
         </div>
 
         <div id="markets" class="section">
-            <h2>📊 Market Dashboard</h2>
+            <h2>
+                <span class="lang-el">📊 Ταμπλό Αγορών</span>
+                <span class="lang-en">📊 Market Dashboard</span>
+            </h2>
             <div style="height: 500px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 30px;">
                 <div class="tradingview-widget-container" style="height:100%;width:100%">
                     <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
@@ -186,7 +229,10 @@
                     </script>
                 </div>
             </div>
-            <h3>Top Gainers & Losers</h3>
+            <h3>
+                <span class="lang-el">Κερδισμένοι & Χαμένοι</span>
+                <span class="lang-en">Top Gainers & Losers</span>
+            </h3>
             <div class="tradingview-widget-container">
               <div class="tradingview-widget-container__widget"></div>
               <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
@@ -196,40 +242,81 @@
         </div>
 
         <div id="articles" class="section">
-            <h2>📑 Analysis & Opinion</h2>
+            <h2>
+                <span class="lang-el">📑 Γνώμη & Ανάλυση</span>
+                <span class="lang-en">📑 Analysis & Opinion</span>
+            </h2>
             <div id="articles-container" class="news-grid">
-                <div style="grid-column: 1/-1; text-align:center; padding:40px; color:var(--text-muted);">Φόρτωση αναλύσεων...</div>
+                <div style="grid-column: 1/-1; text-align:center; padding:40px; color:var(--text-muted);">
+                    <span class="lang-el">Φόρτωση αναλύσεων...</span>
+                    <span class="lang-en">Loading analysis...</span>
+                </div>
             </div>
         </div>
 
         <div id="academy" class="section">
-            <h2>🎓 Trading Academy</h2>
-            <p style="color:var(--text-muted); margin-bottom:30px;">Εκπαιδευτικό υλικό, οδηγοί και επεξηγήσεις για αρχάριους και προχωρημένους.</p>
+            <h2>
+                <span class="lang-el">🎓 Ακαδημία Trading</span>
+                <span class="lang-en">🎓 Trading Academy</span>
+            </h2>
+            <p style="color:var(--text-muted); margin-bottom:30px;">
+                <span class="lang-el">Εκπαιδευτικό υλικό, οδηγοί και επεξηγήσεις για αρχάριους και προχωρημένους.</span>
+                <span class="lang-en">Educational material, guides, and explanations for beginners and advanced traders.</span>
+            </p>
+            
             <div class="news-grid">
+                
                 <a href="article1.html" class="news-card">
                     <img src="https://images.unsplash.com/photo-1611974765270-ca1258634369?w=600" class="news-img">
                     <div class="news-content">
                         <span class="news-meta academy-label">BEGINNER</span>
-                        <h3 class="news-title">Τι είναι τα Candlesticks; Οδηγός για αρχάριους</h3>
-                        <p class="news-desc">Μάθετε πώς να διαβάζετε τα "κεριά" στα διαγράμματα και τι σημαίνουν το σώμα και η σκιά τους.</p>
+                        
+                        <div class="lang-el">
+                            <h3 class="news-title">Τι είναι τα Candlesticks; Οδηγός για αρχάριους</h3>
+                            <p class="news-desc">Μάθετε πώς να διαβάζετε τα "κεριά" στα διαγράμματα και τι σημαίνουν το σώμα και η σκιά τους.</p>
+                        </div>
+                        
+                        <div class="lang-en">
+                            <h3 class="news-title">What are Candlesticks? A Beginner's Guide</h3>
+                            <p class="news-desc">Learn how to read candlestick charts and understand what the body and wicks represent.</p>
+                        </div>
                     </div>
                 </a>
+
                 <a href="article2.html" class="news-card">
                     <img src="https://images.unsplash.com/photo-1621504450168-b8c493a95f26?w=600" class="news-img">
                     <div class="news-content">
                         <span class="news-meta academy-label">CRYPTO</span>
-                        <h3 class="news-title">Blockchain: Πώς λειτουργεί με απλά λόγια</h3>
-                        <p class="news-desc">Μια απλή εξήγηση της τεχνολογίας πίσω από το Bitcoin και γιατί θεωρείται ασφαλής.</p>
+                        
+                        <div class="lang-el">
+                            <h3 class="news-title">Blockchain: Πώς λειτουργεί με απλά λόγια</h3>
+                            <p class="news-desc">Μια απλή εξήγηση της τεχνολογίας πίσω από το Bitcoin και γιατί θεωρείται ασφαλής.</p>
+                        </div>
+
+                        <div class="lang-en">
+                            <h3 class="news-title">Blockchain: How it works in simple terms</h3>
+                            <p class="news-desc">A simple explanation of the technology behind Bitcoin and why it is considered secure.</p>
+                        </div>
                     </div>
                 </a>
+
                 <a href="article3.html" class="news-card">
                     <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600" class="news-img">
                     <div class="news-content">
                         <span class="news-meta academy-label">INVESTING</span>
-                        <h3 class="news-title">Compound Interest: Το 8ο θαύμα του κόσμου</h3>
-                        <p class="news-desc">Γιατί ο ανατοκισμός είναι ο καλύτερος φίλος του μακροπρόθεσμου επενδυτή.</p>
+                        
+                        <div class="lang-el">
+                            <h3 class="news-title">Compound Interest: Το 8ο θαύμα του κόσμου</h3>
+                            <p class="news-desc">Γιατί ο ανατοκισμός είναι ο καλύτερος φίλος του μακροπρόθεσμου επενδυτή.</p>
+                        </div>
+
+                        <div class="lang-en">
+                            <h3 class="news-title">Compound Interest: The 8th Wonder of the World</h3>
+                            <p class="news-desc">Why compound interest is the best friend of the long-term investor.</p>
+                        </div>
                     </div>
                 </a>
+
             </div>
         </div>
     </main>
@@ -246,7 +333,10 @@
         </div>
 
         <div class="widget">
-            <div class="widget-title">Market Overview</div>
+            <div class="widget-title">
+                <span class="lang-el">Επισκόπηση Αγορών</span>
+                <span class="lang-en">Market Overview</span>
+            </div>
             <div class="tradingview-widget-container">
               <div class="tradingview-widget-container__widget"></div>
               <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
@@ -298,7 +388,10 @@
         </div>
 
         <div class="widget">
-            <div class="widget-title">Economic Calendar</div>
+            <div class="widget-title">
+                <span class="lang-el">Οικονομικό Ημερολόγιο</span>
+                <span class="lang-en">Economic Calendar</span>
+            </div>
             <div class="tradingview-widget-container">
               <div class="tradingview-widget-container__widget"></div>
               <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
@@ -313,10 +406,10 @@
     <div class="footer-grid">
         <div class="footer-col">
             <h3>TimeToCompound</h3>
-            <p class="footer-desc">
-                Ο αξιόπιστος οδηγός σου για τις διεθνείς αγορές, το χρηματιστήριο και τα κρυπτονομίσματα. 
-                Μάθετε, Επενδύστε, Αναπτυχθείτε.
-            </p>
+            <div class="footer-desc">
+                <span class="lang-el">Ο αξιόπιστος οδηγός σου για τις διεθνείς αγορές, το χρηματιστήριο και τα κρυπτονομίσματα. Μάθετε, Επενδύστε, Αναπτυχθείτε.</span>
+                <span class="lang-en">Your trusted guide to international markets, stocks, and cryptocurrencies. Learn, Invest, Grow.</span>
+            </div>
             <div class="social-icons">
                 <a href="#"><i class="fab fa-facebook-f"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
@@ -326,21 +419,30 @@
         </div>
 
         <div class="footer-col">
-            <h3>Quick Links</h3>
+            <h3>
+                <span class="lang-el">Σύνδεσμοι</span>
+                <span class="lang-en">Quick Links</span>
+            </h3>
             <ul class="footer-links">
-                <li><a href="#" onclick="switchSection('news')">News Feed</a></li>
-                <li><a href="#" onclick="switchSection('markets')">Live Markets</a></li>
-                <li><a href="#" onclick="switchSection('academy')">Trading Academy</a></li>
-                <li><a href="https://freedom24.com/invite_from/1767598" target="_blank">Start Investing</a></li>
+                <li><a href="#" onclick="switchSection('news')"><span class="lang-el">Ροή Ειδήσεων</span><span class="lang-en">News Feed</span></a></li>
+                <li><a href="#" onclick="switchSection('markets')"><span class="lang-el">Αγορές Live</span><span class="lang-en">Live Markets</span></a></li>
+                <li><a href="#" onclick="switchSection('academy')"><span class="lang-el">Ακαδημία</span><span class="lang-en">Academy</span></a></li>
+                <li><a href="https://freedom24.com/invite_from/1767598" target="_blank"><span class="lang-el">Επενδύστε</span><span class="lang-en">Start Investing</span></a></li>
             </ul>
         </div>
 
         <div class="footer-col">
             <h3>Newsletter</h3>
-            <p class="footer-desc">Λάβετε τα σημαντικότερα νέα της ημέρας στο email σας.</p>
+            <p class="footer-desc">
+                <span class="lang-el">Λάβετε τα σημαντικότερα νέα της ημέρας στο email σας.</span>
+                <span class="lang-en">Get the most important news of the day directly to your email.</span>
+            </p>
             <form action="https://formspree.io/f/YOUR_ID" method="POST" class="newsletter-form">
-                <input type="email" name="email" class="newsletter-input" placeholder="Το email σας..." required>
-                <button type="submit" class="newsletter-btn">Εγγραφή</button>
+                <input type="email" name="email" class="newsletter-input" placeholder="Email..." required>
+                <button type="submit" class="newsletter-btn">
+                    <span class="lang-el">Εγγραφή</span>
+                    <span class="lang-en">Subscribe</span>
+                </button>
             </form>
         </div>
     </div>
@@ -354,8 +456,32 @@
         document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
         document.getElementById(id).classList.add('active');
         document.querySelectorAll('.menu-btn').forEach(btn => btn.classList.remove('active'));
-        event.target.classList.add('active');
+        event.target.closest('button').classList.add('active');
         window.scrollTo(0,0);
+    }
+
+    /* --- Language Toggle Logic --- */
+    function toggleLanguage() {
+        const body = document.body;
+        // Check if currently in English mode
+        if (body.classList.contains('english-mode')) {
+            body.classList.remove('english-mode'); // Switch to Greek
+        } else {
+            body.classList.add('english-mode'); // Switch to English
+        }
+    }
+
+    /* --- Theme Toggle Logic --- */
+    function toggleTheme() {
+        const body = document.body;
+        const icon = document.getElementById('theme-icon');
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            icon.classList.remove('fa-sun'); icon.classList.add('fa-moon');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            icon.classList.remove('fa-moon'); icon.classList.add('fa-sun');
+        }
     }
 
     const FEEDS = [
@@ -429,18 +555,6 @@
                 });
             }
         });
-    }
-
-    function toggleTheme() {
-        const body = document.body;
-        const icon = document.getElementById('theme-icon');
-        if (body.getAttribute('data-theme') === 'dark') {
-            body.removeAttribute('data-theme');
-            icon.classList.remove('fa-sun'); icon.classList.add('fa-moon');
-        } else {
-            body.setAttribute('data-theme', 'dark');
-            icon.classList.remove('fa-moon'); icon.classList.add('fa-sun');
-        }
     }
 
     loadNews();
