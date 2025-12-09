@@ -121,14 +121,9 @@
         .footer-bottom { text-align: center; border-top: 1px solid #1e293b; margin-top: 40px; padding-top: 20px; font-size: 0.85rem; }
 
         /* --- LOGIC FOR LANGUAGES --- */
-        /* By default, show Greek, hide English */
         .lang-en { display: none; }
-        
-        /* If body has class 'english-mode', hide Greek, show English */
         body.english-mode .lang-el { display: none !important; }
         body.english-mode .lang-en { display: block !important; }
-        
-        /* Special handling for inline elements (spans) */
         span.lang-en { display: none; }
         body.english-mode span.lang-en { display: inline !important; }
 
@@ -188,7 +183,8 @@
         
         <div class="icons-group">
             <button class="lang-toggle" onclick="toggleLanguage()" title="Change Language">
-                <span class="lang-el">🇬🇧</span> <span class="lang-en">🇬🇷</span> </button>
+                <span class="lang-el">🇬🇧</span> <span class="lang-en">🇬🇷</span>
+            </button>
             
             <div class="theme-toggle" onclick="toggleTheme()">
                 <i class="fas fa-moon" id="theme-icon"></i>
@@ -272,13 +268,13 @@
                         <span class="news-meta academy-label">BEGINNER</span>
                         
                         <div class="lang-el">
-                            <h3 class="news-title">Τι είναι τα Candlesticks; Οδηγός για αρχάριους</h3>
-                            <p class="news-desc">Μάθετε πώς να διαβάζετε τα "κεριά" στα διαγράμματα και τι σημαίνουν το σώμα και η σκιά τους.</p>
+                            <h3 class="news-title">Γιατί κινούνται οι τιμές; Η αλήθεια για την αγορά</h3>
+                            <p class="news-desc">Ξεχάστε τα μοτίβα. Μάθετε πώς η Προσφορά και η Ζήτηση κινούν τα πάντα και πώς τα κεριά λένε την ιστορία αυτής της μάχης.</p>
                         </div>
                         
                         <div class="lang-en">
-                            <h3 class="news-title">What are Candlesticks? A Beginner's Guide</h3>
-                            <p class="news-desc">Learn how to read candlestick charts and understand what the body and wicks represent.</p>
+                            <h3 class="news-title">Why Prices Move: The Truth Beyond the Charts</h3>
+                            <p class="news-desc">Forget technical patterns. Learn how Supply and Demand drive prices and how candlesticks simply tell the story of that battle.</p>
                         </div>
                     </div>
                 </a>
