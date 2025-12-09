@@ -9,6 +9,7 @@
 
       gtag('config', 'G-Y9DENNW7FP');
     </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TimeToCompound | Financial Portal</title>
@@ -81,13 +82,11 @@
         /* --- Layout --- */
         .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; display: grid; grid-template-columns: 2.5fr 1fr; gap: 30px; }
         
-        /* --- Sidebar --- */
         .sidebar { display: flex; flex-direction: column; gap: 25px; }
         
-        /* Widgets: Αφαιρέσαμε το background color από το CSS για να το αφήσουμε στο Widget */
         .widget { 
             border-radius: 12px; 
-            overflow: hidden; /* Σημαντικό για να κόβονται οι γωνίες του iframe */
+            overflow: hidden; 
             border: 1px solid var(--border); 
             box-shadow: var(--shadow); 
             background: var(--bg-card);
@@ -160,6 +159,11 @@
         .news-title { font-size: 1.1rem; font-weight: 700; margin: 0 0 10px 0; line-height: 1.4; }
         .news-desc { font-size: 0.9rem; color: var(--text-muted) !important; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
 
+        /* Academy Label Style */
+        .academy-label {
+            background: #eab308; color: white !important; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem;
+        }
+
         @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
         /* Mobile */
@@ -169,7 +173,7 @@
             .hero-title { font-size: 1.3rem; }
             .news-grid { grid-template-columns: 1fr; }
             .nav-container { flex-direction: column; height: auto; padding: 15px; gap: 15px; }
-            .menu { width: 100%; justify-content: center; }
+            .menu { width: 100%; justify-content: center; flex-wrap: wrap; }
         }
     </style>
 </head>
@@ -205,6 +209,7 @@
             <button class="menu-btn active" onclick="switchSection('news')">News</button>
             <button class="menu-btn" onclick="switchSection('markets')">Markets</button>
             <button class="menu-btn" onclick="switchSection('articles')">Articles</button>
+            <button class="menu-btn" onclick="switchSection('academy')">Academy 🎓</button>
         </div>
         <div class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon" id="theme-icon"></i></div>
     </div>
@@ -215,13 +220,10 @@
     <main>
         
         <div id="news" class="section active">
-            
             <div id="hero-container"></div>
-
             <h2 style="margin-bottom:20px; display:flex; align-items:center; gap:10px;">
                 <i class="fas fa-bolt" style="color:#eab308;"></i> Latest Headlines
             </h2>
-            
             <div id="feed-container" class="news-grid">
                 <div style="grid-column: 1/-1; text-align:center; padding:50px; color:var(--text-muted);">
                     <i class="fas fa-circle-notch fa-spin fa-2x"></i><br><br>Συλλογή ειδήσεων...
@@ -278,10 +280,45 @@
             </div>
         </div>
 
+        <div id="academy" class="section">
+            <h2>🎓 Trading Academy</h2>
+            <p style="color:var(--text-muted); margin-bottom:30px;">Εκπαιδευτικό υλικό, οδηγοί και επεξηγήσεις για αρχάριους και προχωρημένους.</p>
+            
+            <div class="news-grid">
+                
+                <a href="#" class="news-card">
+                    <img src="https://images.unsplash.com/photo-1611974765270-ca1258634369?w=600" class="news-img">
+                    <div class="news-content">
+                        <span class="news-meta academy-label">BEGINNER</span>
+                        <h3 class="news-title">Τι είναι τα Candlesticks; Οδηγός για αρχάριους</h3>
+                        <p class="news-desc">Μάθετε πώς να διαβάζετε τα "κεριά" στα διαγράμματα και τι σημαίνουν το σώμα και η σκιά τους.</p>
+                    </div>
+                </a>
+
+                <a href="#" class="news-card">
+                    <img src="https://images.unsplash.com/photo-1621504450168-b8c493a95f26?w=600" class="news-img">
+                    <div class="news-content">
+                        <span class="news-meta academy-label">CRYPTO</span>
+                        <h3 class="news-title">Blockchain: Πώς λειτουργεί με απλά λόγια</h3>
+                        <p class="news-desc">Μια απλή εξήγηση της τεχνολογίας πίσω από το Bitcoin και γιατί θεωρείται ασφαλής.</p>
+                    </div>
+                </a>
+
+                <a href="#" class="news-card">
+                    <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600" class="news-img">
+                    <div class="news-content">
+                        <span class="news-meta academy-label">INVESTING</span>
+                        <h3 class="news-title">Compound Interest: Το 8ο θαύμα του κόσμου</h3>
+                        <p class="news-desc">Γιατί ο ανατοκισμός είναι ο καλύτερος φίλος του μακροπρόθεσμου επενδυτή.</p>
+                    </div>
+                </a>
+
+            </div>
+        </div>
+
     </main>
 
     <aside class="sidebar">
-        
         <div class="widget freedom-box">
             <div style="display:flex; justify-content:space-between; align-items:start;">
                 <i class="fas fa-shield-alt" style="font-size:2rem; opacity:0.8;"></i>
@@ -347,13 +384,12 @@
               </script>
             </div>
         </div>
-
     </aside>
 
 </div>
 
 <script>
-    // --- 1. Navigation Logic ---
+    // Navigation
     function switchSection(id) {
         document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
         document.getElementById(id).classList.add('active');
@@ -362,7 +398,7 @@
         event.target.classList.add('active');
     }
 
-    // --- 2. News Logic ---
+    // Feeds & News Logic
     const FEEDS = [
         { url: 'https://finance.yahoo.com/news/rssindex', source: 'Yahoo Finance' },
         { url: 'https://www.investing.com/rss/news.rss', source: 'Investing.com' },
@@ -437,7 +473,7 @@
         });
     }
     
-    // --- 3. Articles ---
+    // Articles Fetch
     async function loadArticles() {
         fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent('https://www.investing.com/rss/market_overview.rss') + '&t=' + Date.now())
         .then(res => res.json())
@@ -464,7 +500,7 @@
         });
     }
 
-    // --- 4. Theme Logic ---
+    // Theme Logic
     function toggleTheme() {
         const body = document.body;
         const icon = document.getElementById('theme-icon');
