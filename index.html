@@ -1,669 +1,707 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y9DENNW7FP"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-Y9DENNW7FP');
-    </script>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TimeToCompound | Financial Portal</title>
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
-    <meta name="description" content="TimeToCompound: Ενημέρωση για αγορές, crypto και επενδύσεις.">
+    <title>TimeToCompound - Financial Terminal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
     <style>
+        /* --- 1. ΒΑΣΙΚΕΣ ΡΥΘΜΙΣΕΙΣ & ΜΕΤΑΒΛΗΤΕΣ --- */
         :root {
-            --bg-body: #f8fafc;
-            --bg-card: #ffffff;
-            --bg-nav: #ffffff;
-            --bg-footer: #0f172a;
-            --text-main: #0f172a;
-            --text-muted: #64748b;
-            --accent: #2563eb;
-            --border: #e2e8f0;
-            --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-            --hero-overlay: linear-gradient(to top, rgba(15, 23, 42, 0.95), transparent);
+            --bg-body: #080b14;       /* Το πολύ σκούρο φόντο */
+            --bg-header: #0f172a;     /* Χρώμα Header */
+            --bg-card: #151e32;       /* Χρώμα Καρτών */
+            --bg-sidebar-promo: #064e3b;
+            
+            --text-white: #ffffff;
+            --text-gray: #94a3b8;
+            --text-light-gray: #cbd5e1;
+            
+            --accent-blue: #3b82f6;
+            --accent-green: #22c55e;
+            --accent-red: #ef4444;
+            --accent-gold: #fbbf24;
+            
+            --border-color: #1e293b;
         }
 
-        [data-theme="dark"] {
-            --bg-body: #0f172a;
-            --bg-card: #1e293b;
-            --bg-nav: #1e293b;
-            --bg-footer: #020617;
-            --text-main: #ffffff;      
-            --text-muted: #cbd5e1;      
-            --accent: #38bdf8;
-            --border: #334155;
-            --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
+        * {
+            box-sizing: border-box;
         }
 
-        body { font-family: 'Manrope', sans-serif; background: var(--bg-body); color: var(--text-main); margin: 0; transition: all 0.3s ease; display: flex; flex-direction: column; min-height: 100vh; }
-        
-        h1, h2, h3, h4, p, span, div, a { color: inherit; } 
-        a { text-decoration: none; transition: 0.2s; }
-        a:hover { color: var(--accent); }
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Inter', sans-serif; /* Η γραμματοσειρά που χρησιμοποιούν τα finance sites */
+            background-color: var(--bg-body);
+            color: var(--text-white);
+            -webkit-font-smoothing: antialiased;
+        }
 
-        /* Nav */
-        nav { background: var(--bg-nav); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; padding: 0 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        a { text-decoration: none; color: inherit; transition: 0.2s; }
+        ul { list-style: none; padding: 0; margin: 0; }
+        button { cursor: pointer; border: none; background: none; }
+
+        /* --- 2. TOP TRADING BAR (Πάνω μπάρα με δείκτες) --- */
+        .ticker-wrap {
+            width: 100%;
+            background-color: #020617;
+            border-bottom: 1px solid var(--border-color);
+            overflow: hidden;
+            height: 30px;
+            display: flex;
+            align-items: center;
+        }
         
-        /* LOGO STYLE (NO IMAGE FILE NEEDED) */
-        .logo { font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; cursor: pointer; text-decoration: none; color: var(--text-main); gap: 10px; }
-        .logo-icon-box {
-            width: 40px; 
-            height: 40px; 
-            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); 
-            border-radius: 8px; 
-            display: flex; 
-            align-items: center; 
-            justify-content: center; 
+        .ticker-move {
+            display: inline-block;
+            white-space: nowrap;
+            animation: ticker 30s linear infinite;
+        }
+
+        .ticker-item {
+            display: inline-block;
+            padding: 0 20px;
+            font-size: 11px;
+            color: var(--text-gray);
+        }
+        
+        .t-up { color: var(--accent-green); }
+        .t-down { color: var(--accent-red); }
+
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-100%, 0, 0); }
+        }
+
+        /* --- 3. HEADER (Λογότυπο & Μενού) --- */
+        header {
+            background-color: var(--bg-header);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 40px;
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+
+        .brand-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .brand-text {
+            font-size: 22px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
             color: white;
-            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
         }
-        .logo:hover .logo-icon-box { transform: scale(1.05); transition: 0.2s; }
 
-        .menu { display: flex; gap: 10px; }
-        .menu-btn { background: none; border: none; font-size: 0.95rem; font-weight: 600; color: var(--text-muted); cursor: pointer; padding: 8px 16px; border-radius: 6px; transition: 0.2s; }
-        .menu-btn:hover, .menu-btn.active { color: var(--accent); background: rgba(37, 99, 235, 0.1); }
+        /* SVG Logo Styling */
+        .logo-svg {
+            width: 45px;
+            height: 45px;
+            filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 14px;
+            font-weight: 500;
+            color: var(--text-gray);
+            position: relative;
+            padding: 5px 0;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--text-white);
+        }
         
-        /* Icons Group */
-        .icons-group { display: flex; gap: 15px; align-items: center; }
-        .theme-toggle, .lang-toggle { cursor: pointer; padding: 8px; border-radius: 50%; background: transparent; border: 1px solid var(--border); width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; }
-        .lang-toggle { font-size: 1.2rem; border: none; }
+        nav a.active::after {
+            content: '';
+            position: absolute;
+            bottom: -24px; /* Τοποθέτηση κάτω από το header */
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background-color: var(--accent-blue);
+        }
 
-        /* Layout */
-        .container { max-width: 1200px; margin: 30px auto; padding: 0 20px; display: grid; grid-template-columns: 2.5fr 1fr; gap: 30px; flex: 1; }
-        .sidebar { display: flex; flex-direction: column; gap: 25px; }
-        .widget { border-radius: 12px; overflow: hidden; border: 1px solid var(--border); box-shadow: var(--shadow); background: var(--bg-card); }
-        .widget-title { font-weight: 800; margin: 15px; font-size: 0.85rem; text-transform: uppercase; color: var(--text-muted); letter-spacing: 1px; border-left: 3px solid var(--accent); padding-left: 10px; }
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
 
-        /* Freedom Box */
-        .freedom-box { background: linear-gradient(135deg, #064e3b 0%, #10b981 100%); padding: 20px; color: white !important; }
-        .freedom-box h3, .freedom-box p { color: white !important; }
-        .freedom-box:hover { transform: translateY(-3px); transition: 0.2s; }
-        .freedom-btn { background: white; color: #064e3b !important; padding: 12px; border-radius: 6px; font-weight: 800; display: block; margin-top: 15px; text-align: center; box-shadow: 0 4px 6px rgba(0,0,0,0.1); }
-        .freedom-btn:hover { background: #f0fdf4; }
+        .region-select {
+            font-size: 12px;
+            color: var(--text-gray);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
 
-        /* Content */
-        .section { display: none; animation: fadeIn 0.4s ease; }
-        .section.active { display: block; }
+        .icon-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--text-gray);
+            transition: fill 0.2s;
+        }
         
-        .hero-card { position: relative; height: 400px; border-radius: 16px; overflow: hidden; margin-bottom: 30px; box-shadow: var(--shadow); cursor: pointer; }
-        .hero-bg { width: 100%; height: 100%; object-fit: cover; transition: transform 0.5s; }
-        .hero-card:hover .hero-bg { transform: scale(1.03); }
-        .hero-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: var(--hero-overlay); padding: 30px; color: white !important; }
-        .hero-overlay * { color: white !important; }
-        .hero-tag { background: var(--accent); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: inline-block; }
-        .hero-title { font-size: 1.8rem; font-weight: 800; margin: 0; line-height: 1.2; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); }
+        .icon-btn:hover svg {
+            fill: var(--text-white);
+        }
 
-        .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-        .news-card { background: var(--bg-card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); transition: 0.2s; display: flex; flex-direction: column; height: 100%; cursor: pointer; }
-        .news-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--accent); }
+        /* --- 4. LAYOUT GRID --- */
+        .main-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 30px 40px;
+            display: grid;
+            grid-template-columns: 65% 32%; /* Αναλογία Αριστερά/Δεξιά */
+            gap: 3%;
+        }
+
+        /* --- 5. MAIN CONTENT (NEWS) --- */
         
-        /* ΣΤΥΛ ΓΙΑ ΤΙΣ ΕΙΚΟΝΕΣ */
-        .news-thumb { 
-            width: 100%; 
-            height: 180px; 
-            background-size: cover; 
+        /* Hero Section */
+        .hero-card {
+            background: linear-gradient(to bottom, rgba(15, 23, 42, 0.1), rgba(15, 23, 42, 0.95)), 
+                        url('https://images.unsplash.com/photo-1611974765270-ca1258634369?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
             background-position: center;
-            background-repeat: no-repeat;
-            background-color: var(--border); 
-            border-bottom: 1px solid var(--border);
+            height: 400px;
+            border-radius: 16px;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            padding: 30px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 40px;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
         }
-        .news-img { width: 100%; height: 180px; object-fit: cover; background: #e2e8f0; }
 
-        .news-content { padding: 20px; flex: 1; display: flex; flex-direction: column; }
-        .news-meta { font-size: 0.75rem; font-weight: 700; color: var(--accent) !important; margin-bottom: 8px; text-transform: uppercase; }
-        .news-title { font-size: 1.1rem; font-weight: 700; margin: 0 0 10px 0; line-height: 1.4; }
-        .news-desc { font-size: 0.9rem; color: var(--text-muted) !important; line-height: 1.5; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-        .academy-label { background: #eab308; color: white !important; padding: 2px 8px; border-radius: 4px; font-size: 0.7rem; }
+        .hero-tag {
+            background-color: var(--accent-blue);
+            color: white;
+            padding: 4px 8px;
+            font-size: 11px;
+            font-weight: 700;
+            border-radius: 4px;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+            align-self: flex-start;
+        }
 
-        /* Footer */
-        .site-footer { background: var(--bg-footer); color: #94a3b8 !important; padding: 60px 0 30px; margin-top: 60px; border-top: 1px solid #1e293b; }
-        .footer-grid { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 40px; }
-        .footer-col h3 { color: white !important; font-size: 1.1rem; margin-bottom: 20px; }
-        .footer-desc { font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; }
-        .footer-links { list-style: none; padding: 0; }
-        .footer-links li { margin-bottom: 10px; }
-        .footer-links a { color: #94a3b8; transition: 0.2s; font-size: 0.95rem; }
-        .footer-links a:hover { color: var(--accent) !important; padding-left: 5px; }
+        .hero-title {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 1.2;
+            margin: 0 0 15px 0;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+
+        .hero-meta {
+            font-size: 13px;
+            color: var(--text-light-gray);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* Section Headers */
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-white);
+        }
+
+        .bolt-icon { color: var(--accent-gold); }
+
+        /* News Grid */
+        .news-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 25px;
+        }
+
+        .news-item {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: transform 0.2s;
+        }
+
+        .news-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .news-thumb {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .news-details {
+            padding: 20px;
+        }
+
+        .news-source {
+            font-size: 11px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        .news-headline {
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 1.4;
+            margin: 0;
+            color: var(--text-white);
+        }
+
+        /* --- 6. SIDEBAR --- */
         
-        .newsletter-form { display: flex; gap: 10px; margin-top: 15px; }
-        .newsletter-input { padding: 12px; border-radius: 6px; border: 1px solid #334155; background: #1e293b; color: white; flex: 1; outline: none; }
-        .newsletter-btn { background: var(--accent); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 700; cursor: pointer; }
-        .newsletter-btn:hover { opacity: 0.9; }
+        /* Promo Card */
+        .promo-box {
+            background-color: var(--bg-sidebar-promo);
+            border-radius: 12px;
+            padding: 25px;
+            position: relative;
+            margin-bottom: 30px;
+            border: 1px solid #059669;
+        }
 
-        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
-        .social-icons a { width: 35px; height: 35px; background: rgba(255, 255, 255, 0.1); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white; transition: 0.3s; }
-        .social-icons a:hover { background: var(--accent); transform: translateY(-3px); }
+        .badge-trusted {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: var(--accent-green);
+            color: #000;
+            font-size: 10px;
+            font-weight: 800;
+            padding: 3px 6px;
+            border-radius: 4px;
+        }
 
-        .footer-bottom { text-align: center; border-top: 1px solid #1e293b; margin-top: 40px; padding-top: 20px; font-size: 0.85rem; }
+        .promo-box h3 {
+            margin-top: 0;
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
 
-        /* Languages */
-        .lang-en { display: none; }
-        body.english-mode .lang-el { display: none !important; }
-        body.english-mode .lang-en { display: block !important; }
-        span.lang-en { display: none; }
-        body.english-mode span.lang-en { display: inline !important; }
+        .promo-desc {
+            font-size: 13px;
+            color: #d1fae5;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-        @media (max-width: 768px) { 
-            .container { grid-template-columns: 1fr; } 
-            .footer-grid { grid-template-columns: 1fr; text-align: center; }
-            .newsletter-form { flex-direction: column; }
-            .social-icons { justify-content: center; }
-            .nav-container { flex-direction: column; height: auto; padding: 15px; gap: 15px; }
-            .menu { width: 100%; justify-content: center; flex-wrap: wrap; }
+        .btn-invest {
+            display: block;
+            background-color: white;
+            color: var(--bg-sidebar-promo);
+            text-align: center;
+            padding: 12px;
+            border-radius: 6px;
+            font-weight: 700;
+            font-size: 14px;
+        }
+        
+        .btn-invest:hover { background-color: #f0fdf4; }
+
+        /* Market Widget */
+        .market-panel {
+            background-color: var(--bg-card);
+            border-radius: 12px;
+            border: 1px solid var(--border-color);
+            padding: 20px;
+        }
+
+        .panel-header {
+            font-size: 12px;
+            font-weight: 700;
+            color: var(--accent-blue);
+            text-transform: uppercase;
+            margin-bottom: 15px;
+            letter-spacing: 0.5px;
+        }
+
+        .tabs {
+            display: flex;
+            gap: 20px;
+            border-bottom: 1px solid var(--border-color);
+            margin-bottom: 10px;
+        }
+
+        .tab {
+            padding-bottom: 10px;
+            font-size: 14px;
+            font-weight: 600;
+            color: var(--text-gray);
+            cursor: pointer;
+        }
+
+        .tab.active {
+            color: var(--text-white);
+            border-bottom: 2px solid var(--text-white);
+        }
+
+        /* List Items */
+        .market-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .market-row:last-child { border-bottom: none; }
+
+        .symbol-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .symbol-name {
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--text-white);
+        }
+
+        .symbol-desc {
+            font-size: 11px;
+            color: var(--text-gray);
+            margin-top: 2px;
+        }
+
+        .price-group {
+            text-align: right;
+        }
+
+        .price-val {
+            font-weight: 700;
+            font-size: 14px;
+            display: block;
+        }
+
+        .price-change {
+            font-size: 11px;
+            margin-top: 2px;
+            display: block;
+        }
+
+        .text-red { color: var(--accent-red); }
+        .text-green { color: var(--accent-green); }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-container { grid-template-columns: 1fr; }
+            .hero-card { height: 300px; }
+            header { padding: 0 20px; }
+        }
+        
+        @media (max-width: 768px) {
+            header { flex-direction: column; height: auto; padding: 15px; gap: 15px; }
+            nav ul { gap: 15px; flex-wrap: wrap; justify-content: center; }
+            .news-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
-<body data-theme="dark">
+<body>
 
-<div class="tradingview-widget-container">
-  <div class="tradingview-widget-container__widget"></div>
-  <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-  {
-  "symbols": [
-    { "proName": "FOREXCOM:SPXUSD", "title": "S&P 500" },
-    { "proName": "BITSTAMP:BTCUSD", "title": "Bitcoin" },
-    { "description": "Nvidia", "proName": "NASDAQ:NVDA" },
-    { "description": "Tesla", "proName": "NASDAQ:TSLA" },
-    { "description": "Apple", "proName": "NASDAQ:AAPL" },
-    { "description": "Freedom Holding", "proName": "NASDAQ:FRHC" }
-  ],
-  "showSymbolLogo": true,
-  "colorTheme": "dark",
-  "isTransparent": false,
-  "displayMode": "adaptive",
-  "locale": "en"
-}
-  </script>
-</div>
-
-<nav>
-    <div class="nav-container">
-        <a href="index.html" class="logo">
-            <div class="logo-icon-box">
-                <i class="fas fa-chart-line" style="font-size: 20px;"></i>
-            </div>
-            <span style="font-size: 1.4rem; font-weight: 800; letter-spacing: -0.5px;">TimeToCompound</span>
-        </a>
-
-        <div class="menu">
-            <button class="menu-btn active" onclick="switchSection('news')">
-                <span class="lang-el">Ειδήσεις</span><span class="lang-en">News</span>
-            </button>
-            <button class="menu-btn" onclick="switchSection('markets')">
-                <span class="lang-el">Αγορές</span><span class="lang-en">Markets</span>
-            </button>
-            <button class="menu-btn" onclick="switchSection('articles')">
-                <span class="lang-el">Αναλύσεις</span><span class="lang-en">Analysis</span>
-            </button>
-            <button class="menu-btn" onclick="switchSection('my-analysis')">
-                <span class="lang-el">My Analysis ✍️</span><span class="lang-en">My Analysis ✍️</span>
-            </button>
-            <button class="menu-btn" onclick="switchSection('academy')">
-                <span class="lang-el">Ακαδημία 🎓</span><span class="lang-en">Academy 🎓</span>
-            </button>
-        </div>
-        
-        <div class="icons-group">
-            <button class="lang-toggle" onclick="toggleLanguage()" title="Change Language">
-                <span class="lang-el">🇬🇧</span> <span class="lang-en">🇬🇷</span>
-            </button>
-            
-            <div class="theme-toggle" onclick="toggleTheme()">
-                <i class="fas fa-sun" id="theme-icon"></i>
-            </div>
+    <div class="ticker-wrap">
+        <div class="ticker-move">
+            <div class="ticker-item">EUR/USD <span class="t-down">1.0540 ▼</span></div>
+            <div class="ticker-item">GBP/USD <span class="t-down">1.2150 ▼</span></div>
+            <div class="ticker-item">USD/JPY <span class="t-up">145.30 ▲</span></div>
+            <div class="ticker-item">GOLD <span class="t-up">2,035.50 ▲</span></div>
+            <div class="ticker-item">BTC/USD <span class="t-up">94,500.00 ▲</span></div>
+            <div class="ticker-item">ETH/USD <span class="t-up">3,200.00 ▲</span></div>
+            <div class="ticker-item">OIL <span class="t-down">72.10 ▼</span></div>
+            <div class="ticker-item">EUR/USD <span class="t-down">1.0540 ▼</span></div>
+            <div class="ticker-item">GBP/USD <span class="t-down">1.2150 ▼</span></div>
+            <div class="ticker-item">USD/JPY <span class="t-up">145.30 ▲</span></div>
         </div>
     </div>
-</nav>
 
-<div class="container">
-    
-    <main>
-        <div id="news" class="section active">
-            <div id="hero-container"></div>
-            <h2 style="margin-bottom:20px; display:flex; align-items:center; gap:10px;">
-                <i class="fas fa-bolt" style="color:#eab308;"></i> 
-                <span class="lang-el">Τελευταίες Ειδήσεις</span>
-                <span class="lang-en">Latest Headlines</span>
-            </h2>
-            <div id="feed-container" class="news-grid">
-                <div style="grid-column: 1/-1; text-align:center; padding:50px; color:var(--text-muted);">
-                    <i class="fas fa-circle-notch fa-spin fa-2x"></i><br><br>
-                    <span class="lang-el">Συλλογή ειδήσεων...</span>
-                    <span class="lang-en">Loading news...</span>
-                </div>
-            </div>
+    <header>
+        <div class="brand-area">
+            <svg class="logo-svg" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <filter id="dropShadow" x="-50%" y="-50%" width="200%" height="200%">
+                        <feGaussianBlur in="SourceAlpha" stdDeviation="4"/>
+                        <feOffset dx="3" dy="4" result="offsetblur"/>
+                        <feComponentTransfer><feFuncA type="linear" slope="0.3"/></feComponentTransfer>
+                        <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+                    </filter>
+                    <linearGradient id="blueRingGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" stop-color="#005c97"/>
+                        <stop offset="50%" stop-color="#003366"/>
+                        <stop offset="100%" stop-color="#001f3f"/>
+                    </linearGradient>
+                    <linearGradient id="goldRingGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#b8860b"/>
+                        <stop offset="50%" stop-color="#ffcc00"/>
+                        <stop offset="100%" stop-color="#ffe066"/>
+                    </linearGradient>
+                    <linearGradient id="arrowGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#003366"/>
+                        <stop offset="35%" stop-color="#005c97"/>
+                        <stop offset="50%" stop-color="#daa520"/>
+                        <stop offset="100%" stop-color="#ffd700"/>
+                    </linearGradient>
+                    <linearGradient id="coinSideGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                        <stop offset="0%" stop-color="#daa520"/>
+                        <stop offset="50%" stop-color="#ffe066"/>
+                        <stop offset="100%" stop-color="#b8860b"/>
+                    </linearGradient>
+                    <radialGradient id="coinTopGrad" cx="50%" cy="50%" r="50%" fx="50%" fy="50%">
+                        <stop offset="0%" stop-color="#ffe066"/>
+                        <stop offset="100%" stop-color="#daa520"/>
+                    </radialGradient>
+                </defs>
+                <circle cx="250" cy="250" r="240" fill="none"/>
+                <g stroke="#003366" stroke-width="6" stroke-linecap="round">
+                    <line x1="250" y1="60" x2="250" y2="80" transform="rotate(0 250 250)" />
+                    <line x1="250" y1="60" x2="250" y2="80" transform="rotate(30 250 250)" />
+                    <line x1="250" y1="60" x2="250" y2="80" transform="rotate(60 250 250)" />
+                    <line x1="250" y1="60" x2="250" y2="80" transform="rotate(120 250 250)" />
+                    <line x1="250" y1="60" x2="250" y2="80" transform="rotate(150 250 250)" />
+                    <line x1="250" y1="60" x2="250" y2="80" transform="rotate(180 250 250)" />
+                    <line x1="250" y1="60" x2="250" y2="80" transform="rotate(210 250 250)" />
+                    <line x1="250" y1="60" x2="250" y2="80" transform="rotate(240 250 250)" />
+                    <line x1="250" y1="60" x2="250" y2="80" transform="rotate(270 250 250)" />
+                    <line x1="250" y1="60" x2="250" y2="80" transform="rotate(300 250 250)" />
+                    <line x1="250" y1="60" x2="250" y2="80" transform="rotate(330 250 250)" />
+                </g>
+                <path d="M 130,90 A 210,210 0 0,0 250,450 A 210,210 0 0,0 370,415 L 350,385 A 175,175 0 0,1 250,415 A 175,175 0 0,1 155,115 Z" fill="url(#blueRingGrad)" filter="url(#dropShadow)"/>
+                <path d="M 380,410 A 210,210 0 0,0 250,50 A 210,210 0 0,0 150,75 L 170,105 A 175,175 0 0,1 250,85 A 175,175 0 0,1 360,380 Z" fill="url(#goldRingGrad)" filter="url(#dropShadow)"/>
+                <g transform="translate(255, 170)">
+                    <g transform="translate(-30, 20)">
+                        <path d="M -15,0 v 10 a 15,5 0 0,0 30,0 v -10" fill="url(#coinSideGrad)" stroke="#b8860b" stroke-width="0.5"/>
+                        <ellipse cx="0" cy="0" rx="15" ry="5" fill="url(#coinTopGrad)" stroke="#b8860b" stroke-width="0.5"/>
+                        <path d="M -15,-8 v 10 a 15,5 0 0,0 30,0 v -10" fill="url(#coinSideGrad)" stroke="#b8860b" stroke-width="0.5"/>
+                        <ellipse cx="0" cy="-8" rx="15" ry="5" fill="url(#coinTopGrad)" stroke="#b8860b" stroke-width="0.5"/>
+                    </g>
+                    <g transform="translate(20, 0)">
+                        <path d="M -15,20 v 10 a 15,5 0 0,0 30,0 v -10" fill="url(#coinSideGrad)" stroke="#b8860b" stroke-width="0.5"/>
+                        <ellipse cx="0" cy="20" rx="15" ry="5" fill="url(#coinTopGrad)" stroke="#b8860b" stroke-width="0.5"/>
+                        <path d="M -15,12 v 10 a 15,5 0 0,0 30,0 v -10" fill="url(#coinSideGrad)" stroke="#b8860b" stroke-width="0.5"/>
+                        <ellipse cx="0" cy="12" rx="15" ry="5" fill="url(#coinTopGrad)" stroke="#b8860b" stroke-width="0.5"/>
+                        <path d="M -15,4 v 10 a 15,5 0 0,0 30,0 v -10" fill="url(#coinSideGrad)" stroke="#b8860b" stroke-width="0.5"/>
+                        <ellipse cx="0" cy="4" rx="15" ry="5" fill="url(#coinTopGrad)" stroke="#b8860b" stroke-width="0.5"/>
+                        <path d="M -15,-4 v 10 a 15,5 0 0,0 30,0 v -10" fill="url(#coinSideGrad)" stroke="#b8860b" stroke-width="0.5"/>
+                        <ellipse cx="0" cy="-4" rx="15" ry="5" fill="url(#coinTopGrad)" stroke="#b8860b" stroke-width="0.5"/>
+                    </g>
+                </g>
+                <g filter="url(#dropShadow)">
+                    <path d="M 100,380 L 180,270 L 240,320 L 380,100 L 330,100 L 420,40 L 430,140 L 395,140 L 255,360 L 195,310 L 130,405 Z" fill="url(#arrowGrad)" stroke="#ffffff" stroke-width="3" stroke-linejoin="round"/>
+                </g>
+            </svg>
+            <span class="brand-text">TimeToCompound</span>
         </div>
 
-        <div id="markets" class="section">
-            <h2>
-                <span class="lang-el">📊 Ταμπλό Αγορών</span>
-                <span class="lang-en">📊 Market Dashboard</span>
-            </h2>
-
-            <div class="widget" style="margin-bottom: 30px;">
-                <div class="widget-title" style="border-left: 3px solid #00c7e2; padding-left: 10px;">
-                    <span class="lang-el">ΚΙΝΗΣΗ ΕΠΙΤΟΚΙΩΝ & ΣΥΝΑΛΛΑΓΜΑ</span>
-                    <span class="lang-en">RATES & CURRENCY MOVEMENT</span>
-                </div>
-                <div class="tradingview-widget-container">
-                    <div class="tradingview-widget-container__widget"></div>
-                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
-                    {
-                        "width": "100%",
-                        "height": "350",
-                        "currencies": ["EUR", "USD", "JPY", "GBP", "CAD", "AUD", "NZD"],
-                        "isTransparent": false,
-                        "colorTheme": "dark",
-                        "locale": "en",
-                        "showBorders": false,
-                        "showHeaders": false
-                    }
-                    </script>
-                </div>
-            </div>
-            
-            <div style="height: 500px; border-radius: 12px; overflow: hidden; border: 1px solid var(--border); margin-bottom: 30px;">
-                <div class="tradingview-widget-container" style="height:100%;width:100%">
-                    <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
-                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-                    { "autosize": true, "symbol": "NASDAQ:AAPL", "interval": "D", "timezone": "Etc/UTC", "theme": "dark", "style": "1", "locale": "en", "enable_publishing": false, "allow_symbol_change": true, "support_host": "https://www.tradingview.com" }
-                    </script>
-                </div>
-            </div>
-
-            <h3>
-                <span class="lang-el">Κερδισμένοι & Χαμένοι</span>
-                <span class="lang-en">Top Gainers & Losers</span>
-            </h3>
-            <div class="tradingview-widget-container">
-              <div class="tradingview-widget-container__widget"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
-              { "colorTheme": "dark", "dateRange": "12M", "exchange": "US", "showChart": true, "locale": "en", "largeChartUrl": "", "isTransparent": false, "showSymbolLogo": true, "width": "100%", "height": "400" }
-              </script>
-            </div>
-        </div>
-
-        <div id="articles" class="section">
-            <h2>
-                <span class="lang-el">📑 Αναλύσεις Αγορών</span>
-                <span class="lang-en">📑 Market Analysis</span>
-            </h2>
-            <div id="articles-container" class="news-grid">
-                <div style="grid-column: 1/-1; text-align:center; padding:40px; color:var(--text-muted);">
-                    <span class="lang-el">Φόρτωση αναλύσεων...</span>
-                    <span class="lang-en">Loading analysis...</span>
-                </div>
-            </div>
-        </div>
-
-        <div id="my-analysis" class="section">
-            <h2>
-                <span class="lang-el">✍️ My Analysis</span><span class="lang-en">✍️ My Analysis</span>
-            </h2>
-            <div class="news-grid">
-                <a href="article4.html" class="news-card">
-                    <div class="news-thumb" style="background-image: url('fed-large.jpg');"></div>
-                    <div class="news-content">
-                        <span class="news-meta">MACRO</span>
-                        <div class="lang-el">
-                            <h3 class="news-title">🔥 FED: Προ-Ανάλυση της Απόφασης Επιτοκίων</h3>
-                            <p class="news-desc">Τα 3 σενάρια για την αυριανή ανακοίνωση και ο "οδικός χάρτης" του Powell.</p>
-                        </div>
-                        <div class="lang-en">
-                            <h3 class="news-title">🔥 FED Pre-Analysis: Rate Decision Scenarios</h3>
-                            <p class="news-desc">The 3 scenarios for tomorrow's announcement, Powell's "guidance," and market impact.</p>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-        
-        <div id="academy" class="section">
-            <h2>
-                <span class="lang-el">🎓 Ακαδημία</span>
-                <span class="lang-en">🎓 Academy</span>
-            </h2>
-            
-            <div class="news-grid">
-                
-                <a href="article1.html" class="news-card">
-                    <div class="news-thumb" style="background-image: url('prices-move-large.jpg');"></div> 
-                    <div class="news-content">
-                        <span class="news-meta academy-label">BEGINNER</span>
-                        <div class="lang-el">
-                            <h3 class="news-title">Γιατί κινούνται οι τιμές;</h3>
-                            <p class="news-desc">Μάθετε πώς η Προσφορά και η Ζήτηση κινούν τα πάντα.</p>
-                        </div>
-                        <div class="lang-en">
-                            <h3 class="news-title">Why Prices Move</h3>
-                            <p class="news-desc">Learn how Supply and Demand drive prices.</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="article2.html" class="news-card">
-                    <div class="news-thumb" style="background-image: url('blockchain-large.jpg');"></div>
-                    <div class="news-content">
-                        <span class="news-meta academy-label">CRYPTO</span>
-                        <div class="lang-el">
-                            <h3 class="news-title">Blockchain: Πώς λειτουργεί</h3>
-                            <p class="news-desc">Μια απλή εξήγηση της τεχνολογίας πίσω από το Bitcoin.</p>
-                        </div>
-                        <div class="lang-en">
-                            <h3 class="news-title">Blockchain: How it works</h3>
-                            <p class="news-desc">A simple explanation of the technology behind Bitcoin.</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="article3.html" class="news-card">
-                    <div class="news-thumb" style="background-image: url('compound-large.jpg');"></div>
-                    <div class="news-content">
-                        <span class="news-meta academy-label">INVESTING</span>
-                        <div class="lang-el">
-                            <h3 class="news-title">Compound Interest</h3>
-                            <p class="news-desc">Γιατί ο ανατοκισμός είναι ο καλύτερος φίλος του επενδυτή.</p>
-                        </div>
-                        <div class="lang-en">
-                            <h3 class="news-title">Compound Interest</h3>
-                            <p class="news-desc">Why compound interest is the investor's best friend.</p>
-                        </div>
-                    </div>
-                </a>
-
-                <a href="article5.html" class="news-card">
-                    <div class="news-thumb" style="background-image: url('etf-guide1.jpg');"></div>
-                    <div class="news-content">
-                        <span class="news-meta academy-label" style="background-color: #10b981;">ETFs</span>
-                        <div class="lang-el">
-                            <h3 class="news-title">Οδηγός ETFs: Accumulating vs Distributing</h3>
-                            <p class="news-desc">Η απόλυτη σύγκριση. Μάθετε ποιο είδος ETF σας συμφέρει φορολογικά.</p>
-                        </div>
-                        <div class="lang-en">
-                            <h3 class="news-title">ETF Guide: Accumulating vs Distributing</h3>
-                            <p class="news-desc">The ultimate comparison. Learn which ETF type is best for you.</p>
-                        </div>
-                    </div>
-                </a>
-
-            </div>
-        </div>
-    </main>
-
-    <aside class="sidebar">
-        <div class="widget freedom-box">
-            <div style="display:flex; justify-content:space-between; align-items:start;">
-                <i class="fas fa-shield-alt" style="font-size:2rem; opacity:0.8;"></i>
-                <span style="background:rgba(255,255,255,0.2); padding:2px 8px; border-radius:4px; font-size:0.7rem; font-weight:bold;">TRUSTED</span>
-            </div>
-            <h3 style="font-size:1.2rem; margin:15px 0 5px 0;">Invest with Freedom24</h3>
-            <p style="font-size:0.9rem; margin:0; opacity:0.9;">Access US, EU & Asian markets. Get up to 5.8% p.a. on your cash.</p>
-            <a href="https://freedom24.com/invite_from/1767598" target="_blank" class="freedom-btn">Start Investing <i class="fas fa-arrow-right"></i></a>
-        </div>
-
-        <div class="widget">
-            <div class="widget-title">
-                <span class="lang-el">Επισκόπηση Αγορών</span>
-                <span class="lang-en">Market Overview</span>
-            </div>
-            <div class="tradingview-widget-container">
-              <div class="tradingview-widget-container__widget"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-              {
-              "colorTheme": "dark",
-              "dateRange": "12M",
-              "showChart": false,
-              "locale": "en",
-              "largeChartUrl": "",
-              "isTransparent": false,
-              "showSymbolLogo": true,
-              "width": "100%",
-              "height": "600",
-              "tabs": [
-                {
-                  "title": "Indices",
-                  "symbols": [
-                    { "s": "FOREXCOM:SPXUSD", "d": "S&P 500" },
-                    { "s": "FOREXCOM:NSXUSD", "d": "Nasdaq 100" },
-                    { "s": "FOREXCOM:DJI", "d": "Dow 30" },
-                    { "s": "INDEX:NKY", "d": "Nikkei 225" },
-                    { "s": "INDEX:DEU40", "d": "DAX 40" },
-                    { "s": "FOREXCOM:UK100", "d": "FTSE 100" },
-                    { "s": "INDEX:CAC40", "d": "CAC 40" },
-                    { "s": "INDEX:HSI", "d": "Hang Seng" },
-                    { "s": "FOREXCOM:EU50", "d": "Euro Stoxx 50" }
-                  ]
-                },
-                {
-                  "title": "Crypto",
-                  "symbols": [
-                    { "s": "BITSTAMP:BTCUSD", "d": "Bitcoin" },
-                    { "s": "BITSTAMP:ETHUSD", "d": "Ethereum" },
-                    { "s": "BINANCE:SOLUSDT", "d": "Solana" },
-                    { "s": "BINANCE:XRPUSDT", "d": "XRP" },
-                    { "s": "BINANCE:BNBUSDT", "d": "BNB" },
-                    { "s": "BINANCE:DOGEUSDT", "d": "Dogecoin" },
-                    { "s": "BINANCE:ADAUSDT", "d": "Cardano" },
-                    { "s": "BINANCE:AVAXUSDT", "d": "Avalanche" },
-                    { "s": "BINANCE:SHIBUSDT", "d": "Shiba Inu" },
-                    { "s": "BINANCE:DOTUSDT", "d": "Polkadot" },
-                    { "s": "BINANCE:LINKUSDT", "d": "Chainlink" }
-                  ]
-                }
-              ]
-            }
-              </script>
-            </div>
-        </div>
-
-        <div class="widget">
-            <div class="widget-title">
-                <span class="lang-el">Οικονομικό Ημερολόγιο</span>
-                <span class="lang-en">Economic Calendar</span>
-            </div>
-            <div class="tradingview-widget-container">
-              <div class="tradingview-widget-container__widget"></div>
-              <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
-              { "colorTheme": "dark", "isTransparent": false, "width": "100%", "height": "400", "locale": "en", "importanceFilter": "0,1" }
-              </script>
-            </div>
-        </div>
-    </aside>
-</div>
-
-<footer class="site-footer">
-    <div class="footer-grid">
-        <div class="footer-col">
-            <h3>TimeToCompound</h3>
-            <div class="footer-desc">
-                <span class="lang-el">Ο αξιόπιστος οδηγός σου για τις διεθνείς αγορές, το χρηματιστήριο και τα κρυπτονομίσματα. Μάθετε, Επενδύστε, Αναπτυχθείτε.</span>
-                <span class="lang-en">Your trusted guide to international markets, stocks, and cryptocurrencies. Learn, Invest, Grow.</span>
-            </div>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-        </div>
-
-        <div class="footer-col">
-            <h3>
-                <span class="lang-el">Σύνδεσμοι</span>
-                <span class="lang-en">Quick Links</span>
-            </h3>
-            <ul class="footer-links">
-                <li><a href="#" onclick="switchSection('news')"><span class="lang-el">Ροή Ειδήσεων</span><span class="lang-en">News Feed</span></a></li>
-                <li><a href="#" onclick="switchSection('markets')"><span class="lang-el">Αγορές Live</span><span class="lang-en">Live Markets</span></a></li>
-                <li><a href="#" onclick="switchSection('academy')"><span class="lang-el">Ακαδημία</span><span class="lang-en">Academy</span></a></li>
-                <li><a href="https://freedom24.com/invite_from/1767598" target="_blank"><span class="lang-el">Επενδύστε</span><span class="lang-en">Start Investing</span></a></li>
+        <nav>
+            <ul>
+                <li><a href="#">Ειδήσεις</a></li>
+                <li><a href="#">Αγορές</a></li>
+                <li><a href="#">Αναλύσεις</a></li>
+                <li><a href="#" class="active">My Analysis</a></li>
+                <li><a href="#">Ακαδημία <span style="font-size:12px;">🎓</span></a></li>
             </ul>
+        </nav>
+
+        <div class="header-actions">
+            <div class="region-select">
+                <span>GB</span>
+                <svg viewBox="0 0 640 480" width="16" height="12">
+                    <path fill="#012169" d="M0 0h640v480H0z"/>
+                    <path fill="#FFF" d="m75 0 244 181L562 0h78v62L400 241l240 178v61h-80L320 301 81 480H0v-60l239-178L0 64V0h75z"/>
+                    <path fill="#C8102E" d="m424 281 216 159v40L369 281h55zm-184 20 6 35L54 480H0l240-179zM640 0v3L391 191l2-44L590 0h50zM0 0l239 176h-60L0 42V0z"/>
+                    <path fill="#FFF" d="M241 0v480h160V0H241zM0 160v160h640V160H0z"/>
+                    <path fill="#C8102E" d="M0 193v96h640v-96H0zM273 0v480h96V0h-96z"/>
+                </svg>
+            </div>
+            <button class="icon-btn">
+                <svg viewBox="0 0 24 24">
+                    <path d="M12 15.5A3.5 3.5 0 0 1 8.5 12 3.5 3.5 0 0 1 12 8.5a3.5 3.5 0 0 1 3.5 3.5 3.5 3.5 0 0 1-3.5 3.5m7.43-2.53c.04-.32.07-.64.07-.97 0-.33-.03-.66-.07-1l2.11-1.63c.19-.15.24-.42.12-.64l-2-3.46c-.12-.22-.39-.31-.61-.22l-2.49 1c-.52-.39-1.06-.73-1.69-.98l-.37-2.65A.506.506 0 0 0 14 2h-4c-.25 0-.46.18-.5.43l-.37 2.65c-.63.25-1.17.59-1.69.98l-2.49-1c-.22-.09-.49 0-.61.22l-2 3.46c-.13.22-.07.49.12.64L4.57 11c-.04.34-.07.67-.07 1 0 .33.03.65.07.97l-2.11 1.66c-.19.15-.25.42-.12.64l2 3.46c.12.22.39.3.61.22l2.49-1c.52.39 1.06.74 1.69.98l.37 2.65c.04.24.25.42.5.42h4c.25 0 .46-.18.5-.42l.37-2.65c.63-.24 1.17-.59 1.69-.98l2.49 1c.22.09.49 0 .61-.22l2-3.46c.12-.22.07-.49-.12-.64l-2.11-1.66Z"/>
+                </svg>
+            </button>
         </div>
+    </header>
 
-        <div class="footer-col">
-            <h3>Newsletter</h3>
-            <p class="footer-desc">
-                <span class="lang-el">Λάβετε τα σημαντικότερα νέα της ημέρας στο email σας.</span>
-                <span class="lang-en">Get the most important news of the day directly to your email.</span>
-            </p>
-            
-            <form action="https://formspree.io/f/xpwvyare" method="POST" class="newsletter-form">
-                <input type="email" name="email" class="newsletter-input" placeholder="Email..." required>
-                <button type="submit" class="newsletter-btn">
-                    <span class="lang-el">Εγγραφή</span>
-                    <span class="lang-en">Subscribe</span>
-                </button>
-            </form>
-        </div>
+    <div class="main-container">
+        
+        <main class="content-col">
+            <div class="hero-card">
+                <span class="hero-tag">INVESTING.COM</span>
+                <h1 class="hero-title">Oppenheimer reiterates Outperform rating on Lexeo Therapeutics stock</h1>
+                <div class="hero-meta">
+                    <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/><path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/></svg>
+                    <span>10/12/2025, 12:27 μ.μ.</span>
+                </div>
+            </div>
+
+            <div class="section-header">
+                <span class="bolt-icon">⚡</span>
+                <span class="section-title">Τελευταίες Ειδήσεις</span>
+            </div>
+
+            <div class="news-grid">
+                <a href="#" class="news-item">
+                    <img src="https://images.unsplash.com/photo-1548695602-9ff0958d5219?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="news-thumb" alt="LNG Ship">
+                    <div class="news-details">
+                        <span class="news-source">INVESTING.COM</span>
+                        <h3 class="news-headline">Venture Global hits back at Shell's fraud claims in LNG arbitration battle</h3>
+                    </div>
+                </a>
+
+                <a href="#" class="news-item">
+                    <img src="https://images.unsplash.com/photo-1521791055366-0d553872125f?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60" class="news-thumb" alt="Politics">
+                    <div class="news-details">
+                        <span class="news-source">INVESTING.COM</span>
+                        <h3 class="news-headline">US House committee to take up Africa trade bill, but South Africa risks exclusion</h3>
+                    </div>
+                </a>
+            </div>
+        </main>
+
+        <aside class="sidebar-col">
+            <div class="promo-box">
+                <span class="badge-trusted">TRUSTED</span>
+                <div style="display:flex; align-items:center; gap:8px; margin-bottom:10px;">
+                    <svg width="24" height="24" fill="white" viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+                    <h3>Invest with Freedom24</h3>
+                </div>
+                <p class="promo-desc">Access US, EU & Asian markets. Get up to 5.8% p.a. on your cash.</p>
+                <a href="#" class="btn-invest">Start Investing →</a>
+            </div>
+
+            <div class="market-panel">
+                <div class="panel-header">| ΕΠΙΣΚΟΠΗΣΗ ΑΓΟΡΩΝ</div>
+                
+                <div class="tabs">
+                    <div class="tab active">Indices</div>
+                    <div class="tab">Crypto</div>
+                </div>
+
+                <div class="market-row">
+                    <div class="symbol-group">
+                        <span class="symbol-name">SPXUSD</span>
+                        <span class="symbol-desc">S&P 500</span>
+                    </div>
+                    <div class="price-group">
+                        <span class="price-val text-red">6,831.6</span>
+                        <span class="price-change text-red">-7.30 -0.11%</span>
+                    </div>
+                </div>
+
+                <div class="market-row">
+                    <div class="symbol-group">
+                        <span class="symbol-name">NSXUSD</span>
+                        <span class="symbol-desc">Nasdaq 100</span>
+                    </div>
+                    <div class="price-group">
+                        <span class="price-val text-red">25,598.3</span>
+                        <span class="price-change text-red">-44.70 -0.17%</span>
+                    </div>
+                </div>
+
+                <div class="market-row">
+                    <div class="symbol-group">
+                        <span class="symbol-name">DJI</span>
+                        <span class="symbol-desc">Dow 30</span>
+                    </div>
+                    <div class="price-group">
+                        <span class="price-val text-red">47,516.4</span>
+                        <span class="price-change text-red">-15.80 -0.03%</span>
+                    </div>
+                </div>
+
+                <div class="market-row">
+                    <div class="symbol-group">
+                        <span class="symbol-name">NKY</span>
+                        <span class="symbol-desc">Nikkei 225</span>
+                    </div>
+                    <div class="price-group">
+                        <span class="price-val text-red">50,602.80</span>
+                        <span class="price-change text-red">-52.30 -0.10%</span>
+                    </div>
+                </div>
+
+                <div class="market-row">
+                    <div class="symbol-group">
+                        <span class="symbol-name">DFU40</span>
+                        <span class="symbol-desc">DAX 40</span>
+                    </div>
+                    <div class="price-group">
+                        <span class="price-val text-green">24,162.65</span>
+                        <span class="price-change text-green">+116.64 +0.49%</span>
+                    </div>
+                </div>
+
+                <div class="market-row">
+                    <div class="symbol-group">
+                        <span class="symbol-name">UK100</span>
+                        <span class="symbol-desc">FTSE 100</span>
+                    </div>
+                    <div class="price-group">
+                        <span class="price-val text-green">9,669.5</span>
+                        <span class="price-change text-green">+58.10 +0.60%</span>
+                    </div>
+                </div>
+
+                <div class="market-row">
+                    <div class="symbol-group">
+                        <span class="symbol-name">CAC40</span>
+                        <span class="symbol-desc">CAC 40</span>
+                    </div>
+                    <div class="price-group">
+                        <span class="price-val text-red">8,052.51</span>
+                        <span class="price-change text-red">-55.92 -0.69%</span>
+                    </div>
+                </div>
+
+                 <div class="market-row">
+                    <div class="symbol-group">
+                        <span class="symbol-name">HSI</span>
+                        <span class="symbol-desc">Hang Seng</span>
+                    </div>
+                    <div class="price-group">
+                        <span class="price-val text-white">25,434.23</span>
+                        <span class="price-change text-gray">0.00 0.00%</span>
+                    </div>
+                </div>
+
+            </div>
+        </aside>
+
     </div>
-    <div class="footer-bottom">
-        &copy; 2025 TimeToCompound. All rights reserved. | <a href="#">Terms</a> | <a href="#">Privacy</a>
-    </div>
-</footer>
 
-<script>
-    function switchSection(id) {
-        document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-        document.querySelectorAll('.menu-btn').forEach(btn => btn.classList.remove('active'));
-        
-        // Find the button that was clicked and set it active
-        const clickedButton = event.target.closest('button');
-        if (clickedButton) {
-            clickedButton.classList.add('active');
-        }
-        
-        window.scrollTo(0,0);
-    }
-
-    /* --- Language Toggle Logic --- */
-    function toggleLanguage() {
-        const body = document.body;
-        // Check if currently in English mode
-        if (body.classList.contains('english-mode')) {
-            body.classList.remove('english-mode'); // Switch to Greek
-        } else {
-            body.classList.add('english-mode'); // Switch to English
-        }
-    }
-
-    /* --- Theme Toggle Logic --- */
-    function toggleTheme() {
-        const body = document.body;
-        const icon = document.getElementById('theme-icon');
-        const isDark = body.getAttribute('data-theme') === 'dark';
-        
-        // TradingView Widgets Theme Refresh Logic
-        document.querySelectorAll('script[src*="tradingview.com/external-embedding"]').forEach(script => {
-            let scriptText = script.textContent;
-            // A simple replace approach to toggle themes inside the JSON config
-            if (isDark) {
-                script.textContent = scriptText.replace('"colorTheme": "dark"', '"colorTheme": "light"');
-            } else {
-                script.textContent = scriptText.replace('"colorTheme": "light"', '"colorTheme": "dark"');
-            }
-        });
-
-        if (isDark) {
-            body.removeAttribute('data-theme');
-            icon.classList.remove('fa-sun'); icon.classList.add('fa-moon');
-        } else {
-            body.setAttribute('data-theme', 'dark');
-            icon.classList.remove('fa-moon'); icon.classList.add('fa-sun');
-        }
-    }
-
-    const FEEDS = [
-        { url: 'https://finance.yahoo.com/news/rssindex', source: 'Yahoo Finance' },
-        { url: 'https://www.investing.com/rss/news.rss', source: 'Investing.com' },
-        { url: 'https://cointelegraph.com/rss', source: 'CoinTelegraph' }
-    ];
-
-    const DEFAULT_IMAGES = [
-        'https://images.unsplash.com/photo-1611974765270-ca1258634369?w=600',
-        'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600',
-        'https://images.unsplash.com/photo-1621504450168-b8c493a95f26?w=600',
-        'https://images.unsplash.com/photo-1642543492481-44e81e3914a7?w=600'
-    ];
-    function getRandomImage() { return DEFAULT_IMAGES[Math.floor(Math.random() * DEFAULT_IMAGES.length)]; }
-
-    function formatDate(dateString) {
-        const date = new Date(dateString);
-        return date.toLocaleDateString('el-GR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute:'2-digit' });
-    }
-
-    // ΕΠΑΝΑΦΟΡΑ ΤΗΣ ΑΥΤΟΜΑΤΗΣ ΦΟΡΤΩΣΗΣ ΑΡΘΡΩΝ ΓΙΑ ΤΟ #articles
-    async function loadArticles() {
-        fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent('https://www.investing.com/rss/market_overview.rss') + '&t=' + Date.now())
-        .then(res => res.json())
-        .then(data => {
-            const container = document.getElementById('articles-container');
-            container.innerHTML = '';
-            if(data.items) {
-                // Limit to 6 items to keep the grid clean
-                data.items.slice(0, 6).forEach(item => { 
-                    let desc = item.description.replace(/<[^>]*>?/gm, '').substring(0, 120) + '...';
-                    let img = getRandomImage(); // Χρήση τυχαίας εικόνας για αυτά τα άρθρα
-                    container.innerHTML += `
-                        <a href="${item.link}" target="_blank" class="news-card">
-                            <div class="news-thumb" style="background-image: url('${img}')"></div>
-                            <div class="news-content"><span class="news-meta">ANALYSIS</span><h3 class="news-title">${item.title}</h3><p class="news-desc">${desc}</p><div style="font-size:0.75rem; color:var(--text-muted); margin-top:auto;">${formatDate(item.pubDate)}</div></div>
-                        </a>`;
-                });
-            }
-            if (container.innerHTML === '') {
-                 container.innerHTML = '<div style="grid-column: 1/-1; text-align:center; padding:40px; color:var(--text-muted);">No external articles available right now.</div>';
-            }
-        });
-    }
-
-    async function loadNews() {
-        let allItems = [];
-        const container = document.getElementById('feed-container');
-        const promises = FEEDS.map(feed => 
-            fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent(feed.url) + '&t=' + Date.now())
-            .then(res => res.json())
-            .then(data => { if(data.status === 'ok') return data.items.map(item => ({...item, source: feed.source})); return []; })
-        );
-        const results = await Promise.all(promises);
-        allItems = results.flat().sort((a,b) => new Date(b.pubDate) - new Date(a.pubDate));
-
-        if(allItems.length > 0) {
-            const hero = allItems[0];
-            const heroImg = (hero.thumbnail && hero.thumbnail.length > 10) ? hero.thumbnail : (hero.enclosure?.link && hero.enclosure.link.length > 10) ? hero.enclosure.link : getRandomImage();
-            document.getElementById('hero-container').innerHTML = `
-                <div class="hero-card" onclick="window.open('${hero.link}', '_blank')">
-                    <img src="${heroImg}" class="hero-bg">
-                    <div class="hero-overlay"><span class="hero-tag">${hero.source}</span><h2 class="hero-title">${hero.title}</h2><div style="font-size:0.85rem; margin-top:5px; opacity:0.9;">${formatDate(hero.pubDate)}</div></div>
-                </div>`;
-            allItems.shift();
-        }
-
-        container.innerHTML = '';
-        allItems.forEach(item => {
-            let img = (item.thumbnail && item.thumbnail.length > 10) ? item.thumbnail : (item.enclosure?.link && item.enclosure.link.length > 10) ? item.enclosure.link : getRandomImage();
-            let desc = item.description.replace(/<[^>]*>?/gm, '').substring(0, 100) + '...';
-            container.innerHTML += `
-                <a href="${item.link}" target="_blank" class="news-card">
-                    <div class="news-thumb" style="background-image: url('${img}')"></div>
-                    <div class="news-content"><span class="news-meta">${item.source}</span><h3 class="news-title">${item.title}</h3><p class="news-desc">${desc}</p><div style="font-size:0.75rem; color:var(--text-muted); margin-top:auto;">${formatDate(item.pubDate)}</div></div>
-                </a>`;
-        });
-    }
-    
-    loadNews();
-    loadArticles(); 
-</script>
 </body>
 </html>
