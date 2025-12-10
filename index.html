@@ -93,7 +93,7 @@
         .news-card { background: var(--bg-card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); transition: 0.2s; display: flex; flex-direction: column; height: 100%; cursor: pointer; }
         .news-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--accent); }
         
-        /* FIX: Στυλ για Εικόνες Background (Topika) */
+        /* ΣΤΥΛ ΓΙΑ ΤΙΣ ΕΙΚΟΝΕΣ (FIXED) */
         .news-thumb { 
             width: 100%; 
             height: 180px; 
@@ -103,7 +103,6 @@
             background-color: var(--border); 
             border-bottom: 1px solid var(--border);
         }
-        /* Fallback για παλιές εικόνες img tags */
         .news-img { width: 100%; height: 180px; object-fit: cover; background: #e2e8f0; }
 
         .news-content { padding: 20px; flex: 1; display: flex; flex-direction: column; }
@@ -371,6 +370,21 @@
                         <div class="lang-en">
                             <h3 class="news-title">Compound Interest: The 8th Wonder of the World</h3>
                             <p class="news-desc">Why compound interest is the best friend of the long-term investor.</p>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="article5.html" class="news-card">
+                    <div class="news-thumb" style="background-image: url('etf-guide.jpg');"></div>
+                    <div class="news-content">
+                        <span class="news-meta academy-label" style="background-color: #10b981;">ETFs</span>
+                        <div class="lang-el">
+                            <h3 class="news-title">Οδηγός ETFs: Accumulating vs Distributing</h3>
+                            <p class="news-desc">Η απόλυτη σύγκριση. Μάθετε ποιο είδος ETF σας συμφέρει φορολογικά και επενδυτικά.</p>
+                        </div>
+                        <div class="lang-en">
+                            <h3 class="news-title">ETF Guide: Accumulating vs Distributing</h3>
+                            <p class="news-desc">The ultimate comparison. Learn which ETF type is best for your taxes and growth.</p>
                         </div>
                     </div>
                 </a>
