@@ -1,84 +1,264 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y9DENNW7FP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y9DENNW7FP');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compound Interest | TimeToCompound Academy</title>
+    <title>Compound Interest: Το 8ο θαύμα | TimeToCompound</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
+    
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
     <style>
-        body { font-family: 'Manrope', sans-serif; background: #f8fafc; color: #334155; margin: 0; padding: 20px; line-height: 1.8; }
-        .container { max-width: 800px; margin: 0 auto; background: white; padding: 50px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        h1 { color: #0f172a; font-size: 2.2rem; margin-bottom: 10px; line-height: 1.3; }
-        .meta { color: #64748b; font-size: 0.9rem; margin-bottom: 40px; display: flex; gap: 15px; border-bottom: 1px solid #e2e8f0; padding-bottom: 20px; }
-        .tag { background: #10b981; color: white; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 0.8rem; align-self: center; }
-        img { width: 100%; border-radius: 12px; margin-bottom: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        h2 { color: #065f46; margin-top: 40px; border-left: 4px solid #10b981; padding-left: 15px; }
-        p { margin-bottom: 20px; font-size: 1.1rem; }
-        .table-box { width: 100%; border-collapse: collapse; margin: 30px 0; }
-        .table-box th, .table-box td { border: 1px solid #e2e8f0; padding: 12px; text-align: left; }
-        .table-box th { background: #ecfdf5; color: #065f46; }
-        .back-btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: #64748b; margin-bottom: 20px; font-weight: 700; transition: 0.2s; }
-        .back-btn:hover { color: #2563eb; transform: translateX(-5px); }
+        /* --- ΒΑΣΙΚΟ ΣΤΥΛ --- */
+        :root {
+            --bg-body: #f8fafc; --bg-card: #ffffff; --bg-nav: #ffffff; --bg-footer: #0f172a;
+            --text-main: #0f172a; --text-muted: #64748b; --accent: #2563eb; --border: #e2e8f0;
+        }
+        [data-theme="dark"] {
+            --bg-body: #0f172a; --bg-card: #1e293b; --bg-nav: #1e293b; --bg-footer: #020617;
+            --text-main: #ffffff; --text-muted: #cbd5e1; --accent: #38bdf8; --border: #334155;
+        }
+        body { font-family: 'Manrope', sans-serif; background: var(--bg-body); color: var(--text-main); margin: 0; line-height: 1.8; transition: all 0.3s ease; }
+        
+        nav { background: var(--bg-nav); border-bottom: 1px solid var(--border); padding: 0 20px; position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
+        .icons-group { display: flex; gap: 15px; align-items: center; }
+        .theme-toggle, .lang-toggle { cursor: pointer; padding: 8px; border-radius: 50%; border: 1px solid var(--border); width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; background: transparent; color: var(--text-main); }
+        .lang-toggle { font-size: 1.2rem; border: none; }
+
+        .article-container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        .article-header { text-align: center; margin-bottom: 40px; }
+        .article-tag { background: #eab308; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .article-title { font-size: 2.5rem; font-weight: 800; margin: 15px 0; line-height: 1.2; }
+        .article-meta { color: var(--text-muted); font-size: 0.9rem; }
+        
+        .article-img { width: 100%; height: auto; border-radius: 12px; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        
+        .content { font-size: 1.15rem; color: var(--text-main); }
+        .content h3 { font-size: 1.6rem; margin-top: 40px; margin-bottom: 20px; color: var(--accent); font-weight: 700; }
+        .content ul, .content ol { margin-bottom: 20px; padding-left: 20px; }
+        .content li { margin-bottom: 10px; }
+        .content p { margin-bottom: 20px; }
+        
+        .highlight-box { background: rgba(37, 99, 235, 0.1); border-left: 4px solid var(--accent); padding: 25px; border-radius: 0 8px 8px 0; margin: 30px 0; font-style: italic; }
+        
+        .lang-en { display: none; }
+        body.english-mode .lang-el { display: none !important; }
+        body.english-mode .lang-en { display: block !important; }
+        span.lang-en { display: none; }
+        body.english-mode span.lang-en { display: inline !important; }
+
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-weight: 700; margin-bottom: 30px; transition: 0.2s; }
+        .back-btn:hover { color: var(--accent); transform: translateX(-5px); }
+
+        .site-footer { background: var(--bg-footer); color: #94a3b8 !important; padding: 60px 0 30px; margin-top: 80px; border-top: 1px solid #1e293b; }
+        .footer-grid { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 40px; }
+        .footer-col h3 { color: white !important; font-size: 1.1rem; margin-bottom: 20px; }
+        .footer-desc { font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: #94a3b8; text-decoration: none; transition: 0.2s; font-size: 0.95rem; }
+        .footer-links a:hover { color: var(--accent) !important; padding-left: 5px; }
+        .newsletter-form { display: flex; gap: 10px; margin-top: 15px; }
+        .newsletter-input { padding: 12px; border-radius: 6px; border: 1px solid #334155; background: #1e293b; color: white; flex: 1; outline: none; }
+        .newsletter-btn { background: var(--accent); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 700; cursor: pointer; }
+        .newsletter-btn:hover { opacity: 0.9; }
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icons a { width: 35px; height: 35px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white; transition: 0.3s; text-decoration: none; }
+        .social-icons a:hover { background: var(--accent); transform: translateY(-3px); }
+        .footer-bottom { text-align: center; border-top: 1px solid #1e293b; margin-top: 40px; padding-top: 20px; font-size: 0.85rem; }
+
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .newsletter-form { flex-direction: column; }
+            .social-icons { justify-content: center; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Επιστροφή στο Dashboard</a>
-        <br>
-        <span class="tag">INVESTING 101</span>
-        <h1>Compound Interest: Το "8ο Θαύμα" του Κόσμου</h1>
-        <div class="meta">
-            <span><i class="far fa-clock"></i> 4 λεπτά ανάγνωση</span>
-            <span><i class="far fa-user"></i> Συντακτική Ομάδα</span>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo"><i class="fas fa-chart-pie"></i> TimeToCompound</a>
+        <div class="icons-group">
+            <button class="lang-toggle" onclick="toggleLanguage()">
+                <span class="lang-el">🇬🇧</span> <span class="lang-en">🇬🇷</span>
+            </button>
+            <div class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon" id="theme-icon"></i></div>
         </div>
-        <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=1000" alt="Snowball Effect">
-        
-        <p>Ο Άλμπερτ Αϊνστάιν φέρεται να είπε ότι <em>«Ο ανατοκισμός (Compound Interest) είναι το όγδοο θαύμα του κόσμου. Αυτός που το καταλαβαίνει, το κερδίζει. Αυτός που δεν το καταλαβαίνει, το πληρώνει»</em>.</p>
-        <p>Στην ουσία, είναι η διαδικασία όπου <strong>τα χρήματά σου βγάζουν χρήματα, και μετά τα νέα χρήματα βγάζουν κι αυτά χρήματα</strong>. Είναι το φαινόμενο της χιονοστιβάδας.</p>
-
-        <h2>Απλός vs Σύνθετος Τόκος</h2>
-        <p>Ας δούμε τη διαφορά με ένα παράδειγμα επένδυσης 10.000€ με απόδοση 10%:</p>
-        
-        <table class="table-box">
-            <thead>
-                <tr>
-                    <th>Έτος</th>
-                    <th>Απλός Τόκος (Κέρδος)</th>
-                    <th>Ανατοκισμός (Κέρδος)</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Έτος 1</td>
-                    <td>1.000€</td>
-                    <td>1.000€</td>
-                </tr>
-                <tr>
-                    <td>Έτος 5</td>
-                    <td>5.000€</td>
-                    <td>6.105€</td>
-                </tr>
-                <tr>
-                    <td>Έτος 20</td>
-                    <td>20.000€</td>
-                    <td><strong>57.275€</strong></td>
-                </tr>
-            </tbody>
-        </table>
-        
-        <p>Στα 20 χρόνια, η διαφορά είναι χαοτική. Με τον ανατοκισμό, δεν προσθέσατε ούτε ένα ευρώ παραπάνω από την τσέπη σας, αλλά το κεφάλαιο σχεδόν εξαπλασιάστηκε.</p>
-
-        <h2>Ο Κανόνας του 72</h2>
-        <p>Θέλετε να μάθετε πόσο γρήγορα θα διπλασιαστούν τα χρήματά σας; Χρησιμοποιήστε αυτό το απλό κόλπο:</p>
-        <p><strong>Διαιρέστε το 72 με το επιτόκιο που κερδίζετε.</strong></p>
-        <ul>
-            <li>Αν κερδίζετε 8% ετησίως: 72 ÷ 8 = <strong>9 χρόνια</strong> για να διπλασιαστούν τα λεφτά σας.</li>
-            <li>Αν κερδίζετε 12% ετησίως: 72 ÷ 12 = <strong>6 χρόνια</strong>.</li>
-        </ul>
-
-        <h2>Το Μυστικό είναι ο Χρόνος</h2>
-        <p>Το σημαντικότερο συστατικό του ανατοκισμού δεν είναι τα χρήματα, αλλά ο <strong>Χρόνος</strong>. Όσο νωρίτερα ξεκινήσετε, τόσο πιο απότομη γίνεται η καμπύλη της ανάπτυξης μετά τα 10-15 χρόνια. Ξεκινήστε σήμερα, έστω και με λίγα.</p>
     </div>
+</nav>
+
+<div class="article-container">
+    <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i> 
+        <span class="lang-el">Πίσω στην Αρχική</span>
+        <span class="lang-en">Back to Home</span>
+    </a>
+
+    <article>
+        <header class="article-header">
+            <span class="article-tag" style="background-color:#5a67d8;">INVESTING</span>
+            
+            <div class="lang-el">
+                <h1 class="article-title">Compound Interest: Το 8ο θαύμα του κόσμου</h1>
+                <div class="article-meta">5 Λεπτά Ανάγνωση • Από TimeToCompound</div>
+            </div>
+            <div class="lang-en">
+                <h1 class="article-title">Compound Interest: The 8th Wonder of the World</h1>
+                <div class="article-meta">5 Min Read • By TimeToCompound</div>
+            </div>
+        </header>
+
+        <img src="compound-large.jpg" class="article-img" alt="Γράφημα Ανατοκισμού">
+        
+        <div class="content">
+            
+            <div class="lang-el">
+                <p>Ο Albert Einstein φέρεται να είπε: "Ο ανατοκισμός είναι το όγδοο θαύμα του κόσμου. Αυτός που το καταλαβαίνει, το κερδίζει. Αυτός που δεν το καταλαβαίνει, το πληρώνει."</p>
+                <p>Στην καρδιά της μακροπρόθεσμης επιτυχίας στις επενδύσεις βρίσκεται η δύναμη του ανατοκισμού (Compound Interest).</p>
+                
+                <div class="highlight-box">
+                    <strong>Ανατοκισμός:</strong> Είναι το φαινόμενο όπου τα κέρδη που βγάζετε από την επένδυσή σας, αρχίζουν να βγάζουν και αυτά κέρδη με τη σειρά τους. Κερδίζετε χρήματα από τα κέρδη σας.
+                </div>
+
+                <h3>1. Η Διαφορά μεταξύ Απλού και Σύνθετου Τόκου</h3>
+                <p>Φανταστείτε ότι επενδύετε €10.000 με απόδοση 10% ετησίως.</p>
+                <ul>
+                    <li><strong>Απλός Τόκος (Simple Interest):</strong> Κάθε χρόνο κερδίζετε €1.000 (€10.000 x 10%). Μετά από 10 χρόνια, έχετε €20.000.</li>
+                    <li><strong>Σύνθετος Τόκος (Compound Interest):</strong> Τον 1ο χρόνο κερδίζετε €1.000. Τον 2ο χρόνο, κερδίζετε 10% όχι στα €10.000, αλλά στα €11.000. Τον 3ο χρόνο, κερδίζετε 10% στα €12.100, κ.ο.κ. Μετά από 10 χρόνια, έχετε σχεδόν €26.000.</li>
+                </ul>
+                
+                <h3>2. Ο Παράγοντας του Χρόνου</h3>
+                <p>Όσο περισσότερος είναι ο χρόνος, τόσο πιο εκθετική γίνεται η αύξηση. Στα πρώτα χρόνια, η διαφορά είναι μικρή. Όμως, μετά το 10ο ή 15ο έτος, η καμπύλη αρχίζει να ανεβαίνει δραματικά.</p>
+                <p>Αυτό σημαίνει ότι ο <strong>χρόνος</strong> είναι ο μεγαλύτερος σας σύμμαχος, ακόμα κι αν ξεκινήσετε με μικρά ποσά.</p>
+
+                <h3>3. Πώς να το αξιοποιήσετε</h3>
+                <ol>
+                    <li><strong>Ξεκινήστε Νωρίς:</strong> Η μεγαλύτερη δύναμη του ανατοκισμού είναι ο χρόνος. Μη φοβάστε τα μικρά ποσά.</li>
+                    <li><strong>Επανεπένδυση:</strong> Μην κάνετε ανάληψη των κερδών. Αφήστε τα να μείνουν στην επένδυση για να παράγουν περισσότερα κέρδη.</li>
+                    <li><strong>Συνέπεια:</strong> Συνεχίστε να προσθέτετε χρήματα στην επένδυση τακτικά (π.χ., κάθε μήνα).</li>
+                </ol>
+
+                <h3>Συμπέρασμα</h3>
+                <p>Ο ανατοκισμός δεν είναι μαγεία, είναι μαθηματικά, και λειτουργεί σιωπηλά στο παρασκήνιο, χτίζοντας τον πλούτο σας. Μάθετε να τον χρησιμοποιείτε προς όφελός σας.</p>
+            </div>
+
+            <div class="lang-en">
+                <p>Albert Einstein is often quoted as saying, "Compound interest is the eighth wonder of the world. He who understands it, earns it... he who doesn't, pays it."</p>
+                <p>At the heart of long-term investment success lies the power of compounding.</p>
+                
+                <div class="highlight-box">
+                    <strong>Compounding:</strong> This is the phenomenon where the earnings you generate from your investment start generating earnings themselves. You earn money on your earnings.
+                </div>
+
+                <h3>1. The Difference Between Simple and Compound Interest</h3>
+                <p>Imagine you invest €10,000 with a 10% annual return.</p>
+                <ul>
+                    <li><strong>Simple Interest:</strong> Every year you earn €1,000 (€10,000 x 10%). After 10 years, you have €20,000.</li>
+                    <li><strong>Compound Interest:</strong> In the 1st year, you earn €1,000. In the 2nd year, you earn 10% not on €10,000, but on €11,000. In the 3rd year, you earn 10% on €12,100, and so on. After 10 years, you have almost €26,000.</li>
+                </ul>
+                
+                <h3>2. The Time Factor</h3>
+                <p>The longer the time period, the more exponential the growth becomes. In the early years, the difference is small. However, after the 10th or 15th year, the curve begins to climb dramatically.</p>
+                <p>This means that <strong>time</strong> is your greatest ally, even if you start with small amounts.</p>
+
+                <h3>3. How to Leverage it</h3>
+                <ol>
+                    <li><strong>Start Early:</strong> The greatest power of compounding is time. Don't be afraid of small amounts.</li>
+                    <li><strong>Reinvest:</strong> Do not withdraw profits. Leave them in the investment to generate more profits.</li>
+                    <li><strong>Consistency:</strong> Continue adding money to the investment regularly (e.g., monthly).</li>
+                </ol>
+
+                <h3>Conclusion</h3>
+                <p>Compound interest is not magic, it is math, and it works silently in the background, building your wealth. Learn to use it to your advantage.</p>
+            </div>
+
+        </div>
+    </article>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h3>TimeToCompound</h3>
+            <div class="footer-desc">
+                <span class="lang-el">Ο αξιόπιστος οδηγός σου για τις διεθνείς αγορές, το χρηματιστήριο και τα κρυπτονομίσματα. Μάθετε, Επενδύστε, Αναπτυχθείτε.</span>
+                <span class="lang-en">Your trusted guide to international markets, stocks, and cryptocurrencies. Learn, Invest, Grow.</span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3>
+                <span class="lang-el">Σύνδεσμοι</span>
+                <span class="lang-en">Quick Links</span>
+            </h3>
+            <ul class="footer-links">
+                <li><a href="index.html"><span class="lang-el">Αρχική</span><span class="lang-en">Home</span></a></li>
+                <li><a href="index.html"><span class="lang-el">Ροή Ειδήσεων</span><span class="lang-en">News Feed</span></a></li>
+                <li><a href="https://freedom24.com/invite_from/1767598" target="_blank"><span class="lang-el">Επενδύστε</span><span class="lang-en">Start Investing</span></a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Newsletter</h3>
+            <p class="footer-desc">
+                <span class="lang-el">Λάβετε τα σημαντικότερα νέα της ημέρας στο email σας.</span>
+                <span class="lang-en">Get the most important news of the day directly to your email.</span>
+            </p>
+            
+            <form action="https://formspree.io/f/xpwvyare" method="POST" class="newsletter-form">
+                <input type="email" name="email" class="newsletter-input" placeholder="Email..." required>
+                <button type="submit" class="newsletter-btn">
+                    <span class="lang-el">Εγγραφή</span>
+                    <span class="lang-en">Subscribe</span>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2025 TimeToCompound. All rights reserved. | <a href="#">Terms</a> | <a href="#">Privacy</a>
+    </div>
+</footer>
+
+<script>
+    function toggleLanguage() {
+        const body = document.body;
+        if (body.classList.contains('english-mode')) {
+            body.classList.remove('english-mode');
+        } else {
+            body.classList.add('english-mode');
+        }
+    }
+
+    function toggleTheme() {
+        const body = document.body;
+        const icon = document.getElementById('theme-icon');
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            icon.classList.remove('fa-sun'); icon.classList.add('fa-moon');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            icon.classList.remove('fa-moon'); icon.classList.add('fa-sun');
+        }
+    }
+</script>
+
 </body>
 </html>
