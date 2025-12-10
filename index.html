@@ -54,10 +54,20 @@
         nav { background: var(--bg-nav); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; padding: 0 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 70px; }
         
-        /* LOGO STYLE */
-        .logo { font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; cursor: pointer; text-decoration: none; color: var(--text-main); }
-        .logo img { transition: transform 0.3s ease; }
-        .logo:hover img { transform: scale(1.1); }
+        /* LOGO STYLE (NO IMAGE FILE NEEDED) */
+        .logo { font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; cursor: pointer; text-decoration: none; color: var(--text-main); gap: 10px; }
+        .logo-icon-box {
+            width: 40px; 
+            height: 40px; 
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%); 
+            border-radius: 8px; 
+            display: flex; 
+            align-items: center; 
+            justify-content: center; 
+            color: white;
+            box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+        }
+        .logo:hover .logo-icon-box { transform: scale(1.05); transition: 0.2s; }
 
         .menu { display: flex; gap: 10px; }
         .menu-btn { background: none; border: none; font-size: 0.95rem; font-weight: 600; color: var(--text-muted); cursor: pointer; padding: 8px 16px; border-radius: 6px; transition: 0.2s; }
@@ -179,8 +189,10 @@
 
 <nav>
     <div class="nav-container">
-        <a href="index.html" class="logo" style="display: flex; align-items: center; gap: 12px; text-decoration: none;">
-            <img src="logo.png" alt="TimeToCompound Logo" style="height: 50px; width: auto;">
+        <a href="index.html" class="logo">
+            <div class="logo-icon-box">
+                <i class="fas fa-chart-line" style="font-size: 20px;"></i>
+            </div>
             <span style="font-size: 1.4rem; font-weight: 800; letter-spacing: -0.5px;">TimeToCompound</span>
         </a>
 
