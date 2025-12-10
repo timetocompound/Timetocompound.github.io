@@ -38,7 +38,7 @@
             --bg-nav: #1e293b;
             --bg-footer: #020617;
             --text-main: #ffffff;      
-            --text-muted: #cbd5e1;     
+            --text-muted: #cbd5e1;      
             --accent: #38bdf8;
             --border: #334155;
             --shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
@@ -87,7 +87,7 @@
         .hero-overlay { position: absolute; bottom: 0; left: 0; right: 0; background: var(--hero-overlay); padding: 30px; color: white !important; }
         .hero-overlay * { color: white !important; }
         .hero-tag { background: var(--accent); padding: 4px 10px; border-radius: 4px; font-size: 0.75rem; font-weight: 700; text-transform: uppercase; margin-bottom: 10px; display: inline-block; }
-        .hero-title { font-size: 1.8rem; font-weight: 800; margin: 0; line-height: 1.2; text-shadow: 0 2px 4px rgba(0,0,0,0.3); }
+        .hero-title { font-size: 1.8rem; font-weight: 800; margin: 0; line-height: 1.2; text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3); }
 
         .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
         .news-card { background: var(--bg-card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); transition: 0.2s; display: flex; flex-direction: column; height: 100%; cursor: pointer; }
@@ -115,7 +115,7 @@
         .newsletter-btn:hover { opacity: 0.9; }
 
         .social-icons { display: flex; gap: 15px; margin-top: 20px; }
-        .social-icons a { width: 35px; height: 35px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white; transition: 0.3s; }
+        .social-icons a { width: 35px; height: 35px; background: rgba(255, 255, 255, 0.1); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white; transition: 0.3s; }
         .social-icons a:hover { background: var(--accent); transform: translateY(-3px); }
 
         .footer-bottom { text-align: center; border-top: 1px solid #1e293b; margin-top: 40px; padding-top: 20px; font-size: 0.85rem; }
@@ -320,7 +320,7 @@
             <div class="news-grid">
                 
                 <a href="article1.html" class="news-card">
-                    <img src="https://images.unsplash.com/photo-1611974765270-ca1258634369?w=600" class="news-img">
+                    <img src="assets/images/prices-move.jpg" class="news-img">
                     <div class="news-content">
                         <span class="news-meta academy-label">BEGINNER</span>
                         
@@ -337,7 +337,7 @@
                 </a>
 
                 <a href="article2.html" class="news-card">
-                    <img src="https://images.unsplash.com/photo-1621504450168-b8c493a95f26?w=600" class="news-img">
+                    <img src="assets/images/blockchain.jpg" class="news-img">
                     <div class="news-content">
                         <span class="news-meta academy-label">CRYPTO</span>
                         
@@ -354,7 +354,7 @@
                 </a>
 
                 <a href="article3.html" class="news-card">
-                    <img src="https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600" class="news-img">
+                    <img src="assets/images/compound-interest.jpg" class="news-img">
                     <div class="news-content">
                         <span class="news-meta academy-label">INVESTING</span>
                         
@@ -550,13 +550,21 @@
         { url: 'https://cointelegraph.com/rss', source: 'CoinTelegraph' }
     ];
 
-    const images = [
+    // ΛΙΣΤΑ ΜΕ ΤΙΣ ΤΟΠΙΚΕΣ ΕΙΚΟΝΕΣ ΑΚΑΔΗΜΙΑΣ
+    const ACADEMY_IMAGES = {
+        'article1.html': 'assets/images/prices-move.jpg',
+        'article2.html': 'assets/images/blockchain.jpg',
+        'article3.html': 'assets/images/compound-interest.jpg'
+    };
+    
+    // Εικόνες για τα δυναμικά φορτωμένα άρθρα (αν δεν βρεθεί thumbnail)
+    const DEFAULT_IMAGES = [
         'https://images.unsplash.com/photo-1611974765270-ca1258634369?w=600',
         'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600',
         'https://images.unsplash.com/photo-1621504450168-b8c493a95f26?w=600',
         'https://images.unsplash.com/photo-1642543492481-44e81e3914a7?w=600'
     ];
-    function getImg() { return images[Math.floor(Math.random() * images.length)]; }
+    function getRandomImage() { return DEFAULT_IMAGES[Math.floor(Math.random() * DEFAULT_IMAGES.length)]; }
 
     function formatDate(dateString) {
         const date = new Date(dateString);
@@ -574,10 +582,10 @@
                 // Limit to 6 items to keep the grid clean
                 data.items.slice(0, 6).forEach(item => { 
                     let desc = item.description.replace(/<[^>]*>?/gm, '').substring(0, 120) + '...';
-                    let img = getImg(); 
+                    let img = getRandomImage(); // Χρήση τυχαίας εικόνας για αυτά τα άρθρα
                     container.innerHTML += `
                         <a href="${item.link}" target="_blank" class="news-card">
-                             <img src="${img}" class="news-img" loading="lazy">
+                            <img src="${img}" class="news-img" loading="lazy">
                             <div class="news-content"><span class="news-meta">ANALYSIS</span><h3 class="news-title">${item.title}</h3><p class="news-desc">${desc}</p><div style="font-size:0.75rem; color:var(--text-muted); margin-top:auto;">${formatDate(item.pubDate)}</div></div>
                         </a>`;
                 });
@@ -601,7 +609,7 @@
 
         if(allItems.length > 0) {
             const hero = allItems[0];
-            const heroImg = (hero.thumbnail && hero.thumbnail.length > 10) ? hero.thumbnail : (hero.enclosure?.link && hero.enclosure.link.length > 10) ? hero.enclosure.link : getImg();
+            const heroImg = (hero.thumbnail && hero.thumbnail.length > 10) ? hero.thumbnail : (hero.enclosure?.link && hero.enclosure.link.length > 10) ? hero.enclosure.link : getRandomImage();
             document.getElementById('hero-container').innerHTML = `
                 <div class="hero-card" onclick="window.open('${hero.link}', '_blank')">
                     <img src="${heroImg}" class="hero-bg">
@@ -612,7 +620,7 @@
 
         container.innerHTML = '';
         allItems.forEach(item => {
-            let img = (item.thumbnail && item.thumbnail.length > 10) ? item.thumbnail : (item.enclosure?.link && item.enclosure.link.length > 10) ? item.enclosure.link : getImg();
+            let img = (item.thumbnail && item.thumbnail.length > 10) ? item.thumbnail : (item.enclosure?.link && item.enclosure.link.length > 10) ? item.enclosure.link : getRandomImage();
             let desc = item.description.replace(/<[^>]*>?/gm, '').substring(0, 100) + '...';
             container.innerHTML += `
                 <a href="${item.link}" target="_blank" class="news-card">
@@ -623,7 +631,7 @@
     }
     
     loadNews();
-    loadArticles(); // Call loadArticles() again
+    loadArticles(); 
 </script>
 </body>
 </html>
