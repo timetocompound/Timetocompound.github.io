@@ -18,36 +18,50 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
     <style>
-        :root { --bg-body: #f8fafc; --text-main: #0f172a; --accent: #2563eb; --card: #ffffff; }
-        [data-theme="dark"] { --bg-body: #0f172a; --text-main: #ffffff; --accent: #38bdf8; --card: #1e293b; }
+        :root { --bg-body: #f8fafc; --text-main: #0f172a; --accent: #2563eb; --card: #ffffff; --border: #e2e8f0; }
+        [data-theme="dark"] { --bg-body: #0f172a; --text-main: #ffffff; --accent: #38bdf8; --card: #1e293b; --border: #334155; }
         body { font-family: 'Manrope', sans-serif; background: var(--bg-body); color: var(--text-main); margin: 0; line-height: 1.8; transition: 0.3s; }
         
         .article-container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
         .article-header { text-align: center; margin-bottom: 40px; }
-        .tag { background: #10b981; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; }
+        .tag { background: #10b981; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
         .article-title { font-size: 2.2rem; font-weight: 800; margin: 15px 0; line-height: 1.2; }
         
+        /* Updated Image Name in code will match file */
         .article-img { width: 100%; border-radius: 12px; margin-bottom: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.1); }
         
         .content h2 { color: var(--accent); margin-top: 40px; font-size: 1.5rem; border-left: 4px solid var(--accent); padding-left: 15px; }
+        .content h3 { font-size: 1.2rem; margin-top: 30px; font-weight: 700; }
         .content p { margin-bottom: 20px; font-size: 1.1rem; }
-        
+        .content ul { margin-bottom: 20px; padding-left: 20px; }
+        .content li { margin-bottom: 10px; }
+
         /* Comparison Box Style */
-        .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 30px 0; }
-        .comp-card { background: var(--card); padding: 20px; border-radius: 12px; border: 1px solid #e2e8f0; text-align: center; }
-        [data-theme="dark"] .comp-card { border-color: #334155; }
-        .comp-icon { font-size: 2rem; margin-bottom: 10px; display: block; }
-        .comp-title { font-weight: 800; display: block; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; }
+        .comparison-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin: 40px 0; }
+        .comp-card { background: var(--card); padding: 25px; border-radius: 16px; border: 1px solid var(--border); text-align: center; transition: transform 0.2s; }
+        .comp-card:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(0,0,0,0.05); }
+        .comp-icon { font-size: 2.5rem; margin-bottom: 15px; display: block; }
+        .comp-title { font-weight: 800; display: block; margin-bottom: 10px; text-transform: uppercase; letter-spacing: 1px; font-size: 1.1rem; }
+        
+        /* Table Style */
+        .data-table { width: 100%; border-collapse: collapse; margin: 30px 0; background: var(--card); border-radius: 8px; overflow: hidden; font-size: 0.95rem; }
+        .data-table th, .data-table td { padding: 12px 15px; text-align: left; border-bottom: 1px solid var(--border); }
+        .data-table th { background: rgba(37, 99, 235, 0.1); color: var(--accent); font-weight: 800; }
         
         /* Chart Simulation */
-        .chart-box { background: var(--card); padding: 20px; border-radius: 12px; margin: 30px 0; position: relative; height: 200px; display: flex; align-items: flex-end; justify-content: space-around; border-bottom: 2px solid var(--text-main); border-left: 2px solid var(--text-main); }
-        .bar { width: 30px; background: var(--accent); border-radius: 4px 4px 0 0; position: relative; transition: height 1s; }
-        .bar-acc { background: #10b981; } /* Green for Accumulating */
-        .bar-label { position: absolute; bottom: -30px; left: 50%; transform: translateX(-50%); font-size: 0.8rem; font-weight: bold; }
+        .chart-box { background: var(--card); padding: 30px; border-radius: 16px; margin: 40px 0; position: relative; height: 250px; display: flex; align-items: flex-end; justify-content: space-around; border: 1px solid var(--border); }
+        .bar-group { display: flex; flex-direction: column; align-items: center; gap: 5px; width: 40px; }
+        .bar { width: 100%; background: #94a3b8; border-radius: 4px 4px 0 0; transition: height 1s; position: relative; }
+        .bar-acc { background: #10b981; position: absolute; bottom: 0; width: 100%; border-radius: 4px 4px 0 0; opacity: 0.9; } 
+        .bar-dist { background: #3b82f6; height: 100%; width: 100%; border-radius: 4px 4px 0 0; position: absolute; bottom: 0; opacity: 0.7; }
+        .bar-label { font-size: 0.8rem; font-weight: bold; margin-top: 10px; }
         
-        .highlight-box { background: rgba(16, 185, 129, 0.1); border: 1px solid #10b981; padding: 20px; border-radius: 8px; margin: 30px 0; }
+        .highlight-box { background: rgba(16, 185, 129, 0.1); border-left: 4px solid #10b981; padding: 25px; border-radius: 0 8px 8px 0; margin: 30px 0; }
+        .info-box { background: rgba(59, 130, 246, 0.1); border-radius: 12px; padding: 20px; margin: 30px 0; display: flex; gap: 15px; align-items: start; }
+        .info-icon { color: var(--accent); font-size: 1.5rem; margin-top: 2px; }
 
-        .back-btn { text-decoration: none; color: var(--text-main); font-weight: bold; display: flex; align-items: center; gap: 5px; margin-bottom: 20px; }
+        .back-btn { text-decoration: none; color: var(--text-main); font-weight: bold; display: flex; align-items: center; gap: 5px; margin-bottom: 20px; transition: 0.2s; }
+        .back-btn:hover { color: var(--accent); transform: translateX(-5px); }
         
         .lang-en { display: none; }
         body.english-mode .lang-el { display: none !important; }
@@ -65,135 +79,241 @@
     
     <article>
         <header class="article-header">
-            <span class="tag">ETFs 101</span>
+            <span class="tag">Investing 101</span>
             
             <div class="lang-el">
-                <h1 class="article-title">Οδηγός ETFs: Τι είναι και η μάχη Accumulating vs Distributing</h1>
-                <div style="color:gray;">7 Λεπτά Ανάγνωση</div>
+                <h1 class="article-title">Οδηγός ETFs: Accumulating vs Distributing – Ποιο να διαλέξω;</h1>
+                <div style="color:gray;">8 Λεπτά Ανάγνωση • Από TimeToCompound</div>
             </div>
             <div class="lang-en">
-                <h1 class="article-title">ETF Guide: What they are & Accumulating vs Distributing</h1>
-                <div style="color:gray;">7 Min Read</div>
+                <h1 class="article-title">ETF Guide: Accumulating vs Distributing – Which one to choose?</h1>
+                <div style="color:gray;">8 Min Read • By TimeToCompound</div>
             </div>
         </header>
 
-        <img src="etf-guide.jpg" class="article-img" alt="ETF Investment Concept">
+        <img src="etf-guide1.jpg" class="article-img" alt="ETF Investment Strategy">
 
         <div class="content">
             
             <div class="lang-el">
-                <p>Αν το χρηματιστήριο ήταν σούπερ μάρκετ, η αγορά μεμονωμένων μετοχών θα ήταν σαν να προσπαθείτε να διαλέξετε τα καλύτερα αυγά ένα-ένα. Το ETF (Exchange Traded Fund) είναι σαν να αγοράζετε ολόκληρο το καλάθι.</p>
+                <p>Στον κόσμο των επενδύσεων, τα ETFs (Exchange Traded Funds) έχουν φέρει επανάσταση. Αντί να ψάχνετε τη "βελόνα στα άχυρα" προσπαθώντας να βρείτε την επόμενη Apple ή Tesla, τα ETFs σας επιτρέπουν να αγοράσετε ολόκληρο τον "αχυρώνα".</p>
                 
-                <h2>Τι είναι ένα ETF;</h2>
-                <p>Ένα ETF είναι ένα "καλάθι" που περιέχει εκατοντάδες ή χιλιάδες μετοχές. Αγοράζοντας **μία** μετοχή του ETF, αποκτάτε αυτόματα μερίδιο σε όλες τις εταιρείες που περιέχει.</p>
-                <p>Το πιο διάσημο παράδειγμα είναι ένα ETF που ακολουθεί τον **S&P 500**. Με μία κίνηση, επενδύετε στις 500 μεγαλύτερες εταιρείες της Αμερικής (Apple, Microsoft, Google, κλπ.).</p>
+                <div class="info-box">
+                    <i class="fas fa-info-circle info-icon"></i>
+                    <div>
+                        <strong>Τι είναι το ETF απλά;</strong><br>
+                        Φανταστείτε ένα καλάθι που περιέχει μετοχές από εκατοντάδες εταιρείες. Αγοράζοντας μία μετοχή του καλαθιού (ETF), αποκτάτε αυτόματα ένα μικρό κομμάτι από όλες τις εταιρείες που περιέχει.
+                    </div>
+                </div>
 
-                <h2>Η Μεγάλη Απόφαση: Accumulating ή Distributing;</h2>
-                <p>Όταν διαλέγετε ETF, θα δείτε δίπλα στο όνομα τα αρχικά <strong>(Acc)</strong> ή <strong>(Dist)</strong>. Αυτή είναι η πιο κρίσιμη επιλογή για την εφορία και την απόδοσή σας.</p>
+                <h2>Η Κρίσιμη Επιλογή: Acc vs Dist</h2>
+                <p>Όταν ψάχνετε για ένα ETF (π.χ. στον S&P 500), θα δείτε ότι υπάρχουν δύο εκδοχές του ίδιου προϊόντος. Η διαφορά τους βρίσκεται στο <strong>πώς διαχειρίζονται τα μερίσματα</strong>.</p>
 
                 <div class="comparison-grid">
                     <div class="comp-card">
-                        <span class="comp-icon">💰</span>
+                        <span class="comp-icon">💸</span>
                         <span class="comp-title">Distributing (Dist)</span>
                         <p><strong>Διανομή Μερίσματος</strong></p>
-                        <p style="font-size:0.9rem;">Τα μερίσματα από τις εταιρείες μπαίνουν στον τραπεζικό σας λογαριασμό ως μετρητά.</p>
-                        <hr style="margin:10px 0; border:0; border-top:1px solid #ccc;">
-                        <p style="font-size:0.8rem;">👍 Καλό για: Παθητικό εισόδημα τώρα.</p>
-                        <p style="font-size:0.8rem; color:red;">👎 Κακό για: Εφορία (φορολογείται το μέρισμα) & χάνετε τον αυτόματο ανατοκισμό.</p>
+                        <p style="font-size:0.9rem; color:var(--text-muted);">Τα μερίσματα καταβάλλονται στον λογαριασμό σας ως μετρητά (συνήθως ανά τρίμηνο ή εξάμηνο).</p>
+                        <hr style="margin:15px 0; border:0; border-top:1px solid var(--border);">
+                        <ul style="text-align:left; font-size:0.85rem; list-style:none; padding:0;">
+                            <li>✅ Παθητικό εισόδημα (Cash flow)</li>
+                            <li>❌ Φορολογείται άμεσα (συνήθως)</li>
+                            <li>❌ Χάνετε τον αυτόματο ανατοκισμό</li>
+                        </ul>
                     </div>
                     <div class="comp-card" style="border: 2px solid #10b981;">
                         <span class="comp-icon">🔄</span>
                         <span class="comp-title">Accumulating (Acc)</span>
-                        <p><strong>Επανα-επένδυση (Συσσώρευση)</strong></p>
-                        <p style="font-size:0.9rem;">Τα μερίσματα ΔΕΝ σας δίνονται. Το ETF τα χρησιμοποιεί αυτόματα για να αγοράσει κι άλλες μετοχές.</p>
-                        <hr style="margin:10px 0; border:0; border-top:1px solid #ccc;">
-                        <p style="font-size:0.8rem;">👍 Καλό για: Μακροπρόθεσμη ανάπτυξη (Compound Interest) & Φοροαπαλλαγή (σε πολλές χώρες).</p>
+                        <p><strong>Συσσώρευση (Επανα-επένδυση)</strong></p>
+                        <p style="font-size:0.9rem; color:var(--text-muted);">Τα μερίσματα ΔΕΝ σας δίνονται. Το ETF τα χρησιμοποιεί αυτόματα για να αγοράσει κι άλλες μετοχές του εαυτού του.</p>
+                        <hr style="margin:15px 0; border:0; border-top:1px solid var(--border);">
+                        <ul style="text-align:left; font-size:0.85rem; list-style:none; padding:0;">
+                            <li>✅ Αυτόματος Ανατοκισμός (Compound)</li>
+                            <li>✅ Φορολογική αποτελεσματικότητα</li>
+                            <li>❌ Δεν δίνει μετρητά στο χέρι</li>
+                        </ul>
                     </div>
                 </div>
 
-                <h2>Η Δύναμη του Accumulating (Οπτικά)</h2>
-                <p>Δείτε πώς μεγαλώνει το κεφάλαιο όταν τα μερίσματα επανα-επενδύονται αυτόματα (Πράσινο) vs όταν τα τραβάτε (Μπλε).</p>
-                
+                <h2>Γιατί το Accumulating κερδίζει μακροπρόθεσμα;</h2>
+                <p>Η μαγεία βρίσκεται στον ανατοκισμό. Όταν τα μερίσματα επανα-επενδύονται, αγοράζουν νέες μετοχές, οι οποίες με τη σειρά τους παράγουν νέα μερίσματα. Είναι μια χιονοστιβάδα.</p>
+                <p>Δείτε τη διαφορά σε βάθος 20 ετών με αρχικό κεφάλαιο €10.000 και ετήσια απόδοση 8% (εκ των οποίων 2% μέρισμα):</p>
+
                 <div class="chart-box">
-                    <div style="text-align:center;">
-                        <div class="bar" style="height: 50px;"></div>
-                        <span class="bar-label">Έτος 1</span>
+                    <div class="bar-group">
+                        <div style="height: 100px; width: 100%; position: relative;">
+                            <div class="bar-acc" style="height: 40px; background:#ccc;"></div>
+                        </div>
+                        <span class="bar-label">Start</span>
                     </div>
-                    <div style="text-align:center;">
-                        <div class="bar" style="height: 70px;"></div>
-                        <div class="bar bar-acc" style="height: 80px; position:absolute; bottom:0; opacity:0.5; width:30px;"></div> <span class="bar-label">Έτος 5</span>
+                    <div class="bar-group">
+                        <div style="height: 100px; width: 100%; position: relative;">
+                            <div class="bar-dist" style="height: 60px;"></div>
+                            <div class="bar-acc" style="height: 75px; opacity:0.6; z-index:2;"></div>
+                        </div>
+                        <span class="bar-label">10 Έτη</span>
                     </div>
-                    <div style="text-align:center;">
-                        <div class="bar" style="height: 100px;"></div>
-                        <div class="bar bar-acc" style="height: 140px; position:absolute; bottom:0; opacity:0.5; width:30px;"></div> <span class="bar-label">Έτος 10</span>
+                    <div class="bar-group">
+                        <div style="height: 200px; width: 100%; position: relative; display:flex; align-items:flex-end;">
+                            <div class="bar-dist" style="height: 120px; width:45%; margin-right:5%;"></div> <div class="bar-acc" style="height: 180px; width:45%; background:#10b981; opacity:1;"></div> </div>
+                        <span class="bar-label">20 Έτη</span>
                     </div>
-                    <div style="position:absolute; top:10px; right:10px; font-size:0.8rem;">
-                        <span style="color:var(--accent);">■ Distributing</span> <br> 
-                        <span style="color:#10b981;">■ Accumulating (Winner)</span>
+                    
+                    <div style="position:absolute; top:20px; right:20px; font-size:0.85rem; text-align:right;">
+                        <div style="margin-bottom:5px;"><span style="display:inline-block; width:12px; height:12px; background:#3b82f6; margin-right:5px;"></span> Distributing</div>
+                        <div><span style="display:inline-block; width:12px; height:12px; background:#10b981; margin-right:5px;"></span> <strong>Accumulating</strong></div>
                     </div>
                 </div>
+
+                <h2>Δημοφιλή Παραδείγματα ETFs (UCITS)</h2>
+                <p>Για εμάς τους Ευρωπαίους, τα ETFs πρέπει να είναι "UCITS" (εγκεκριμένα από την ΕΕ). Ορίστε μερικοί κωδικοί (Tickers) για τους πιο δημοφιλείς δείκτες:</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Δείκτης</th>
+                            <th>Accumulating (Acc)</th>
+                            <th>Distributing (Dist)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>S&P 500</strong> (USA)</td>
+                            <td>VUAA / SXR8</td>
+                            <td>VUSA</td>
+                        </tr>
+                        <tr>
+                            <td><strong>MSCI World</strong> (Global)</td>
+                            <td>IWDA / SWDA</td>
+                            <td>IWRD</td>
+                        </tr>
+                        <tr>
+                            <td><strong>NASDAQ 100</strong> (Tech)</td>
+                            <td>SXRV / EQQQ</td>
+                            <td>EQQQ (Dist)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>All-World</strong> (Developed + Emerging)</td>
+                            <td>VWCE</td>
+                            <td>VWRL</td>
+                        </tr>
+                    </tbody>
+                </table>
 
                 <div class="highlight-box">
-                    <strong>Συμπέρασμα:</strong> Αν είστε νέος επενδυτής και θέλετε να χτίσετε περιουσία, τα <strong>Accumulating (Acc) ETFs</strong> είναι συνήθως η σοφότερη επιλογή λόγω της φορολογικής απόδοσης και του "αυτόματου πιλότου" στον ανατοκισμό.
+                    <strong>Η Συμβουλή μας:</strong> Αν βρίσκεστε στη φάση συσσώρευσης πλούτου (Accumulation Phase) και δεν χρειάζεστε τα μετρητά άμεσα, τα <strong>Accumulating ETFs</strong> (όπως το VUAA ή το VWCE) είναι σχεδόν πάντα η μαθηματικά βέλτιστη επιλογή.
                 </div>
             </div>
 
             <div class="lang-en">
-                <p>If the stock market were a supermarket, buying individual stocks would be like trying to pick the best eggs one by one. An ETF (Exchange Traded Fund) is like buying the whole basket.</p>
+                <p>In the investment world, ETFs (Exchange Traded Funds) have revolutionized how we build wealth. Instead of looking for a needle in a haystack, you can just buy the whole haystack.</p>
                 
-                <h2>What is an ETF?</h2>
-                <p>An ETF is a "basket" containing hundreds or thousands of stocks. By buying **one** share of the ETF, you automatically own a slice of all the companies inside it.</p>
-                <p>The most famous example is an ETF tracking the **S&P 500**. With one move, you invest in the 500 largest companies in America (Apple, Microsoft, Google, etc.).</p>
+                <div class="info-box">
+                    <i class="fas fa-info-circle info-icon"></i>
+                    <div>
+                        <strong>What is an ETF?</strong><br>
+                        Imagine a basket containing stocks from hundreds of companies. By buying one share of the ETF, you automatically own a small piece of every company inside it.
+                    </div>
+                </div>
 
-                <h2>The Big Decision: Accumulating vs. Distributing</h2>
-                <p>When choosing an ETF, you will see the tags <strong>(Acc)</strong> or <strong>(Dist)</strong> next to the name. This is crucial for your taxes and returns.</p>
+                <h2>The Crucial Choice: Acc vs Dist</h2>
+                <p>When searching for an ETF (e.g., S&P 500), you will see two versions of the same product. The difference lies in <strong>how they handle dividends</strong>.</p>
 
                 <div class="comparison-grid">
                     <div class="comp-card">
-                        <span class="comp-icon">💰</span>
+                        <span class="comp-icon">💸</span>
                         <span class="comp-title">Distributing (Dist)</span>
                         <p><strong>Dividend Payout</strong></p>
-                        <p style="font-size:0.9rem;">Dividends from companies are paid out to your bank account as cash.</p>
-                        <hr style="margin:10px 0; border:0; border-top:1px solid #ccc;">
-                        <p style="font-size:0.8rem;">👍 Good for: Cash flow / Passive income now.</p>
-                        <p style="font-size:0.8rem; color:red;">👎 Bad for: Taxes (dividends are often taxed) & you miss auto-compounding.</p>
+                        <p style="font-size:0.9rem; color:var(--text-muted);">Dividends are paid out to your account as cash (usually quarterly or semi-annually).</p>
+                        <hr style="margin:15px 0; border:0; border-top:1px solid var(--border);">
+                        <ul style="text-align:left; font-size:0.85rem; list-style:none; padding:0;">
+                            <li>✅ Passive Income (Cash flow)</li>
+                            <li>❌ Taxed immediately (usually)</li>
+                            <li>❌ You miss out on auto-compounding</li>
+                        </ul>
                     </div>
                     <div class="comp-card" style="border: 2px solid #10b981;">
                         <span class="comp-icon">🔄</span>
                         <span class="comp-title">Accumulating (Acc)</span>
                         <p><strong>Reinvestment</strong></p>
-                        <p style="font-size:0.9rem;">Dividends are NOT paid to you. The ETF automatically uses them to buy more shares.</p>
-                        <hr style="margin:10px 0; border:0; border-top:1px solid #ccc;">
-                        <p style="font-size:0.8rem;">👍 Good for: Long-term growth (Compound Interest) & Tax efficiency.</p>
+                        <p style="font-size:0.9rem; color:var(--text-muted);">Dividends are NOT paid to you. The ETF automatically uses them to buy more shares.</p>
+                        <hr style="margin:15px 0; border:0; border-top:1px solid var(--border);">
+                        <ul style="text-align:left; font-size:0.85rem; list-style:none; padding:0;">
+                            <li>✅ Automatic Compounding</li>
+                            <li>✅ Tax Efficiency</li>
+                            <li>❌ No cash in hand</li>
+                        </ul>
                     </div>
                 </div>
 
-                <h2>The Power of Accumulating (Visualized)</h2>
-                <p>See how capital grows when dividends are reinvested automatically (Green) vs when you withdraw them (Blue).</p>
+                <h2>Why Accumulating Wins Long-Term</h2>
+                <p>The magic lies in compound interest. When dividends are reinvested, they buy new shares, which in turn generate new dividends. It's a snowball effect.</p>
                 
                 <div class="chart-box">
-                    <div style="text-align:center;">
-                        <div class="bar" style="height: 50px;"></div>
-                        <span class="bar-label">Year 1</span>
+                    <div class="bar-group">
+                        <div style="height: 100px; width: 100%; position: relative;">
+                            <div class="bar-acc" style="height: 40px; background:#ccc;"></div>
+                        </div>
+                        <span class="bar-label">Start</span>
                     </div>
-                    <div style="text-align:center;">
-                        <div class="bar" style="height: 70px;"></div>
-                        <div class="bar bar-acc" style="height: 80px; position:absolute; bottom:0; opacity:0.5; width:30px;"></div>
-                        <span class="bar-label">Year 5</span>
+                    <div class="bar-group">
+                        <div style="height: 100px; width: 100%; position: relative;">
+                            <div class="bar-dist" style="height: 60px;"></div>
+                            <div class="bar-acc" style="height: 75px; opacity:0.6; z-index:2;"></div>
+                        </div>
+                        <span class="bar-label">10 Years</span>
                     </div>
-                    <div style="text-align:center;">
-                        <div class="bar" style="height: 100px;"></div>
-                        <div class="bar bar-acc" style="height: 140px; position:absolute; bottom:0; opacity:0.5; width:30px;"></div>
-                        <span class="bar-label">Year 10</span>
+                    <div class="bar-group">
+                        <div style="height: 200px; width: 100%; position: relative; display:flex; align-items:flex-end;">
+                            <div class="bar-dist" style="height: 120px; width:45%; margin-right:5%;"></div>
+                            <div class="bar-acc" style="height: 180px; width:45%; background:#10b981; opacity:1;"></div>
+                        </div>
+                        <span class="bar-label">20 Years</span>
                     </div>
-                    <div style="position:absolute; top:10px; right:10px; font-size:0.8rem;">
-                        <span style="color:var(--accent);">■ Distributing</span> <br> 
-                        <span style="color:#10b981;">■ Accumulating (Winner)</span>
+                    <div style="position:absolute; top:20px; right:20px; font-size:0.85rem; text-align:right;">
+                        <div style="margin-bottom:5px;"><span style="display:inline-block; width:12px; height:12px; background:#3b82f6; margin-right:5px;"></span> Distributing</div>
+                        <div><span style="display:inline-block; width:12px; height:12px; background:#10b981; margin-right:5px;"></span> <strong>Accumulating</strong></div>
                     </div>
                 </div>
 
+                <h2>Popular ETF Examples (UCITS)</h2>
+                <p>For Europeans, ETFs must be "UCITS" compliant. Here are some popular tickers:</p>
+
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Index</th>
+                            <th>Accumulating (Acc)</th>
+                            <th>Distributing (Dist)</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong>S&P 500</strong> (USA)</td>
+                            <td>VUAA / SXR8</td>
+                            <td>VUSA</td>
+                        </tr>
+                        <tr>
+                            <td><strong>MSCI World</strong> (Global)</td>
+                            <td>IWDA / SWDA</td>
+                            <td>IWRD</td>
+                        </tr>
+                        <tr>
+                            <td><strong>NASDAQ 100</strong> (Tech)</td>
+                            <td>SXRV / EQQQ</td>
+                            <td>EQQQ (Dist)</td>
+                        </tr>
+                        <tr>
+                            <td><strong>All-World</strong> (Global)</td>
+                            <td>VWCE</td>
+                            <td>VWRL</td>
+                        </tr>
+                    </tbody>
+                </table>
+
                 <div class="highlight-box">
-                    <strong>Conclusion:</strong> If you are a young investor looking to build wealth, <strong>Accumulating (Acc) ETFs</strong> are usually the wiser choice due to tax efficiency and "autopilot" compounding.
+                    <strong>Our Verdict:</strong> If you are in the wealth accumulation phase and don't need immediate cash, <strong>Accumulating ETFs</strong> (like VUAA or VWCE) are mathematically the superior choice due to tax efficiency and "autopilot" compounding.
                 </div>
             </div>
 
@@ -207,7 +327,6 @@
     if(document.body.classList.contains('english-mode') || localStorage.getItem('lang') === 'en') {
         document.body.classList.add('english-mode');
     }
-    // Simple check to keep theme consistent if navigating from index
     if(window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
         document.body.setAttribute('data-theme', 'dark');
     }
