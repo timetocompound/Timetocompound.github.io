@@ -18,7 +18,7 @@
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
     <style>
-        /* --- ΒΑΣΙΚΟ ΣΤΥΛ (ΙΔΙΟ ΜΕ ΤΗΝ ΑΡΧΙΚΗ) --- */
+        /* --- ΒΑΣΙΚΟ ΣΤΥΛ (ΙΔΙΟ) --- */
         :root {
             --bg-body: #f8fafc; --bg-card: #ffffff; --bg-nav: #ffffff; --bg-footer: #0f172a;
             --text-main: #0f172a; --text-muted: #64748b; --accent: #2563eb; --border: #e2e8f0;
@@ -29,7 +29,6 @@
         }
         body { font-family: 'Manrope', sans-serif; background: var(--bg-body); color: var(--text-main); margin: 0; line-height: 1.8; transition: all 0.3s ease; }
         
-        /* Navigation */
         nav { background: var(--bg-nav); border-bottom: 1px solid var(--border); padding: 0 20px; position: sticky; top: 0; z-index: 1000; }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 70px; }
         .logo { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
@@ -37,17 +36,14 @@
         .theme-toggle, .lang-toggle { cursor: pointer; padding: 8px; border-radius: 50%; border: 1px solid var(--border); width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; background: transparent; color: var(--text-main); }
         .lang-toggle { font-size: 1.2rem; border: none; }
 
-        /* Article Layout */
         .article-container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
         .article-header { text-align: center; margin-bottom: 40px; }
         .article-tag { background: #eab308; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
         .article-title { font-size: 2.5rem; font-weight: 800; margin: 15px 0; line-height: 1.2; }
         .article-meta { color: var(--text-muted); font-size: 0.9rem; }
         
-        /* Εικόνα Άρθρου */
         .article-img { width: 100%; height: auto; border-radius: 12px; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
         
-        /* Περιεχόμενο */
         .content { font-size: 1.15rem; color: var(--text-main); }
         .content h3 { font-size: 1.6rem; margin-top: 40px; margin-bottom: 20px; color: var(--accent); font-weight: 700; }
         .content ul, .content ol { margin-bottom: 20px; padding-left: 20px; }
@@ -56,18 +52,15 @@
         
         .highlight-box { background: rgba(37, 99, 235, 0.1); border-left: 4px solid var(--accent); padding: 25px; border-radius: 0 8px 8px 0; margin: 30px 0; font-style: italic; }
         
-        /* Language Logic */
         .lang-en { display: none; }
         body.english-mode .lang-el { display: none !important; }
         body.english-mode .lang-en { display: block !important; }
         span.lang-en { display: none; }
         body.english-mode span.lang-en { display: inline !important; }
 
-        /* Back Button */
         .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-weight: 700; margin-bottom: 30px; transition: 0.2s; }
         .back-btn:hover { color: var(--accent); transform: translateX(-5px); }
 
-        /* Footer (Ίδιο με Index) */
         .site-footer { background: var(--bg-footer); color: #94a3b8 !important; padding: 60px 0 30px; margin-top: 80px; border-top: 1px solid #1e293b; }
         .footer-grid { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 40px; }
         .footer-col h3 { color: white !important; font-size: 1.1rem; margin-bottom: 20px; }
@@ -127,7 +120,7 @@
             </div>
         </header>
 
-        <img src="https://upload.wikimedia.org/wikipedia/commons/b/b8/US_Federal_Reserve_Building.jpg" class="article-img" alt="US Federal Reserve Building">
+        <img src="fed-large.jpg" class="article-img" alt="US Federal Reserve Building">
         
         <div class="content">
             
@@ -140,9 +133,9 @@
 
                 <h3>1. Τα 3 Πιθανά Σενάρια</h3>
                 <ol>
-                    <li>**"Hawkish Pause" (Πιο Πιθανό):** Διατήρηση επιτοκίων, αλλά με δήλωση ότι "θα παραμείνουν ψηλά για περισσότερο".</li>
-                    <li>**"Dovish Pause":** Διατήρηση επιτοκίων, με πιο ήπια γλώσσα και αναγνώριση του ελέγχου του πληθωρισμού. (Θετικό για μετοχές).</li>
-                    <li>**Απρόσμενη Αύξηση:** Πολύ απίθανο, αλλά αν συμβεί, θα προκαλέσει ισχυρό sell-off σε όλες τις αγορές.</li>
+                    <li><strong>"Hawkish Pause" (Πιο Πιθανό):</strong> Διατήρηση επιτοκίων, αλλά με δήλωση ότι "θα παραμείνουν ψηλά για περισσότερο".</li>
+                    <li><strong>"Dovish Pause":</strong> Διατήρηση επιτοκίων, με πιο ήπια γλώσσα και αναγνώριση του ελέγχου του πληθωρισμού. (Θετικό για μετοχές).</li>
+                    <li><strong>Απρόσμενη Αύξηση:</strong> Πολύ απίθανο, αλλά αν συμβεί, θα προκαλέσει ισχυρό sell-off σε όλες τις αγορές.</li>
                 </ol>
 
                 <h3>2. Οι Επιπτώσεις στο S&P 500</h3>
@@ -164,9 +157,9 @@
 
                 <h3>1. The 3 Potential Scenarios</h3>
                 <ol>
-                    <li>**"Hawkish Pause" (Most Likely):** Rates maintained, but with a statement that they "will remain high for longer."</li>
-                    <li>**"Dovish Pause":** Rates maintained, with softer language and acknowledgment of inflation control. (Positive for stocks).</li>
-                    <li>**Unexpected Hike:** Highly unlikely, but if it happens, it will trigger a sharp sell-off across all markets.</li>
+                    <li><strong>"Hawkish Pause" (Most Likely):</strong> Rates maintained, but with a statement that they "will remain high for longer."</li>
+                    <li><strong>"Dovish Pause":</strong> Rates maintained, with softer language and acknowledgment of inflation control. (Positive for stocks).</li>
+                    <li><strong>Unexpected Hike:</strong> Highly unlikely, but if it happens, it will trigger a sharp sell-off across all markets.</li>
                 </ol>
 
                 <h3>2. Impact on the S&P 500</h3>
@@ -233,7 +226,6 @@
 </footer>
 
 <script>
-    /* Javascript για Αλλαγή Γλώσσας & Theme */
     function toggleLanguage() {
         const body = document.body;
         if (body.classList.contains('english-mode')) {
