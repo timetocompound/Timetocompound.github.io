@@ -319,6 +319,7 @@
                 
                 </div>
         </div>
+        
         <div id="academy" class="section">
             <h2>
                 <span class="lang-el">🎓 Ακαδημία Trading</span>
@@ -332,32 +333,28 @@
             <div class="news-grid">
                 
                 <a href="article1.html" class="news-card">
-                    <div class="news-thumb" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e3/Candlestick_chart_example.png');"></div>
+                    <div class="news-thumb" style="background-image: url('prices-move-large.jpg');"></div> 
                     <div class="news-content">
                         <span class="news-meta academy-label">BEGINNER</span>
-                        
                         <div class="lang-el">
                             <h3 class="news-title">Γιατί κινούνται οι τιμές; Η αλήθεια για την αγορά</h3>
-                            <p class="news-desc">Ξεχάστε τα μοτίβα. Μάθετε πώς η Προσφορά και η Ζήτηση κινούν τα πάντα και πώς τα κεριά λένε την ιστορία αυτής της μάχης.</p>
+                            <p class="news-desc">Ξεχάστε τα μοτίβα. Μάθετε πώς η Προσφορά και η Ζήτηση κινούν τα πάντα.</p>
                         </div>
-                        
                         <div class="lang-en">
                             <h3 class="news-title">Why Prices Move: The Truth Beyond the Charts</h3>
-                            <p class="news-desc">Forget technical patterns. Learn how Supply and Demand drive prices and how candlesticks simply tell the story of that battle.</p>
+                            <p class="news-desc">Forget technical patterns. Learn how Supply and Demand drive prices.</p>
                         </div>
                     </div>
                 </a>
 
                 <a href="article2.html" class="news-card">
-                    <div class="news-thumb" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/29/Blockchain_structure.png');"></div>
+                    <div class="news-thumb" style="background-image: url('blockchain-large.jpg');"></div>
                     <div class="news-content">
                         <span class="news-meta academy-label">CRYPTO</span>
-                        
                         <div class="lang-el">
                             <h3 class="news-title">Blockchain: Πώς λειτουργεί με απλά λόγια</h3>
                             <p class="news-desc">Μια απλή εξήγηση της τεχνολογίας πίσω από το Bitcoin και γιατί θεωρείται ασφαλής.</p>
                         </div>
-
                         <div class="lang-en">
                             <h3 class="news-title">Blockchain: How it works in simple terms</h3>
                             <p class="news-desc">A simple explanation of the technology behind Bitcoin and why it is considered secure.</p>
@@ -369,12 +366,10 @@
                     <div class="news-thumb" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Compound_interest_graph.svg/1024px-Compound_interest_graph.svg.png');"></div>
                     <div class="news-content">
                         <span class="news-meta academy-label">INVESTING</span>
-                        
                         <div class="lang-el">
                             <h3 class="news-title">Compound Interest: Το 8ο θαύμα του κόσμου</h3>
                             <p class="news-desc">Γιατί ο ανατοκισμός είναι ο καλύτερος φίλος του μακροπρόθεσμου επενδυτή.</p>
                         </div>
-
                         <div class="lang-en">
                             <h3 class="news-title">Compound Interest: The 8th Wonder of the World</h3>
                             <p class="news-desc">Why compound interest is the best friend of the long-term investor.</p>
@@ -547,30 +542,25 @@
     function toggleTheme() {
         const body = document.body;
         const icon = document.getElementById('theme-icon');
+        const isDark = body.getAttribute('data-theme') === 'dark';
         
-        // TradingView Widgets Theme fix
+        // TradingView Widgets Theme Refresh Logic
         document.querySelectorAll('script[src*="tradingview.com/external-embedding"]').forEach(script => {
             let scriptText = script.textContent;
-            let currentTheme = body.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
-            let newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-
-            if (scriptText.includes(`"colorTheme": "${currentTheme}"`)) {
-                script.textContent = scriptText.replace(`"colorTheme": "${currentTheme}"`, `"colorTheme": "${newTheme}"`);
+            // A simple replace approach to toggle themes inside the JSON config
+            if (isDark) {
+                script.textContent = scriptText.replace('"colorTheme": "dark"', '"colorTheme": "light"');
+            } else {
+                script.textContent = scriptText.replace('"colorTheme": "light"', '"colorTheme": "dark"');
             }
         });
 
-        if (body.getAttribute('data-theme') === 'dark') {
+        if (isDark) {
             body.removeAttribute('data-theme');
             icon.classList.remove('fa-sun'); icon.classList.add('fa-moon');
-            // Ticker Tape to light
-            let tt = document.querySelector('.tradingview-widget-container script[src*="ticker-tape"]');
-            if(tt) tt.textContent = tt.textContent.replace(`"colorTheme": "dark"`, `"colorTheme": "light"`);
         } else {
             body.setAttribute('data-theme', 'dark');
             icon.classList.remove('fa-moon'); icon.classList.add('fa-sun');
-             // Ticker Tape to dark
-             let tt = document.querySelector('.tradingview-widget-container script[src*="ticker-tape"]');
-             if(tt) tt.textContent = tt.textContent.replace(`"colorTheme": "light"`, `"colorTheme": "dark"`);
         }
     }
 
@@ -580,7 +570,6 @@
         { url: 'https://cointelegraph.com/rss', source: 'CoinTelegraph' }
     ];
 
-    // Εικόνες για τα δυναμικά φορτωμένα άρθρα (αν δεν βρεθεί thumbnail)
     const DEFAULT_IMAGES = [
         'https://images.unsplash.com/photo-1611974765270-ca1258634369?w=600',
         'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600',
