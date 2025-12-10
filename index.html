@@ -53,8 +53,8 @@
         /* Nav */
         nav { background: var(--bg-nav); border-bottom: 1px solid var(--border); position: sticky; top: 0; z-index: 1000; padding: 0 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
         .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 70px; }
-        .logo { font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; gap: 10px; cursor: pointer; }
-        .logo i { color: var(--accent); }
+        /* LOGO STYLE ADJUSTMENT */
+        .logo { font-size: 1.5rem; font-weight: 800; display: flex; align-items: center; cursor: pointer; }
         .menu { display: flex; gap: 10px; }
         .menu-btn { background: none; border: none; font-size: 0.95rem; font-weight: 600; color: var(--text-muted); cursor: pointer; padding: 8px 16px; border-radius: 6px; transition: 0.2s; }
         .menu-btn:hover, .menu-btn.active { color: var(--accent); background: rgba(37, 99, 235, 0.1); }
@@ -175,9 +175,11 @@
 
 <nav>
     <div class="nav-container">
-        <div class="logo" onclick="location.reload()">
-            <i class="fas fa-chart-pie"></i> TimeToCompound
+        <div class="logo" onclick="location.reload()" style="display: flex; align-items: center; gap: 12px;">
+            <img src="logo.png" alt="TimeToCompound Logo" style="height: 50px; width: auto;">
+            <span style="font-size: 1.4rem; letter-spacing: -0.5px;">TimeToCompound</span>
         </div>
+
         <div class="menu">
             <button class="menu-btn active" onclick="switchSection('news')">
                 <span class="lang-el">Ειδήσεις</span><span class="lang-en">News</span>
