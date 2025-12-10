@@ -93,7 +93,7 @@
         .news-card { background: var(--bg-card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); transition: 0.2s; display: flex; flex-direction: column; height: 100%; cursor: pointer; }
         .news-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--accent); }
         
-        /* ΣΤΥΛ ΓΙΑ ΤΙΣ ΕΙΚΟΝΕΣ (FIXED) */
+        /* FIX: Στυλ για Εικόνες Background (Topika) */
         .news-thumb { 
             width: 100%; 
             height: 180px; 
@@ -103,6 +103,7 @@
             background-color: var(--border); 
             border-bottom: 1px solid var(--border);
         }
+        /* Fallback για παλιές εικόνες img tags */
         .news-img { width: 100%; height: 180px; object-fit: cover; background: #e2e8f0; }
 
         .news-content { padding: 20px; flex: 1; display: flex; flex-direction: column; }
@@ -278,8 +279,8 @@
 
         <div id="articles" class="section">
             <h2>
-                <span class="lang-el">📑 Αναλύσεις Αγορών (Investing.com)</span>
-                <span class="lang-en">📑 Market Analysis (Investing.com)</span>
+                <span class="lang-el">📑 Αναλύσεις Αγορών</span>
+                <span class="lang-en">📑 Market Analysis</span>
             </h2>
             <div id="articles-container" class="news-grid">
                 <div style="grid-column: 1/-1; text-align:center; padding:40px; color:var(--text-muted);">
@@ -288,6 +289,7 @@
                 </div>
             </div>
         </div>
+
         <div id="my-analysis" class="section">
             <h2>
                 <span class="lang-el">✍️ My Analysis - Πρωτότυπο Περιεχόμενο</span>
@@ -299,25 +301,21 @@
             </p>
             
             <div class="news-grid">
-                
                 <a href="article4.html" class="news-card">
                     <div class="news-thumb" style="background-image: url('fed-large.jpg');"></div>
                     <div class="news-content">
                         <span class="news-meta">MACRO</span>
-                        
                         <div class="lang-el">
                             <h3 class="news-title">🔥 FED: Προ-Ανάλυση της Απόφασης Επιτοκίων</h3>
                             <p class="news-desc">Τα 3 σενάρια για την αυριανή ανακοίνωση, ο "οδικός χάρτης" του Powell και οι επιπτώσεις σε S&P 500 και Bitcoin.</p>
                         </div>
-
                         <div class="lang-en">
                             <h3 class="news-title">🔥 FED Pre-Analysis: Rate Decision Scenarios</h3>
                             <p class="news-desc">The 3 scenarios for tomorrow's announcement, Powell's "guidance," and the impact on the S&P 500 and Bitcoin.</p>
                         </div>
                     </div>
                 </a>
-                
-                </div>
+            </div>
         </div>
         
         <div id="academy" class="section">
