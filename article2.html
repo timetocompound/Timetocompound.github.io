@@ -1,62 +1,268 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y9DENNW7FP"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-Y9DENNW7FP');
+    </script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blockchain Explained | TimeToCompound Academy</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
+    
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    
     <style>
-        body { font-family: 'Manrope', sans-serif; background: #f8fafc; color: #334155; margin: 0; padding: 20px; line-height: 1.8; }
-        .container { max-width: 800px; margin: 0 auto; background: white; padding: 50px; border-radius: 16px; box-shadow: 0 10px 30px rgba(0,0,0,0.05); }
-        h1 { color: #0f172a; font-size: 2.2rem; margin-bottom: 10px; line-height: 1.3; }
-        .meta { color: #64748b; font-size: 0.9rem; margin-bottom: 40px; display: flex; gap: 15px; border-bottom: 1px solid #e2e8f0; padding-bottom: 20px; }
-        .tag { background: #2563eb; color: white; padding: 4px 10px; border-radius: 4px; font-weight: bold; font-size: 0.8rem; align-self: center; }
-        img { width: 100%; border-radius: 12px; margin-bottom: 40px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); }
-        h2 { color: #2563eb; margin-top: 40px; border-left: 4px solid #2563eb; padding-left: 15px; }
-        p { margin-bottom: 20px; font-size: 1.1rem; }
-        .highlight-box { background: #f1f5f9; padding: 20px; border-left: 4px solid #64748b; margin: 20px 0; font-style: italic; }
-        .back-btn { display: inline-flex; align-items: center; gap: 8px; text-decoration: none; color: #64748b; margin-bottom: 20px; font-weight: 700; transition: 0.2s; }
-        .back-btn:hover { color: #2563eb; transform: translateX(-5px); }
+        /* --- ΒΑΣΙΚΟ ΣΤΥΛ (ΙΔΙΟ ΜΕ ΤΗΝ ΑΡΧΙΚΗ) --- */
+        :root {
+            --bg-body: #f8fafc; --bg-card: #ffffff; --bg-nav: #ffffff; --bg-footer: #0f172a;
+            --text-main: #0f172a; --text-muted: #64748b; --accent: #2563eb; --border: #e2e8f0;
+        }
+        [data-theme="dark"] {
+            --bg-body: #0f172a; --bg-card: #1e293b; --bg-nav: #1e293b; --bg-footer: #020617;
+            --text-main: #ffffff; --text-muted: #cbd5e1; --accent: #38bdf8; --border: #334155;
+        }
+        body { font-family: 'Manrope', sans-serif; background: var(--bg-body); color: var(--text-main); margin: 0; line-height: 1.8; transition: all 0.3s ease; }
+        
+        /* Navigation (Replicated from index.html for consistency) */
+        nav { background: var(--bg-nav); border-bottom: 1px solid var(--border); padding: 0 20px; position: sticky; top: 0; z-index: 1000; }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 70px; }
+        .logo { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
+        .icons-group { display: flex; gap: 15px; align-items: center; }
+        .theme-toggle, .lang-toggle { cursor: pointer; padding: 8px; border-radius: 50%; border: 1px solid var(--border); width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; background: transparent; color: var(--text-main); }
+        .lang-toggle { font-size: 1.2rem; border: none; }
+
+        /* Article Layout */
+        .article-container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        .article-header { text-align: center; margin-bottom: 40px; }
+        .article-tag { background: #eab308; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
+        .article-title { font-size: 2.5rem; font-weight: 800; margin: 15px 0; line-height: 1.2; }
+        .article-meta { color: var(--text-muted); font-size: 0.9rem; }
+        
+        /* Εικόνα Άρθρου */
+        .article-img { width: 100%; height: auto; border-radius: 12px; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
+        
+        /* Περιεχόμενο */
+        .content { font-size: 1.15rem; color: var(--text-main); }
+        .content h2 { color: var(--accent); margin-top: 40px; border-left: 4px solid var(--accent); padding-left: 15px; font-size: 1.6rem; }
+        .content ul, .content ol { margin-bottom: 20px; padding-left: 20px; }
+        .content li { margin-bottom: 10px; }
+        .content p { margin-bottom: 20px; }
+        
+        .highlight-box { background: rgba(37, 99, 235, 0.1); border-left: 4px solid var(--accent); padding: 25px; border-radius: 0 8px 8px 0; margin: 30px 0; font-style: italic; }
+        
+        /* Language Logic */
+        .lang-en { display: none; }
+        body.english-mode .lang-el { display: none !important; }
+        body.english-mode .lang-en { display: block !important; }
+        span.lang-en { display: none; }
+        body.english-mode span.lang-en { display: inline !important; }
+
+        /* Back Button */
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-weight: 700; margin-bottom: 30px; transition: 0.2s; }
+        .back-btn:hover { color: var(--accent); transform: translateX(-5px); }
+
+        /* Footer (Ίδιο με Index) */
+        .site-footer { background: var(--bg-footer); color: #94a3b8 !important; padding: 60px 0 30px; margin-top: 80px; border-top: 1px solid #1e293b; }
+        .footer-grid { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 40px; }
+        .footer-col h3 { color: white !important; font-size: 1.1rem; margin-bottom: 20px; }
+        .footer-desc { font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; }
+        .footer-links { list-style: none; padding: 0; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { color: #94a3b8; text-decoration: none; transition: 0.2s; font-size: 0.95rem; }
+        .footer-links a:hover { color: var(--accent) !important; padding-left: 5px; }
+        .newsletter-form { display: flex; gap: 10px; margin-top: 15px; }
+        .newsletter-input { padding: 12px; border-radius: 6px; border: 1px solid #334155; background: #1e293b; color: white; flex: 1; outline: none; }
+        .newsletter-btn { background: var(--accent); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 700; cursor: pointer; }
+        .newsletter-btn:hover { opacity: 0.9; }
+        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
+        .social-icons a { width: 35px; height: 35px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white; transition: 0.3s; text-decoration: none; }
+        .social-icons a:hover { background: var(--accent); transform: translateY(-3px); }
+        .footer-bottom { text-align: center; border-top: 1px solid #1e293b; margin-top: 40px; padding-top: 20px; font-size: 0.85rem; }
+
+        @media (max-width: 768px) {
+            .footer-grid { grid-template-columns: 1fr; text-align: center; }
+            .newsletter-form { flex-direction: column; }
+            .social-icons { justify-content: center; }
+        }
     </style>
 </head>
 <body>
-    <div class="container">
-        <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Επιστροφή στο Dashboard</a>
-        <br>
-        <span class="tag">CRYPTO TECH</span>
-        <h1>Blockchain: Πώς λειτουργεί η τεχνολογία που αλλάζει τον κόσμο</h1>
-        <div class="meta">
-            <span><i class="far fa-clock"></i> 5 λεπτά ανάγνωση</span>
-            <span><i class="far fa-user"></i> Συντακτική Ομάδα</span>
+
+<nav>
+    <div class="nav-container">
+        <a href="index.html" class="logo"><i class="fas fa-chart-pie"></i> TimeToCompound</a>
+        <div class="icons-group">
+            <button class="lang-toggle" onclick="toggleLanguage()">
+                <span class="lang-el">🇬🇧</span> <span class="lang-en">🇬🇷</span>
+            </button>
+            <div class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon" id="theme-icon"></i></div>
         </div>
-        <img src="https://images.unsplash.com/photo-1621504450168-b8c493a95f26?w=1000" alt="Blockchain Network">
-        
-        <p>Ο όρος "Blockchain" ακούγεται περίπλοκος, αλλά η βασική του ιδέα είναι απλή. Φανταστείτε ένα <strong>τεράστιο ψηφιακό λογιστικό βιβλίο (ledger)</strong> που είναι ανοιχτό σε όλους, αλλά κανείς δεν μπορεί να σβήσει ή να αλλάξει αυτά που έχουν γραφτεί.</p>
-
-        <div class="highlight-box">
-            «Το Blockchain είναι για την αξία ό,τι το Internet για την πληροφορία.»
-        </div>
-
-        <h2>Η Αναλογία του "Γυάλινου Κουτιού"</h2>
-        <p>Σκεφτείτε το blockchain σαν μια αλυσίδα από διαφανή, γυάλινα κουτιά:</p>
-        <ol>
-            <li><strong>Το Κουτί (Block):</strong> Μέσα βάζουμε δεδομένα (π.χ. "Ο Γιάννης έστειλε 1 Bitcoin στη Μαρία").</li>
-            <li><strong>Το Κλείδωμα (Hash):</strong> Μόλις το κουτί γεμίσει, κλειδώνεται με έναν μοναδικό ψηφιακό κωδικό.</li>
-            <li><strong>Η Αλυσίδα (Chain):</strong> Το επόμενο κουτί περιέχει τον κωδικό του προηγούμενου. Αν κάποιος προσπαθήσει να σπάσει το παλιό κουτί, η αλυσίδα σπάει και όλοι το βλέπουν.</li>
-        </ol>
-        
-        <h2>Γιατί είναι τόσο ασφαλές; (Decentralization)</h2>
-        <p>Η ασφάλεια δεν προέρχεται από κάποιον κωδικό, αλλά από την <strong>αποκέντρωση</strong>. Αντί το βιβλίο να το κρατάει μια τράπεζα (Κεντρική Αρχή), το κρατούν ταυτόχρονα εκατομμύρια υπολογιστές (Nodes) σε όλο τον κόσμο.</p>
-        <p>Αν ένας χάκερ ήθελε να κλέψει Bitcoin, θα έπρεπε να παραβιάσει ταυτόχρονα το 51% όλων των υπολογιστών του δικτύου παγκοσμίως μέσα σε 10 λεπτά. Αυτό είναι πρακτικά αδύνατο με τη σημερινή τεχνολογία.</p>
-
-        <h2>Πέρα από τα Κρυπτονομίσματα</h2>
-        <p>Το Blockchain δεν είναι μόνο για Bitcoin. Χρησιμοποιείται ήδη για:</p>
-        <ul>
-            <li><strong>Έξυπνα Συμβόλαια (Smart Contracts):</strong> Συμφωνίες που εκτελούνται αυτόματα χωρίς δικηγόρους.</li>
-            <li><strong>Εφοδιαστική Αλυσίδα:</strong> Παρακολούθηση προϊόντων από το εργοστάσιο μέχρι το ράφι.</li>
-            <li><strong>Ψηφιακή Ταυτότητα:</strong> Ασφαλής αποθήκευση προσωπικών δεδομένων.</li>
-        </ul>
     </div>
+</nav>
+
+<div class="article-container">
+    <a href="index.html" class="back-btn">
+        <i class="fas fa-arrow-left"></i> 
+        <span class="lang-el">Πίσω στην Αρχική</span>
+        <span class="lang-en">Back to Home</span>
+    </a>
+
+    <article>
+        <header class="article-header">
+            <span class="article-tag" style="background-color:#5a67d8;">CRYPTO TECH</span>
+            
+            <div class="lang-el">
+                <h1 class="article-title">Blockchain: Πώς λειτουργεί η τεχνολογία που αλλάζει τον κόσμο</h1>
+                <div class="article-meta">5 Λεπτά Ανάγνωση • Από TimeToCompound</div>
+            </div>
+            <div class="lang-en">
+                <h1 class="article-title">Blockchain: How the world-changing technology works</h1>
+                <div class="article-meta">5 Min Read • By TimeToCompound</div>
+            </div>
+        </header>
+
+        <img src="assets/images/blockchain-large.jpg" class="article-img" alt="Δίκτυο Blockchain">
+        
+        <div class="content">
+            
+            <div class="lang-el">
+                <p>Ο όρος "Blockchain" ακούγεται περίπλοκος, αλλά η βασική του ιδέα είναι απλή. Φανταστείτε ένα <strong>τεράστιο ψηφιακό λογιστικό βιβλίο (ledger)</strong> που είναι ανοιχτό σε όλους, αλλά κανείς δεν μπορεί να σβήσει ή να αλλάξει αυτά που έχουν γραφτεί.</p>
+
+                <div class="highlight-box">
+                    «Το Blockchain είναι για την αξία ό,τι το Internet για την πληροφορία.»
+                </div>
+
+                <h2>Η Αναλογία του "Γυάλινου Κουτιού"</h2>
+                <p>Σκεφτείτε το blockchain σαν μια αλυσίδα από διαφανή, γυάλινα κουτιά:</p>
+                <ol>
+                    <li><strong>Το Κουτί (Block):</strong> Μέσα βάζουμε δεδομένα (π.χ. "Ο Γιάννης έστειλε 1 Bitcoin στη Μαρία").</li>
+                    <li><strong>Το Κλείδωμα (Hash):</strong> Μόλις το κουτί γεμίσει, κλειδώνεται με έναν μοναδικό ψηφιακό κωδικό.</li>
+                    <li><strong>Η Αλυσίδα (Chain):</strong> Το επόμενο κουτί περιέχει τον κωδικό του προηγούμενου. Αν κάποιος προσπαθήσει να σπάσει το παλιό κουτί, η αλυσίδα σπάει και όλοι το βλέπουν.</li>
+                </ol>
+                
+                <h2>Γιατί είναι τόσο ασφαλές; (Decentralization)</h2>
+                <p>Η ασφάλεια δεν προέρχεται από κάποιον κωδικό, αλλά από την <strong>αποκέντρωση</strong>. Αντί το βιβλίο να το κρατάει μια τράπεζα (Κεντρική Αρχή), το κρατούν ταυτόχρονα εκατομμύρια υπολογιστές (Nodes) σε όλο τον κόσμο.</p>
+                <p>Αν ένας χάκερ ήθελε να κλέψει Bitcoin, θα έπρεπε να παραβιάσει ταυτόχρονα το 51% όλων των υπολογιστών του δικτύου παγκοσμίως μέσα σε 10 λεπτά. Αυτό είναι πρακτικά αδύνατο με τη σημερινή τεχνολογία.</p>
+
+                <h2>Πέρα από τα Κρυπτονομίσματα</h2>
+                <p>Το Blockchain δεν είναι μόνο για Bitcoin. Χρησιμοποιείται ήδη για:</p>
+                <ul>
+                    <li><strong>Έξυπνα Συμβόλαια (Smart Contracts):</strong> Συμφωνίες που εκτελούνται αυτόματα χωρίς δικηγόρους.</li>
+                    <li><strong>Εφοδιαστική Αλυσίδα:</strong> Παρακολούθηση προϊόντων από το εργοστάσιο μέχρι το ράφι.</li>
+                    <li><strong>Ψηφιακή Ταυτότητα:</strong> Ασφαλής αποθήκευση προσωπικών δεδομένων.</li>
+                </ul>
+            </div>
+
+            <div class="lang-en">
+                <p>The term "Blockchain" sounds complex, but its core idea is simple. Imagine a <strong>huge digital ledger</strong> that is open to everyone, but no one can erase or change what has been written.</p>
+
+                <div class="highlight-box">
+                    “Blockchain is to value what the Internet is to information.”
+                </div>
+
+                <h2>The "Glass Box" Analogy</h2>
+                <p>Think of the blockchain as a chain of transparent, glass boxes:</p>
+                <ol>
+                    <li><strong>The Box (Block):</strong> Data is put inside (e.g., "John sent 1 Bitcoin to Mary").</li>
+                    <li><strong>The Lock (Hash):</strong> Once the box is full, it is locked with a unique digital code.</li>
+                    <li><strong>The Chain:</strong> The next box contains the code of the previous one. If someone tries to tamper with the old box, the chain breaks, and everyone sees it.</li>
+                </ol>
+                
+                <h2>Why is it so Secure? (Decentralization)</h2>
+                <p>Security doesn't come from a single code but from <strong>decentralization</strong>. Instead of one bank holding the ledger (Central Authority), millions of computers (Nodes) worldwide hold copies simultaneously.</p>
+                <p>If a hacker wanted to steal Bitcoin, they would need to compromise 51% of all network computers globally within 10 minutes. This is virtually impossible with current technology.</p>
+
+                <h2>Beyond Cryptocurrencies</h2>
+                <p>Blockchain is not just for Bitcoin. It is already being used for:</p>
+                <ul>
+                    <li><strong>Smart Contracts:</strong> Agreements that execute automatically without lawyers.</li>
+                    <li><strong>Supply Chain Management:</strong> Tracking products from the factory to the shelf.</li>
+                    <li><strong>Digital Identity:</strong> Secure storage of personal data.</li>
+                </ul>
+            </div>
+
+        </div>
+    </article>
+</div>
+
+<footer class="site-footer">
+    <div class="footer-grid">
+        <div class="footer-col">
+            <h3>TimeToCompound</h3>
+            <div class="footer-desc">
+                <span class="lang-el">Ο αξιόπιστος οδηγός σου για τις διεθνείς αγορές, το χρηματιστήριο και τα κρυπτονομίσματα. Μάθετε, Επενδύστε, Αναπτυχθείτε.</span>
+                <span class="lang-en">Your trusted guide to international markets, stocks, and cryptocurrencies. Learn, Invest, Grow.</span>
+            </div>
+            <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+        </div>
+
+        <div class="footer-col">
+            <h3>
+                <span class="lang-el">Σύνδεσμοι</span>
+                <span class="lang-en">Quick Links</span>
+            </h3>
+            <ul class="footer-links">
+                <li><a href="index.html"><span class="lang-el">Αρχική</span><span class="lang-en">Home</span></a></li>
+                <li><a href="index.html"><span class="lang-el">Ροή Ειδήσεων</span><span class="lang-en">News Feed</span></a></li>
+                <li><a href="https://freedom24.com/invite_from/1767598" target="_blank"><span class="lang-el">Επενδύστε</span><span class="lang-en">Start Investing</span></a></li>
+            </ul>
+        </div>
+
+        <div class="footer-col">
+            <h3>Newsletter</h3>
+            <p class="footer-desc">
+                <span class="lang-el">Λάβετε τα σημαντικότερα νέα της ημέρας στο email σας.</span>
+                <span class="lang-en">Get the most important news of the day directly to your email.</span>
+            </p>
+            
+            <form action="https://formspree.io/f/xpwvyare" method="POST" class="newsletter-form">
+                <input type="email" name="email" class="newsletter-input" placeholder="Email..." required>
+                <button type="submit" class="newsletter-btn">
+                    <span class="lang-el">Εγγραφή</span>
+                    <span class="lang-en">Subscribe</span>
+                </button>
+            </form>
+        </div>
+    </div>
+    <div class="footer-bottom">
+        &copy; 2025 TimeToCompound. All rights reserved. | <a href="#">Terms</a> | <a href="#">Privacy</a>
+    </div>
+</footer>
+
+<script>
+    /* Javascript για Αλλαγή Γλώσσας & Theme */
+    function toggleLanguage() {
+        const body = document.body;
+        if (body.classList.contains('english-mode')) {
+            body.classList.remove('english-mode');
+        } else {
+            body.classList.add('english-mode');
+        }
+    }
+
+    function toggleTheme() {
+        const body = document.body;
+        const icon = document.getElementById('theme-icon');
+        if (body.getAttribute('data-theme') === 'dark') {
+            body.removeAttribute('data-theme');
+            icon.classList.remove('fa-sun'); icon.classList.add('fa-moon');
+        } else {
+            body.setAttribute('data-theme', 'dark');
+            icon.classList.remove('fa-moon'); icon.classList.add('fa-sun');
+        }
+    }
+</script>
+
 </body>
 </html>
