@@ -5,7 +5,6 @@
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
-      function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
       gtag('config', 'G-Y9DENNW7FP');
     </script>
@@ -94,18 +93,18 @@
         .news-card { background: var(--bg-card); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); transition: 0.2s; display: flex; flex-direction: column; height: 100%; cursor: pointer; }
         .news-card:hover { transform: translateY(-5px); box-shadow: var(--shadow); border-color: var(--accent); }
         
-        /* NEW STYLES for Image Fix */
+        /* ΣΤΥΛ ΓΙΑ ΤΙΣ ΕΙΚΟΝΕΣ (FIXED) */
         .news-thumb { 
             width: 100%; 
             height: 180px; 
             background-size: cover; 
             background-position: center;
             background-repeat: no-repeat;
-            /* Placeholder background color */
             background-color: var(--border); 
             border-bottom: 1px solid var(--border);
         }
-        
+        .news-img { width: 100%; height: 180px; object-fit: cover; background: #e2e8f0; }
+
         .news-content { padding: 20px; flex: 1; display: flex; flex-direction: column; }
         .news-meta { font-size: 0.75rem; font-weight: 700; color: var(--accent) !important; margin-bottom: 8px; text-transform: uppercase; }
         .news-title { font-size: 1.1rem; font-weight: 700; margin: 0 0 10px 0; line-height: 1.4; }
@@ -151,7 +150,9 @@
         }
     </style>
 </head>
-<body data-theme="dark"> <div class="tradingview-widget-container">
+<body data-theme="dark">
+
+<div class="tradingview-widget-container">
   <div class="tradingview-widget-container__widget"></div>
   <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
   {
@@ -164,7 +165,7 @@
     { "description": "Freedom Holding", "proName": "NASDAQ:FRHC" }
   ],
   "showSymbolLogo": true,
-  "colorTheme": "dark", 
+  "colorTheme": "dark",
   "isTransparent": false,
   "displayMode": "adaptive",
   "locale": "en"
@@ -178,7 +179,7 @@
             <i class="fas fa-chart-pie"></i> TimeToCompound
         </div>
         <div class="menu">
-            <button class="menu-btn" onclick="switchSection('news')">
+            <button class="menu-btn active" onclick="switchSection('news')">
                 <span class="lang-el">Ειδήσεις</span><span class="lang-en">News</span>
             </button>
             <button class="menu-btn" onclick="switchSection('markets')">
@@ -190,7 +191,7 @@
             <button class="menu-btn" onclick="switchSection('my-analysis')">
                 <span class="lang-el">My Analysis ✍️</span><span class="lang-en">My Analysis ✍️</span>
             </button>
-            <button class="menu-btn active" onclick="switchSection('academy')">
+            <button class="menu-btn" onclick="switchSection('academy')">
                 <span class="lang-el">Ακαδημία 🎓</span><span class="lang-en">Academy 🎓</span>
             </button>
         </div>
@@ -210,7 +211,7 @@
 <div class="container">
     
     <main>
-        <div id="news" class="section">
+        <div id="news" class="section active">
             <div id="hero-container"></div>
             <h2 style="margin-bottom:20px; display:flex; align-items:center; gap:10px;">
                 <i class="fas fa-bolt" style="color:#eab308;"></i> 
@@ -233,7 +234,7 @@
             </h2>
 
             <div class="widget" style="margin-bottom: 30px;">
-                <div class="widget-title" style="border-left: 3px solid var(--accent); padding-left: 10px;">
+                <div class="widget-title" style="border-left: 3px solid #00c7e2; padding-left: 10px;">
                     <span class="lang-el">ΚΙΝΗΣΗ ΕΠΙΤΟΚΙΩΝ & ΣΥΝΑΛΛΑΓΜΑ</span>
                     <span class="lang-en">RATES & CURRENCY MOVEMENT</span>
                 </div>
@@ -300,7 +301,7 @@
             <div class="news-grid">
                 
                 <a href="article4.html" class="news-card">
-                    <div class="news-thumb" style="background-image: url('https://images.unsplash.com/photo-1621929727764-754f15d9095f?w=600');"></div> 
+                    <div class="news-thumb" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/b/b8/US_Federal_Reserve_Building.jpg');"></div>
                     <div class="news-content">
                         <span class="news-meta">MACRO</span>
                         
@@ -318,7 +319,7 @@
                 
                 </div>
         </div>
-        <div id="academy" class="section active">
+        <div id="academy" class="section">
             <h2>
                 <span class="lang-el">🎓 Ακαδημία Trading</span>
                 <span class="lang-en">🎓 Trading Academy</span>
@@ -331,7 +332,7 @@
             <div class="news-grid">
                 
                 <a href="article1.html" class="news-card">
-                    <div class="news-thumb" style="background-image: url('https://images.unsplash.com/photo-1611974765270-ca1258634369?w=600');"></div> 
+                    <div class="news-thumb" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/e/e3/Candlestick_chart_example.png');"></div>
                     <div class="news-content">
                         <span class="news-meta academy-label">BEGINNER</span>
                         
@@ -348,7 +349,7 @@
                 </a>
 
                 <a href="article2.html" class="news-card">
-                    <div class="news-thumb" style="background-image: url('https://images.unsplash.com/photo-1621504450168-b8c493a95f26?w=600');"></div>
+                    <div class="news-thumb" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/2/29/Blockchain_structure.png');"></div>
                     <div class="news-content">
                         <span class="news-meta academy-label">CRYPTO</span>
                         
@@ -365,7 +366,7 @@
                 </a>
 
                 <a href="article3.html" class="news-card">
-                    <div class="news-thumb" style="background-image: url('https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600');"></div>
+                    <div class="news-thumb" style="background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Compound_interest_graph.svg/1024px-Compound_interest_graph.svg.png');"></div>
                     <div class="news-content">
                         <span class="news-meta academy-label">INVESTING</span>
                         
@@ -523,8 +524,7 @@
         document.querySelectorAll('.menu-btn').forEach(btn => btn.classList.remove('active'));
         
         // Find the button that was clicked and set it active
-        // Use event.currentTarget if calling from the element itself, or adjust to use document.querySelector
-        const clickedButton = event.currentTarget || document.querySelector(`.menu-btn[onclick*="${id}"]`);
+        const clickedButton = event.target.closest('button');
         if (clickedButton) {
             clickedButton.classList.add('active');
         }
@@ -547,7 +547,8 @@
     function toggleTheme() {
         const body = document.body;
         const icon = document.getElementById('theme-icon');
-        // TradingView Widgets Theme fix: Find all scripts that embed tradingview widgets
+        
+        // TradingView Widgets Theme fix
         document.querySelectorAll('script[src*="tradingview.com/external-embedding"]').forEach(script => {
             let scriptText = script.textContent;
             let currentTheme = body.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
@@ -558,27 +559,28 @@
             }
         });
 
-
         if (body.getAttribute('data-theme') === 'dark') {
             body.removeAttribute('data-theme');
             icon.classList.remove('fa-sun'); icon.classList.add('fa-moon');
-            // Update Ticker Tape to light
-            document.querySelector('.tradingview-widget-container script[src*="ticker-tape"]').textContent = document.querySelector('.tradingview-widget-container script[src*="ticker-tape"]').textContent.replace(`"colorTheme": "dark"`, `"colorTheme": "light"`);
+            // Ticker Tape to light
+            let tt = document.querySelector('.tradingview-widget-container script[src*="ticker-tape"]');
+            if(tt) tt.textContent = tt.textContent.replace(`"colorTheme": "dark"`, `"colorTheme": "light"`);
         } else {
             body.setAttribute('data-theme', 'dark');
             icon.classList.remove('fa-moon'); icon.classList.add('fa-sun');
-             // Update Ticker Tape to dark
-             document.querySelector('.tradingview-widget-container script[src*="ticker-tape"]').textContent = document.querySelector('.tradingview-widget-container script[src*="ticker-tape"]').textContent.replace(`"colorTheme": "light"`, `"colorTheme": "dark"`);
+             // Ticker Tape to dark
+             let tt = document.querySelector('.tradingview-widget-container script[src*="ticker-tape"]');
+             if(tt) tt.textContent = tt.textContent.replace(`"colorTheme": "light"`, `"colorTheme": "dark"`);
         }
     }
 
-    // --- Dynamic Feed Loading Logic (Remains the same) ---
     const FEEDS = [
         { url: 'https://finance.yahoo.com/news/rssindex', source: 'Yahoo Finance' },
         { url: 'https://www.investing.com/rss/news.rss', source: 'Investing.com' },
         { url: 'https://cointelegraph.com/rss', source: 'CoinTelegraph' }
     ];
 
+    // Εικόνες για τα δυναμικά φορτωμένα άρθρα (αν δεν βρεθεί thumbnail)
     const DEFAULT_IMAGES = [
         'https://images.unsplash.com/photo-1611974765270-ca1258634369?w=600',
         'https://images.unsplash.com/photo-1590283603385-17ffb3a7f29f?w=600',
@@ -592,6 +594,7 @@
         return date.toLocaleDateString('el-GR', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute:'2-digit' });
     }
 
+    // ΕΠΑΝΑΦΟΡΑ ΤΗΣ ΑΥΤΟΜΑΤΗΣ ΦΟΡΤΩΣΗΣ ΑΡΘΡΩΝ ΓΙΑ ΤΟ #articles
     async function loadArticles() {
         fetch('https://api.rss2json.com/v1/api.json?rss_url=' + encodeURIComponent('https://www.investing.com/rss/market_overview.rss') + '&t=' + Date.now())
         .then(res => res.json())
@@ -599,9 +602,10 @@
             const container = document.getElementById('articles-container');
             container.innerHTML = '';
             if(data.items) {
+                // Limit to 6 items to keep the grid clean
                 data.items.slice(0, 6).forEach(item => { 
                     let desc = item.description.replace(/<[^>]*>?/gm, '').substring(0, 120) + '...';
-                    let img = getRandomImage();
+                    let img = getRandomImage(); // Χρήση τυχαίας εικόνας για αυτά τα άρθρα
                     container.innerHTML += `
                         <a href="${item.link}" target="_blank" class="news-card">
                             <div class="news-thumb" style="background-image: url('${img}')"></div>
