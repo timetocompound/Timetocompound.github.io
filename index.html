@@ -2,486 +2,501 @@
 <html lang="el">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y9DENNW7FP"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-Y9DENNW7FP');
-    </script>
-
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Y9DENNW7FP');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TimeToCompound | Financial Intelligence</title>
-    <meta name="description" content="TimeToCompound: Άμεση ενημέρωση για τις διεθνείς αγορές, το χρηματιστήριο και την οικονομία. Αναλύσεις και οδηγοί για επενδυτές.">
-    <meta name="keywords" content="investing, χρηματιστήριο, επενδύσεις, compound interest, ETF, S&P 500, crypto, αγορές">
+    <meta name="description" content="TimeToCompound: Πρωτότυπες αναλύσεις αγορών, εκπαιδευτικό περιεχόμενο και live δεδομένα για τον σύγχρονο επενδυτή.">
     <link rel="canonical" href="https://timetocompound.com/">
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
-
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;800&family=DM+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-
     <style>
         :root {
-            --bg-body: #FAF7F4;
-            --bg-card: #FFFFFF;
-            --bg-nav: #FFFFFF;
-            --bg-footer: #0D1117;
-            --text-main: #1A1A1A;
-            --text-muted: #6B6B6B;
-            --text-light: #9A9A9A;
-            --accent: #C0392B;
-            --accent-hover: #96281B;
-            --border: #E8E0D8;
-            --border-light: #F0EBE5;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.06);
-            --shadow-md: 0 4px 16px rgba(0,0,0,0.08);
-            --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+            --ink: #0D0D0D;
+            --ink-2: #3D3D3D;
+            --ink-3: #787878;
+            --paper: #F4F1EB;
+            --paper-2: #FFFFFF;
+            --paper-3: #EAE7E0;
+            --green: #1B3A2D;
+            --green-light: #2C5A47;
+            --gold: #B8924A;
+            --gold-light: #D4A85A;
+            --rule: #D4CEC4;
+            --shadow: 0 2px 12px rgba(13,13,13,0.08);
         }
-
         [data-theme="dark"] {
-            --bg-body: #0A0F1C;
-            --bg-card: #111827;
-            --bg-nav: #0D1321;
-            --bg-footer: #060A12;
-            --text-main: #F0EAE0;
-            --text-muted: #A0A8B8;
-            --text-light: #6B7280;
-            --accent: #E8A020;
-            --accent-hover: #D4911A;
-            --border: #1E2A3A;
-            --border-light: #162030;
-            --shadow-sm: 0 1px 3px rgba(0,0,0,0.3);
-            --shadow-md: 0 4px 16px rgba(0,0,0,0.4);
-            --shadow-lg: 0 8px 32px rgba(0,0,0,0.5);
+            --ink: #F0EBE0;
+            --ink-2: #B8B0A0;
+            --ink-3: #706860;
+            --paper: #0C1209;
+            --paper-2: #111A0E;
+            --paper-3: #162012;
+            --green: #4A8C6A;
+            --green-light: #5AA880;
+            --gold: #D4A85A;
+            --gold-light: #E8C07A;
+            --rule: #1E2E1A;
+            --shadow: 0 2px 12px rgba(0,0,0,0.4);
         }
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+        html{scroll-behavior:smooth;}
+        body{font-family:'Outfit',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;display:flex;flex-direction:column;transition:background .3s,color .3s;}
+        a{text-decoration:none;color:inherit;}
 
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        /* ─── TICKER ─── */
+        .ticker-bar{background:var(--green);padding:0;overflow:hidden;height:34px;display:flex;align-items:center;}
+        .ticker-label{background:var(--gold);color:#0D0D0D;font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:0 14px;height:100%;display:flex;align-items:center;white-space:nowrap;flex-shrink:0;}
+        .ticker-widget{flex:1;overflow:hidden;}
 
-        body { font-family: 'DM Sans', sans-serif; background: var(--bg-body); color: var(--text-main); transition: background 0.3s, color 0.3s; display: flex; flex-direction: column; min-height: 100vh; line-height: 1.6; }
-        a { text-decoration: none; color: inherit; transition: color 0.2s; }
+        /* ─── NAV ─── */
+        nav{background:var(--paper-2);border-bottom:1px solid var(--rule);position:sticky;top:0;z-index:999;}
+        .nav-brand{max-width:1300px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;height:80px;border-bottom:1px solid var(--rule);}
+        .brand{display:flex;flex-direction:column;cursor:pointer;}
+        .brand-name{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--ink);letter-spacing:-1px;line-height:1;}
+        .brand-sub{font-size:.6rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--ink-3);margin-top:3px;}
+        .nav-controls{display:flex;align-items:center;gap:14px;}
+        .nav-date{font-size:.75rem;color:var(--ink-3);padding-right:14px;border-right:1px solid var(--rule);}
+        .ctrl-btn{width:34px;height:34px;border-radius:3px;border:1px solid var(--rule);background:transparent;color:var(--ink-3);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:all .2s;font-family:'Outfit',sans-serif;}
+        .ctrl-btn:hover{border-color:var(--gold);color:var(--gold);}
+        .lang-btn{font-size:1.1rem;background:none;border:none;cursor:pointer;transition:transform .2s;}
+        .lang-btn:hover{transform:scale(1.1);}
 
-        .top-bar { height: 3px; background: var(--accent); width: 100%; position: fixed; top: 0; left: 0; z-index: 1001; }
+        .nav-tabs{max-width:1300px;margin:0 auto;padding:0 28px;display:flex;align-items:center;height:42px;gap:0;}
+        .tab-btn{background:none;border:none;font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:600;letter-spacing:.8px;text-transform:uppercase;color:var(--ink-3);cursor:pointer;padding:0 16px;height:100%;transition:color .2s;position:relative;border-bottom:2px solid transparent;}
+        .tab-btn:hover{color:var(--ink);}
+        .tab-btn.active{color:var(--green);border-bottom-color:var(--green);}
+        [data-theme="dark"] .tab-btn.active{color:var(--gold);border-bottom-color:var(--gold);}
 
-        .ticker-wrap { background: var(--bg-nav); border-bottom: 1px solid var(--border); margin-top: 3px; }
+        /* ─── LAYOUT ─── */
+        .site-body{max-width:1300px;margin:0 auto;padding:40px 28px;display:grid;grid-template-columns:1fr 300px;gap:48px;flex:1;}
 
-        nav { background: var(--bg-nav); border-bottom: 1px solid var(--border); position: sticky; top: 3px; z-index: 1000; }
+        /* ─── SECTION TITLES ─── */
+        .sec-head{display:flex;align-items:baseline;gap:14px;margin-bottom:28px;padding-bottom:10px;border-bottom:2px solid var(--ink);}
+        .sec-kicker{font-size:.62rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);}
+        .sec-title{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:600;color:var(--ink);}
 
-        .nav-top { max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; justify-content: space-between; align-items: center; height: 72px; border-bottom: 1px solid var(--border-light); }
+        /* ─── SECTIONS ─── */
+        .section{display:none;animation:up .3s ease;}
+        .section.active{display:block;}
+        @keyframes up{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
 
-        .logo { display: flex; align-items: center; gap: 12px; cursor: pointer; }
-        .logo-text { display: flex; flex-direction: column; line-height: 1; }
-        .logo-title { font-family: 'Playfair Display', serif; font-size: 1.6rem; font-weight: 800; color: var(--text-main); letter-spacing: -0.5px; }
-        .logo-tagline { font-size: 0.65rem; font-weight: 500; color: var(--text-muted); text-transform: uppercase; letter-spacing: 2px; margin-top: 3px; }
-        .logo svg { height: 44px; width: 44px; }
+        /* ─── FEATURED STORY ─── */
+        .featured{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin-bottom:36px;cursor:pointer;box-shadow:var(--shadow);}
+        .featured:hover .featured-img{transform:scale(1.04);}
+        .featured-img-wrap{overflow:hidden;height:340px;}
+        .featured-img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;display:block;}
+        .featured-body{background:var(--paper-2);padding:36px 32px;display:flex;flex-direction:column;justify-content:flex-end;border-left:1px solid var(--rule);}
+        .featured-kicker{font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:14px;}
+        .featured-title{font-family:'Cormorant Garamond',serif;font-size:1.85rem;font-weight:700;line-height:1.2;color:var(--ink);margin-bottom:14px;}
+        .featured-desc{font-size:.9rem;color:var(--ink-2);line-height:1.65;margin-bottom:18px;}
+        .featured-meta{font-size:.72rem;color:var(--ink-3);border-top:1px solid var(--rule);padding-top:14px;margin-top:auto;}
 
-        .nav-actions { display: flex; align-items: center; gap: 12px; }
-        .nav-date { font-size: 0.8rem; color: var(--text-muted); font-weight: 500; padding-right: 12px; border-right: 1px solid var(--border); }
+        /* ─── ARTICLE GRID ─── */
+        .art-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin-bottom:36px;}
+        .art-card{background:var(--paper-2);padding:0;display:flex;flex-direction:column;cursor:pointer;transition:background .2s;}
+        .art-card:hover{background:var(--paper-3);}
+        .art-card img{width:100%;height:155px;object-fit:cover;display:block;border-bottom:1px solid var(--rule);}
+        .art-body{padding:18px 18px 20px;flex:1;display:flex;flex-direction:column;gap:8px;}
+        .art-kicker{font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
+        .art-title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-weight:700;line-height:1.35;color:var(--ink);}
+        .art-desc{font-size:.825rem;color:var(--ink-2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
+        .art-date{font-size:.7rem;color:var(--ink-3);margin-top:auto;padding-top:10px;border-top:1px solid var(--rule);}
 
-        .icon-btn { width: 36px; height: 36px; border-radius: 50%; border: 1px solid var(--border); background: transparent; color: var(--text-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; font-size: 0.85rem; transition: all 0.2s; font-family: 'DM Sans', sans-serif; }
-        .icon-btn:hover { border-color: var(--accent); color: var(--accent); }
+        /* ─── ANALYSIS LIST (My Analysis / Academy) ─── */
+        .analysis-list{display:flex;flex-direction:column;gap:0;}
+        .analysis-item{display:grid;grid-template-columns:160px 1fr;gap:0;border:1px solid var(--rule);border-bottom:none;background:var(--paper-2);cursor:pointer;transition:background .2s;}
+        .analysis-item:last-child{border-bottom:1px solid var(--rule);}
+        .analysis-item:first-child{border-radius:3px 3px 0 0;}
+        .analysis-item:last-child{border-radius:0 0 3px 3px;}
+        .analysis-item:hover{background:var(--paper-3);}
+        .analysis-item img{width:160px;height:110px;object-fit:cover;display:block;border-right:1px solid var(--rule);}
+        .analysis-body{padding:16px 20px;display:flex;flex-direction:column;gap:7px;justify-content:center;}
+        .analysis-tags{display:flex;gap:6px;flex-wrap:wrap;}
+        .tag{display:inline-block;font-size:.58rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:3px 8px;border-radius:2px;}
+        .tag-macro{background:#1B3A2D;color:#9FD4B8;}
+        .tag-beginner{background:#1E2A4A;color:#93B3F0;}
+        .tag-crypto{background:#2D1A0E;color:#F0A070;}
+        .tag-investing{background:#0E2A18;color:#80D4A0;}
+        .tag-guide{background:#2A2010;color:#D4B870;}
+        .tag-new{background:var(--gold);color:#0D0D0D;}
+        [data-theme="dark"] .tag-macro{background:#0D2018;color:#4ADE80;}
+        [data-theme="dark"] .tag-beginner{background:#101828;color:#60A5FA;}
+        [data-theme="dark"] .tag-crypto{background:#1A0C04;color:#FB923C;}
+        [data-theme="dark"] .tag-investing{background:#071810;color:#34D399;}
+        [data-theme="dark"] .tag-guide{background:#1A1404;color:#FCD34D;}
+        .analysis-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;line-height:1.3;color:var(--ink);}
+        .analysis-desc{font-size:.82rem;color:var(--ink-2);line-height:1.55;}
+        .analysis-meta{font-size:.7rem;color:var(--ink-3);}
 
-        .lang-btn { font-size: 1.1rem; border: none; background: none; cursor: pointer; padding: 4px; border-radius: 4px; transition: transform 0.2s; }
-        .lang-btn:hover { transform: scale(1.1); }
+        /* ─── SIDEBAR ─── */
+        .sidebar{display:flex;flex-direction:column;gap:28px;}
+        .widget{border:1px solid var(--rule);border-radius:3px;overflow:hidden;background:var(--paper-2);}
+        .whead{padding:12px 16px;border-bottom:1px solid var(--rule);display:flex;align-items:center;justify-content:space-between;}
+        .wlabel{font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);}
 
-        .nav-menu { max-width: 1280px; margin: 0 auto; padding: 0 24px; display: flex; align-items: center; gap: 2px; height: 44px; }
+        /* Freedom widget */
+        .freedom-w{border:none;background:var(--green);padding:24px;border-radius:3px;}
+        .freedom-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:2px;margin-bottom:14px;}
+        .freedom-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.2;}
+        .freedom-copy{font-size:.82rem;color:rgba(255,255,255,.65);line-height:1.5;margin-bottom:20px;}
+        .freedom-num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:700;color:#6EE7B7;line-height:1;margin-bottom:2px;}
+        .freedom-numlabel{font-size:.7rem;color:rgba(255,255,255,.45);margin-bottom:18px;}
+        .freedom-cta{display:block;background:#fff;color:var(--green);text-align:center;padding:12px;border-radius:2px;font-weight:700;font-size:.875rem;transition:all .2s;letter-spacing:.3px;}
+        .freedom-cta:hover{background:#F0FDF4;transform:translateY(-1px);}
 
-        .menu-btn { background: none; border: none; font-family: 'DM Sans', sans-serif; font-size: 0.78rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.8px; color: var(--text-muted); cursor: pointer; padding: 6px 14px; border-radius: 4px; transition: all 0.2s; position: relative; }
-        .menu-btn::after { content: ''; position: absolute; bottom: -1px; left: 14px; right: 14px; height: 2px; background: var(--accent); transform: scaleX(0); transition: transform 0.2s; }
-        .menu-btn:hover { color: var(--text-main); }
-        .menu-btn:hover::after { transform: scaleX(1); }
-        .menu-btn.active { color: var(--accent); }
-        .menu-btn.active::after { transform: scaleX(1); }
+        /* ─── FOOTER ─── */
+        footer{background:#0D0D0D;border-top:3px solid var(--gold);margin-top:60px;}
+        .foot-grid{max-width:1300px;margin:0 auto;padding:48px 28px 28px;display:grid;grid-template-columns:1.6fr 1fr 1.4fr;gap:48px;}
+        .foot-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:10px;}
+        .foot-about{font-size:.85rem;line-height:1.7;color:#666;margin-bottom:20px;}
+        .foot-col h5{font-size:.6rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:#555;margin-bottom:16px;}
+        .foot-links{list-style:none;}
+        .foot-links li{margin-bottom:9px;}
+        .foot-links a{font-size:.875rem;color:#555;transition:color .2s;}
+        .foot-links a:hover{color:var(--gold);}
+        .social-row{display:flex;gap:10px;margin-top:18px;}
+        .soc{width:32px;height:32px;border-radius:2px;background:#1A1A1A;color:#666;display:flex;align-items:center;justify-content:center;font-size:.75rem;transition:all .2s;}
+        .soc:hover{background:var(--gold);color:#0D0D0D;transform:translateY(-2px);}
+        .nl-input{width:100%;padding:11px 14px;background:#1A1A1A;border:1px solid #2A2A2A;border-radius:2px;color:#fff;font-family:'Outfit',sans-serif;font-size:.875rem;margin-bottom:8px;outline:none;transition:border-color .2s;}
+        .nl-input:focus{border-color:var(--gold);}
+        .nl-input::placeholder{color:#3A3A3A;}
+        .nl-btn{width:100%;padding:11px;background:var(--gold);color:#0D0D0D;border:none;border-radius:2px;font-family:'Outfit',sans-serif;font-size:.875rem;font-weight:700;cursor:pointer;letter-spacing:.3px;transition:opacity .2s;}
+        .nl-btn:hover{opacity:.9;}
+        .foot-bottom{border-top:1px solid #1A1A1A;max-width:1300px;margin:0 auto;padding:18px 28px;display:flex;justify-content:space-between;align-items:center;font-size:.75rem;color:#3A3A3A;}
+        .foot-bottom a{color:#444;transition:color .2s;}
+        .foot-bottom a:hover{color:var(--gold);}
 
-        .page-wrap { max-width: 1280px; margin: 32px auto; padding: 0 24px; display: grid; grid-template-columns: 1fr 320px; gap: 40px; flex: 1; }
+        /* Lang */
+        .lang-en{display:none;}
+        body.en .lang-el{display:none!important;}
+        body.en .lang-en{display:block!important;}
+        span.lang-en{display:none;}
+        body.en span.lang-en{display:inline!important;}
 
-        .section-header { display: flex; align-items: center; gap: 12px; margin-bottom: 24px; padding-bottom: 12px; border-bottom: 2px solid var(--text-main); }
-        .section-label { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); }
-        .section-title { font-family: 'Playfair Display', serif; font-size: 1.1rem; font-weight: 700; color: var(--text-main); }
+        .loading{grid-column:1/-1;text-align:center;padding:60px;color:var(--ink-3);}
+        .loading i{display:block;font-size:1.5rem;margin-bottom:12px;}
 
-        .section { display: none; animation: fadeUp 0.35s ease; }
-        .section.active { display: block; }
-
-        @keyframes fadeUp { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
-
-        .hero-card { position: relative; height: 440px; border-radius: 4px; overflow: hidden; margin-bottom: 32px; cursor: pointer; box-shadow: var(--shadow-lg); }
-        .hero-bg { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
-        .hero-card:hover .hero-bg { transform: scale(1.04); }
-        .hero-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(10,15,28,0.97) 0%, rgba(10,15,28,0.45) 55%, transparent 100%); display: flex; flex-direction: column; justify-content: flex-end; padding: 36px; }
-        .hero-source { display: inline-flex; align-items: center; gap: 6px; background: var(--accent); color: white; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; padding: 4px 10px; border-radius: 2px; margin-bottom: 14px; width: fit-content; }
-        .hero-title { font-family: 'Playfair Display', serif; font-size: 2rem; font-weight: 700; color: white; line-height: 1.25; margin-bottom: 10px; text-shadow: 0 2px 8px rgba(0,0,0,0.4); }
-        .hero-date { font-size: 0.8rem; color: rgba(255,255,255,0.55); font-weight: 500; }
-
-        .news-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 24px; }
-
-        .news-card { background: var(--bg-card); border-radius: 4px; overflow: hidden; border: 1px solid var(--border); transition: all 0.25s ease; display: flex; flex-direction: column; cursor: pointer; box-shadow: var(--shadow-sm); }
-        .news-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-md); border-color: var(--accent); }
-
-        .news-img { width: 100%; height: 175px; object-fit: cover; display: block; }
-
-        .news-content { padding: 18px 20px 20px; flex: 1; display: flex; flex-direction: column; gap: 8px; }
-
-        .news-source { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1.5px; color: var(--accent); display: flex; align-items: center; gap: 6px; }
-        .news-source::before { content: ''; display: inline-block; width: 8px; height: 2px; background: var(--accent); border-radius: 1px; }
-
-        .news-title { font-family: 'Playfair Display', serif; font-size: 1rem; font-weight: 700; line-height: 1.4; color: var(--text-main); }
-        .news-desc { font-size: 0.875rem; color: var(--text-muted); line-height: 1.55; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden; }
-        .news-date { font-size: 0.75rem; color: var(--text-light); margin-top: auto; padding-top: 10px; border-top: 1px solid var(--border-light); }
-
-        .badge { display: inline-flex; align-items: center; padding: 3px 10px; border-radius: 2px; font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; width: fit-content; }
-        .badge-beginner { background: #EEF2FF; color: #4338CA; }
-        .badge-crypto { background: #FFF7ED; color: #C2410C; }
-        .badge-investing { background: #F0FDF4; color: #15803D; }
-        .badge-guide { background: #FFFBEB; color: #B45309; }
-        .badge-macro { background: #FEF2F2; color: #B91C1C; }
-        .badge-new { background: var(--accent); color: white; margin-left: 6px; }
-
-        [data-theme="dark"] .badge-beginner { background: #1e1b4b; color: #a5b4fc; }
-        [data-theme="dark"] .badge-crypto { background: #1c1008; color: #fb923c; }
-        [data-theme="dark"] .badge-investing { background: #052e16; color: #4ade80; }
-        [data-theme="dark"] .badge-guide { background: #1c1205; color: #fbbf24; }
-        [data-theme="dark"] .badge-macro { background: #1a0505; color: #f87171; }
-
-        .sidebar { display: flex; flex-direction: column; gap: 28px; }
-
-        .widget { background: var(--bg-card); border: 1px solid var(--border); border-radius: 4px; overflow: hidden; box-shadow: var(--shadow-sm); }
-        .widget-header { padding: 14px 18px; border-bottom: 1px solid var(--border); }
-        .widget-label { font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--accent); }
-
-        .freedom-widget { background: linear-gradient(135deg, #0B2A1E 0%, #0D4A30 60%, #1A6B45 100%); border: none; padding: 24px; position: relative; overflow: hidden; }
-        .freedom-widget::before { content: ''; position: absolute; top: -40px; right: -40px; width: 120px; height: 120px; border-radius: 50%; background: rgba(255,255,255,0.04); }
-        .freedom-badge { display: inline-flex; align-items: center; gap: 5px; background: rgba(255,255,255,0.15); color: rgba(255,255,255,0.9); font-size: 0.65rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 4px 10px; border-radius: 2px; margin-bottom: 14px; }
-        .freedom-title { font-family: 'Playfair Display', serif; font-size: 1.2rem; font-weight: 700; color: white; margin-bottom: 8px; line-height: 1.3; }
-        .freedom-desc { font-size: 0.85rem; color: rgba(255,255,255,0.7); line-height: 1.5; margin-bottom: 18px; }
-        .freedom-rate { font-size: 2rem; font-weight: 700; color: #4ADE80; font-family: 'Playfair Display', serif; margin-bottom: 4px; }
-        .freedom-rate-label { font-size: 0.75rem; color: rgba(255,255,255,0.5); margin-bottom: 18px; }
-        .freedom-btn { display: block; background: white; color: #0B2A1E; text-align: center; padding: 12px; border-radius: 3px; font-weight: 700; font-size: 0.875rem; transition: all 0.2s; position: relative; z-index: 1; }
-        .freedom-btn:hover { background: #F0FDF4; transform: translateY(-1px); }
-
-        footer { background: var(--bg-footer); color: #6B7280; margin-top: 60px; border-top: 3px solid var(--accent); }
-        .footer-top { max-width: 1280px; margin: 0 auto; padding: 48px 24px 32px; display: grid; grid-template-columns: 1.8fr 1fr 1.5fr; gap: 48px; }
-        .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 800; color: white; margin-bottom: 12px; }
-        .footer-desc { font-size: 0.875rem; line-height: 1.7; margin-bottom: 20px; color: #9CA3AF; }
-        .footer-col h4 { font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: #9CA3AF; margin-bottom: 16px; }
-        .footer-links { list-style: none; }
-        .footer-links li { margin-bottom: 10px; }
-        .footer-links a { font-size: 0.875rem; color: #6B7280; transition: color 0.2s; }
-        .footer-links a:hover { color: var(--accent); }
-
-        .newsletter-input { width: 100%; padding: 11px 14px; background: #111827; border: 1px solid #1F2937; border-radius: 3px; color: white; font-family: 'DM Sans', sans-serif; font-size: 0.875rem; margin-bottom: 8px; outline: none; transition: border-color 0.2s; }
-        .newsletter-input:focus { border-color: var(--accent); }
-        .newsletter-input::placeholder { color: #4B5563; }
-        .newsletter-btn { width: 100%; padding: 11px; background: var(--accent); color: white; border: none; border-radius: 3px; font-family: 'DM Sans', sans-serif; font-size: 0.875rem; font-weight: 700; cursor: pointer; transition: opacity 0.2s; }
-        .newsletter-btn:hover { opacity: 0.9; }
-
-        .social-row { display: flex; gap: 10px; margin-top: 18px; }
-        .social-btn { width: 34px; height: 34px; border-radius: 50%; background: #1F2937; color: #9CA3AF; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; transition: all 0.2s; }
-        .social-btn:hover { background: var(--accent); color: white; transform: translateY(-2px); }
-
-        .footer-bottom { border-top: 1px solid #1F2937; max-width: 1280px; margin: 0 auto; padding: 18px 24px; display: flex; justify-content: space-between; align-items: center; font-size: 0.8rem; color: #4B5563; }
-        .footer-bottom a { color: #6B7280; transition: color 0.2s; }
-        .footer-bottom a:hover { color: var(--accent); }
-
-        .lang-en { display: none; }
-        body.english-mode .lang-el { display: none !important; }
-        body.english-mode .lang-en { display: block !important; }
-        span.lang-en { display: none; }
-        body.english-mode span.lang-en { display: inline !important; }
-
-        .loading-state { grid-column: 1/-1; text-align: center; padding: 60px 20px; color: var(--text-muted); }
-        .loading-state i { font-size: 1.5rem; margin-bottom: 12px; display: block; }
-
-        @media (max-width: 1024px) { .page-wrap { grid-template-columns: 1fr; } }
-        @media (max-width: 768px) {
-            .nav-top { height: 60px; }
-            .logo-title { font-size: 1.3rem; }
-            .logo-tagline, .nav-date { display: none; }
-            .hero-card { height: 280px; }
-            .hero-title { font-size: 1.4rem; }
-            .hero-overlay { padding: 20px; }
-            .footer-top { grid-template-columns: 1fr; gap: 28px; }
-            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+        @media(max-width:1024px){.site-body{grid-template-columns:1fr;}}
+        @media(max-width:768px){
+            .featured{grid-template-columns:1fr;}
+            .featured-img-wrap{height:220px;}
+            .featured-body{padding:22px;}
+            .art-grid{grid-template-columns:1fr;}
+            .analysis-item{grid-template-columns:1fr;}
+            .analysis-item img{width:100%;height:150px;}
+            .nav-brand{height:60px;}
+            .brand-name{font-size:1.5rem;}
+            .nav-date{display:none;}
+            .foot-grid{grid-template-columns:1fr;gap:28px;}
+            .foot-bottom{flex-direction:column;gap:8px;text-align:center;}
         }
     </style>
 </head>
 <body>
 
-<div class="top-bar"></div>
-
-<div class="ticker-wrap">
-    <div class="tradingview-widget-container">
-        <div class="tradingview-widget-container__widget"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
-        {"symbols":[{"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},{"proName":"BITSTAMP:BTCUSD","title":"Bitcoin"},{"description":"Nvidia","proName":"NASDAQ:NVDA"},{"description":"Tesla","proName":"NASDAQ:TSLA"},{"description":"Apple","proName":"NASDAQ:AAPL"},{"description":"Freedom Holding","proName":"NASDAQ:FRHC"},{"description":"Gold","proName":"FOREXCOM:XAUUSD"},{"description":"EUR/USD","proName":"FX:EURUSD"}],"showSymbolLogo":true,"colorTheme":"light","isTransparent":true,"displayMode":"adaptive","locale":"en"}
-        </script>
+<!-- TICKER -->
+<div class="ticker-bar">
+    <span class="ticker-label">Markets</span>
+    <div class="ticker-widget">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {"symbols":[{"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},{"proName":"BITSTAMP:BTCUSD","title":"Bitcoin"},{"description":"Nvidia","proName":"NASDAQ:NVDA"},{"description":"Tesla","proName":"NASDAQ:TSLA"},{"description":"Apple","proName":"NASDAQ:AAPL"},{"description":"Gold","proName":"FOREXCOM:XAUUSD"},{"description":"EUR/USD","proName":"FX:EURUSD"},{"description":"Brent","proName":"UKOIL"}],"showSymbolLogo":false,"colorTheme":"dark","isTransparent":true,"displayMode":"adaptive","locale":"en"}
+            </script>
+        </div>
     </div>
 </div>
 
+<!-- NAV -->
 <nav>
-    <div class="nav-top">
-        <div class="logo" onclick="location.reload()">
-            <svg viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-                <defs><filter id="ds"><feGaussianBlur in="SourceAlpha" stdDeviation="4"/><feOffset dx="3" dy="4" result="ob"/><feComponentTransfer><feFuncA type="linear" slope="0.3"/></feComponentTransfer><feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge></filter><linearGradient id="blueG" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#005c97"/><stop offset="50%" stop-color="#003366"/><stop offset="100%" stop-color="#001f3f"/></linearGradient><linearGradient id="goldG" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#b8860b"/><stop offset="50%" stop-color="#ffcc00"/><stop offset="100%" stop-color="#ffe066"/></linearGradient><linearGradient id="arrowG" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#003366"/><stop offset="35%" stop-color="#005c97"/><stop offset="50%" stop-color="#daa520"/><stop offset="100%" stop-color="#ffd700"/></linearGradient><linearGradient id="coinS" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#daa520"/><stop offset="50%" stop-color="#ffe066"/><stop offset="100%" stop-color="#b8860b"/></linearGradient><radialGradient id="coinT"><stop offset="0%" stop-color="#ffe066"/><stop offset="100%" stop-color="#daa520"/></radialGradient></defs>
-                <g stroke="#003366" stroke-width="6" stroke-linecap="round"><line x1="250" y1="60" x2="250" y2="80" transform="rotate(0 250 250)"/><line x1="250" y1="60" x2="250" y2="80" transform="rotate(30 250 250)"/><line x1="250" y1="60" x2="250" y2="80" transform="rotate(60 250 250)"/><line x1="250" y1="60" x2="250" y2="80" transform="rotate(120 250 250)"/><line x1="250" y1="60" x2="250" y2="80" transform="rotate(150 250 250)"/><line x1="250" y1="60" x2="250" y2="80" transform="rotate(180 250 250)"/><line x1="250" y1="60" x2="250" y2="80" transform="rotate(210 250 250)"/><line x1="250" y1="60" x2="250" y2="80" transform="rotate(240 250 250)"/><line x1="250" y1="60" x2="250" y2="80" transform="rotate(270 250 250)"/><line x1="250" y1="60" x2="250" y2="80" transform="rotate(300 250 250)"/><line x1="250" y1="60" x2="250" y2="80" transform="rotate(330 250 250)"/></g>
-                <path d="M 130,90 A 210,210 0 0,0 250,450 A 210,210 0 0,0 370,415 L 350,385 A 175,175 0 0,1 250,415 A 175,175 0 0,1 155,115 Z" fill="url(#blueG)" filter="url(#ds)"/>
-                <path d="M 380,410 A 210,210 0 0,0 250,50 A 210,210 0 0,0 150,75 L 170,105 A 175,175 0 0,1 250,85 A 175,175 0 0,1 360,380 Z" fill="url(#goldG)" filter="url(#ds)"/>
-                <g transform="translate(255,170)"><g transform="translate(-30,20)"><path d="M -15,0 v 10 a 15,5 0 0,0 30,0 v -10" fill="url(#coinS)" stroke="#b8860b" stroke-width="0.5"/><ellipse cx="0" cy="0" rx="15" ry="5" fill="url(#coinT)" stroke="#b8860b" stroke-width="0.5"/><path d="M -15,-8 v 10 a 15,5 0 0,0 30,0 v -10" fill="url(#coinS)" stroke="#b8860b" stroke-width="0.5"/><ellipse cx="0" cy="-8" rx="15" ry="5" fill="url(#coinT)" stroke="#b8860b" stroke-width="0.5"/></g><g transform="translate(20,0)"><path d="M -15,20 v 10 a 15,5 0 0,0 30,0 v -10" fill="url(#coinS)" stroke="#b8860b" stroke-width="0.5"/><ellipse cx="0" cy="20" rx="15" ry="5" fill="url(#coinT)" stroke="#b8860b" stroke-width="0.5"/><path d="M -15,12 v 10 a 15,5 0 0,0 30,0 v -10" fill="url(#coinS)" stroke="#b8860b" stroke-width="0.5"/><ellipse cx="0" cy="12" rx="15" ry="5" fill="url(#coinT)" stroke="#b8860b" stroke-width="0.5"/><path d="M -15,4 v 10 a 15,5 0 0,0 30,0 v -10" fill="url(#coinS)" stroke="#b8860b" stroke-width="0.5"/><ellipse cx="0" cy="4" rx="15" ry="5" fill="url(#coinT)" stroke="#b8860b" stroke-width="0.5"/><path d="M -15,-4 v 10 a 15,5 0 0,0 30,0 v -10" fill="url(#coinS)" stroke="#b8860b" stroke-width="0.5"/><ellipse cx="0" cy="-4" rx="15" ry="5" fill="url(#coinT)" stroke="#b8860b" stroke-width="0.5"/></g></g>
-                <g filter="url(#ds)"><path d="M 100,380 L 180,270 L 240,320 L 380,100 L 330,100 L 420,40 L 430,140 L 395,140 L 255,360 L 195,310 L 130,405 Z" fill="url(#arrowG)" stroke="#ffffff" stroke-width="3" stroke-linejoin="round"/></g>
-            </svg>
-            <div class="logo-text">
-                <span class="logo-title">TimeToCompound</span>
-                <span class="logo-tagline">Financial Intelligence</span>
-            </div>
+    <div class="nav-brand">
+        <div class="brand" onclick="location.reload()">
+            <span class="brand-name">TimeToCompound</span>
+            <span class="brand-sub">Financial Intelligence</span>
         </div>
-        <div class="nav-actions">
+        <div class="nav-controls">
             <span class="nav-date" id="nav-date"></span>
-            <button class="lang-btn" onclick="toggleLanguage()"><span class="lang-el">🇬🇧</span><span class="lang-en">🇬🇷</span></button>
-            <button class="icon-btn" onclick="toggleTheme()"><i class="fas fa-moon" id="theme-icon"></i></button>
+            <button class="lang-btn" onclick="toggleLang()"><span class="lang-el">🇬🇧</span><span class="lang-en">🇬🇷</span></button>
+            <button class="ctrl-btn" onclick="toggleTheme()"><i class="fas fa-moon" id="theme-icon"></i></button>
         </div>
     </div>
-    <div class="nav-menu">
-        <button class="menu-btn active" onclick="switchSection('news',this)"><span class="lang-el">Ειδήσεις</span><span class="lang-en">News</span></button>
-        <button class="menu-btn" onclick="switchSection('markets',this)"><span class="lang-el">Αγορές</span><span class="lang-en">Markets</span></button>
-        <button class="menu-btn" onclick="switchSection('articles',this)"><span class="lang-el">Αναλύσεις</span><span class="lang-en">Analysis</span></button>
-        <button class="menu-btn" onclick="switchSection('my-analysis',this)"><span class="lang-el">My Analysis ✍️</span><span class="lang-en">My Analysis ✍️</span></button>
-        <button class="menu-btn" onclick="switchSection('academy',this)"><span class="lang-el">Ακαδημία 🎓</span><span class="lang-en">Academy 🎓</span></button>
+    <div class="nav-tabs">
+        <button class="tab-btn active" onclick="go('news',this)"><span class="lang-el">Ειδήσεις</span><span class="lang-en">News</span></button>
+        <button class="tab-btn" onclick="go('markets',this)"><span class="lang-el">Αγορές</span><span class="lang-en">Markets</span></button>
+        <button class="tab-btn" onclick="go('analysis',this)"><span class="lang-el">Αναλύσεις</span><span class="lang-en">Analysis</span></button>
+        <button class="tab-btn" onclick="go('my',this)"><span class="lang-el">My Analysis ✍️</span><span class="lang-en">My Analysis ✍️</span></button>
+        <button class="tab-btn" onclick="go('academy',this)"><span class="lang-el">Ακαδημία 🎓</span><span class="lang-en">Academy 🎓</span></button>
     </div>
 </nav>
 
-<div class="page-wrap">
-    <main>
+<!-- MAIN -->
+<div class="site-body">
+<main>
 
-        <div id="news" class="section active">
-            <div id="hero-container"></div>
-            <div class="section-header">
-                <span class="section-label">Live</span>
-                <span class="section-title"><span class="lang-el">Τελευταίες Ειδήσεις</span><span class="lang-en">Latest Headlines</span></span>
-            </div>
-            <div id="feed-container" class="news-grid">
-                <div class="loading-state"><i class="fas fa-circle-notch fa-spin"></i><span class="lang-el">Συλλογή ειδήσεων...</span><span class="lang-en">Loading news...</span></div>
-            </div>
+    <!-- ── NEWS ── -->
+    <div id="news" class="section active">
+        <div id="hero"></div>
+        <div class="sec-head">
+            <span class="sec-kicker">Live Feed</span>
+            <span class="sec-title"><span class="lang-el">Τελευταίες Ειδήσεις</span><span class="lang-en">Latest Headlines</span></span>
         </div>
+        <div id="feed" class="art-grid">
+            <div class="loading" style="grid-column:1/-1"><i class="fas fa-circle-notch fa-spin"></i><span class="lang-el">Φόρτωση...</span><span class="lang-en">Loading...</span></div>
+        </div>
+    </div>
 
-        <div id="markets" class="section">
-            <div class="section-header"><span class="section-label">Live Data</span><span class="section-title"><span class="lang-el">Ταμπλό Αγορών</span><span class="lang-en">Market Dashboard</span></span></div>
-            <div class="widget" style="margin-bottom:28px;">
-                <div class="widget-header"><span class="widget-label"><span class="lang-el">Συναλλαγματικές Ισοτιμίες</span><span class="lang-en">Forex Rates</span></span></div>
-                <div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
-                {"width":"100%","height":"350","currencies":["EUR","USD","JPY","GBP","CAD","AUD","NZD"],"isTransparent":true,"colorTheme":"light","locale":"en","showBorders":false,"showHeaders":false}</script></div>
-            </div>
-            <div style="height:500px;border-radius:4px;overflow:hidden;border:1px solid var(--border);margin-bottom:28px;">
-                <div class="tradingview-widget-container" style="height:100%;width:100%"><div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
-                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
-                {"autosize":true,"symbol":"NASDAQ:AAPL","interval":"D","timezone":"Etc/UTC","theme":"light","style":"1","locale":"en","enable_publishing":false,"allow_symbol_change":true,"support_host":"https://www.tradingview.com"}</script></div>
-            </div>
-            <div class="section-header"><span class="section-label">Rankings</span><span class="section-title"><span class="lang-el">Κερδισμένοι & Χαμένοι</span><span class="lang-en">Gainers & Losers</span></span></div>
+    <!-- ── MARKETS ── -->
+    <div id="markets" class="section">
+        <div class="sec-head"><span class="sec-kicker">Live Data</span><span class="sec-title"><span class="lang-el">Ταμπλό Αγορών</span><span class="lang-en">Market Dashboard</span></span></div>
+        <div class="widget" style="margin-bottom:28px;">
+            <div class="whead"><span class="wlabel"><span class="lang-el">Forex</span><span class="lang-en">Forex Rates</span></span></div>
             <div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
-            {"colorTheme":"light","dateRange":"12M","exchange":"US","showChart":true,"locale":"en","isTransparent":true,"showSymbolLogo":true,"width":"100%","height":"400"}</script></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
+            {"width":"100%","height":"340","currencies":["EUR","USD","JPY","GBP","CAD","AUD","NZD"],"isTransparent":true,"colorTheme":"light","locale":"en","showBorders":false,"showHeaders":false}</script></div>
         </div>
+        <div style="height:480px;border:1px solid var(--rule);border-radius:3px;overflow:hidden;margin-bottom:28px;">
+            <div class="tradingview-widget-container" style="height:100%;width:100%"><div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+            {"autosize":true,"symbol":"NASDAQ:AAPL","interval":"D","timezone":"Etc/UTC","theme":"light","style":"1","locale":"en","enable_publishing":false,"allow_symbol_change":true,"support_host":"https://www.tradingview.com"}</script></div>
+        </div>
+        <div class="sec-head"><span class="sec-kicker">Rankings</span><span class="sec-title"><span class="lang-el">Κερδισμένοι & Χαμένοι</span><span class="lang-en">Gainers & Losers</span></span></div>
+        <div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
+        {"colorTheme":"light","dateRange":"12M","exchange":"US","showChart":true,"locale":"en","isTransparent":true,"showSymbolLogo":true,"width":"100%","height":"400"}</script></div>
+    </div>
 
-        <div id="articles" class="section">
-            <div class="section-header"><span class="section-label">Investing.com</span><span class="section-title"><span class="lang-el">Αναλύσεις Αγορών</span><span class="lang-en">Market Analysis</span></span></div>
-            <div id="articles-container" class="news-grid">
-                <div class="loading-state"><i class="fas fa-circle-notch fa-spin"></i><span class="lang-el">Φόρτωση...</span><span class="lang-en">Loading...</span></div>
-            </div>
+    <!-- ── ANALYSIS ── -->
+    <div id="analysis" class="section">
+        <div class="sec-head"><span class="sec-kicker">Investing.com</span><span class="sec-title"><span class="lang-el">Αναλύσεις Αγορών</span><span class="lang-en">Market Analysis</span></span></div>
+        <div id="art-feed" class="art-grid">
+            <div class="loading" style="grid-column:1/-1"><i class="fas fa-circle-notch fa-spin"></i></div>
         </div>
+    </div>
 
-        <div id="my-analysis" class="section">
-            <div class="section-header"><span class="section-label">Original</span><span class="section-title"><span class="lang-el">My Analysis — Πρωτότυπες Αναλύσεις</span><span class="lang-en">My Analysis — Original Insights</span></span></div>
-            <div class="news-grid">
-                <a href="article7.html" class="news-card">
-                    <img src="fed-large.jpg" class="news-img" alt="Oil and US Midterms">
-                    <div class="news-content">
-                        <div style="display:flex;align-items:center;gap:6px;"><span class="badge badge-macro">Macro</span><span class="badge badge-new">New</span></div>
-                        <div class="lang-el"><h3 class="news-title">🛢️ Πετρέλαιο $110 & ATH: Τι σημαίνει για τις Midterms 2026</h3><p class="news-desc">Δύο αντικρουόμενα οικονομικά σήματα. Γιατί το πετρέλαιο μετράει περισσότερο από το χρηματιστήριο στις εκλογές.</p></div>
-                        <div class="lang-en"><h3 class="news-title">🛢️ Oil at $110 & Stock ATH: What They Mean for the 2026 Midterms</h3><p class="news-desc">Two contradictory signals. Why oil matters more than the S&P 500 to voters.</p></div>
-                        <div class="news-date">17 May 2026</div>
-                    </div>
-                </a>
-                <a href="article4.html" class="news-card">
-                    <img src="fed-large.jpg" class="news-img" alt="FED Rate Decision">
-                    <div class="news-content">
-                        <span class="badge badge-macro">Macro</span>
-                        <div class="lang-el"><h3 class="news-title">🔥 FED: Προ-Ανάλυση της Απόφασης Επιτοκίων</h3><p class="news-desc">Τα 3 σενάρια, ο "οδικός χάρτης" του Powell και οι επιπτώσεις σε S&P 500 και Bitcoin.</p></div>
-                        <div class="lang-en"><h3 class="news-title">🔥 FED Pre-Analysis: Rate Decision Scenarios</h3><p class="news-desc">The 3 scenarios, Powell's guidance, and the impact on the S&P 500 and Bitcoin.</p></div>
-                    </div>
-                </a>
-            </div>
+    <!-- ── MY ANALYSIS ── -->
+    <div id="my" class="section">
+        <div class="sec-head"><span class="sec-kicker">Original</span><span class="sec-title"><span class="lang-el">My Analysis — Πρωτότυπες Αναλύσεις</span><span class="lang-en">My Analysis — Original Insights</span></span></div>
+        <div class="analysis-list">
+            <a href="article7.html" class="analysis-item">
+                <img src="fed-large.jpg" alt="Midterms Oil">
+                <div class="analysis-body">
+                    <div class="analysis-tags"><span class="tag tag-macro">Macro</span><span class="tag tag-new">New</span></div>
+                    <div class="lang-el"><h3 class="analysis-title">🛢️ Πετρέλαιο $110 & ATH: Τι σημαίνει για τις Midterms 2026</h3><p class="analysis-desc">Δύο αντικρουόμενα οικονομικά σήματα και μία κρίσιμη εκλογική αναμέτρηση. Γιατί το πετρέλαιο μετράει περισσότερο από το S&P 500.</p></div>
+                    <div class="lang-en"><h3 class="analysis-title">🛢️ Oil at $110 & Stock ATH: What They Mean for the 2026 Midterms</h3><p class="analysis-desc">Two contradictory economic signals and one crucial election. Why oil matters more than the market to voters.</p></div>
+                    <div class="analysis-meta">17 May 2026 · 7 min read</div>
+                </div>
+            </a>
+            <a href="article4.html" class="analysis-item">
+                <img src="fed-large.jpg" alt="FED">
+                <div class="analysis-body">
+                    <div class="analysis-tags"><span class="tag tag-macro">Macro</span></div>
+                    <div class="lang-el"><h3 class="analysis-title">🔥 FED: Προ-Ανάλυση της Απόφασης Επιτοκίων</h3><p class="analysis-desc">Τα 3 σενάρια, ο "οδικός χάρτης" του Powell και οι επιπτώσεις σε S&P 500 και Bitcoin.</p></div>
+                    <div class="lang-en"><h3 class="analysis-title">🔥 FED Pre-Analysis: Rate Decision Scenarios</h3><p class="analysis-desc">The 3 scenarios, Powell's roadmap, and the impact on S&P 500 and Bitcoin.</p></div>
+                </div>
+            </a>
         </div>
+    </div>
 
-        <div id="academy" class="section">
-            <div class="section-header"><span class="section-label">Learn</span><span class="section-title"><span class="lang-el">Ακαδημία Trading</span><span class="lang-en">Trading Academy</span></span></div>
-            <div class="news-grid">
-                <a href="article6.html" class="news-card">
-                    <img src="compound-large.jpg" class="news-img" alt="Investing for Beginners">
-                    <div class="news-content">
-                        <div style="display:flex;align-items:center;gap:6px;"><span class="badge badge-beginner">Beginner</span><span class="badge badge-new">New</span></div>
-                        <div class="lang-el"><h3 class="news-title">Πώς να ξεκινήσεις να επενδύεις από το μηδέν (2026)</h3><p class="news-desc">Ο πλήρης οδηγός για αρχάριους. Βήμα-βήμα, χωρίς ορολογία.</p></div>
-                        <div class="lang-en"><h3 class="news-title">How to Start Investing as a Complete Beginner (2026)</h3><p class="news-desc">The complete step-by-step guide. No jargon. Start with $50/month.</p></div>
-                        <div class="news-date">17 May 2026</div>
-                    </div>
-                </a>
-                <a href="article1.html" class="news-card">
-                    <img src="prices-move-large.jpg" class="news-img" alt="Why Prices Move">
-                    <div class="news-content">
-                        <span class="badge badge-beginner">Beginner</span>
-                        <div class="lang-el"><h3 class="news-title">Γιατί κινούνται οι τιμές; Η αλήθεια για την αγορά</h3><p class="news-desc">Πώς η Προσφορά και η Ζήτηση κινούν τα πάντα.</p></div>
-                        <div class="lang-en"><h3 class="news-title">Why Prices Move: The Truth Beyond the Charts</h3><p class="news-desc">Learn how Supply and Demand drive everything in markets.</p></div>
-                    </div>
-                </a>
-                <a href="article2.html" class="news-card">
-                    <img src="blockchain-large.jpg" class="news-img" alt="Blockchain">
-                    <div class="news-content">
-                        <span class="badge badge-crypto">Crypto</span>
-                        <div class="lang-el"><h3 class="news-title">Blockchain: Πώς λειτουργεί με απλά λόγια</h3><p class="news-desc">Η τεχνολογία πίσω από το Bitcoin εξηγημένη απλά.</p></div>
-                        <div class="lang-en"><h3 class="news-title">Blockchain: How it Works in Simple Terms</h3><p class="news-desc">The technology behind Bitcoin explained simply.</p></div>
-                    </div>
-                </a>
-                <a href="article3.html" class="news-card">
-                    <img src="compound-large.jpg" class="news-img" alt="Compound Interest">
-                    <div class="news-content">
-                        <span class="badge badge-investing">Investing</span>
-                        <div class="lang-el"><h3 class="news-title">Compound Interest: Το 8ο θαύμα του κόσμου</h3><p class="news-desc">Γιατί ο ανατοκισμός είναι ο καλύτερος φίλος του επενδυτή.</p></div>
-                        <div class="lang-en"><h3 class="news-title">Compound Interest: The 8th Wonder of the World</h3><p class="news-desc">Why compounding is the long-term investor's best friend.</p></div>
-                    </div>
-                </a>
-                <a href="article5.html" class="news-card">
-                    <img src="etf-guide1.jpg" class="news-img" alt="ETF Guide">
-                    <div class="news-content">
-                        <span class="badge badge-guide">Guide</span>
-                        <div class="lang-el"><h3 class="news-title">Οδηγός ETFs: Accumulating vs Distributing</h3><p class="news-desc">Ποιο να διαλέξω; Η πλήρης ανάλυση.</p></div>
-                        <div class="lang-en"><h3 class="news-title">ETF Guide: Accumulating vs Distributing</h3><p class="news-desc">Which one to choose? The complete analysis.</p></div>
-                    </div>
-                </a>
-            </div>
+    <!-- ── ACADEMY ── -->
+    <div id="academy" class="section">
+        <div class="sec-head"><span class="sec-kicker">Learn</span><span class="sec-title"><span class="lang-el">Ακαδημία Trading</span><span class="lang-en">Trading Academy</span></span></div>
+        <div class="analysis-list">
+            <a href="article6.html" class="analysis-item">
+                <img src="compound-large.jpg" alt="Investing Beginners">
+                <div class="analysis-body">
+                    <div class="analysis-tags"><span class="tag tag-beginner">Beginner</span><span class="tag tag-new">New</span></div>
+                    <div class="lang-el"><h3 class="analysis-title">Πώς να ξεκινήσεις να επενδύεις από το μηδέν (2026)</h3><p class="analysis-desc">Ο πλήρης οδηγός βήμα-βήμα για αρχάριους. Χωρίς ορολογία, με πρακτικές συμβουλές.</p></div>
+                    <div class="lang-en"><h3 class="analysis-title">How to Start Investing as a Complete Beginner (2026)</h3><p class="analysis-desc">The complete step-by-step guide. No jargon. Start investing from $50/month.</p></div>
+                    <div class="analysis-meta">17 May 2026 · 6 min read</div>
+                </div>
+            </a>
+            <a href="article5.html" class="analysis-item">
+                <img src="etf-guide1.jpg" alt="ETF Guide">
+                <div class="analysis-body">
+                    <div class="analysis-tags"><span class="tag tag-guide">Guide</span></div>
+                    <div class="lang-el"><h3 class="analysis-title">Οδηγός ETFs: Accumulating vs Distributing</h3><p class="analysis-desc">Ποιο να διαλέξω; Η πλήρης ανάλυση για τον Έλληνα επενδυτή.</p></div>
+                    <div class="lang-en"><h3 class="analysis-title">ETF Guide: Accumulating vs Distributing</h3><p class="analysis-desc">Which one to choose? The complete analysis.</p></div>
+                </div>
+            </a>
+            <a href="article3.html" class="analysis-item">
+                <img src="compound-large.jpg" alt="Compound Interest">
+                <div class="analysis-body">
+                    <div class="analysis-tags"><span class="tag tag-investing">Investing</span></div>
+                    <div class="lang-el"><h3 class="analysis-title">Compound Interest: Το 8ο θαύμα του κόσμου</h3><p class="analysis-desc">Γιατί ο ανατοκισμός είναι ο καλύτερος φίλος του μακροπρόθεσμου επενδυτή.</p></div>
+                    <div class="lang-en"><h3 class="analysis-title">Compound Interest: The 8th Wonder of the World</h3><p class="analysis-desc">Why compounding is the long-term investor's most powerful tool.</p></div>
+                </div>
+            </a>
+            <a href="article2.html" class="analysis-item">
+                <img src="blockchain-large.jpg" alt="Blockchain">
+                <div class="analysis-body">
+                    <div class="analysis-tags"><span class="tag tag-crypto">Crypto</span></div>
+                    <div class="lang-el"><h3 class="analysis-title">Blockchain: Πώς λειτουργεί με απλά λόγια</h3><p class="analysis-desc">Η τεχνολογία πίσω από το Bitcoin εξηγημένη απλά και κατανοητά.</p></div>
+                    <div class="lang-en"><h3 class="analysis-title">Blockchain: How it Works in Simple Terms</h3><p class="analysis-desc">The technology behind Bitcoin explained clearly and simply.</p></div>
+                </div>
+            </a>
+            <a href="article1.html" class="analysis-item">
+                <img src="prices-move-large.jpg" alt="Prices Move">
+                <div class="analysis-body">
+                    <div class="analysis-tags"><span class="tag tag-beginner">Beginner</span></div>
+                    <div class="lang-el"><h3 class="analysis-title">Γιατί κινούνται οι τιμές; Η αλήθεια για την αγορά</h3><p class="analysis-desc">Πώς η Προσφορά και η Ζήτηση κινούν τα πάντα — και πώς τα κεριά λένε αυτή την ιστορία.</p></div>
+                    <div class="lang-en"><h3 class="analysis-title">Why Prices Move: The Truth Beyond the Charts</h3><p class="analysis-desc">How Supply and Demand drive everything and how candlesticks tell that story.</p></div>
+                </div>
+            </a>
         </div>
+    </div>
 
-    </main>
+</main>
 
-    <aside class="sidebar">
-        <div class="freedom-widget widget">
-            <div class="freedom-badge"><i class="fas fa-shield-alt"></i> Trusted Partner</div>
-            <div class="freedom-title">Invest with Freedom24</div>
-            <div class="freedom-desc">Access US, EU & Asian markets from one account.</div>
-            <div class="freedom-rate">5.8%</div>
-            <div class="freedom-rate-label">p.a. on your cash balance</div>
-            <a href="https://freedom24.com/invite_from/1767598" target="_blank" class="freedom-btn">Open an Account <i class="fas fa-arrow-right" style="margin-left:6px;"></i></a>
-        </div>
-        <div class="widget">
-            <div class="widget-header"><span class="widget-label"><span class="lang-el">Επισκόπηση Αγορών</span><span class="lang-en">Market Overview</span></span></div>
-            <div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
-            {"colorTheme":"light","dateRange":"12M","showChart":false,"locale":"en","isTransparent":true,"showSymbolLogo":true,"width":"100%","height":"580","tabs":[{"title":"Indices","symbols":[{"s":"FOREXCOM:SPXUSD","d":"S&P 500"},{"s":"FOREXCOM:NSXUSD","d":"Nasdaq 100"},{"s":"FOREXCOM:DJI","d":"Dow 30"},{"s":"INDEX:NKY","d":"Nikkei 225"},{"s":"INDEX:DEU40","d":"DAX 40"},{"s":"FOREXCOM:UK100","d":"FTSE 100"},{"s":"INDEX:CAC40","d":"CAC 40"},{"s":"INDEX:HSI","d":"Hang Seng"},{"s":"FOREXCOM:EU50","d":"Euro Stoxx 50"}]},{"title":"Crypto","symbols":[{"s":"BITSTAMP:BTCUSD","d":"Bitcoin"},{"s":"BITSTAMP:ETHUSD","d":"Ethereum"},{"s":"BINANCE:SOLUSDT","d":"Solana"},{"s":"BINANCE:XRPUSDT","d":"XRP"},{"s":"BINANCE:BNBUSDT","d":"BNB"},{"s":"BINANCE:DOGEUSDT","d":"Dogecoin"}]}]}</script></div>
-        </div>
-        <div class="widget">
-            <div class="widget-header"><span class="widget-label"><span class="lang-el">Οικονομικό Ημερολόγιο</span><span class="lang-en">Economic Calendar</span></span></div>
-            <div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
-            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
-            {"colorTheme":"light","isTransparent":true,"width":"100%","height":"380","locale":"en","importanceFilter":"0,1"}</script></div>
-        </div>
-    </aside>
+<!-- SIDEBAR -->
+<aside class="sidebar">
+    <div class="freedom-w">
+        <div class="freedom-badge"><i class="fas fa-shield-alt"></i> Trusted Partner</div>
+        <div class="freedom-name">Invest with Freedom24</div>
+        <div class="freedom-copy">Access US, EU & Asian markets. Global exposure from one account.</div>
+        <div class="freedom-num">5.8%</div>
+        <div class="freedom-numlabel">per annum on your cash balance</div>
+        <a href="https://freedom24.com/invite_from/1767598" target="_blank" class="freedom-cta">Open an Account →</a>
+    </div>
+
+    <div class="widget">
+        <div class="whead"><span class="wlabel"><span class="lang-el">Επισκόπηση Αγορών</span><span class="lang-en">Market Overview</span></span></div>
+        <div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+        {"colorTheme":"light","dateRange":"12M","showChart":false,"locale":"en","isTransparent":true,"showSymbolLogo":true,"width":"100%","height":"560","tabs":[{"title":"Indices","symbols":[{"s":"FOREXCOM:SPXUSD","d":"S&P 500"},{"s":"FOREXCOM:NSXUSD","d":"Nasdaq 100"},{"s":"FOREXCOM:DJI","d":"Dow 30"},{"s":"INDEX:NKY","d":"Nikkei 225"},{"s":"INDEX:DEU40","d":"DAX 40"},{"s":"FOREXCOM:UK100","d":"FTSE 100"},{"s":"INDEX:CAC40","d":"CAC 40"},{"s":"FOREXCOM:EU50","d":"Euro Stoxx 50"}]},{"title":"Crypto","symbols":[{"s":"BITSTAMP:BTCUSD","d":"Bitcoin"},{"s":"BITSTAMP:ETHUSD","d":"Ethereum"},{"s":"BINANCE:SOLUSDT","d":"Solana"},{"s":"BINANCE:XRPUSDT","d":"XRP"},{"s":"BINANCE:BNBUSDT","d":"BNB"},{"s":"BINANCE:DOGEUSDT","d":"Dogecoin"}]}]}</script></div>
+    </div>
+
+    <div class="widget">
+        <div class="whead"><span class="wlabel"><span class="lang-el">Οικονομικό Ημερολόγιο</span><span class="lang-en">Economic Calendar</span></span></div>
+        <div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+        {"colorTheme":"light","isTransparent":true,"width":"100%","height":"360","locale":"en","importanceFilter":"0,1"}</script></div>
+    </div>
+</aside>
 </div>
 
+<!-- FOOTER -->
 <footer>
-    <div class="footer-top">
+    <div class="foot-grid">
         <div>
-            <div class="footer-logo">TimeToCompound</div>
-            <p class="footer-desc"><span class="lang-el">Ο αξιόπιστος οδηγός σου για τις διεθνείς αγορές, το χρηματιστήριο και τα κρυπτονομίσματα.</span><span class="lang-en">Your trusted guide to international markets, stocks, and cryptocurrencies.</span></p>
+            <div class="foot-name">TimeToCompound</div>
+            <p class="foot-about"><span class="lang-el">Πρωτότυπες αναλύσεις, εκπαιδευτικό περιεχόμενο και live δεδομένα αγορών για τον σύγχρονο επενδυτή.</span><span class="lang-en">Original analysis, educational content and live market data for the modern investor.</span></p>
             <div class="social-row">
-                <a href="#" class="social-btn"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-btn"><i class="fab fa-linkedin-in"></i></a>
-                <a href="#" class="social-btn"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-btn"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="soc"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="soc"><i class="fab fa-linkedin-in"></i></a>
+                <a href="#" class="soc"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="soc"><i class="fab fa-facebook-f"></i></a>
             </div>
         </div>
         <div>
-            <h4><span class="lang-el">Πλοήγηση</span><span class="lang-en">Navigation</span></h4>
-            <ul class="footer-links">
-                <li><a href="#" onclick="switchSection('news',null)"><span class="lang-el">Ειδήσεις</span><span class="lang-en">News</span></a></li>
-                <li><a href="#" onclick="switchSection('markets',null)"><span class="lang-el">Αγορές Live</span><span class="lang-en">Live Markets</span></a></li>
-                <li><a href="#" onclick="switchSection('my-analysis',null)"><span class="lang-el">My Analysis</span><span class="lang-en">My Analysis</span></a></li>
-                <li><a href="#" onclick="switchSection('academy',null)"><span class="lang-el">Ακαδημία</span><span class="lang-en">Academy</span></a></li>
+            <h5><span class="lang-el">Πλοήγηση</span><span class="lang-en">Navigation</span></h5>
+            <ul class="foot-links">
+                <li><a href="#" onclick="go('news',null)"><span class="lang-el">Ειδήσεις</span><span class="lang-en">News</span></a></li>
+                <li><a href="#" onclick="go('markets',null)"><span class="lang-el">Αγορές</span><span class="lang-en">Markets</span></a></li>
+                <li><a href="#" onclick="go('my',null)">My Analysis</a></li>
+                <li><a href="#" onclick="go('academy',null)"><span class="lang-el">Ακαδημία</span><span class="lang-en">Academy</span></a></li>
                 <li><a href="https://freedom24.com/invite_from/1767598" target="_blank"><span class="lang-el">Επενδύστε</span><span class="lang-en">Start Investing</span></a></li>
             </ul>
         </div>
         <div>
-            <h4>Newsletter</h4>
-            <p class="footer-desc"><span class="lang-el">Τα σημαντικότερα νέα στο email σας.</span><span class="lang-en">The most important news to your inbox.</span></p>
+            <h5>Newsletter</h5>
+            <p class="foot-about"><span class="lang-el">Τα σημαντικότερα νέα της αγοράς απευθείας στο email σας.</span><span class="lang-en">The most important market news delivered to your inbox.</span></p>
             <form action="https://formspree.io/f/xpwvyare" method="POST">
-                <input type="email" name="email" class="newsletter-input" placeholder="your@email.com" required>
-                <button type="submit" class="newsletter-btn"><span class="lang-el">Εγγραφή</span><span class="lang-en">Subscribe</span></button>
+                <input type="email" name="email" class="nl-input" placeholder="your@email.com" required>
+                <button type="submit" class="nl-btn"><span class="lang-el">Εγγραφή</span><span class="lang-en">Subscribe</span></button>
             </form>
         </div>
     </div>
-    <div class="footer-bottom">
+    <div class="foot-bottom">
         <span>&copy; 2026 TimeToCompound. All rights reserved.</span>
         <span><a href="#">Terms</a> · <a href="#">Privacy</a> · <a href="#">Disclaimer</a></span>
     </div>
 </footer>
 
 <script>
-    document.getElementById('nav-date').textContent = new Date().toLocaleDateString('en-GB', {weekday:'short',day:'numeric',month:'long',year:'numeric'});
+document.getElementById('nav-date').textContent = new Date().toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'long',year:'numeric'});
 
-    function switchSection(id, btn) {
-        document.querySelectorAll('.section').forEach(el => el.classList.remove('active'));
-        document.getElementById(id).classList.add('active');
-        document.querySelectorAll('.menu-btn').forEach(b => b.classList.remove('active'));
-        if (btn) btn.classList.add('active');
-        window.scrollTo({top:0,behavior:'smooth'});
+function go(id,btn){
+    document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+    if(btn)btn.classList.add('active');
+    window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function toggleLang(){document.body.classList.toggle('en');}
+
+function toggleTheme(){
+    const b=document.body,i=document.getElementById('theme-icon');
+    if(b.getAttribute('data-theme')==='dark'){b.removeAttribute('data-theme');i.className='fas fa-moon';}
+    else{b.setAttribute('data-theme','dark');i.className='fas fa-sun';}
+}
+
+const imgs=['prices-move-large.jpg','blockchain-large.jpg','compound-large.jpg','fed-large.jpg'];
+function ri(){return imgs[Math.floor(Math.random()*imgs.length)];}
+function fd(ds){return new Date(ds).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'});}
+
+const FEEDS=[
+    {url:'https://finance.yahoo.com/news/rssindex',src:'Yahoo Finance'},
+    {url:'https://www.investing.com/rss/news.rss',src:'Investing.com'},
+    {url:'https://cointelegraph.com/rss',src:'CoinTelegraph'}
+];
+
+async function loadNews(){
+    const container=document.getElementById('feed');
+    const results=await Promise.all(FEEDS.map(f=>
+        fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(f.url)+'&t='+Date.now())
+        .then(r=>r.json()).then(d=>d.status==='ok'?d.items.map(i=>({...i,src:f.src})):[]).catch(()=>[])
+    ));
+    let items=results.flat().sort((a,b)=>new Date(b.pubDate)-new Date(a.pubDate));
+
+    if(items.length>0){
+        const h=items[0];
+        document.getElementById('hero').innerHTML=`
+        <div class="featured" onclick="window.open('${h.link}','_blank')">
+            <div class="featured-img-wrap"><img src="compound-large.jpg" class="featured-img" alt="Featured"></div>
+            <div class="featured-body">
+                <div class="featured-kicker">${h.src}</div>
+                <h2 class="featured-title">${h.title}</h2>
+                <p class="featured-desc">${h.description.replace(/<[^>]*>?/gm,'').substring(0,200)}...</p>
+                <div class="featured-meta">${fd(h.pubDate)}</div>
+            </div>
+        </div>`;
+        items.shift();
     }
 
-    function toggleLanguage() { document.body.classList.toggle('english-mode'); }
+    container.innerHTML='';
+    items.forEach(item=>{
+        let desc=item.description.replace(/<[^>]*>?/gm,'').substring(0,110)+'...';
+        container.innerHTML+=`
+        <a href="${item.link}" target="_blank" class="art-card">
+            <img src="${ri()}" alt="${item.src}" loading="lazy">
+            <div class="art-body">
+                <div class="art-kicker">${item.src}</div>
+                <h3 class="art-title">${item.title}</h3>
+                <p class="art-desc">${desc}</p>
+                <div class="art-date">${fd(item.pubDate)}</div>
+            </div>
+        </a>`;
+    });
+}
 
-    function toggleTheme() {
-        const body = document.body;
-        const icon = document.getElementById('theme-icon');
-        if (body.getAttribute('data-theme') === 'dark') { body.removeAttribute('data-theme'); icon.className = 'fas fa-moon'; }
-        else { body.setAttribute('data-theme', 'dark'); icon.className = 'fas fa-sun'; }
-    }
-
-    const localImages = ['prices-move-large.jpg','blockchain-large.jpg','compound-large.jpg','fed-large.jpg'];
-    function getImg() { return localImages[Math.floor(Math.random()*localImages.length)]; }
-    function formatDate(ds) { return new Date(ds).toLocaleDateString('en-GB',{day:'2-digit',month:'short',year:'numeric',hour:'2-digit',minute:'2-digit'}); }
-
-    const FEEDS = [
-        {url:'https://finance.yahoo.com/news/rssindex',source:'Yahoo Finance'},
-        {url:'https://www.investing.com/rss/news.rss',source:'Investing.com'},
-        {url:'https://cointelegraph.com/rss',source:'CoinTelegraph'}
-    ];
-
-    async function loadArticles() {
-        fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent('https://www.investing.com/rss/market_overview.rss')+'&t='+Date.now())
-        .then(r=>r.json()).then(data=>{
-            const c=document.getElementById('articles-container'); c.innerHTML='';
-            if(data.items) data.items.slice(0,6).forEach(item=>{
-                let desc=item.description.replace(/<[^>]*>?/gm,'').substring(0,120)+'...';
-                c.innerHTML+=`<a href="${item.link}" target="_blank" class="news-card"><img src="${getImg()}" class="news-img" loading="lazy"><div class="news-content"><span class="badge badge-macro">Analysis</span><h3 class="news-title">${item.title}</h3><p class="news-desc">${desc}</p><div class="news-date">${formatDate(item.pubDate)}</div></div></a>`;
-            });
+async function loadAnalysis(){
+    fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent('https://www.investing.com/rss/market_overview.rss')+'&t='+Date.now())
+    .then(r=>r.json()).then(data=>{
+        const c=document.getElementById('art-feed'); c.innerHTML='';
+        if(data.items) data.items.slice(0,6).forEach(item=>{
+            let desc=item.description.replace(/<[^>]*>?/gm,'').substring(0,110)+'...';
+            c.innerHTML+=`<a href="${item.link}" target="_blank" class="art-card">
+                <img src="${ri()}" loading="lazy">
+                <div class="art-body"><div class="art-kicker">Analysis</div><h3 class="art-title">${item.title}</h3><p class="art-desc">${desc}</p><div class="art-date">${fd(item.pubDate)}</div></div></a>`;
         });
-    }
+    }).catch(()=>{});
+}
 
-    async function loadNews() {
-        const container=document.getElementById('feed-container');
-        const results=await Promise.all(FEEDS.map(feed=>
-            fetch('https://api.rss2json.com/v1/api.json?rss_url='+encodeURIComponent(feed.url)+'&t='+Date.now())
-            .then(r=>r.json()).then(data=>data.status==='ok'?data.items.map(i=>({...i,source:feed.source})):[])
-        ));
-        let items=results.flat().sort((a,b)=>new Date(b.pubDate)-new Date(a.pubDate));
-        if(items.length>0){
-            const hero=items[0];
-            document.getElementById('hero-container').innerHTML=`<div class="hero-card" onclick="window.open('${hero.link}','_blank')"><img src="compound-large.jpg" class="hero-bg"><div class="hero-overlay"><div class="hero-source">${hero.source}</div><h2 class="hero-title">${hero.title}</h2><div class="hero-date">${formatDate(hero.pubDate)}</div></div></div>`;
-            items.shift();
-        }
-        container.innerHTML='';
-        items.forEach(item=>{
-            let desc=item.description.replace(/<[^>]*>?/gm,'').substring(0,100)+'...';
-            container.innerHTML+=`<a href="${item.link}" target="_blank" class="news-card"><img src="${getImg()}" class="news-img" loading="lazy"><div class="news-content"><span class="news-source">${item.source}</span><h3 class="news-title">${item.title}</h3><p class="news-desc">${desc}</p><div class="news-date">${formatDate(item.pubDate)}</div></div></a>`;
-        });
-    }
-
-    loadNews();
-    loadArticles();
+loadNews();
+loadAnalysis();
 </script>
 </body>
 </html>
