@@ -1,430 +1,386 @@
 <!DOCTYPE html>
-<html lang="el">
+<html lang="en">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y9DENNW7FP"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-Y9DENNW7FP');
-    </script>
-
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Y9DENNW7FP');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Γιατί κινούνται οι τιμές; | TimeToCompound</title>
+
+    <!-- PRIMARY SEO -->
+    <title>Why Do Stock Prices Move? A Complete Beginner's Guide (2026) | TimeToCompound</title>
+    <meta name="description" content="Why do stock prices go up and down every day? The answer is simpler than you think: supply and demand. This complete beginner's guide explains exactly how prices are set — with real examples.">
+    <meta name="keywords" content="why do stock prices move, supply and demand stock market, what makes stock prices go up, how are stock prices determined, why stocks go up and down, stock price movement explained, beginner investing guide">
+    <meta name="author" content="TimeToCompound">
+    <link rel="canonical" href="https://timetocompound.com/article1.html">
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="Why Do Stock Prices Move? A Complete Beginner's Guide (2026)">
+    <meta property="og:description" content="The answer to why stocks go up and down every day is simpler than you think. This beginner's guide explains supply, demand, and what really drives price movement.">
+    <meta property="og:image" content="https://timetocompound.com/prices-move-large.jpg">
+    <meta property="og:url" content="https://timetocompound.com/article1.html">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="TimeToCompound">
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Why Do Stock Prices Move? A Complete Beginner's Guide">
+    <meta name="twitter:description" content="Supply and demand, explained simply. The real reason stocks go up and down every day.">
+    <meta name="twitter:image" content="https://timetocompound.com/prices-move-large.jpg">
+
+    <!-- SCHEMA.ORG ARTICLE -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "Why Do Stock Prices Move? A Complete Beginner's Guide (2026)",
+      "description": "Why do stock prices go up and down every day? The answer is supply and demand. This complete beginner's guide explains exactly how prices are set.",
+      "image": "https://timetocompound.com/prices-move-large.jpg",
+      "author": {"@type": "Organization", "name": "TimeToCompound"},
+      "publisher": {"@type": "Organization", "name": "TimeToCompound", "url": "https://timetocompound.com"},
+      "datePublished": "2026-05-19",
+      "dateModified": "2026-05-19",
+      "mainEntityOfPage": {"@type": "WebPage", "@id": "https://timetocompound.com/article1.html"}
+    }
+    </script>
+
     <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
-    
-    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
 
     <style>
-        /* --- ΒΑΣΙΚΟ ΣΤΥΛ (ΙΔΙΟ ΜΕ ΤΗΝ ΑΡΧΙΚΗ) --- */
-        :root {
-            --bg-body: #f8fafc; --bg-card: #ffffff; --bg-nav: #ffffff; --bg-footer: #0f172a;
-            --text-main: #0f172a; --text-muted: #64748b; --accent: #2563eb; --border: #e2e8f0;
-        }
-        [data-theme="dark"] {
-            --bg-body: #0f172a; --bg-card: #1e293b; --bg-nav: #1e293b; --bg-footer: #020617;
-            --text-main: #ffffff; --text-muted: #cbd5e1; --accent: #38bdf8; --border: #334155;
-        }
-        body { font-family: 'Manrope', sans-serif; background: var(--bg-body); color: var(--text-main); margin: 0; line-height: 1.8; transition: all 0.3s ease; }
-        
-        /* Navigation */
-        nav { background: var(--bg-nav); border-bottom: 1px solid var(--border); padding: 0 20px; position: sticky; top: 0; z-index: 1000; }
-        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; height: 70px; }
-        .logo { font-size: 1.5rem; font-weight: 800; text-decoration: none; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
-        .icons-group { display: flex; gap: 15px; align-items: center; }
-        .theme-toggle, .lang-toggle { cursor: pointer; padding: 8px; border-radius: 50%; border: 1px solid var(--border); width: 35px; height: 35px; display: flex; align-items: center; justify-content: center; background: transparent; color: var(--text-main); }
-        .lang-toggle { font-size: 1.2rem; border: none; }
+        :root{--ink:#0D0D0D;--ink-2:#3D3D3D;--ink-3:#787878;--paper:#F4F1EB;--paper-2:#FFFFFF;--paper-3:#EAE7E0;--green:#1B3A2D;--green-l:#2C5A47;--gold:#B8924A;--red:#B91C1C;--rule:#D4CEC4;--shadow:0 2px 16px rgba(13,13,13,0.09);}
+        [data-theme="dark"]{--ink:#F0EBE0;--ink-2:#B8B0A0;--ink-3:#706860;--paper:#0C1209;--paper-2:#111A0E;--paper-3:#162012;--green:#4A8C6A;--green-l:#5AA880;--gold:#D4A85A;--red:#F87171;--rule:#1E2E1A;--shadow:0 2px 16px rgba(0,0,0,0.4);}
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+        body{font-family:'Outfit',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;display:flex;flex-direction:column;transition:background .3s,color .3s;}
+        a{text-decoration:none;color:inherit;}
 
-        /* Article Layout */
-        .article-container { max-width: 800px; margin: 40px auto; padding: 0 20px; }
-        .article-header { text-align: center; margin-bottom: 40px; }
-        .article-tag { background: #eab308; color: white; padding: 4px 12px; border-radius: 20px; font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; }
-        .article-title { font-size: 2.5rem; font-weight: 800; margin: 15px 0; line-height: 1.2; }
-        .article-meta { color: var(--text-muted); font-size: 0.9rem; }
-        
-        /* Εικόνα Άρθρου */
-        .article-img { width: 100%; height: auto; border-radius: 12px; margin-bottom: 40px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); }
-        
-        /* Περιεχόμενο */
-        .content { font-size: 1.15rem; color: var(--text-main); }
-        .content h3 { font-size: 1.6rem; margin-top: 40px; margin-bottom: 20px; color: var(--accent); font-weight: 700; }
-        .content ul, .content ol { margin-bottom: 20px; padding-left: 20px; }
-        .content li { margin-bottom: 10px; }
-        .content p { margin-bottom: 20px; }
-        
-        .highlight-box { background: rgba(37, 99, 235, 0.1); border-left: 4px solid var(--accent); padding: 25px; border-radius: 0 8px 8px 0; margin: 30px 0; font-style: italic; }
-        
-        /* Language Logic */
-        .lang-en { display: none; }
-        body.english-mode .lang-el { display: none !important; }
-        body.english-mode .lang-en { display: block !important; }
-        span.lang-en { display: none; }
-        body.english-mode span.lang-en { display: inline !important; }
+        .top-bar{height:3px;background:var(--gold);width:100%;position:fixed;top:0;left:0;z-index:1001;}
+        nav{background:var(--paper-2);border-bottom:1px solid var(--rule);position:sticky;top:3px;z-index:999;}
+        .nav-inner{max-width:860px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;height:68px;}
+        .brand{display:flex;flex-direction:column;cursor:pointer;}
+        .brand-name{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:var(--ink);letter-spacing:-0.5px;line-height:1;}
+        .brand-sub{font-size:.58rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--ink-3);margin-top:3px;}
+        .nav-right{display:flex;align-items:center;gap:10px;}
+        .back-btn{display:flex;align-items:center;gap:7px;font-size:.78rem;font-weight:600;color:var(--ink-2);border:1px solid var(--rule);padding:7px 14px;border-radius:3px;transition:all .2s;}
+        .back-btn:hover{border-color:var(--gold);color:var(--gold);}
+        .ctrl{width:32px;height:32px;border-radius:3px;border:1px solid var(--rule);background:transparent;color:var(--ink-3);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:all .2s;font-family:'Outfit',sans-serif;}
+        .ctrl:hover{border-color:var(--gold);color:var(--gold);}
 
-        /* Back Button */
-        .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--text-muted); text-decoration: none; font-weight: 700; margin-bottom: 30px; transition: 0.2s; }
-        .back-btn:hover { color: var(--accent); transform: translateX(-5px); }
+        .article-wrap{max-width:860px;margin:48px auto;padding:0 24px;flex:1;}
+        .article-hero{width:100%;height:400px;object-fit:cover;border-radius:4px;display:block;margin-bottom:32px;box-shadow:var(--shadow);}
 
-        /* Footer (Ίδιο με Index) */
-        .site-footer { background: var(--bg-footer); color: #94a3b8 !important; padding: 60px 0 30px; margin-top: 80px; border-top: 1px solid #1e293b; }
-        .footer-grid { max-width: 1200px; margin: 0 auto; padding: 0 20px; display: grid; grid-template-columns: 1.5fr 1fr 1.5fr; gap: 40px; }
-        .footer-col h3 { color: white !important; font-size: 1.1rem; margin-bottom: 20px; }
-        .footer-desc { font-size: 0.9rem; line-height: 1.6; margin-bottom: 20px; }
-        .footer-links { list-style: none; padding: 0; }
-        .footer-links li { margin-bottom: 10px; }
-        .footer-links a { color: #94a3b8; text-decoration: none; transition: 0.2s; font-size: 0.95rem; }
-        .footer-links a:hover { color: var(--accent) !important; padding-left: 5px; }
-        .newsletter-form { display: flex; gap: 10px; margin-top: 15px; }
-        .newsletter-input { padding: 12px; border-radius: 6px; border: 1px solid #334155; background: #1e293b; color: white; flex: 1; outline: none; }
-        .newsletter-btn { background: var(--accent); color: white; border: none; padding: 10px 20px; border-radius: 6px; font-weight: 700; cursor: pointer; }
-        .newsletter-btn:hover { opacity: 0.9; }
-        .social-icons { display: flex; gap: 15px; margin-top: 20px; }
-        .social-icons a { width: 35px; height: 35px; background: rgba(255,255,255,0.1); display: flex; align-items: center; justify-content: center; border-radius: 50%; color: white; transition: 0.3s; text-decoration: none; }
-        .social-icons a:hover { background: var(--accent); transform: translateY(-3px); }
-        .footer-bottom { text-align: center; border-top: 1px solid #1e293b; margin-top: 40px; padding-top: 20px; font-size: 0.85rem; }
+        .article-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px;}
+        .tag{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:2px;}
+        .tag-beginner{background:#1E2A4A;color:#93B3F0;}
+        .meta-info{font-size:.78rem;color:var(--ink-3);display:flex;align-items:center;gap:5px;}
 
-        @media (max-width: 768px) {
-            .footer-grid { grid-template-columns: 1fr; text-align: center; }
-            .newsletter-form { flex-direction: column; }
-            .social-icons { justify-content: center; }
+        h1.art-title{font-family:'Cormorant Garamond',serif;font-size:2.6rem;font-weight:700;line-height:1.18;color:var(--ink);margin-bottom:18px;}
+        .art-deck{font-size:1.1rem;color:var(--ink-2);line-height:1.65;margin-bottom:36px;padding-bottom:32px;border-bottom:2px solid var(--rule);}
+
+        .art-body{font-size:1.05rem;line-height:1.85;color:var(--ink);}
+        .art-body h2{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;margin:48px 0 16px;padding-top:12px;border-top:1px solid var(--rule);color:var(--ink);}
+        .art-body h3{font-size:1.05rem;font-weight:700;margin:28px 0 10px;color:var(--gold);}
+        .art-body p{margin:0 0 22px;}
+        .art-body strong{font-weight:700;}
+        .art-body ul, .art-body ol{padding-left:24px;margin-bottom:22px;}
+        .art-body li{margin-bottom:12px;line-height:1.7;}
+
+        /* HIGHLIGHT BOX */
+        .hl{background:rgba(184,146,74,0.08);border-left:4px solid var(--gold);border-radius:0 4px 4px 0;padding:20px 24px;margin:28px 0;}
+        .hl p{margin:0;font-weight:600;}
+        .hl.green{background:rgba(27,58,45,0.08);border-left-color:var(--green);}
+        [data-theme="dark"] .hl.green{background:rgba(74,140,106,0.1);}
+
+        /* EXAMPLE BOX */
+        .example-box{background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;padding:24px;margin:28px 0;border-top:3px solid var(--gold);}
+        .example-label{font-size:.62rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+        .example-box p{margin:0;font-size:.95rem;color:var(--ink-2);line-height:1.65;}
+
+        /* PULL QUOTE */
+        .pull{border-left:3px solid var(--gold);padding:14px 24px;margin:32px 0;font-family:'Cormorant Garamond',serif;font-size:1.45rem;font-style:italic;color:var(--ink-2);line-height:1.4;}
+
+        /* VISUAL TABLE */
+        .vs-table{width:100%;border-collapse:collapse;margin:24px 0;border-radius:4px;overflow:hidden;border:1px solid var(--rule);}
+        .vs-table th{padding:12px 16px;text-align:left;font-size:.75rem;font-weight:700;letter-spacing:.5px;}
+        .vs-table th.buy{background:#1B3A2D;color:#9FD4B8;}
+        .vs-table th.sell{background:#7F1D1D;color:#FCA5A5;}
+        .vs-table td{padding:11px 16px;border-bottom:1px solid var(--rule);font-size:.9rem;color:var(--ink-2);}
+        .vs-table tr:last-child td{border-bottom:none;}
+        .vs-table tr:nth-child(even) td{background:var(--paper-3);}
+
+        /* KEY TAKEAWAYS */
+        .takeaways{background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;padding:28px;margin:36px 0;}
+        .takeaways h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;margin-bottom:16px;color:var(--ink);}
+        .takeaway-item{display:flex;gap:12px;align-items:flex-start;margin-bottom:14px;}
+        .takeaway-item:last-child{margin-bottom:0;}
+        .t-icon{width:22px;height:22px;background:var(--green);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:2px;}
+        [data-theme="dark"] .t-icon{background:var(--gold);}
+        .t-icon i{font-size:.55rem;color:#fff;}
+        [data-theme="dark"] .t-icon i{color:#0D0D0D;}
+        .takeaway-item p{margin:0;font-size:.9rem;color:var(--ink-2);line-height:1.55;}
+
+        /* CTA */
+        .cta-box{background:var(--green);border-radius:4px;padding:28px 32px;margin:44px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;}
+        .cta-text h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:6px;}
+        .cta-text p{font-size:.85rem;color:rgba(255,255,255,.65);margin:0;}
+        .cta-link{background:#fff;color:var(--green);padding:12px 24px;border-radius:3px;font-weight:700;font-size:.85rem;white-space:nowrap;transition:all .2s;flex-shrink:0;}
+        .cta-link:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.2);}
+
+        /* RELATED */
+        .related{margin-top:48px;padding-top:28px;border-top:2px solid var(--rule);}
+        .related h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;margin-bottom:18px;}
+        .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+        .rel-card{background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;overflow:hidden;transition:all .2s;}
+        .rel-card:hover{transform:translateY(-2px);border-color:var(--gold);}
+        .rel-card img{width:100%;height:110px;object-fit:cover;display:block;}
+        .rel-body{padding:12px;}
+        .rel-kicker{font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
+        .rel-title{font-family:'Cormorant Garamond',serif;font-size:.92rem;font-weight:700;line-height:1.3;color:var(--ink);}
+
+        footer{background:#0D0D0D;border-top:3px solid var(--gold);margin-top:60px;padding:22px;text-align:center;}
+        .foot-txt{font-size:.78rem;color:#444;}
+        .foot-txt a{color:#555;transition:color .2s;}
+        .foot-txt a:hover{color:var(--gold);}
+
+        @media(max-width:768px){
+            h1.art-title{font-size:1.8rem;}
+            .article-hero{height:220px;}
+            .rel-grid{grid-template-columns:1fr;}
+            .cta-box{flex-direction:column;text-align:center;}
         }
     </style>
 </head>
 <body>
 
+<div class="top-bar"></div>
+
 <nav>
-    <div class="nav-container">
-        <a href="index.html" class="logo"><i class="fas fa-chart-pie"></i> TimeToCompound</a>
-        <div class="icons-group">
-            <button class="lang-toggle" onclick="toggleLanguage()">
-                <span class="lang-el">🇬🇧</span> <span class="lang-en">🇬🇷</span>
-            </button>
-            <div class="theme-toggle" onclick="toggleTheme()"><i class="fas fa-moon" id="theme-icon"></i></div>
+    <div class="nav-inner">
+        <a href="index.html" class="brand">
+            <span class="brand-name">TimeToCompound</span>
+            <span class="brand-sub">Financial Intelligence</span>
+        </a>
+        <div class="nav-right">
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Home</a>
+            <button class="ctrl" onclick="toggleTheme()"><i class="fas fa-moon" id="ti"></i></button>
         </div>
     </div>
 </nav>
 
-<div class="article-container">
-    <a href="index.html" class="back-btn">
-        <i class="fas fa-arrow-left"></i> 
-        <span class="lang-el">Πίσω στην Αρχική</span>
-        <span class="lang-en">Back to Home</span>
-    </a>
+<div class="article-wrap">
 
-    <article>
-        <header class="article-header">
-            <span class="article-tag">Beginner</span>
-            
-            <div class="lang-el">
-                <h1 class="article-title">Γιατί κινούνται οι τιμές; Η αλήθεια πέρα από τα γραφήματα</h1>
-                <div class="article-meta">5 Λεπτά Ανάγνωση • Από TimeToCompound</div>
-            </div>
-            <div class="lang-en">
-                <h1 class="article-title">Stock Market 101: Why Prices Really Move</h1>
-                <div class="article-meta">5 Min Read • By TimeToCompound</div>
-            </div>
-        </header>
+    <img src="prices-move-large.jpg"
+         alt="Why do stock prices move - supply and demand in financial markets"
+         class="article-hero">
 
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Candlestick_chart_example.png" class="article-img" alt="Candlestick Chart">
+    <div class="article-meta">
+        <span class="tag tag-beginner">Beginner</span>
+        <span class="meta-info"><i class="fas fa-calendar-alt"></i> 19 May 2026</span>
+        <span class="meta-info"><i class="fas fa-clock"></i> 8 min read</span>
+        <span class="meta-info"><i class="fas fa-graduation-cap"></i> Academy</span>
+    </div>
 
-        <div class="content">
-            
-            <div class="lang-el">
-                <p>Όταν κοιτάτε ένα διάγραμμα μετοχών, τι βλέπετε; Κόκκινες και πράσινες γραμμές; Περίπλοκα σχέδια;</p>
-                <p>Οι περισσότεροι νομίζουν ότι το trading είναι να απομνημονεύεις σχήματα ή να προβλέπεις το μέλλον με "τεχνική ανάλυση".</p>
-                
-                <div class="highlight-box">
-                    <strong>Κάνουν λάθος.</strong> Η αγορά δεν είναι μαθηματικό πρόβλημα. Είναι μια <strong>δημοπρασία</strong>. Και μόλις καταλάβετε τη δημοπρασία, τα γραφήματα σταματούν να είναι μπερδεμένες γραμμές και αρχίζουν να λένε μια ιστορία.
-                </div>
+    <h1 class="art-title">Why Do Stock Prices Move? A Complete Beginner's Guide to Supply & Demand</h1>
 
-                <h3>1. Το Διελκυστίνδα: Προσφορά vs Ζήτηση</h3>
-                <p>Φανταστείτε μια γεμάτη λαϊκή αγορά.</p>
-                <ul>
-                    <li><strong>Οι Αγοραστές (Ταύροι/Bulls):</strong> Θέλουν να αγοράσουν μετοχές γιατί πιστεύουν ότι η τιμή θα ανέβει.</li>
-                    <li><strong>Οι Πωλητές (Αρκούδες/Bears):</strong> Θέλουν να πουλήσουν γιατί πιστεύουν ότι η τιμή θα πέσει (ή θέλουν να ρευστοποιήσουν).</li>
-                </ul>
-                <p><strong>Η Τιμή</strong> είναι απλώς το σημείο όπου συμφωνούν να κάνουν συναλλαγή αυτό το δευτερόλεπτο.</p>
-                <p>Αν υπάρχουν <strong>περισσότεροι επιθετικοί αγοραστές</strong>, η τιμή ανεβαίνει. Αν υπάρχουν <strong>περισσότεροι πωλητές</strong>, η τιμή πέφτει.</p>
+    <p class="art-deck">Every day, billions of shares change hands and prices jump, fall, and reverse — sometimes for no obvious reason. This guide explains the single mechanism behind every price movement in every market: supply and demand. Once you understand it, the market never looks random again.</p>
 
-                <h3>2. Τι κινεί πραγματικά τη βελόνα;</h3>
-                <p>Δύο πράγματα κάνουν τους αγοραστές ή τους πωλητές επιθετικούς:</p>
-                <ol>
-                    <li><strong>Θεμελιώδη (Η Λογική):</strong> Μια εταιρεία βγάζει κέρδη. Οι επενδυτές τρέχουν να αγοράσουν. Η ζήτηση αυξάνεται -> Η τιμή ανεβαίνει.</li>
-                    <li><strong>Ψυχολογία (Το Συναίσθημα):</strong> Φόβος και Απληστία. Κάποιες φορές, δεν αλλάζει τίποτα στην εταιρεία, αλλά ο κόσμος φοβάται έναν πόλεμο. Πανικοβάλλονται και πουλάνε. Η προσφορά πλημμυρίζει την αγορά -> Η τιμή καταρρέει.</li>
-                </ol>
+    <div class="art-body">
 
-                <h3>3. Διαβάζοντας την Ιστορία (Τα Κεριά)</h3>
-                <p>Εδώ μπαίνουν τα "Candlesticks". Δεν είναι μαγικά σύμβολα. Είναι μια <strong>Αναφορά Μάχης</strong>.</p>
-                <p>Κάθε κερί σου λέει ποιος κέρδισε τη μάχη σε ένα συγκεκριμένο χρονικό διάστημα.</p>
-                <ul>
-                    <li><strong>Πράσινο Σώμα:</strong> Η τιμή έκλεισε ψηλότερα από ό,τι άνοιξε. Οι Αγοραστές κέρδισαν σήμερα.</li>
-                    <li><strong>Κόκκινο Σώμα:</strong> Η τιμή έκλεισε χαμηλότερα. Οι Πωλητές πήραν τον έλεγχο.</li>
-                    <li><strong>Οι Σκιές (Wicks):</strong> Δείχνουν την πάλη. Μια μακριά σκιά στο κάτω μέρος σημαίνει ότι οι πωλητές προσπάθησαν να ρίξουν την τιμή, αλλά οι αγοραστές ήταν αρκετά δυνατοί για να την ανεβάσουν ξανά.</li>
-                </ul>
+        <h2>The Short Answer</h2>
 
-                <h3>Συμπέρασμα</h3>
-                <p>Την επόμενη φορά που θα κοιτάξετε ένα διάγραμμα, μην ψάχνετε για "μοτίβα". Ψάξτε για τους ανθρώπους.</p>
-                <p>Ρωτήστε τον εαυτό σας: <strong>Ποιος έχει τον έλεγχο τώρα;</strong> Η αγορά είναι απλώς μια αντανάκλαση της ανθρώπινης πίστης, του φόβου και της αισιοδοξίας.</p>
-            </div>
+        <p><strong>A stock price moves for one reason only: the balance between buyers and sellers has shifted.</strong> When more people want to buy a stock than sell it, prices rise. When more people want to sell than buy, prices fall. Everything else — earnings reports, interest rate decisions, geopolitical news, CEO tweets — only matters because it changes the number of buyers and sellers.</p>
 
-            <div class="lang-en">
-                <p>When you look at a stock chart, what do you see? Red and green lines? Confusing patterns?</p>
-                <p>Most people think trading is about memorizing complex shapes or predicting the future with "technical analysis."</p>
+        <p>This is the law of supply and demand, and it governs every asset in every market on earth: stocks, bonds, currencies, commodities, real estate, and cryptocurrencies. The mechanism is always the same.</p>
 
-                <div class="highlight-box">
-                    <strong>They are wrong.</strong> The stock market isn't a math problem. It’s an <strong>auction</strong>. And once you understand the auction, the charts stop being confusing lines and start telling a story.
-                </div>
-
-                <h3>1. The Tug-of-War: Supply vs. Demand</h3>
-                <p>Imagine a crowded market.</p>
-                <ul>
-                    <li><strong>The Buyers (Bulls):</strong> They want to buy shares because they think the price will go <em>up</em>.</li>
-                    <li><strong>The Sellers (Bears):</strong> They want to sell shares because they think the price will go <em>down</em> (or they want to cash out).</li>
-                </ul>
-                <p><strong>The Price</strong> is simply the point where they agree to trade at this exact second.</p>
-                <p>If there are <strong>more aggressive buyers</strong>, price goes UP. If there are <strong>more aggressive sellers</strong>, price goes DOWN.</p>
-
-                <h3>2. What actually moves the needle?</h3>
-                <p>Why would buyers suddenly become aggressive? Two main reasons:</p>
-                <ol>
-                    <li><strong>Fundamentals (The Logic):</strong> A company releases a great report. Investors rush to buy. Demand goes up -> Price goes up.</li>
-                    <li><strong>Psychology (The Emotion):</strong> Fear and Greed. Sometimes, nothing has changed in the company, but people are scared of a war. They panic and sell. Supply floods the market -> Price crashes.</li>
-                </ol>
-
-                <h3>3. Reading the Story (The Candlesticks)</h3>
-                <p>This is where "Candlesticks" come in. They are not magic symbols. They are a <strong>Battle Report</strong>.</p>
-                <p>Every candle tells you who won the battle during a specific time.</p>
-                <ul>
-                    <li><strong>Green Body:</strong> The price closed higher than it opened. The Buyers won today.</li>
-                    <li><strong>Red Body:</strong> The price closed lower than it opened. The Sellers took control.</li>
-                    <li><strong>The Wicks:</strong> These show the <em>struggle</em>. A long wick at the bottom means sellers tried to push the price down, but buyers were strong enough to push it back up.</li>
-                    
-                </ul>
-
-                <h3>Conclusion</h3>
-                <p>Next time you look at a chart, don’t look for "patterns." Look for the people.</p>
-                <p>Ask yourself: <strong>Who is in control right now?</strong> The market is just a reflection of human belief, fear, and optimism.</p>
-            </div>
-
+        <div class="hl">
+            <p>💡 <strong>The key insight:</strong> A stock has no fixed "correct" price. Its price is simply whatever the most recent buyer and seller agreed on. That price changes the moment the next trade happens at a different level.</p>
         </div>
-    </article>
+
+        <h2>How the Auction Works</h2>
+
+        <p>Stock markets operate as continuous auctions. At any given moment, thousands of investors are posting what they're willing to pay (bids) and what they're willing to accept (asks). When a bid meets an ask, a trade occurs — and that trade price becomes the new market price.</p>
+
+        <div class="example-box">
+            <div class="example-label">Simple Example: Stock XYZ at $10</div>
+            <p>Imagine 1,000 investors want to buy one share of XYZ at $10.00. But only 500 investors want to sell at $10.00. The first 500 buyers each get a share. The remaining 500 buyers, left without shares, raise their bid to $10.50. Some investors who wouldn't sell at $10 now agree to sell at $10.50. The price is now $10.50. The entire price move happened because demand exceeded supply — nothing else changed.</p>
+        </div>
+
+        <p>This process happens thousands of times per second on modern exchanges. For popular stocks like Apple or NVIDIA, over 50 million shares change hands every single trading day. Each transaction is a new data point that sets the price.</p>
+
+        <h2>What Creates Supply?</h2>
+
+        <p>Supply is the number of shares available for sale at any given price. It increases when:</p>
+
+        <ul>
+            <li><strong>Investors want to sell</strong> — to take profits, cut losses, or raise cash</li>
+            <li><strong>Institutions reduce positions</strong> — fund managers rebalancing portfolios</li>
+            <li><strong>Companies issue new shares</strong> — diluting existing supply</li>
+            <li><strong>Insiders sell</strong> — executives or early investors cashing out</li>
+            <li><strong>Fear spreads</strong> — bad news, economic data, or market crashes trigger panic selling</li>
+        </ul>
+
+        <p>When supply rises without a matching increase in demand, prices fall. More shares are available than people want to buy at the current price, so sellers must lower their asking price to attract buyers.</p>
+
+        <h2>What Creates Demand?</h2>
+
+        <p>Demand is the number of investors wanting to buy at a given price. It increases when:</p>
+
+        <ul>
+            <li><strong>A company reports strong earnings</strong> — investors see future profit potential</li>
+            <li><strong>New products or innovations excite investors</strong> — like AI announcements from NVIDIA</li>
+            <li><strong>Interest rates fall</strong> — making stocks more attractive vs. bonds and savings</li>
+            <li><strong>Market sentiment improves</strong> — optimism is contagious in financial markets</li>
+            <li><strong>Stock buybacks occur</strong> — the company itself becomes a buyer, reducing available supply</li>
+            <li><strong>Index inclusion</strong> — when a stock joins the S&P 500, every index fund must buy it</li>
+        </ul>
+
+        <div class="hl green">
+            <p>📊 <strong>Key fact:</strong> In the short term, prices are driven primarily by sentiment and momentum. In the long term, a company's earnings growth is the dominant force. This is why short-term trading is so difficult — you're fighting human emotion — while long-term investing is more predictable.</p>
+        </div>
+
+        <h2>Real-World Examples</h2>
+
+        <h3>Example 1: NVIDIA (NVDA) in 2024-2026</h3>
+        <p>NVIDIA's stock rose from around $50 in early 2023 to over $220 in 2026. The fundamental reason: the AI boom created explosive demand for NVIDIA's chips. Every company building AI systems needed NVIDIA hardware. Demand for the stock surged as investors recognized this — and supply stayed relatively tight because existing shareholders didn't want to sell a company growing this fast. Classic supply and demand: demand up, supply constrained, price soars.</p>
+
+        <h3>Example 2: Meta Platforms (META) in 2022</h3>
+        <p>META fell from $380 to $88 in 2022 — a drop of 77%. The reason: demand collapsed. Advertisers cut budgets, user growth slowed, and Zuckerberg announced massive spending on the metaverse. Sellers flooded the market. Buyers vanished. Classic supply and demand: supply up, demand down, price crashes.</p>
+
+        <h3>Example 3: Oil Markets in 2026</h3>
+        <p>Brent crude rose 70% year-over-year in 2026 after the Iran conflict effectively closed the Strait of Hormuz. The physical supply of oil dropped dramatically. Global demand remained largely unchanged. Result: prices surged. The stock market equivalent of this is any supply shock — an earnings miss, a product recall, or a CEO resignation can cut supply of buyers overnight.</p>
+
+        <h2>What Candlestick Charts Actually Show</h2>
+
+        <p>Once you understand supply and demand, candlestick charts become intuitive. A candlestick is simply a visual record of the battle between buyers and sellers in a specific time period.</p>
+
+        <table class="vs-table">
+            <thead>
+                <tr>
+                    <th class="buy">Green Candle (Buyers Won)</th>
+                    <th class="sell">Red Candle (Sellers Won)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr><td>Price closed higher than it opened</td><td>Price closed lower than it opened</td></tr>
+                <tr><td>Buyers were more aggressive</td><td>Sellers were more aggressive</td></tr>
+                <tr><td>Demand exceeded supply</td><td>Supply exceeded demand</td></tr>
+                <tr><td>Long body = decisive buyer victory</td><td>Long body = decisive seller victory</td></tr>
+                <tr><td>Long upper wick = buyers tried but failed</td><td>Long lower wick = sellers tried but failed</td></tr>
+            </tbody>
+        </table>
+
+        <p>A series of consecutive green candles tells you that buyers have been consistently more aggressive than sellers — demand is in control. A series of red candles means sellers are dominating. Patterns in candlesticks are simply patterns in the supply-demand balance over time.</p>
+
+        <div class="pull">"Every movement in the financial markets comes back to one relationship: supply and demand. Learn this, and you understand markets at a fundamental level."</div>
+
+        <h2>Why Sentiment Matters So Much</h2>
+
+        <p>Markets are not made of machines — they're made of humans. And humans are driven by two emotions more than any other: <strong>fear</strong> and <strong>greed</strong>.</p>
+
+        <p>When investors are greedy, they rush to buy. Demand surges. Prices overshoot fair value. This creates bubbles. When investors are fearful, they rush to sell. Supply floods the market. Prices undershoot fair value. This creates crashes and opportunities.</p>
+
+        <p>Warren Buffett's most famous advice — "be fearful when others are greedy, and greedy when others are fearful" — is a direct application of supply and demand logic. When fear creates an oversupply of sellers, prices drop below fair value and create buying opportunities for patient investors.</p>
+
+        <h2>The 5 Forces That Shift Supply & Demand Every Day</h2>
+
+        <ol>
+            <li><strong>Earnings reports</strong> — the most predictable, scheduled event. Beat expectations → demand spikes. Miss → supply floods in.</li>
+            <li><strong>Macroeconomic data</strong> — inflation, unemployment, GDP, and interest rate decisions shift the entire market's supply-demand balance simultaneously.</li>
+            <li><strong>News and announcements</strong> — product launches, mergers, scandals, regulatory decisions. These are sudden, unpredictable demand shocks.</li>
+            <li><strong>Sector rotation</strong> — institutions move billions between sectors based on economic cycles, shifting entire industries' supply-demand dynamics at once.</li>
+            <li><strong>Technical levels</strong> — psychological price levels (round numbers, 52-week highs/lows) concentrate supply and demand at specific points, creating self-fulfilling reactions.</li>
+        </ol>
+
+        <h2>What This Means for You as an Investor</h2>
+
+        <p>Understanding supply and demand changes how you invest in a fundamental way:</p>
+
+        <ul>
+            <li><strong>Short-term price noise is irrelevant to long-term investors.</strong> Daily supply-demand fluctuations driven by sentiment don't change a great company's underlying value. Ignore the noise.</li>
+            <li><strong>Crashes are supply events, not value events.</strong> When fear drives mass selling, prices fall below fair value. This is when supply massively outstrips demand — and historically, these are the best buying opportunities.</li>
+            <li><strong>Compound interest amplifies your position.</strong> If you buy assets during fear-driven supply surges (when prices are cheap) and hold through demand-driven bull markets (when prices rise), the compounding effect multiplies your returns.</li>
+            <li><strong>Index funds are the cleanest expression of this.</strong> By buying an index ETF (like one tracking the S&P 500), you benefit from the long-term upward trend of aggregate demand for the most successful businesses in the world.</li>
+        </ul>
+
+        <!-- KEY TAKEAWAYS -->
+        <div class="takeaways">
+            <h3>Key Takeaways</h3>
+            <div class="takeaway-item">
+                <div class="t-icon"><i class="fas fa-check"></i></div>
+                <p>Stock prices are set by the most recent transaction between a buyer and seller — there is no "correct" price.</p>
+            </div>
+            <div class="takeaway-item">
+                <div class="t-icon"><i class="fas fa-check"></i></div>
+                <p>When demand exceeds supply, prices rise. When supply exceeds demand, prices fall. This single principle explains every price movement.</p>
+            </div>
+            <div class="takeaway-item">
+                <div class="t-icon"><i class="fas fa-check"></i></div>
+                <p>In the short term, sentiment and emotion drive supply and demand. In the long term, earnings growth is the dominant force.</p>
+            </div>
+            <div class="takeaway-item">
+                <div class="t-icon"><i class="fas fa-check"></i></div>
+                <p>Candlestick charts are just visual records of the supply-demand battle in a given period — nothing more, nothing less.</p>
+            </div>
+            <div class="takeaway-item">
+                <div class="t-icon"><i class="fas fa-check"></i></div>
+                <p>Crashes create supply gluts at below-fair-value prices — historically, the best buying opportunities for patient, long-term investors.</p>
+            </div>
+        </div>
+
+        <h2>The Bottom Line</h2>
+
+        <p>The stock market is not a casino, and price movements are not random. Every tick up and down is the result of the same mechanism: the real-time balance between buyers and sellers. News moves prices because it changes the number of buyers and sellers. Earnings move prices because they change expectations about future supply and demand for the stock. Fear and greed move prices because they change human behavior at scale.</p>
+
+        <p>Once you internalize this, you'll never look at a market chart the same way again. You'll see the invisible auction happening beneath every price movement — and you'll understand that the best strategy for most investors is simply to own great businesses at fair prices and let the long-term upward trend in human productivity work in your favor.</p>
+
+        <div class="cta-box">
+            <div class="cta-text">
+                <h3>Ready to put this knowledge to work?</h3>
+                <p>Freedom24 gives you access to thousands of stocks, ETFs, and markets worldwide.</p>
+            </div>
+            <a href="https://freedom24.com/invite_from/1767598" target="_blank" class="cta-link">Open an Account →</a>
+        </div>
+
+        <div class="related">
+            <h3>📚 Continue Learning</h3>
+            <div class="rel-grid">
+                <a href="article6.html" class="rel-card">
+                    <img src="compound-large.jpg" alt="How to start investing">
+                    <div class="rel-body">
+                        <div class="rel-kicker">Next Step</div>
+                        <div class="rel-title">How to Start Investing as a Complete Beginner (2026)</div>
+                    </div>
+                </a>
+                <a href="article3.html" class="rel-card">
+                    <img src="compound-large.jpg" alt="Compound Interest">
+                    <div class="rel-body">
+                        <div class="rel-kicker">Investing</div>
+                        <div class="rel-title">Compound Interest: The 8th Wonder of the World</div>
+                    </div>
+                </a>
+                <a href="article5.html" class="rel-card">
+                    <img src="etf-guide1.jpg" alt="ETF Guide">
+                    <div class="rel-body">
+                        <div class="rel-kicker">Guide</div>
+                        <div class="rel-title">ETF Guide: Accumulating vs Distributing</div>
+                    </div>
+                </a>
+            </div>
+        </div>
+
+    </div>
 </div>
 
-<footer class="site-footer">
-    <div class="footer-grid">
-        <div class="footer-col">
-            <h3>TimeToCompound</h3>
-            <div class="footer-desc">
-                <span class="lang-el">Ο αξιόπιστος οδηγός σου για τις διεθνείς αγορές, το χρηματιστήριο και τα κρυπτονομίσματα. Μάθετε, Επενδύστε, Αναπτυχθείτε.</span>
-                <span class="lang-en">Your trusted guide to international markets, stocks, and cryptocurrencies. Learn, Invest, Grow.</span>
-            </div>
-            <div class="social-icons">
-                <a href="#"><i class="fab fa-facebook-f"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-linkedin-in"></i></a>
-            </div>
-        </div>
-
-        <div class="footer-col">
-            <h3>
-                <span class="lang-el">Σύνδεσμοι</span>
-                <span class="lang-en">Quick Links</span>
-            </h3>
-            <ul class="footer-links">
-                <li><a href="index.html"><span class="lang-el">Αρχική</span><span class="lang-en">Home</span></a></li>
-                <li><a href="index.html"><span class="lang-el">Ροή Ειδήσεων</span><span class="lang-en">News Feed</span></a></li>
-                <li><a href="https://freedom24.com/invite_from/1767598" target="_blank"><span class="lang-el">Επενδύστε</span><span class="lang-en">Start Investing</span></a></li>
-            </ul>
-        </div>
-
-        <div class="footer-col">
-            <h3>Newsletter</h3>
-            <p class="footer-desc">
-                <span class="lang-el">Λάβετε τα σημαντικότερα νέα της ημέρας στο email σας.</span>
-                <span class="lang-en">Get the most important news of the day directly to your email.</span>
-            </p>
-            
-            <form action="https://formspree.io/f/xpwvyare" method="POST" class="newsletter-form">
-                <input type="email" name="email" class="newsletter-input" placeholder="Email..." required>
-                <button type="submit" class="newsletter-btn">
-                    <span class="lang-el">Εγγραφή</span>
-                    <span class="lang-en">Subscribe</span>
-                </button>
-            </form>
-        </div>
-    </div>
-    <div class="footer-bottom">
-        &copy; 2025 TimeToCompound. All rights reserved. | <a href="#">Terms</a> | <a href="#">Privacy</a>
-    </div>
+<footer>
+    <p class="foot-txt">&copy; 2026 TimeToCompound. All rights reserved. | <a href="index.html">Home</a> · <a href="article6.html">Start Investing →</a></p>
 </footer>
 
 <script>
-    /* Javascript για Αλλαγή Γλώσσας & Theme */
-    function toggleLanguage() {
-        const body = document.body;
-        if (body.classList.contains('english-mode')) {
-            body.classList.remove('english-mode');
-        } else {
-            body.classList.add('english-mode');
-        }
-    }
-
-    function toggleTheme() {
-        const body = document.body;
-        const icon = document.getElementById('theme-icon');
-        if (body.getAttribute('data-theme') === 'dark') {
-            body.removeAttribute('data-theme');
-            icon.classList.remove('fa-sun'); icon.classList.add('fa-moon');
-        } else {
-            body.setAttribute('data-theme', 'dark');
-            icon.classList.remove('fa-moon'); icon.classList.add('fa-sun');
-        }
-    }
+function toggleTheme(){
+    const b=document.body,i=document.getElementById('ti');
+    if(b.getAttribute('data-theme')==='dark'){b.removeAttribute('data-theme');i.className='fas fa-moon';}
+    else{b.setAttribute('data-theme','dark');i.className='fas fa-sun';}
+}
 </script>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<title>Internal Links — TimeToCompound</title>
-<style>
-  body { font-family: 'Outfit', sans-serif; background: #f9f6f1; color: #1B3A2D; padding: 30px; max-width: 800px; margin: auto; }
-  h1 { color: #1B3A2D; border-bottom: 3px solid #B8924A; padding-bottom: 10px; }
-  h2 { color: #B8924A; margin-top: 40px; }
-  .instruction { background: #1B3A2D; color: #fff; padding: 12px 18px; border-radius: 8px; font-size: 14px; margin-bottom: 10px; }
-  pre { background: #1B3A2D; color: #e8d5b0; padding: 20px; border-radius: 10px; overflow-x: auto; font-size: 13px; line-height: 1.6; white-space: pre-wrap; }
-  .preview { border: 2px solid #B8924A; border-radius: 10px; padding: 20px; margin-top: 10px; }
-  .related-articles { margin-top: 40px; padding-top: 30px; border-top: 2px solid #B8924A; }
-  .related-articles h3 { color: #1B3A2D; font-size: 1.1rem; margin-bottom: 16px; }
-  .related-grid { display: flex; gap: 12px; flex-wrap: wrap; }
-  .related-card { display: block; background: #fff; border: 1px solid #ddd; border-radius: 10px; padding: 14px 16px; text-decoration: none; color: #1B3A2D; width: 200px; transition: border-color 0.2s; }
-  .related-card:hover { border-color: #B8924A; }
-  .related-card .tag { font-size: 10px; font-weight: 700; color: #B8924A; letter-spacing: 1px; text-transform: uppercase; display: block; margin-bottom: 6px; }
-  .related-card p { font-size: 13px; margin: 0; font-weight: 600; }
-</style>
-</head>
-<body>
-
-<h1>📚 Internal Links — TimeToCompound</h1>
-<p>Πρόσθεσε τον παρακάτω κώδικα στο τέλος κάθε άρθρου, <strong>πριν το &lt;/body&gt;</strong> tag.</p>
-
-<!-- ===================== ARTICLE 1 ===================== -->
-<h2>📄 article1.html — Γιατί κινούνται οι τιμές</h2>
-<div class="instruction">Κόπιασε αυτό και βάλτο πριν το &lt;/body&gt; στο article1.html</div>
-<pre>&lt;section class="related-articles" style="margin-top:40px;padding-top:30px;border-top:2px solid #B8924A;font-family:'Outfit',sans-serif;"&gt;
-  &lt;h3 style="color:#1B3A2D;font-size:1.1rem;margin-bottom:16px;"&gt;📚 Related Articles&lt;/h3&gt;
-  &lt;div style="display:flex;gap:12px;flex-wrap:wrap;"&gt;
-    &lt;a href="article3.html" style="display:block;background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px 16px;text-decoration:none;color:#1B3A2D;width:200px;"&gt;
-      &lt;span style="font-size:10px;font-weight:700;color:#B8924A;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:6px;"&gt;INVESTING&lt;/span&gt;
-      &lt;p style="font-size:13px;margin:0;font-weight:600;"&gt;Compound Interest: The 8th Wonder of the World&lt;/p&gt;
-    &lt;/a&gt;
-    &lt;a href="article5.html" style="display:block;background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px 16px;text-decoration:none;color:#1B3A2D;width:200px;"&gt;
-      &lt;span style="font-size:10px;font-weight:700;color:#B8924A;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:6px;"&gt;GUIDE&lt;/span&gt;
-      &lt;p style="font-size:13px;margin:0;font-weight:600;"&gt;ETF Guide: Accumulating vs Distributing&lt;/p&gt;
-    &lt;/a&gt;
-    &lt;a href="calculator.html" style="display:block;background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px 16px;text-decoration:none;color:#1B3A2D;width:200px;"&gt;
-      &lt;span style="font-size:10px;font-weight:700;color:#B8924A;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:6px;"&gt;TOOL&lt;/span&gt;
-      &lt;p style="font-size:13px;margin:0;font-weight:600;"&gt;Compound Interest Calculator&lt;/p&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-&lt;/section&gt;</pre>
-
-<!-- ===================== ARTICLE 2 ===================== -->
-<h2>📄 article2.html — Blockchain</h2>
-<div class="instruction">Κόπιασε αυτό και βάλτο πριν το &lt;/body&gt; στο article2.html</div>
-<pre>&lt;section class="related-articles" style="margin-top:40px;padding-top:30px;border-top:2px solid #B8924A;font-family:'Outfit',sans-serif;"&gt;
-  &lt;h3 style="color:#1B3A2D;font-size:1.1rem;margin-bottom:16px;"&gt;📚 Related Articles&lt;/h3&gt;
-  &lt;div style="display:flex;gap:12px;flex-wrap:wrap;"&gt;
-    &lt;a href="article1.html" style="display:block;background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px 16px;text-decoration:none;color:#1B3A2D;width:200px;"&gt;
-      &lt;span style="font-size:10px;font-weight:700;color:#B8924A;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:6px;"&gt;BEGINNER&lt;/span&gt;
-      &lt;p style="font-size:13px;margin:0;font-weight:600;"&gt;Why Prices Move: The Truth Beyond the Charts&lt;/p&gt;
-    &lt;/a&gt;
-    &lt;a href="article6.html" style="display:block;background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px 16px;text-decoration:none;color:#1B3A2D;width:200px;"&gt;
-      &lt;span style="font-size:10px;font-weight:700;color:#B8924A;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:6px;"&gt;BEGINNER&lt;/span&gt;
-      &lt;p style="font-size:13px;margin:0;font-weight:600;"&gt;How to Start Investing as a Complete Beginner&lt;/p&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-&lt;/section&gt;</pre>
-
-<!-- ===================== ARTICLE 3 ===================== -->
-<h2>📄 article3.html — Compound Interest</h2>
-<div class="instruction">Κόπιασε αυτό και βάλτο πριν το &lt;/body&gt; στο article3.html</div>
-<pre>&lt;section class="related-articles" style="margin-top:40px;padding-top:30px;border-top:2px solid #B8924A;font-family:'Outfit',sans-serif;"&gt;
-  &lt;h3 style="color:#1B3A2D;font-size:1.1rem;margin-bottom:16px;"&gt;📚 Related Articles&lt;/h3&gt;
-  &lt;div style="display:flex;gap:12px;flex-wrap:wrap;"&gt;
-    &lt;a href="calculator.html" style="display:block;background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px 16px;text-decoration:none;color:#1B3A2D;width:200px;"&gt;
-      &lt;span style="font-size:10px;font-weight:700;color:#B8924A;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:6px;"&gt;TOOL&lt;/span&gt;
-      &lt;p style="font-size:13px;margin:0;font-weight:600;"&gt;Compound Interest Calculator&lt;/p&gt;
-    &lt;/a&gt;
-    &lt;a href="article6.html" style="display:block;background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px 16px;text-decoration:none;color:#1B3A2D;width:200px;"&gt;
-      &lt;span style="font-size:10px;font-weight:700;color:#B8924A;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:6px;"&gt;BEGINNER&lt;/span&gt;
-      &lt;p style="font-size:13px;margin:0;font-weight:600;"&gt;How to Start Investing as a Complete Beginner&lt;/p&gt;
-    &lt;/a&gt;
-    &lt;a href="article5.html" style="display:block;background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px 16px;text-decoration:none;color:#1B3A2D;width:200px;"&gt;
-      &lt;span style="font-size:10px;font-weight:700;color:#B8924A;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:6px;"&gt;GUIDE&lt;/span&gt;
-      &lt;p style="font-size:13px;margin:0;font-weight:600;"&gt;ETF Guide: Accumulating vs Distributing&lt;/p&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-&lt;/section&gt;</pre>
-
-<!-- ===================== ARTICLE 4 ===================== -->
-<h2>📄 article4.html — FED Analysis</h2>
-<div class="instruction">Κόπιασε αυτό και βάλτο πριν το &lt;/body&gt; στο article4.html</div>
-<pre>&lt;section class="related-articles" style="margin-top:40px;padding-top:30px;border-top:2px solid #B8924A;font-family:'Outfit',sans-serif;"&gt;
-  &lt;h3 style="color:#1B3A2D;font-size:1.1rem;margin-bottom:16px;"&gt;📚 Related Articles&lt;/h3&gt;
-  &lt;div style="display:flex;gap:12px;flex-wrap:wrap;"&gt;
-    &lt;a href="article7.html" style="display:block;background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px 16px;text-decoration:none;color:#1B3A2D;width:200px;"&gt;
-      &lt;span style="font-size:10px;font-weight:700;color:#B8924A;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:6px;"&gt;MACRO&lt;/span&gt;
-      &lt;p style="font-size:13px;margin:0;font-weight:600;"&gt;Oil at $110 &amp;amp; Stock ATH: What They Mean for the 2026 Midterms&lt;/p&gt;
-    &lt;/a&gt;
-    &lt;a href="article8.html" style="display:block;background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px 16px;text-decoration:none;color:#1B3A2D;width:200px;"&gt;
-      &lt;span style="font-size:10px;font-weight:700;color:#B8924A;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:6px;"&gt;MARKETS&lt;/span&gt;
-      &lt;p style="font-size:13px;margin:0;font-weight:600;"&gt;Markets Hit ATH While the World Burns&lt;/p&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-&lt;/section&gt;</pre>
-
-<!-- ===================== ARTICLE 5 ===================== -->
-<h2>📄 article5.html — ETF Guide</h2>
-<div class="instruction">Κόπιασε αυτό και βάλτο πριν το &lt;/body&gt; στο article5.html</div>
-<pre>&lt;section class="related-articles" style="margin-top:40px;padding-top:30px;border-top:2px solid #B8924A;font-family:'Outfit',sans-serif;"&gt;
-  &lt;h3 style="color:#1B3A2D;font-size:1.1rem;margin-bottom:16px;"&gt;📚 Related Articles&lt;/h3&gt;
-  &lt;div style="display:flex;gap:12px;flex-wrap:wrap;"&gt;
-    &lt;a href="article3.html" style="display:block;background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px 16px;text-decoration:none;color:#1B3A2D;width:200px;"&gt;
-      &lt;span style="font-size:10px;font-weight:700;color:#B8924A;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:6px;"&gt;INVESTING&lt;/span&gt;
-      &lt;p style="font-size:13px;margin:0;font-weight:600;"&gt;Compound Interest: The 8th Wonder of the World&lt;/p&gt;
-    &lt;/a&gt;
-    &lt;a href="article6.html" style="display:block;background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px 16px;text-decoration:none;color:#1B3A2D;width:200px;"&gt;
-      &lt;span style="font-size:10px;font-weight:700;color:#B8924A;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:6px;"&gt;BEGINNER&lt;/span&gt;
-      &lt;p style="font-size:13px;margin:0;font-weight:600;"&gt;How to Start Investing as a Complete Beginner&lt;/p&gt;
-    &lt;/a&gt;
-    &lt;a href="calculator.html" style="display:block;background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px 16px;text-decoration:none;color:#1B3A2D;width:200px;"&gt;
-      &lt;span style="font-size:10px;font-weight:700;color:#B8924A;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:6px;"&gt;TOOL&lt;/span&gt;
-      &lt;p style="font-size:13px;margin:0;font-weight:600;"&gt;Compound Interest Calculator&lt;/p&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-&lt;/section&gt;</pre>
-
-<!-- ===================== CALCULATOR ===================== -->
-<h2>📄 calculator.html — Compound Calculator</h2>
-<div class="instruction">Κόπιασε αυτό και βάλτο πριν το &lt;/body&gt; στο calculator.html</div>
-<pre>&lt;section class="related-articles" style="margin-top:40px;padding-top:30px;border-top:2px solid #B8924A;font-family:'Outfit',sans-serif;"&gt;
-  &lt;h3 style="color:#1B3A2D;font-size:1.1rem;margin-bottom:16px;"&gt;📚 Related Articles&lt;/h3&gt;
-  &lt;div style="display:flex;gap:12px;flex-wrap:wrap;"&gt;
-    &lt;a href="article3.html" style="display:block;background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px 16px;text-decoration:none;color:#1B3A2D;width:200px;"&gt;
-      &lt;span style="font-size:10px;font-weight:700;color:#B8924A;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:6px;"&gt;INVESTING&lt;/span&gt;
-      &lt;p style="font-size:13px;margin:0;font-weight:600;"&gt;Compound Interest: The 8th Wonder of the World&lt;/p&gt;
-    &lt;/a&gt;
-    &lt;a href="article6.html" style="display:block;background:#fff;border:1px solid #ddd;border-radius:10px;padding:14px 16px;text-decoration:none;color:#1B3A2D;width:200px;"&gt;
-      &lt;span style="font-size:10px;font-weight:700;color:#B8924A;letter-spacing:1px;text-transform:uppercase;display:block;margin-bottom:6px;"&gt;BEGINNER&lt;/span&gt;
-      &lt;p style="font-size:13px;margin:0;font-weight:600;"&gt;How to Start Investing as a Complete Beginner&lt;/p&gt;
-    &lt;/a&gt;
-  &lt;/div&gt;
-&lt;/section&gt;</pre>
-
-</body>
-</html>
 </body>
 </html>
