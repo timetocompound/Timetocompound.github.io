@@ -661,7 +661,11 @@
             <h5>Newsletter</h5>
             <p class="foot-about"><span class="lang-el">Τα σημαντικότερα νέα της αγοράς απευθείας στο email σας.</span><span class="lang-en">The most important market news delivered to your inbox.</span></p>
             <form id="nl-form" onsubmit="submitNewsletter(event)">
-                <input type="email" name="email" id="nl-email" class="nl-input" placeholder="your@email.com" required>
+                <input type="email" name="EMAIL" id="nl-email" class="nl-input" placeholder="your@email.com" required>
+                <!-- Mailchimp honeypot anti-bot -->
+                <div style="position:absolute;left:-5000px;" aria-hidden="true">
+                    <input type="text" name="b_e718b16a3b0cc8798bdcda989_edad42aae8" tabindex="-1" value="">
+                </div>
                 <button type="submit" class="nl-btn" id="nl-btn">
                     <span class="lang-el">Εγγραφή</span><span class="lang-en">Subscribe</span>
                 </button>
@@ -709,19 +713,36 @@ function submitNewsletter(e){
     const btn=document.getElementById('nl-btn');
     const success=document.getElementById('nl-success');
     const error=document.getElementById('nl-error');
-    btn.disabled=true;btn.style.opacity='.6';
-    success.style.display='none';error.style.display='none';
-    fetch('https://formspree.io/f/xpwvyare',{
-        method:'POST',
-        headers:{'Content-Type':'application/json','Accept':'application/json'},
-        body:JSON.stringify({email:email})
-    })
-    .then(r=>{
-        if(r.ok){success.style.display='block';document.getElementById('nl-email').value='';}
-        else{error.style.display='block';}
-    })
-    .catch(()=>error.style.display='block')
-    .finally(()=>{btn.disabled=false;btn.style.opacity='1';});
+    btn.disabled=true; btn.style.opacity='.6';
+    success.style.display='none'; error.style.display='none';
+
+    // Mailchimp JSONP submit — stays on page, no redirect
+    const url='https://timetocompound.us13.list-manage.com/subscribe/post-json?u=e718b16a3b0cc8798bdcda989&id=edad42aae8&f_id=00b700e9f0&EMAIL='+encodeURIComponent(email)+'&c=mcCallback';
+    window.mcCallback=function(data){
+        if(data.result==='success'){
+            success.style.display='block';
+            document.getElementById('nl-email').value='';
+        } else {
+            // Already subscribed is still a "success" for UX
+            if(data.msg && data.msg.indexOf('already subscribed')>-1){
+                success.style.display='block';
+            } else {
+                error.style.display='block';
+            }
+        }
+        btn.disabled=false; btn.style.opacity='1';
+        // Cleanup script tag
+        const s=document.getElementById('mc-jsonp');
+        if(s) s.remove();
+    };
+    const script=document.createElement('script');
+    script.id='mc-jsonp';
+    script.src=url;
+    document.body.appendChild(script);
+    // Fallback timeout
+    setTimeout(()=>{
+        if(btn.disabled){btn.disabled=false;btn.style.opacity='1';}
+    },5000);
 }
 
 function toggleLang(){document.body.classList.toggle('en');}
