@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y9DENNW7FP"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Y9DENNW7FP');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About Us | TimeToCompound — Financial Intelligence</title>
+    <meta name="description" content="TimeToCompound is a financial intelligence platform dedicated to market analysis, investor education, and real-time data. Our mission: make smart investing accessible to everyone.">
+    <link rel="canonical" href="https://timetocompound.com/about.html">
+    <meta property="og:title" content="About TimeToCompound | Financial Intelligence">
+    <meta property="og:description" content="Our mission is simple: bring institutional-quality financial analysis to everyday investors. Free, honest, and independent.">
+    <meta property="og:url" content="https://timetocompound.com/about.html">
+    <meta property="og:type" content="website">
+
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root{--ink:#0D0D0D;--ink-2:#3D3D3D;--ink-3:#787878;--paper:#F4F1EB;--paper-2:#FFFFFF;--paper-3:#EAE7E0;--green:#1B3A2D;--green-l:#2C5A47;--gold:#B8924A;--gold-l:#D4A85A;--rule:#D4CEC4;--shadow:0 2px 16px rgba(13,13,13,0.09);}
+        [data-theme="dark"]{--ink:#F0EBE0;--ink-2:#B8B0A0;--ink-3:#706860;--paper:#0C1209;--paper-2:#111A0E;--paper-3:#162012;--green:#4A8C6A;--green-l:#5AA880;--gold:#D4A85A;--gold-l:#E8C07A;--rule:#1E2E1A;--shadow:0 2px 16px rgba(0,0,0,0.4);}
+        *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+        body{font-family:'Outfit',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;display:flex;flex-direction:column;transition:background .3s,color .3s;}
+        a{text-decoration:none;color:inherit;}
+
+        /* NAV */
+        .top-bar{height:3px;background:var(--gold);width:100%;position:fixed;top:0;left:0;z-index:1001;}
+        nav{background:var(--paper-2);border-bottom:1px solid var(--rule);position:sticky;top:3px;z-index:999;}
+        .nav-inner{max-width:1100px;margin:0 auto;padding:0 28px;display:flex;justify-content:space-between;align-items:center;height:70px;}
+        .brand{display:flex;flex-direction:column;cursor:pointer;}
+        .brand-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--ink);letter-spacing:-1px;line-height:1;}
+        .brand-sub{font-size:.58rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--ink-3);margin-top:3px;}
+        .nav-right{display:flex;align-items:center;gap:12px;}
+        .back-btn{display:flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;color:var(--ink-2);border:1px solid var(--rule);padding:8px 16px;border-radius:3px;transition:all .2s;}
+        .back-btn:hover{border-color:var(--gold);color:var(--gold);}
+        .ctrl{width:34px;height:34px;border-radius:3px;border:1px solid var(--rule);background:transparent;color:var(--ink-3);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:all .2s;font-family:'Outfit',sans-serif;}
+        .ctrl:hover{border-color:var(--gold);color:var(--gold);}
+        .lang-btn{font-size:1.1rem;background:none;border:none;cursor:pointer;transition:transform .2s;}
+        .lang-btn:hover{transform:scale(1.1);}
+
+        /* LANG SYSTEM */
+        .lang-en{display:none;}
+        body.en .lang-el{display:none!important;}
+        body.en .lang-en{display:block!important;}
+        span.lang-en{display:none;}
+        body.en span.lang-en{display:inline!important;}
+        .iblock-en{display:none;}
+        body.en .iblock-el{display:none!important;}
+        body.en .iblock-en{display:inline-block!important;}
+
+        /* HERO */
+        .about-hero{background:var(--green);position:relative;overflow:hidden;padding:80px 28px;}
+        .about-hero::before{content:'';position:absolute;top:-60px;right:-60px;width:300px;height:300px;border-radius:50%;background:rgba(255,255,255,.04);}
+        .about-hero::after{content:'';position:absolute;bottom:-40px;left:-40px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.03);}
+        .hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1;}
+        .hero-kicker{font-size:.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:16px;}
+        .hero-title{font-family:'Cormorant Garamond',serif;font-size:3.2rem;font-weight:700;color:#fff;line-height:1.15;margin-bottom:20px;max-width:700px;}
+        .hero-sub{font-size:1.1rem;color:rgba(255,255,255,.7);line-height:1.7;max-width:600px;}
+        .hero-stats{display:flex;gap:40px;margin-top:40px;flex-wrap:wrap;}
+        .hero-stat-num{font-family:'Cormorant Garamond',serif;font-size:2.2rem;font-weight:700;color:#6EE7B7;line-height:1;}
+        .hero-stat-lbl{font-size:.72rem;color:rgba(255,255,255,.5);margin-top:4px;font-weight:500;}
+
+        /* MAIN */
+        .about-body{max-width:1100px;margin:0 auto;padding:64px 28px;}
+
+        /* SECTION */
+        .about-section{margin-bottom:72px;}
+        .section-kicker{font-size:.62rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+        .section-title{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--ink);margin-bottom:20px;line-height:1.2;}
+        .section-text{font-size:1rem;color:var(--ink-2);line-height:1.85;max-width:700px;}
+        .section-text p{margin-bottom:18px;}
+        .section-text p:last-child{margin-bottom:0;}
+
+        /* MISSION GRID */
+        .pillars-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:40px;}
+        .pillar{background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;padding:28px;border-top:3px solid var(--gold);transition:transform .2s,box-shadow .2s;}
+        .pillar:hover{transform:translateY(-4px);box-shadow:var(--shadow);}
+        .pillar-icon{font-size:1.8rem;margin-bottom:16px;}
+        .pillar-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--ink);margin-bottom:10px;}
+        .pillar-text{font-size:.875rem;color:var(--ink-2);line-height:1.65;}
+
+        /* WHAT WE OFFER */
+        .offer-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-top:36px;}
+        .offer-item{display:flex;gap:16px;align-items:flex-start;background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;padding:20px;}
+        .offer-icon{width:40px;height:40px;border-radius:3px;background:var(--green);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+        [data-theme="dark"] .offer-icon{background:rgba(184,146,74,0.2);}
+        .offer-icon i{color:#fff;font-size:.9rem;}
+        [data-theme="dark"] .offer-icon i{color:var(--gold);}
+        .offer-title{font-weight:700;font-size:.95rem;color:var(--ink);margin-bottom:5px;}
+        .offer-text{font-size:.85rem;color:var(--ink-2);line-height:1.55;}
+
+        /* PHILOSOPHY */
+        .philosophy-block{background:var(--green);border-radius:4px;padding:48px;margin-top:36px;position:relative;overflow:hidden;}
+        [data-theme="dark"] .philosophy-block{background:#0D2018;border:1px solid var(--rule);}
+        .philosophy-block::before{content:'"';font-family:'Cormorant Garamond',serif;font-size:12rem;font-weight:700;color:rgba(255,255,255,.05);position:absolute;top:-20px;left:20px;line-height:1;}
+        .phil-text{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-style:italic;color:#fff;line-height:1.45;margin-bottom:20px;position:relative;z-index:1;}
+        .phil-attr{font-size:.8rem;color:rgba(255,255,255,.5);position:relative;z-index:1;}
+
+        /* PRINCIPLES */
+        .principles{display:flex;flex-direction:column;gap:0;margin-top:36px;border:1px solid var(--rule);border-radius:4px;overflow:hidden;}
+        .principle{display:flex;gap:0;background:var(--paper-2);border-bottom:1px solid var(--rule);}
+        .principle:last-child{border-bottom:none;}
+        .principle-num{width:64px;flex-shrink:0;background:var(--green);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:rgba(255,255,255,.4);}
+        [data-theme="dark"] .principle-num{background:rgba(184,146,74,0.15);color:var(--gold);}
+        .principle-body{padding:20px 24px;}
+        .principle-title{font-weight:700;font-size:.95rem;color:var(--ink);margin-bottom:5px;}
+        .principle-text{font-size:.875rem;color:var(--ink-2);line-height:1.6;}
+
+        /* DISCLAIMER */
+        .disclaimer{background:var(--paper-3);border:1px solid var(--rule);border-radius:4px;padding:24px;margin-top:36px;}
+        .disclaimer-title{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-3);margin-bottom:10px;}
+        .disclaimer-text{font-size:.82rem;color:var(--ink-3);line-height:1.65;}
+
+        /* CTA */
+        .about-cta{background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;padding:40px;text-align:center;margin-top:36px;}
+        .about-cta-title{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:700;color:var(--ink);margin-bottom:12px;}
+        .about-cta-text{font-size:.95rem;color:var(--ink-2);margin-bottom:28px;line-height:1.65;}
+        .cta-buttons{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;}
+        .cta-primary{background:var(--green);color:#fff;padding:13px 28px;border-radius:3px;font-weight:700;font-size:.875rem;transition:all .2s;display:inline-flex;align-items:center;gap:8px;}
+        .cta-primary:hover{background:var(--green-l);transform:translateY(-1px);}
+        .cta-secondary{background:transparent;color:var(--ink);border:1px solid var(--rule);padding:13px 28px;border-radius:3px;font-weight:600;font-size:.875rem;transition:all .2s;display:inline-flex;align-items:center;gap:8px;}
+        .cta-secondary:hover{border-color:var(--gold);color:var(--gold);}
+
+        /* FOOTER */
+        footer{background:#0D0D0D;border-top:3px solid var(--gold);margin-top:0;padding:24px;text-align:center;}
+        .foot-txt{font-size:.78rem;color:#444;}
+        .foot-txt a{color:#555;transition:color .2s;}
+        .foot-txt a:hover{color:var(--gold);}
+
+        @media(max-width:900px){.pillars-grid{grid-template-columns:1fr;}.offer-grid{grid-template-columns:1fr;}.hero-title{font-size:2.2rem;}.hero-stats{gap:24px;}}
+        @media(max-width:600px){.about-hero{padding:48px 20px;}.philosophy-block{padding:28px;}.phil-text{font-size:1.3rem;}}
+    </style>
+</head>
+<body>
+
+<div class="top-bar"></div>
+
+<nav>
+    <div class="nav-inner">
+        <a href="index.html" class="brand">
+            <span class="brand-name">TimeToCompound</span>
+            <span class="brand-sub">Financial Intelligence</span>
+        </a>
+        <div class="nav-right">
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> <span class="lang-el">Αρχική</span><span class="lang-en">Home</span></a>
+            <button class="lang-btn" onclick="toggleLang()"><span class="lang-el">🇬🇧</span><span class="lang-en">🇬🇷</span></button>
+            <button class="ctrl" onclick="toggleTheme()"><i class="fas fa-moon" id="ti"></i></button>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<div class="about-hero">
+    <div class="hero-inner">
+        <div class="hero-kicker"><span class="lang-el">Ποιοι είμαστε</span><span class="lang-en">Who we are</span></div>
+        <h1 class="hero-title">
+            <span class="lang-el">Χτίζουμε το μέλλον της<br>χρηματοοικονομικής ενημέρωσης</span>
+            <span class="lang-en">Building the future of<br>financial intelligence</span>
+        </h1>
+        <p class="hero-sub">
+            <span class="lang-el">Το TimeToCompound γεννήθηκε από μια απλή πεποίθηση: η πρόσβαση σε ποιοτική χρηματοοικονομική ανάλυση δεν πρέπει να είναι προνόμιο λίγων. Είμαστε εδώ για να αλλάξουμε αυτό.</span>
+            <span class="lang-en">TimeToCompound was born from a simple belief: access to quality financial analysis should not be a privilege of the few. We're here to change that.</span>
+        </p>
+        <div class="hero-stats">
+            <div>
+                <div class="hero-stat-num">10+</div>
+                <div class="hero-stat-lbl"><span class="lang-el">Άρθρα & Αναλύσεις</span><span class="lang-en">Articles & Analyses</span></div>
+            </div>
+            <div>
+                <div class="hero-stat-num">Live</div>
+                <div class="hero-stat-lbl"><span class="lang-el">Δεδομένα Αγορών</span><span class="lang-en">Market Data</span></div>
+            </div>
+            <div>
+                <div class="hero-stat-num">100%</div>
+                <div class="hero-stat-lbl"><span class="lang-el">Ανεξάρτητο & Δωρεάν</span><span class="lang-en">Independent & Free</span></div>
+            </div>
+            <div>
+                <div class="hero-stat-num">2</div>
+                <div class="hero-stat-lbl"><span class="lang-el">Γλώσσες</span><span class="lang-en">Languages</span></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- BODY -->
+<div class="about-body">
+
+    <!-- MISSION -->
+    <div class="about-section">
+        <div class="section-kicker"><span class="lang-el">Η αποστολή μας</span><span class="lang-en">Our Mission</span></div>
+        <h2 class="section-title">
+            <span class="lang-el">Η χρηματοοικονομική γνώση ανήκει σε όλους</span>
+            <span class="lang-en">Financial knowledge belongs to everyone</span>
+        </h2>
+        <div class="section-text">
+            <p class="lang-el">Για δεκαετίες, η σοβαρή χρηματοοικονομική ανάλυση ήταν κλειδωμένη πίσω από ακριβές συνδρομές, περίπλοκη ορολογία και το προνόμιο της πρόσβασης σε επαγγελματικά εργαλεία. Ο μέσος επενδυτής έπαιρνε αποφάσεις που αφορούσαν τα χρήματα μιας ζωής με ελλιπείς πληροφορίες.</p>
+            <p class="lang-en">For decades, serious financial analysis has been locked behind expensive subscriptions, complex jargon, and the privilege of access to professional tools. The average investor was making life-changing financial decisions with incomplete information.</p>
+            <p class="lang-el">Το TimeToCompound δημιουργήθηκε για να γεφυρώσει αυτό το χάσμα. Πιστεύουμε ότι κάθε άνθρωπος — ανεξάρτητα από εμπειρία ή οικονομικά μέσα — έχει δικαίωμα σε ποιοτική, έγκαιρη και κατανοητή χρηματοοικονομική ενημέρωση.</p>
+            <p class="lang-en">TimeToCompound was created to bridge this gap. We believe that every person — regardless of experience or financial means — deserves access to quality, timely, and understandable financial information.</p>
+        </div>
+
+        <div class="pillars-grid">
+            <div class="pillar">
+                <div class="pillar-icon">📰</div>
+                <div class="pillar-title"><span class="lang-el">Άμεση Ενημέρωση</span><span class="lang-en">Real-Time News</span></div>
+                <p class="pillar-text lang-el">Ειδήσεις από τις κορυφαίες πηγές του κόσμου — Yahoo Finance, Investing.com, CoinTelegraph — συγκεντρωμένες σε ένα μέρος, σε πραγματικό χρόνο.</p>
+                <p class="pillar-text lang-en">News from the world's top sources — Yahoo Finance, Investing.com, CoinTelegraph — aggregated in one place, in real time.</p>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon">🔍</div>
+                <div class="pillar-title"><span class="lang-el">Πρωτότυπη Ανάλυση</span><span class="lang-en">Original Analysis</span></div>
+                <p class="pillar-text lang-el">Δεν αναδημοσιεύουμε. Γράφουμε δικές μας, βαθιές αναλύσεις για τα γεγονότα που κινούν τις αγορές — με αριθμούς, σενάρια και τιμές στόχους.</p>
+                <p class="pillar-text lang-en">We don't republish. We write our own deep-dive analyses for the events that move markets — with real numbers, scenarios, and price targets.</p>
+            </div>
+            <div class="pillar">
+                <div class="pillar-icon">🎓</div>
+                <div class="pillar-title"><span class="lang-el">Εκπαίδευση Επενδυτών</span><span class="lang-en">Investor Education</span></div>
+                <p class="pillar-text lang-el">Η Ακαδημία μας εξηγεί τα βασικά της επένδυσης με απλά λόγια: ανατοκισμός, ETFs, τεχνική ανάλυση — για αρχάριους και προχωρημένους.</p>
+                <p class="pillar-text lang-en">Our Academy explains investing fundamentals in plain language: compound interest, ETFs, technical analysis — for beginners and advanced investors alike.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- WHAT WE OFFER -->
+    <div class="about-section">
+        <div class="section-kicker"><span class="lang-el">Τι προσφέρουμε</span><span class="lang-en">What We Offer</span></div>
+        <h2 class="section-title">
+            <span class="lang-el">Ένα πλήρες χρηματοοικονομικό εργαλείο</span>
+            <span class="lang-en">A complete financial intelligence platform</span>
+        </h2>
+        <div class="offer-grid">
+            <div class="offer-item">
+                <div class="offer-icon"><i class="fas fa-chart-line"></i></div>
+                <div>
+                    <div class="offer-title"><span class="lang-el">Live Δεδομένα Αγορών</span><span class="lang-en">Live Market Data</span></div>
+                    <p class="offer-text lang-el">Τιμές μετοχών, δεικτών, crypto και Forex σε πραγματικό χρόνο μέσω TradingView. S&P 500, Nasdaq, Dow Jones, Magnificent 7 και περισσότερα.</p>
+                    <p class="offer-text lang-en">Real-time stock, index, crypto, and Forex prices via TradingView. S&P 500, Nasdaq, Dow Jones, Magnificent 7, and more.</p>
+                </div>
+            </div>
+            <div class="offer-item">
+                <div class="offer-icon"><i class="fas fa-pen-nib"></i></div>
+                <div>
+                    <div class="offer-title"><span class="lang-el">Εβδομαδιαίες Αναλύσεις</span><span class="lang-en">Weekly Analysis</span></div>
+                    <p class="offer-text lang-el">Κάθε εβδομάδα δημοσιεύουμε νέες αναλύσεις: timely άρθρα για επίκαιρα γεγονότα και evergreen εκπαιδευτικό υλικό που παραμένει επίκαιρο για χρόνια.</p>
+                    <p class="offer-text lang-en">Every week we publish new analysis: timely articles on current events and evergreen educational content that stays relevant for years.</p>
+                </div>
+            </div>
+            <div class="offer-item">
+                <div class="offer-icon"><i class="fas fa-calculator"></i></div>
+                <div>
+                    <div class="offer-title"><span class="lang-el">Υπολογιστής Ανατοκισμού</span><span class="lang-en">Compound Calculator</span></div>
+                    <p class="offer-text lang-el">Δωρεάν, διαδραστικό εργαλείο που σου δείχνει πόσο μπορεί να φτάσει η επένδυσή σου με τη δύναμη του ανατοκισμού — με γράφημα και ανάλυση ανά 5 χρόνια.</p>
+                    <p class="offer-text lang-en">A free, interactive tool that shows how your investment can grow with the power of compounding — with chart and 5-year breakdown analysis.</p>
+                </div>
+            </div>
+            <div class="offer-item">
+                <div class="offer-icon"><i class="fas fa-search"></i></div>
+                <div>
+                    <div class="offer-title"><span class="lang-el">Αναζήτηση Μετοχών</span><span class="lang-en">Stock Search</span></div>
+                    <p class="offer-text lang-el">Ψάξε οποιαδήποτε μετοχή, ETF ή crypto από τη σελίδα Αγορών. Πλήρη γραφήματα, ιστορικά δεδομένα και τεχνική ανάλυση για κάθε τίτλο.</p>
+                    <p class="offer-text lang-en">Search any stock, ETF, or crypto from the Markets page. Full charts, historical data, and technical analysis for every ticker.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- PHILOSOPHY -->
+    <div class="about-section">
+        <div class="section-kicker"><span class="lang-el">Η φιλοσοφία μας</span><span class="lang-en">Our Philosophy</span></div>
+        <h2 class="section-title">
+            <span class="lang-el">Γιατί "TimeToCompound";</span>
+            <span class="lang-en">Why "TimeToCompound"?</span>
+        </h2>
+        <div class="section-text">
+            <p class="lang-el">Ο ανατοκισμός (compound interest) είναι ίσως η πιο ισχυρή δύναμη στη χρηματοοικονομική. Όταν τα κέρδη σου παράγουν νέα κέρδη, δημιουργείται μια εκθετική ανάπτυξη που με τον χρόνο γίνεται εντυπωσιακή. Ο Albert Einstein φέρεται να το αποκάλεσε "το 8ο θαύμα του κόσμου".</p>
+            <p class="lang-en">Compound interest is perhaps the most powerful force in finance. When your returns generate new returns, an exponential growth curve emerges that becomes staggering over time. Albert Einstein is often credited with calling it "the eighth wonder of the world."</p>
+            <p class="lang-el">Αλλά το TimeToCompound δεν μιλά μόνο για χρήματα. Μιλά για γνώση. Γιατί η γνώση επίσης ανατοκίζεται. Κάθε άρθρο που διαβάζεις, κάθε ανάλυση που κατανοείς, κάθε επενδυτική απόφαση που παίρνεις με καλύτερες πληροφορίες — χτίζει πάνω στην προηγούμενη. Με τον χρόνο, αυτό το σύνθετο αποτέλεσμα γνώσης + κεφαλαίου παράγει αποτελέσματα που δεν μπορείς να επιτύχεις με κανέναν άλλο τρόπο.</p>
+            <p class="lang-en">But TimeToCompound is not only about money. It's about knowledge. Because knowledge also compounds. Every article you read, every analysis you understand, every investment decision you make with better information — builds on the previous one. Over time, this compound effect of knowledge plus capital produces results that no other approach can match.</p>
+        </div>
+
+        <div class="philosophy-block">
+            <p class="phil-text lang-el">"Ο καλύτερος χρόνος για να ξεκινήσεις να επενδύεις ήταν χθες. Ο δεύτερος καλύτερος χρόνος είναι σήμερα. Το TimeToCompound είναι εδώ για να σε κάνει έτοιμο για αυτόν τον χρόνο."</p>
+            <p class="phil-text lang-en">"The best time to start investing was yesterday. The second best time is today. TimeToCompound is here to make you ready for that moment."</p>
+            <p class="phil-attr">— TimeToCompound</p>
+        </div>
+    </div>
+
+    <!-- PRINCIPLES -->
+    <div class="about-section">
+        <div class="section-kicker"><span class="lang-el">Οι αρχές μας</span><span class="lang-en">Our Principles</span></div>
+        <h2 class="section-title">
+            <span class="lang-el">Τι μας καθοδηγεί</span>
+            <span class="lang-en">What guides us</span>
+        </h2>
+        <div class="principles">
+            <div class="principle">
+                <div class="principle-num">01</div>
+                <div class="principle-body">
+                    <div class="principle-title"><span class="lang-el">Ακρίβεια Πάνω Από Όλα</span><span class="lang-en">Accuracy Above All</span></div>
+                    <p class="principle-text lang-el">Κάθε αριθμός που δημοσιεύουμε επαληθεύεται. Κάθε τιμή στόχος στηρίζεται σε συγκεκριμένο μοντέλο αποτίμησης. Δεν γράφουμε ό,τι θέλουμε να ακούσετε — γράφουμε αυτό που πιστεύουμε ότι είναι αληθινό.</p>
+                    <p class="principle-text lang-en">Every number we publish is verified. Every price target is grounded in a specific valuation model. We don't write what you want to hear — we write what we believe to be true.</p>
+                </div>
+            </div>
+            <div class="principle">
+                <div class="principle-num">02</div>
+                <div class="principle-body">
+                    <div class="principle-title"><span class="lang-el">Ανεξαρτησία</span><span class="lang-en">Independence</span></div>
+                    <p class="principle-text lang-el">Δεν λαμβάνουμε πληρωμή για να προωθήσουμε συγκεκριμένες επενδύσεις. Τα affiliate links μας (π.χ. Freedom24) είναι πλήρως διαφανή. Οι αναλύσεις μας είναι ανεξάρτητες από εμπορικά συμφέροντα.</p>
+                    <p class="principle-text lang-en">We are not paid to promote specific investments. Our affiliate links (e.g., Freedom24) are fully transparent. Our analyses are independent of commercial interests.</p>
+                </div>
+            </div>
+            <div class="principle">
+                <div class="principle-num">03</div>
+                <div class="principle-body">
+                    <div class="principle-title"><span class="lang-el">Προσβασιμότητα</span><span class="lang-en">Accessibility</span></div>
+                    <p class="principle-text lang-el">Το περιεχόμενό μας είναι δωρεάν. Πιστεύουμε ότι η οικονομική εκπαίδευση δεν πρέπει να κρύβεται πίσω από paywalls. Κάθε άρθρο, κάθε ανάλυση, κάθε εργαλείο — δωρεάν για πάντα.</p>
+                    <p class="principle-text lang-en">Our content is free. We believe financial education should not hide behind paywalls. Every article, every analysis, every tool — free forever.</p>
+                </div>
+            </div>
+            <div class="principle">
+                <div class="principle-num">04</div>
+                <div class="principle-body">
+                    <div class="principle-title"><span class="lang-el">Απλότητα Χωρίς Απλοποίηση</span><span class="lang-en">Simplicity Without Oversimplification</span></div>
+                    <p class="principle-text lang-el">Εξηγούμε σύνθετες έννοιες με απλά λόγια — αλλά χωρίς να θυσιάζουμε την ακρίβεια. Ο στόχος δεν είναι να σε εντυπωσιάσουμε με ορολογία — είναι να σε κάνουμε να καταλάβεις πραγματικά.</p>
+                    <p class="principle-text lang-en">We explain complex concepts in simple language — without sacrificing accuracy. The goal is not to impress you with jargon — it is to make you genuinely understand.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- DISCLAIMER -->
+    <div class="about-section">
+        <div class="section-kicker"><span class="lang-el">Σημαντική Σημείωση</span><span class="lang-en">Important Notice</span></div>
+        <h2 class="section-title">
+            <span class="lang-el">Αποποίηση Ευθύνης</span>
+            <span class="lang-en">Disclaimer</span>
+        </h2>
+        <div class="disclaimer">
+            <div class="disclaimer-title"><span class="lang-el">⚠️ Δεν είμαστε χρηματοοικονομικοί σύμβουλοι</span><span class="lang-en">⚠️ We are not financial advisors</span></div>
+            <p class="disclaimer-text lang-el">Το περιεχόμενο του TimeToCompound παρέχεται αποκλειστικά για εκπαιδευτικούς και ενημερωτικούς σκοπούς. Δεν αποτελεί χρηματοοικονομική συμβουλή, επενδυτική πρόταση ή προτροπή για αγορά ή πώληση χρηματοοικονομικών προϊόντων. Κάθε επενδυτική απόφαση πρέπει να λαμβάνεται αφού συμβουλευθείτε αδειοδοτημένο χρηματοοικονομικό σύμβουλο και αφού εξετάσετε την προσωπική σας χρηματοοικονομική κατάσταση. Οι αποδόσεις του παρελθόντος δεν εγγυώνται μελλοντικά αποτελέσματα. Κάθε επένδυση ενέχει κίνδυνο απώλειας κεφαλαίου.</p>
+            <p class="disclaimer-text lang-en">The content of TimeToCompound is provided solely for educational and informational purposes. It does not constitute financial advice, investment recommendation, or a solicitation to buy or sell any financial product. Any investment decision should be made after consulting a licensed financial advisor and after evaluating your personal financial situation. Past performance does not guarantee future results. All investments carry risk of capital loss.</p>
+        </div>
+
+        <!-- CTA -->
+        <div class="about-cta">
+            <h2 class="about-cta-title">
+                <span class="lang-el">Έτοιμος να ξεκινήσεις;</span>
+                <span class="lang-en">Ready to get started?</span>
+            </h2>
+            <p class="about-cta-text lang-el">Εξερεύνησε τις αναλύσεις μας, διάβασε τα εκπαιδευτικά μας άρθρα ή χρησιμοποίησε τον δωρεάν υπολογιστή ανατοκισμού. Ξεκίνα τώρα — η γνώση ανατοκίζεται από σήμερα.</p>
+            <p class="about-cta-text lang-en">Explore our analyses, read our educational articles, or use our free compound interest calculator. Start now — knowledge compounds from today.</p>
+            <div class="cta-buttons">
+                <a href="index.html" class="cta-primary"><i class="fas fa-home"></i> <span class="lang-el">Αρχική Σελίδα</span><span class="lang-en">Go to Homepage</span></a>
+                <a href="calculator.html" class="cta-secondary"><i class="fas fa-calculator"></i> <span class="lang-el">Υπολογιστής</span><span class="lang-en">Calculator</span></a>
+                <a href="article6.html" class="cta-secondary"><i class="fas fa-graduation-cap"></i> <span class="lang-el">Ξεκίνα να Επενδύεις</span><span class="lang-en">Start Investing</span></a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<footer>
+    <p class="foot-txt">&copy; 2026 TimeToCompound. All rights reserved. | <a href="index.html"><span class="lang-el">Αρχική</span><span class="lang-en">Home</span></a> · <a href="calculator.html">Calculator</a> · <a href="article6.html"><span class="lang-el">Ξεκίνα</span><span class="lang-en">Get Started</span></a></p>
+</footer>
+
+<script>
+function toggleLang(){document.body.classList.toggle('en');}
+function toggleTheme(){
+    const b=document.body,i=document.getElementById('ti');
+    if(b.getAttribute('data-theme')==='dark'){b.removeAttribute('data-theme');i.className='fas fa-moon';}
+    else{b.setAttribute('data-theme','dark');i.className='fas fa-sun';}
+}
+</script>
+</body>
+</html>
