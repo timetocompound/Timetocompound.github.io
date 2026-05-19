@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y9DENNW7FP"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Y9DENNW7FP');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alphabet (GOOGL) Deep Dive: 7 Checks, Valuation & Price Target 2026 | TimeToCompound</title>
-    <meta name="description" content="Full fundamental analysis of Alphabet (GOOGL) stock. Q1 2026 results, Google Cloud 63% growth, P/E valuation, risks, and our 12-month price target.">
-    <meta name="keywords" content="Alphabet GOOGL stock analysis 2026, Google stock buy or sell, GOOGL price target 2026, Google Cloud valuation, Alphabet Q1 2026 earnings">
+    <title>Alphabet (GOOGL) Σε Βάθος: 7 Έλεγχοι & Τιμή Στόχος 2026 | TimeToCompound</title>
+    <meta name="description" content="Πλήρης θεμελιώδης ανάλυση της Alphabet (GOOGL). Cloud +63%, έσοδα +22%, P/E 30x. Αξίζει να αγοράσεις Google στα $400; 7 έλεγχοι και τιμή στόχος 12 μηνών.">
+    <meta name="keywords" content="Alphabet GOOGL ανάλυση 2026, Google μετοχή αγορά, GOOGL τιμή στόχος, Google Cloud αποτίμηση, Alphabet Q1 2026 αποτελέσματα, GOOGL stock analysis">
     <meta name="author" content="TimeToCompound">
     <link rel="canonical" href="https://timetocompound.com/article9.html">
-    <meta property="og:title" content="Alphabet (GOOGL) Deep Dive: 7 Checks, Valuation & Price Target 2026">
-    <meta property="og:description" content="Is GOOGL a buy at $400? Full fundamental analysis with 7 checks, DCF valuation, and 12-month price target.">
+    <meta property="og:title" content="Alphabet (GOOGL): 7 Έλεγχοι, Αποτίμηση & Τιμή Στόχος 2026">
+    <meta property="og:description" content="Αξίζει η GOOGL στα $400; Πλήρης ανάλυση με 7 ελέγχους, αποτίμηση DCF και τιμή στόχος 12 μηνών.">
     <meta property="og:image" content="https://timetocompound.com/compound-large.jpg">
     <meta property="og:url" content="https://timetocompound.com/article9.html">
     <meta property="og:type" content="article">
@@ -24,6 +24,14 @@
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
         body{font-family:'Outfit',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;display:flex;flex-direction:column;transition:background .3s,color .3s;}
         a{text-decoration:none;color:inherit;}
+
+        /* LANG */
+        .lang-en{display:none;}
+        body.en .lang-el{display:none!important;}
+        body.en .lang-en{display:block!important;}
+        span.lang-en{display:none;}
+        body.en span.lang-en{display:inline!important;}
+
         .top-bar{height:3px;background:var(--gold);width:100%;position:fixed;top:0;left:0;z-index:1001;}
         nav{background:var(--paper-2);border-bottom:1px solid var(--rule);position:sticky;top:3px;z-index:999;}
         .nav-inner{max-width:860px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;height:68px;}
@@ -35,13 +43,16 @@
         .back-btn:hover{border-color:var(--gold);color:var(--gold);}
         .ctrl{width:32px;height:32px;border-radius:3px;border:1px solid var(--rule);background:transparent;color:var(--ink-3);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:all .2s;font-family:'Outfit',sans-serif;}
         .ctrl:hover{border-color:var(--gold);color:var(--gold);}
+        .lang-toggle{font-size:1rem;background:none;border:1px solid var(--rule);border-radius:3px;cursor:pointer;padding:6px 10px;color:var(--ink-2);transition:all .2s;font-family:'Outfit',sans-serif;font-weight:600;}
+        .lang-toggle:hover{border-color:var(--gold);color:var(--gold);}
+
         .article-wrap{max-width:860px;margin:48px auto;padding:0 24px;flex:1;}
         .article-hero{width:100%;height:380px;object-fit:cover;border-radius:4px;display:block;margin-bottom:32px;box-shadow:var(--shadow);}
         .article-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px;}
         .tag{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:2px;}
         .tag-analysis{background:var(--green);color:#fff;}
         .tag-new{background:var(--gold);color:#0D0D0D;}
-        .meta-date,.meta-read{font-size:.78rem;color:var(--ink-3);display:flex;align-items:center;gap:5px;}
+        .meta-info{font-size:.78rem;color:var(--ink-3);display:flex;align-items:center;gap:5px;}
         h1.art-title{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;line-height:1.18;color:var(--ink);margin-bottom:18px;}
         .art-deck{font-size:1.1rem;color:var(--ink-2);line-height:1.65;margin-bottom:36px;padding-bottom:32px;border-bottom:2px solid var(--rule);}
         .art-body{font-size:1.05rem;line-height:1.82;color:var(--ink);}
@@ -52,32 +63,26 @@
         .art-body ul{padding-left:24px;margin-bottom:20px;}
         .art-body li{margin-bottom:10px;line-height:1.7;}
 
-        /* SNAPSHOT */
         .snapshot{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0;}
         .snap-box{background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;padding:16px;text-align:center;border-top:3px solid var(--gold);}
         .snap-num{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;line-height:1;margin-bottom:5px;color:var(--ink);}
         .snap-num.g{color:var(--green);}[data-theme="dark"] .snap-num.g{color:#4ADE80;}
-        .snap-num.r{color:var(--red);}
         .snap-lbl{font-size:.62rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-3);}
 
-        /* 7 CHECKS */
-        .checks-grid{display:flex;flex-direction:column;gap:0;margin:28px 0;}
+        .checks-grid{display:flex;flex-direction:column;gap:0;margin:20px 0;}
         .check-item{display:flex;align-items:flex-start;gap:16px;padding:18px 20px;background:var(--paper-2);border:1px solid var(--rule);border-bottom:none;}
         .check-item:first-child{border-radius:4px 4px 0 0;}
         .check-item:last-child{border-bottom:1px solid var(--rule);border-radius:0 0 4px 4px;}
         .check-icon{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;margin-top:2px;}
         .ci-green{background:rgba(27,58,45,0.15);color:var(--green);}[data-theme="dark"] .ci-green{background:rgba(74,140,106,0.2);color:#4ADE80;}
         .ci-yellow{background:rgba(184,146,74,0.15);color:var(--gold);}
-        .ci-red{background:rgba(185,28,28,0.12);color:var(--red);}
         .check-content{flex:1;}
         .check-title{font-weight:700;font-size:.95rem;margin-bottom:4px;color:var(--ink);}
         .check-desc{font-size:.875rem;color:var(--ink-2);line-height:1.55;}
         .check-verdict{font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:6px;}
         .vd-pass{color:var(--green);}[data-theme="dark"] .vd-pass{color:#4ADE80;}
         .vd-warn{color:var(--gold);}
-        .vd-fail{color:var(--red);}
 
-        /* VALUATION TABLE */
         .val-table{width:100%;border-collapse:collapse;margin:24px 0;border-radius:4px;overflow:hidden;border:1px solid var(--rule);}
         .val-table th{background:var(--green);color:#fff;padding:11px 16px;text-align:left;font-size:.75rem;font-weight:700;}
         [data-theme="dark"] .val-table th{background:var(--green-l);}
@@ -86,7 +91,6 @@
         .val-table tr:nth-child(even) td{background:var(--paper-3);}
         .td-g{color:var(--green);font-weight:700;}[data-theme="dark"] .td-g{color:#4ADE80;}
 
-        /* VERDICT BOX */
         .verdict-box{border-radius:4px;padding:28px;margin:36px 0;border:2px solid var(--green);}
         [data-theme="dark"] .verdict-box{border-color:var(--gold);}
         .verdict-rating{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--green);margin-bottom:8px;}
@@ -94,21 +98,17 @@
         .verdict-target{font-size:1rem;font-weight:600;color:var(--ink-2);margin-bottom:16px;}
         .verdict-body{font-size:.95rem;color:var(--ink-2);line-height:1.65;}
 
-        /* HIGHLIGHT */
         .hl{background:rgba(184,146,74,0.08);border-left:4px solid var(--gold);border-radius:0 4px 4px 0;padding:18px 24px;margin:24px 0;}
         .hl p{margin:0;font-weight:600;}
         .hl.green{background:rgba(27,58,45,0.08);border-left-color:var(--green);}
-        .hl.red{background:rgba(185,28,28,0.06);border-left-color:var(--red);}
         [data-theme="dark"] .hl.green{background:rgba(74,140,106,0.1);}
 
-        /* CTA */
         .cta-box{background:var(--green);border-radius:4px;padding:28px 32px;margin:44px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;}
         .cta-text h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:6px;}
         .cta-text p{font-size:.85rem;color:rgba(255,255,255,.65);margin:0;}
         .cta-link{background:#fff;color:var(--green);padding:12px 24px;border-radius:3px;font-weight:700;font-size:.85rem;white-space:nowrap;transition:all .2s;flex-shrink:0;}
         .cta-link:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.2);}
 
-        /* RELATED */
         .related{margin-top:48px;padding-top:28px;border-top:2px solid var(--rule);}
         .related h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;margin-bottom:18px;}
         .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
@@ -118,6 +118,7 @@
         .rel-body{padding:12px;}
         .rel-kicker{font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
         .rel-title{font-family:'Cormorant Garamond',serif;font-size:.92rem;font-weight:700;line-height:1.3;color:var(--ink);}
+
         footer{background:#0D0D0D;border-top:3px solid var(--gold);margin-top:60px;padding:22px;text-align:center;}
         .foot-txt{font-size:.78rem;color:#444;}
         .foot-txt a{color:#555;transition:color .2s;}
@@ -131,194 +132,208 @@
     <div class="nav-inner">
         <a href="index.html" class="brand"><span class="brand-name">TimeToCompound</span><span class="brand-sub">Financial Intelligence</span></a>
         <div class="nav-right">
-            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Home</a>
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> <span class="lang-el">Αρχική</span><span class="lang-en">Home</span></a>
+            <button class="lang-toggle" onclick="toggleLang()"><span class="lang-el">🇬🇧 EN</span><span class="lang-en">🇬🇷 ΕΛ</span></button>
             <button class="ctrl" onclick="toggleTheme()"><i class="fas fa-moon" id="ti"></i></button>
         </div>
     </div>
 </nav>
 
 <div class="article-wrap">
-
     <img src="compound-large.jpg" alt="Alphabet Google GOOGL stock analysis 2026" class="article-hero">
 
     <div class="article-meta">
-        <span class="tag tag-analysis">Deep Dive</span>
+        <span class="tag tag-analysis"><span class="lang-el">Βαθιά Ανάλυση</span><span class="lang-en">Deep Dive</span></span>
         <span class="tag tag-new">New</span>
-        <span class="meta-date"><i class="fas fa-calendar-alt"></i> 19 May 2026</span>
-        <span class="meta-read"><i class="fas fa-clock"></i> 9 min read</span>
+        <span class="meta-info"><i class="fas fa-calendar-alt"></i> 19 May 2026</span>
+        <span class="meta-info"><i class="fas fa-clock"></i> 9 min read</span>
     </div>
 
-    <h1 class="art-title">Alphabet (GOOGL) Deep Dive: 7 Checks, Valuation & Our 12-Month Price Target</h1>
-    <p class="art-deck">Google's parent company just delivered its 11th consecutive quarter of double-digit revenue growth, with Cloud up 63% and EPS up 82%. The stock trades at $400. Is this still cheap — or has the AI premium already been priced in? We run through 7 fundamental checks to find out.</p>
+    <h1 class="art-title">
+        <span class="lang-el">Alphabet (GOOGL) Σε Βάθος: 7 Έλεγχοι, Αποτίμηση & Τιμή Στόχος 12 Μηνών</span>
+        <span class="lang-en">Alphabet (GOOGL) Deep Dive: 7 Checks, Valuation & Our 12-Month Price Target</span>
+    </h1>
+    <p class="art-deck lang-el">Η μητρική εταιρεία της Google μόλις παρέδωσε το 11ο συνεχόμενο τρίμηνο διψήφιας ανάπτυξης εσόδων, με το Cloud να αυξάνεται 63% και τα EPS κατά 82%. Η μετοχή διαπραγματεύεται στα $400. Είναι ακόμα φθηνή — ή έχει ήδη τιμολογηθεί η AI premium; Τρέχουμε 7 θεμελιώδεις ελέγχους για να μάθουμε.</p>
+    <p class="art-deck lang-en">Google's parent company just delivered its 11th consecutive quarter of double-digit revenue growth, with Cloud up 63% and EPS up 82%. The stock trades at $400. Is this still cheap — or has the AI premium already been priced in? We run through 7 fundamental checks to find out.</p>
 
     <div class="art-body">
 
-        <!-- SNAPSHOT -->
         <div class="snapshot">
-            <div class="snap-box"><div class="snap-num">$400</div><div class="snap-lbl">Price (May 18)</div></div>
+            <div class="snap-box"><div class="snap-num">$400</div><div class="snap-lbl"><span class="lang-el">Τιμή (18 Μαΐ)</span><span class="lang-en">Price (May 18)</span></div></div>
             <div class="snap-box"><div class="snap-num">30x</div><div class="snap-lbl">P/E Ratio (TTM)</div></div>
-            <div class="snap-box"><div class="snap-num g">+22%</div><div class="snap-lbl">Revenue Growth YoY</div></div>
-            <div class="snap-box"><div class="snap-num">$4.88T</div><div class="snap-lbl">Market Cap</div></div>
+            <div class="snap-box"><div class="snap-num g">+22%</div><div class="snap-lbl"><span class="lang-el">Ανάπτυξη Εσόδων</span><span class="lang-en">Revenue Growth YoY</span></div></div>
+            <div class="snap-box"><div class="snap-num">$4.88T</div><div class="snap-lbl"><span class="lang-el">Κεφαλαιοποίηση</span><span class="lang-en">Market Cap</span></div></div>
         </div>
 
-        <h2>The Company in One Paragraph</h2>
-        <p>Alphabet is Google's parent company. It generates roughly 90% of its revenue from Google Services — primarily Search advertising ($60.4B in Q1 2026 alone), YouTube, and the Google ecosystem of apps. The remaining and fastest-growing segment is Google Cloud, which crossed $20 billion in a single quarter for the first time in Q1 2026. A small slice comes from "Other Bets" — Waymo, the autonomous driving unit, and other moonshots. Full-year 2025 revenue crossed $400 billion for the first time in the company's history.</p>
+        <h2><span class="lang-el">Η Εταιρεία σε Μία Παράγραφο</span><span class="lang-en">The Company in One Paragraph</span></h2>
+        <p class="lang-el">Η Alphabet είναι η μητρική εταιρεία της Google. Παράγει περίπου το 90% των εσόδων της από τις Υπηρεσίες Google — κυρίως διαφήμιση μέσω αναζήτησης ($60,4 δισ. μόνο στο Q1 2026), YouTube και το οικοσύστημα εφαρμογών. Το υπόλοιπο και ταχύτερα αναπτυσσόμενο τμήμα είναι το Google Cloud, που πέρασε τα $20 δισ. σε ένα μόνο τρίμηνο για πρώτη φορά στο Q1 2026. Τα έσοδα πλήρους έτους 2025 ξεπέρασαν τα $400 δισ. για πρώτη φορά στην ιστορία της εταιρείας.</p>
+        <p class="lang-en">Alphabet is Google's parent company. It generates roughly 90% of its revenue from Google Services — primarily Search advertising ($60.4B in Q1 2026 alone), YouTube, and the Google ecosystem of apps. The remaining and fastest-growing segment is Google Cloud, which crossed $20 billion in a single quarter for the first time in Q1 2026. Full-year 2025 revenue crossed $400 billion for the first time in the company's history.</p>
 
-        <h2>Check #1 — Revenue Growth</h2>
+        <h2><span class="lang-el">Έλεγχος #1 — Ανάπτυξη Εσόδων</span><span class="lang-en">Check #1 — Revenue Growth</span></h2>
         <div class="checks-grid">
             <div class="check-item">
                 <div class="check-icon ci-green"><i class="fas fa-chart-line"></i></div>
                 <div class="check-content">
-                    <div class="check-title">Q1 2026: Revenue +22% YoY to $109.9B</div>
-                    <div class="check-desc">This was the 11th consecutive quarter of double-digit revenue growth, beating analyst expectations of $107.2B by $2.7B. Revenue in constant currency grew 19%. Google Search revenue grew 19% to $60.4B. YouTube advertising grew 11% to $9.88B. This is broad-based growth, not a one-segment story.</div>
-                    <div class="check-verdict vd-pass">✅ PASS — Growth acceleration, broad-based</div>
+                    <div class="check-title"><span class="lang-el">Q1 2026: Έσοδα +22% σε $109,9 δισ.</span><span class="lang-en">Q1 2026: Revenue +22% YoY to $109.9B</span></div>
+                    <p class="check-desc lang-el">Αυτό ήταν το 11ο συνεχόμενο τρίμηνο διψήφιας ανάπτυξης εσόδων, ξεπερνώντας τις εκτιμήσεις των αναλυτών κατά $2,7 δισ. Τα έσοδα από αναζήτηση αυξήθηκαν 19% στα $60,4 δισ. Τα έσοδα διαφήμισης YouTube αυξήθηκαν 11% στα $9,88 δισ. Πρόκειται για ευρεία ανάπτυξη — όχι ιστορία ενός τμήματος.</p>
+                    <p class="check-desc lang-en">This was the 11th consecutive quarter of double-digit revenue growth, beating analyst expectations by $2.7B. Google Search revenue grew 19% to $60.4B. YouTube advertising grew 11% to $9.88B. This is broad-based growth, not a one-segment story.</p>
+                    <div class="check-verdict vd-pass">✅ PASS — <span class="lang-el">Επιτάχυνση ανάπτυξης, ευρεία βάση</span><span class="lang-en">Growth acceleration, broad-based</span></div>
                 </div>
             </div>
         </div>
 
-        <h2>Check #2 — Google Cloud: The Growth Engine</h2>
+        <h2><span class="lang-el">Έλεγχος #2 — Google Cloud: Η Μηχανή Ανάπτυξης</span><span class="lang-en">Check #2 — Google Cloud: The Growth Engine</span></h2>
         <div class="checks-grid">
             <div class="check-item">
                 <div class="check-icon ci-green"><i class="fas fa-cloud"></i></div>
                 <div class="check-content">
-                    <div class="check-title">Cloud Revenue +63% YoY to $20.0B — Backlog $462B</div>
-                    <div class="check-desc">Google Cloud grew 63% year-over-year in Q1 2026, crossing $20 billion for the first time in a single quarter. The operating margin expanded to 32.9%. The backlog — representing future contracted revenue — nearly doubled sequentially to $462 billion. This is the most important number in Alphabet's story. It means the next several years of cloud revenue growth is already contracted.</div>
-                    <div class="check-verdict vd-pass">✅ PASS — Cloud is accelerating, not decelerating</div>
+                    <div class="check-title"><span class="lang-el">Cloud +63% στα $20 δισ. — Backlog $462 δισ.</span><span class="lang-en">Cloud Revenue +63% YoY to $20.0B — Backlog $462B</span></div>
+                    <p class="check-desc lang-el">Το Google Cloud αυξήθηκε 63% σε ετήσια βάση στο Q1 2026, ξεπερνώντας τα $20 δισ. για πρώτη φορά σε ένα μόνο τρίμηνο. Το περιθώριο λειτουργίας επεκτάθηκε στο 32,9%. Το backlog — που αντιπροσωπεύει μελλοντικά συμβατικά έσοδα — σχεδόν διπλασιάστηκε διαδοχικά στα $462 δισ. Αυτός είναι ο πιο σημαντικός αριθμός στην ιστορία της Alphabet: σημαίνει ότι τα επόμενα χρόνια ανάπτυξης cloud έχουν ήδη συμβατοποιηθεί.</p>
+                    <p class="check-desc lang-en">Google Cloud grew 63% year-over-year in Q1 2026, crossing $20 billion for the first time in a single quarter. Operating margin expanded to 32.9%. The backlog — representing future contracted revenue — nearly doubled sequentially to $462 billion. This is the most important number in Alphabet's story: it means the next several years of cloud revenue growth is already contracted.</p>
+                    <div class="check-verdict vd-pass">✅ PASS — <span class="lang-el">Το Cloud επιταχύνεται, δεν επιβραδύνεται</span><span class="lang-en">Cloud is accelerating, not decelerating</span></div>
                 </div>
             </div>
         </div>
 
-        <h2>Check #3 — Profitability & Margins</h2>
+        <h2><span class="lang-el">Έλεγχος #3 — Κερδοφορία & Περιθώρια</span><span class="lang-en">Check #3 — Profitability & Margins</span></h2>
         <div class="checks-grid">
             <div class="check-item">
                 <div class="check-icon ci-green"><i class="fas fa-percent"></i></div>
                 <div class="check-content">
-                    <div class="check-title">Operating Margin 36% — Net Income +81% to $62.6B</div>
-                    <div class="check-desc">Q1 2026 operating margin was 36%, up from 34% a year ago. Net income surged 81% to $62.6B — though this includes a $37.7B unrealized gain on equity securities. Adjusted net income (excluding the gain) was approximately $24.9B with adjusted EPS of ~$2.62. Even adjusted, margins are expanding as AI efficiencies reduce cost per query. The company is not sacrificing margin for growth.</div>
-                    <div class="check-verdict vd-pass">✅ PASS — Margin expansion + massive profit generation</div>
+                    <div class="check-title"><span class="lang-el">Περιθώριο Λειτουργίας 36% — Καθαρά Κέρδη +81% στα $62,6 δισ.</span><span class="lang-en">Operating Margin 36% — Net Income +81% to $62.6B</span></div>
+                    <p class="check-desc lang-el">Το περιθώριο λειτουργίας Q1 2026 ήταν 36%, αυξημένο από 34% πέρυσι. Τα καθαρά κέρδη εκτοξεύτηκαν 81% στα $62,6 δισ. — αν και αυτό περιλαμβάνει μη πραγματοποιηθέντα κέρδη $37,7 δισ. από χρεόγραφα. Προσαρμοσμένα καθαρά κέρδη ~$24,9 δισ. με προσαρμοσμένα EPS ~$2,62. Τα περιθώρια επεκτείνονται καθώς οι αποδοτικότητες AI μειώνουν το κόστος ανά ερώτημα.</p>
+                    <p class="check-desc lang-en">Q1 2026 operating margin was 36%, up from 34% a year ago. Net income surged 81% to $62.6B — though this includes a $37.7B unrealized gain on equity securities. Adjusted net income approximately $24.9B with adjusted EPS of ~$2.62. Margins are expanding as AI efficiencies reduce cost per query.</p>
+                    <div class="check-verdict vd-pass">✅ PASS — <span class="lang-el">Επέκταση περιθωρίων + τεράστια παραγωγή κερδών</span><span class="lang-en">Margin expansion + massive profit generation</span></div>
                 </div>
             </div>
         </div>
 
-        <h2>Check #4 — Valuation</h2>
+        <h2><span class="lang-el">Έλεγχος #4 — Αποτίμηση</span><span class="lang-en">Check #4 — Valuation</span></h2>
         <div class="checks-grid">
             <div class="check-item">
                 <div class="check-icon ci-yellow"><i class="fas fa-balance-scale"></i></div>
                 <div class="check-content">
-                    <div class="check-title">P/E 30x — Premium to Historical Average of 23x</div>
-                    <div class="check-desc">At $400/share, GOOGL trades at a trailing P/E of ~30x on TTM EPS of $13.11. This is 30% above its 5-year historical average of 23x. Forward P/E on FY2026 estimated EPS of $14.22 is approximately 28x. This is not expensive for a 22% revenue grower, but it's not cheap either. Compared to the S&P 500's current P/E of ~30x, Alphabet trades in line with the market — despite having significantly faster growth. The premium is partially justified by the Cloud backlog.</div>
-                    <div class="check-verdict vd-warn">⚠️ NEUTRAL — Premium to history, but justified by Cloud growth</div>
+                    <div class="check-title"><span class="lang-el">P/E 30x — Premium έναντι Ιστορικού Μέσου 23x</span><span class="lang-en">P/E 30x — Premium to Historical Average of 23x</span></div>
+                    <p class="check-desc lang-el">Στα $400/μετοχή, η GOOGL διαπραγματεύεται σε trailing P/E ~30x επί TTM EPS $13,11. Αυτό είναι 30% πάνω από τον 5ετή ιστορικό μέσο όρο 23x. Το Forward P/E για εκτιμώμενα EPS FY2026 $14,22 είναι ~28x. Δεν είναι ακριβό για έναν grower 22%, αλλά δεν είναι και φθηνό. Σε σύγκριση με το τρέχον P/E του S&P 500 (~30x), η Alphabet διαπραγματεύεται στο ίδιο επίπεδο με την αγορά — παρά την πολύ ταχύτερη ανάπτυξη.</p>
+                    <p class="check-desc lang-en">At $400/share, GOOGL trades at a trailing P/E of ~30x on TTM EPS of $13.11. This is 30% above its 5-year historical average of 23x. Forward P/E on FY2026 estimated EPS of $14.22 is approximately 28x. Not expensive for a 22% revenue grower, but not cheap either. Compared to the S&P 500's current P/E of ~30x, Alphabet trades in line with the market — despite significantly faster growth.</p>
+                    <div class="check-verdict vd-warn">⚠️ <span class="lang-el">ΟΥΔΕΤΕΡΟ — Premium έναντι ιστορικού, αλλά δικαιολογημένο από την ανάπτυξη Cloud</span><span class="lang-en">NEUTRAL — Premium to history, but justified by Cloud growth</span></div>
                 </div>
             </div>
         </div>
 
-        <h2>Check #5 — Capital Expenditure & AI Investment</h2>
+        <h2><span class="lang-el">Έλεγχος #5 — Κεφαλαιουχικές Δαπάνες & Επένδυση AI</span><span class="lang-en">Check #5 — Capital Expenditure & AI Investment</span></h2>
         <div class="checks-grid">
             <div class="check-item">
                 <div class="check-icon ci-yellow"><i class="fas fa-server"></i></div>
                 <div class="check-content">
-                    <div class="check-title">CapEx $35.7B in Q1 Alone — Full Year Up to $190B</div>
-                    <div class="check-desc">Alphabet spent $35.7B on capital expenditures in Q1 2026 — mostly data centers, servers, and AI infrastructure. The full-year 2026 CapEx range was updated to up to $190B. CFO Anat Ashkenazi indicated 2027 CapEx will "significantly increase" further. This is the biggest risk for near-term earnings: massive capital spending compresses free cash flow. However, the $462B Cloud backlog gives confidence that this spending is demand-driven, not speculative.</div>
-                    <div class="check-verdict vd-warn">⚠️ NEUTRAL — High CapEx is a near-term earnings headwind but demand-justified</div>
+                    <div class="check-title"><span class="lang-el">CapEx $35,7 δισ. μόνο στο Q1 — Πλήρες Έτος έως $190 δισ.</span><span class="lang-en">CapEx $35.7B in Q1 Alone — Full Year Up to $190B</span></div>
+                    <p class="check-desc lang-el">Η Alphabet δαπάνησε $35,7 δισ. σε κεφαλαιουχικές δαπάνες στο Q1 2026 — κυρίως data centers, servers και AI υποδομές. Το εύρος CapEx πλήρους έτους 2026 ενημερώθηκε σε έως $190 δισ. Η CFO Anat Ashkenazi ανέφερε ότι το CapEx 2027 θα αυξηθεί «σημαντικά» περαιτέρω. Αυτή είναι η μεγαλύτερη ανησυχία για τα βραχυπρόθεσμα κέρδη. Ωστόσο, το backlog $462 δισ. δίνει εμπιστοσύνη ότι αυτές οι δαπάνες υποκινούνται από ζήτηση.</p>
+                    <p class="check-desc lang-en">Alphabet spent $35.7B on capital expenditures in Q1 2026 — mostly data centers, servers, and AI infrastructure. The full-year 2026 CapEx range was updated to up to $190B. CFO Anat Ashkenazi indicated 2027 CapEx will "significantly increase" further. This is the biggest risk for near-term earnings. However, the $462B Cloud backlog gives confidence that this spending is demand-driven.</p>
+                    <div class="check-verdict vd-warn">⚠️ <span class="lang-el">ΟΥΔΕΤΕΡΟ — Υψηλό CapEx βραχυπρόθεσμα, αλλά δικαιολογημένο από ζήτηση</span><span class="lang-en">NEUTRAL — High CapEx is a near-term headwind but demand-justified</span></div>
                 </div>
             </div>
         </div>
 
-        <h2>Check #6 — AI Competitive Position & Risks</h2>
+        <h2><span class="lang-el">Έλεγχος #6 — Ανταγωνιστική Θέση AI & Κίνδυνοι</span><span class="lang-en">Check #6 — AI Competitive Position & Risks</span></h2>
         <div class="checks-grid">
             <div class="check-item">
                 <div class="check-icon ci-yellow"><i class="fas fa-robot"></i></div>
                 <div class="check-content">
-                    <div class="check-title">Gemini 3 Launched — But Search Disruption Risk Is Real</div>
-                    <div class="check-desc">CEO Sundar Pichai called the Gemini 3 launch a "major milestone." AI Overviews in Search now serve billions of queries. However, the existential question for Alphabet remains: if AI assistants (ChatGPT, Perplexity, others) replace a portion of Google Search usage, the $60B+ quarterly search advertising franchise is at risk. Current evidence suggests AI is additive to search rather than disruptive — but this is the #1 long-term risk to monitor. Google also faces ongoing antitrust proceedings in the US and EU.</div>
-                    <div class="check-verdict vd-warn">⚠️ WATCH — AI disruption to Search is the key long-term risk</div>
+                    <div class="check-title"><span class="lang-el">Gemini 3 — Αλλά ο Κίνδυνος Διαταραχής Αναζήτησης Είναι Πραγματικός</span><span class="lang-en">Gemini 3 Launched — But Search Disruption Risk Is Real</span></div>
+                    <p class="check-desc lang-el">Ο CEO Sundar Pichai χαρακτήρισε την κυκλοφορία του Gemini 3 «σημαντικό ορόσημο». Τα AI Overviews στην Αναζήτηση εξυπηρετούν πλέον δισεκατομμύρια ερωτήματα. Ωστόσο, το υπαρξιακό ερώτημα για την Alphabet παραμένει: αν οι AI assistants (ChatGPT, Perplexity) αντικαταστήσουν μέρος της χρήσης Google Search, το franchise διαφήμισης $60 δισ.+ ανά τρίμηνο κινδυνεύει. Τα τρέχοντα δεδομένα υποδεικνύουν ότι η AI είναι προσθετική στην αναζήτηση — αλλά αυτός παραμένει ο #1 μακροπρόθεσμος κίνδυνος.</p>
+                    <p class="check-desc lang-en">CEO Sundar Pichai called the Gemini 3 launch a "major milestone." AI Overviews in Search now serve billions of queries. However, the existential question remains: if AI assistants replace a portion of Google Search usage, the $60B+ quarterly search advertising franchise is at risk. Current evidence suggests AI is additive to search — but this is the #1 long-term risk to monitor.</p>
+                    <div class="check-verdict vd-warn">⚠️ <span class="lang-el">ΠΑΡΑΚΟΛΟΥΘΗΣΗ — Η διαταραχή AI στην Αναζήτηση είναι ο βασικός μακροπρόθεσμος κίνδυνος</span><span class="lang-en">WATCH — AI disruption to Search is the key long-term risk</span></div>
                 </div>
             </div>
         </div>
 
-        <h2>Check #7 — Balance Sheet & Capital Returns</h2>
+        <h2><span class="lang-el">Έλεγχος #7 — Ισολογισμός & Απόδοση Κεφαλαίου</span><span class="lang-en">Check #7 — Balance Sheet & Capital Returns</span></h2>
         <div class="checks-grid">
             <div class="check-item">
                 <div class="check-icon ci-green"><i class="fas fa-piggy-bank"></i></div>
                 <div class="check-content">
-                    <div class="check-title">$4.88T Market Cap — Dividend $0.22/Quarter — 195K Employees</div>
-                    <div class="check-desc">Alphabet has one of the strongest balance sheets in the world. The company pays a quarterly dividend of $0.22/share (ex-date June 8, 2026) and continues to buy back shares. With 52-week range from $162 to $404, the stock has essentially tripled from its lows. Employees stand at 195,000. The company has no meaningful debt relative to its cash generation. Free cash flow generation, even after heavy CapEx, remains substantial.</div>
-                    <div class="check-verdict vd-pass">✅ PASS — Fortress balance sheet, capital return program</div>
+                    <div class="check-title"><span class="lang-el">Κεφαλαιοποίηση $4,88 τρισ. — Μέρισμα $0,22/τρίμηνο</span><span class="lang-en">$4.88T Market Cap — Dividend $0.22/Quarter — 195K Employees</span></div>
+                    <p class="check-desc lang-el">Η Alphabet έχει έναν από τους ισχυρότερους ισολογισμούς στον κόσμο. Η εταιρεία πληρώνει τριμηνιαίο μέρισμα $0,22/μετοχή (ημερομηνία ex-μερίσματος 8 Ιουνίου 2026) και συνεχίζει να επαναγοράζει μετοχές. Το εύρος 52 εβδομάδων από $162 έως $404 — η μετοχή έχει σχεδόν τριπλασιαστεί από τα χαμηλά. 195.000 εργαζόμενοι. Χωρίς ουσιαστικό χρέος σε σχέση με την παραγωγή μετρητών.</p>
+                    <p class="check-desc lang-en">Alphabet has one of the strongest balance sheets in the world. The company pays a quarterly dividend of $0.22/share (ex-date June 8, 2026) and continues to buy back shares. With 52-week range from $162 to $404, the stock has essentially tripled from its lows. 195,000 employees. No meaningful debt relative to its cash generation.</p>
+                    <div class="check-verdict vd-pass">✅ PASS — <span class="lang-el">Οχυρός ισολογισμός, πρόγραμμα απόδοσης κεφαλαίου</span><span class="lang-en">Fortress balance sheet, capital return program</span></div>
                 </div>
             </div>
         </div>
 
-        <h2>Valuation: What Is GOOGL Worth?</h2>
-        <p>We use three methods to triangulate fair value:</p>
+        <h2><span class="lang-el">Αποτίμηση: Πόσο Αξίζει η GOOGL;</span><span class="lang-en">Valuation: What Is GOOGL Worth?</span></h2>
+        <p class="lang-el">Χρησιμοποιούμε τρεις μεθόδους για να προσδιορίσουμε την εύλογη αξία:</p>
+        <p class="lang-en">We use three methods to triangulate fair value:</p>
 
         <table class="val-table">
-            <thead><tr><th>Method</th><th>Assumption</th><th>Price Target</th></tr></thead>
+            <thead><tr>
+                <th><span class="lang-el">Μέθοδος</span><span class="lang-en">Method</span></th>
+                <th><span class="lang-el">Παραδοχή</span><span class="lang-en">Assumption</span></th>
+                <th><span class="lang-el">Τιμή Στόχος</span><span class="lang-en">Price Target</span></th>
+            </tr></thead>
             <tbody>
-                <tr><td>P/E Multiple (conservative)</td><td>FY2026E EPS $14.22 × 28x</td><td class="td-g">$398</td></tr>
-                <tr><td>P/E Multiple (base case)</td><td>FY2026E EPS $14.22 × 30x</td><td class="td-g">$427</td></tr>
-                <tr><td>P/E Multiple (bull case)</td><td>FY2026E EPS $14.22 × 33x (Cloud premium)</td><td class="td-g">$469</td></tr>
-                <tr><td>Analyst Consensus (54 analysts)</td><td>Average target post-Q1</td><td class="td-g">$427</td></tr>
-                <tr><td><strong>Our 12-Month Target</strong></td><td>Base case + Cloud re-rating</td><td class="td-g"><strong>$440</strong></td></tr>
+                <tr><td><span class="lang-el">P/E (συντηρητικό)</span><span class="lang-en">P/E (conservative)</span></td><td>FY2026E EPS $14,22 × 28x</td><td class="td-g">$398</td></tr>
+                <tr><td><span class="lang-el">P/E (βασικό σενάριο)</span><span class="lang-en">P/E (base case)</span></td><td>FY2026E EPS $14,22 × 30x</td><td class="td-g">$427</td></tr>
+                <tr><td><span class="lang-el">P/E (bull case)</span><span class="lang-en">P/E (bull case)</span></td><td>FY2026E EPS $14,22 × 33x</td><td class="td-g">$469</td></tr>
+                <tr><td><span class="lang-el">Συναίνεση Αναλυτών (54 αναλυτές)</span><span class="lang-en">Analyst Consensus (54 analysts)</span></td><td><span class="lang-el">Μέσος στόχος μετά Q1</span><span class="lang-en">Average target post-Q1</span></td><td class="td-g">$427</td></tr>
+                <tr><td><strong><span class="lang-el">Τιμή Στόχος 12 Μηνών</span><span class="lang-en">Our 12-Month Target</span></strong></td><td><span class="lang-el">Βασικό σενάριο + επαναβαθμολόγηση Cloud</span><span class="lang-en">Base case + Cloud re-rating</span></td><td class="td-g"><strong>$440</strong></td></tr>
             </tbody>
         </table>
 
-        <div class="hl">
-            <p>📊 Key assumption: FY2026 EPS of $14.22 assumes Cloud margin continues to expand, Search stays resilient, and CapEx doesn't exceed guidance. At $440, that's ~10% upside from current levels.</p>
-        </div>
-
-        <h2>The Scorecard</h2>
-
+        <h2><span class="lang-el">Το Αποτέλεσμα</span><span class="lang-en">The Scorecard</span></h2>
         <table class="val-table">
-            <thead><tr><th>Check</th><th>Result</th><th>Weight</th></tr></thead>
+            <thead><tr>
+                <th><span class="lang-el">Έλεγχος</span><span class="lang-en">Check</span></th>
+                <th><span class="lang-el">Αποτέλεσμα</span><span class="lang-en">Result</span></th>
+            </tr></thead>
             <tbody>
-                <tr><td>1. Revenue Growth (+22%)</td><td class="td-g">✅ Pass</td><td>High</td></tr>
-                <tr><td>2. Cloud Growth (+63%, $462B backlog)</td><td class="td-g">✅ Pass</td><td>Very High</td></tr>
-                <tr><td>3. Profitability (36% operating margin)</td><td class="td-g">✅ Pass</td><td>High</td></tr>
-                <tr><td>4. Valuation (P/E 30x vs 23x avg)</td><td style="color:var(--gold);">⚠️ Neutral</td><td>High</td></tr>
-                <tr><td>5. CapEx ($190B, rising)</td><td style="color:var(--gold);">⚠️ Neutral</td><td>Medium</td></tr>
-                <tr><td>6. AI Risk (Search disruption)</td><td style="color:var(--gold);">⚠️ Watch</td><td>High</td></tr>
-                <tr><td>7. Balance Sheet (Fortress)</td><td class="td-g">✅ Pass</td><td>Medium</td></tr>
-                <tr><td><strong>Overall Score</strong></td><td class="td-g"><strong>4 Pass / 3 Neutral</strong></td><td></td></tr>
+                <tr><td><span class="lang-el">1. Ανάπτυξη Εσόδων (+22%)</span><span class="lang-en">1. Revenue Growth (+22%)</span></td><td class="td-g">✅ Pass</td></tr>
+                <tr><td><span class="lang-el">2. Ανάπτυξη Cloud (+63%, backlog $462 δισ.)</span><span class="lang-en">2. Cloud Growth (+63%, $462B backlog)</span></td><td class="td-g">✅ Pass</td></tr>
+                <tr><td><span class="lang-el">3. Κερδοφορία (περιθώριο 36%)</span><span class="lang-en">3. Profitability (36% margin)</span></td><td class="td-g">✅ Pass</td></tr>
+                <tr><td><span class="lang-el">4. Αποτίμηση (P/E 30x vs 23x μ.ο.)</span><span class="lang-en">4. Valuation (P/E 30x vs 23x avg)</span></td><td style="color:var(--gold);">⚠️ <span class="lang-el">Ουδέτερο</span><span class="lang-en">Neutral</span></td></tr>
+                <tr><td><span class="lang-el">5. CapEx ($190 δισ., αυξανόμενο)</span><span class="lang-en">5. CapEx ($190B, rising)</span></td><td style="color:var(--gold);">⚠️ <span class="lang-el">Ουδέτερο</span><span class="lang-en">Neutral</span></td></tr>
+                <tr><td><span class="lang-el">6. Κίνδυνος AI (διαταραχή Αναζήτησης)</span><span class="lang-en">6. AI Risk (Search disruption)</span></td><td style="color:var(--gold);">⚠️ <span class="lang-el">Παρακολούθηση</span><span class="lang-en">Watch</span></td></tr>
+                <tr><td><span class="lang-el">7. Ισολογισμός (Οχυρός)</span><span class="lang-en">7. Balance Sheet (Fortress)</span></td><td class="td-g">✅ Pass</td></tr>
+                <tr><td><strong><span class="lang-el">Συνολική Βαθμολογία</span><span class="lang-en">Overall Score</span></strong></td><td class="td-g"><strong>4 Pass / 3 Neutral</strong></td></tr>
             </tbody>
         </table>
 
-        <!-- VERDICT -->
         <div class="verdict-box">
-            <div class="verdict-rating">ACCUMULATE</div>
-            <div class="verdict-target">12-Month Price Target: <strong>$440</strong> | Current Price: ~$400 | Upside: ~10%</div>
+            <div class="verdict-rating"><span class="lang-el">ΣΥΣΣΩΡΕΥΣΗ</span><span class="lang-en">ACCUMULATE</span></div>
+            <div class="verdict-target"><span class="lang-el">Τιμή Στόχος 12 Μηνών: <strong>$440</strong> | Τρέχουσα Τιμή: ~$400 | Upside: ~10%</span><span class="lang-en">12-Month Price Target: <strong>$440</strong> | Current Price: ~$400 | Upside: ~10%</span></div>
             <div class="verdict-body">
-                <p>Alphabet is not a screaming bargain at $400 — but it's not overvalued either. The 30x P/E is justified by 22% revenue growth, a $462B Cloud backlog, and expanding margins. The main risks are AI disruption to Search (long-term) and heavy CapEx spending (near-term).</p>
-                <p style="margin-top:12px;">Our recommendation is to <strong>accumulate on dips toward $370-380</strong>, where the forward P/E drops to ~26x and provides a more attractive entry. At current levels (~$400), the risk/reward is fair but not exceptional. The 10% upside to our $440 target is modest — Alphabet's real value case requires Cloud to continue compounding at 40%+ for the next 2-3 years, which the backlog data supports.</p>
-                <p style="margin-top:12px;font-size:.85rem;color:var(--ink-3);">⚠️ This is our analytical view, not financial advice. Always do your own research.</p>
+                <p class="lang-el">Η Alphabet δεν είναι «φωνάζει» ευκαιρία στα $400 — αλλά δεν είναι υπερτιμημένη επίσης. Το P/E 30x δικαιολογείται από την ανάπτυξη εσόδων 22%, το backlog $462 δισ. Cloud και τα επεκτεινόμενα περιθώρια. Οι κύριοι κίνδυνοι είναι η διαταραχή AI στην Αναζήτηση (μακροπρόθεσμα) και οι βαριές δαπάνες CapEx (βραχυπρόθεσμα).</p>
+                <p class="lang-en">Alphabet is not a screaming bargain at $400 — but it's not overvalued either. The 30x P/E is justified by 22% revenue growth, a $462B Cloud backlog, and expanding margins. The main risks are AI disruption to Search (long-term) and heavy CapEx spending (near-term).</p>
+                <p class="lang-el" style="margin-top:12px;">Η σύστασή μας είναι να <strong>συσσωρεύσετε σε πτώσεις προς $370-380</strong>, όπου το forward P/E μειώνεται στο ~26x και παρέχει ελκυστικότερη είσοδο. Στα τρέχοντα επίπεδα (~$400), η σχέση κινδύνου/ανταμοιβής είναι δίκαιη αλλά όχι εξαιρετική.</p>
+                <p class="lang-en" style="margin-top:12px;">Our recommendation is to <strong>accumulate on dips toward $370-380</strong>, where the forward P/E drops to ~26x and provides a more attractive entry. At current levels (~$400), the risk/reward is fair but not exceptional.</p>
+                <p style="margin-top:12px;font-size:.85rem;color:var(--ink-3);">⚠️ <span class="lang-el">Αυτή είναι η αναλυτική μας άποψη, όχι χρηματοοικονομική συμβουλή.</span><span class="lang-en">This is our analytical view, not financial advice. Always do your own research.</span></p>
             </div>
         </div>
 
         <div class="cta-box">
             <div class="cta-text">
-                <h3>Ready to buy GOOGL or other stocks?</h3>
-                <p>Freedom24 gives you access to US markets, including Alphabet, with competitive fees.</p>
+                <h3><span class="lang-el">Έτοιμος να αγοράσεις GOOGL;</span><span class="lang-en">Ready to buy GOOGL or other stocks?</span></h3>
+                <p><span class="lang-el">Η Freedom24 σου δίνει πρόσβαση στις αμερικανικές αγορές, συμπεριλαμβανομένης της Alphabet.</span><span class="lang-en">Freedom24 gives you access to US markets, including Alphabet, with competitive fees.</span></p>
             </div>
-            <a href="https://freedom24.com/invite_from/1767598" target="_blank" class="cta-link">Open an Account →</a>
+            <a href="https://freedom24.com/invite_from/1767598" target="_blank" class="cta-link"><span class="lang-el">Άνοιξε Λογαριασμό →</span><span class="lang-en">Open an Account →</span></a>
         </div>
 
         <div class="related">
-            <h3>📚 Related Analysis</h3>
+            <h3>📚 <span class="lang-el">Σχετικές Αναλύσεις</span><span class="lang-en">Related Analysis</span></h3>
             <div class="rel-grid">
                 <a href="article10.html" class="rel-card">
                     <img src="blockchain-large.jpg" alt="Meta Analysis">
-                    <div class="rel-body"><div class="rel-kicker">Deep Dive</div><div class="rel-title">Meta (META) Deep Dive: 7 Checks & Price Target</div></div>
+                    <div class="rel-body"><div class="rel-kicker">Deep Dive</div><div class="rel-title lang-el">Meta (META) Σε Βάθος: 7 Έλεγχοι & Τιμή Στόχος</div><div class="rel-title lang-en">Meta (META) Deep Dive: 7 Checks & Price Target</div></div>
                 </a>
                 <a href="article8.html" class="rel-card">
                     <img src="fed-large.jpg" alt="Markets ATH">
-                    <div class="rel-body"><div class="rel-kicker">Macro</div><div class="rel-title">Markets at ATH While the World Burns: The Great Disconnect</div></div>
+                    <div class="rel-body"><div class="rel-kicker">Macro</div><div class="rel-title lang-el">Αγορές σε ATH Ενώ ο Κόσμος Καίγεται</div><div class="rel-title lang-en">Markets Hit ATH While the World Burns</div></div>
                 </a>
                 <a href="article6.html" class="rel-card">
                     <img src="compound-large.jpg" alt="Investing">
-                    <div class="rel-body"><div class="rel-kicker">Beginner</div><div class="rel-title">How to Start Investing as a Complete Beginner</div></div>
+                    <div class="rel-body"><div class="rel-kicker">Beginner</div><div class="rel-title lang-el">Πώς να Ξεκινήσεις να Επενδύεις</div><div class="rel-title lang-en">How to Start Investing as a Beginner</div></div>
                 </a>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -327,6 +342,7 @@
 </footer>
 
 <script>
+function toggleLang(){document.body.classList.toggle('en');}
 function toggleTheme(){const b=document.body,i=document.getElementById('ti');if(b.getAttribute('data-theme')==='dark'){b.removeAttribute('data-theme');i.className='fas fa-moon';}else{b.setAttribute('data-theme','dark');i.className='fas fa-sun';}}
 </script>
 </body>
