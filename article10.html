@@ -1,17 +1,17 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
 <head>
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y9DENNW7FP"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Y9DENNW7FP');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meta Platforms (META) Deep Dive: 7 Checks, Valuation & Price Target 2026 | TimeToCompound</title>
-    <meta name="description" content="Full fundamental analysis of Meta Platforms (META) stock. Q1 2026 results, 33% revenue growth, P/E 22x, and our 12-month price target. Is META a buy at $620?">
-    <meta name="keywords" content="Meta Platforms META stock analysis 2026, META buy or sell, META price target 2026, Meta Q1 2026 earnings, Facebook Instagram stock valuation">
+    <title>Meta Platforms (META) Σε Βάθος: 7 Έλεγχοι & Τιμή Στόχος 2026 | TimeToCompound</title>
+    <meta name="description" content="Πλήρης θεμελιώδης ανάλυση της Meta Platforms (META). Έσοδα +33%, P/E 22x, -23% από ATH. 96% Buy rating. Αξίζει η META στα $620; 7 έλεγχοι και τιμή στόχος 12 μηνών.">
+    <meta name="keywords" content="Meta Platforms META ανάλυση 2026, META μετοχή αγορά, META τιμή στόχος, Facebook Instagram μετοχή, Meta Q1 2026 αποτελέσματα, META stock analysis buy or sell">
     <meta name="author" content="TimeToCompound">
     <link rel="canonical" href="https://timetocompound.com/article10.html">
-    <meta property="og:title" content="Meta Platforms (META) Deep Dive: 7 Checks, Valuation & Price Target 2026">
-    <meta property="og:description" content="Is META a buy at $620? 23% below its high, 96% analyst buy rate, P/E of 22x. Full deep dive with 7 fundamental checks.">
+    <meta property="og:title" content="Meta Platforms (META): 7 Έλεγχοι, Αποτίμηση & Τιμή Στόχος 2026">
+    <meta property="og:description" content="Αξίζει η META στα $620; -23% από ATH, P/E 22x, 96% Buy από αναλυτές. Πλήρης ανάλυση με 7 ελέγχους.">
     <meta property="og:image" content="https://timetocompound.com/blockchain-large.jpg">
     <meta property="og:url" content="https://timetocompound.com/article10.html">
     <meta property="og:type" content="article">
@@ -24,6 +24,14 @@
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
         body{font-family:'Outfit',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;display:flex;flex-direction:column;transition:background .3s,color .3s;}
         a{text-decoration:none;color:inherit;}
+
+        /* LANG */
+        .lang-en{display:none;}
+        body.en .lang-el{display:none!important;}
+        body.en .lang-en{display:block!important;}
+        span.lang-en{display:none;}
+        body.en span.lang-en{display:inline!important;}
+
         .top-bar{height:3px;background:var(--gold);width:100%;position:fixed;top:0;left:0;z-index:1001;}
         nav{background:var(--paper-2);border-bottom:1px solid var(--rule);position:sticky;top:3px;z-index:999;}
         .nav-inner{max-width:860px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;height:68px;}
@@ -35,13 +43,16 @@
         .back-btn:hover{border-color:var(--gold);color:var(--gold);}
         .ctrl{width:32px;height:32px;border-radius:3px;border:1px solid var(--rule);background:transparent;color:var(--ink-3);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.8rem;transition:all .2s;font-family:'Outfit',sans-serif;}
         .ctrl:hover{border-color:var(--gold);color:var(--gold);}
+        .lang-toggle{font-size:1rem;background:none;border:1px solid var(--rule);border-radius:3px;cursor:pointer;padding:6px 10px;color:var(--ink-2);transition:all .2s;font-family:'Outfit',sans-serif;font-weight:600;}
+        .lang-toggle:hover{border-color:var(--gold);color:var(--gold);}
+
         .article-wrap{max-width:860px;margin:48px auto;padding:0 24px;flex:1;}
         .article-hero{width:100%;height:380px;object-fit:cover;border-radius:4px;display:block;margin-bottom:32px;box-shadow:var(--shadow);}
         .article-meta{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:20px;}
         .tag{display:inline-block;font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:2px;}
         .tag-analysis{background:var(--green);color:#fff;}
         .tag-new{background:var(--gold);color:#0D0D0D;}
-        .meta-date,.meta-read{font-size:.78rem;color:var(--ink-3);display:flex;align-items:center;gap:5px;}
+        .meta-info{font-size:.78rem;color:var(--ink-3);display:flex;align-items:center;gap:5px;}
         h1.art-title{font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:700;line-height:1.18;color:var(--ink);margin-bottom:18px;}
         .art-deck{font-size:1.1rem;color:var(--ink-2);line-height:1.65;margin-bottom:36px;padding-bottom:32px;border-bottom:2px solid var(--rule);}
         .art-body{font-size:1.05rem;line-height:1.82;color:var(--ink);}
@@ -51,27 +62,28 @@
         .art-body strong{font-weight:700;}
         .art-body ul{padding-left:24px;margin-bottom:20px;}
         .art-body li{margin-bottom:10px;line-height:1.7;}
+
         .snapshot{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0;}
         .snap-box{background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;padding:16px;text-align:center;border-top:3px solid var(--gold);}
         .snap-num{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;line-height:1;margin-bottom:5px;color:var(--ink);}
         .snap-num.g{color:var(--green);}[data-theme="dark"] .snap-num.g{color:#4ADE80;}
         .snap-num.r{color:var(--red);}
         .snap-lbl{font-size:.62rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-3);}
-        .checks-grid{display:flex;flex-direction:column;gap:0;margin:28px 0;}
+
+        .checks-grid{display:flex;flex-direction:column;gap:0;margin:20px 0;}
         .check-item{display:flex;align-items:flex-start;gap:16px;padding:18px 20px;background:var(--paper-2);border:1px solid var(--rule);border-bottom:none;}
         .check-item:first-child{border-radius:4px 4px 0 0;}
         .check-item:last-child{border-bottom:1px solid var(--rule);border-radius:0 0 4px 4px;}
         .check-icon{width:32px;height:32px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:.9rem;flex-shrink:0;margin-top:2px;}
         .ci-green{background:rgba(27,58,45,0.15);color:var(--green);}[data-theme="dark"] .ci-green{background:rgba(74,140,106,0.2);color:#4ADE80;}
         .ci-yellow{background:rgba(184,146,74,0.15);color:var(--gold);}
-        .ci-red{background:rgba(185,28,28,0.12);color:var(--red);}
         .check-content{flex:1;}
         .check-title{font-weight:700;font-size:.95rem;margin-bottom:4px;color:var(--ink);}
         .check-desc{font-size:.875rem;color:var(--ink-2);line-height:1.55;}
         .check-verdict{font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-top:6px;}
         .vd-pass{color:var(--green);}[data-theme="dark"] .vd-pass{color:#4ADE80;}
         .vd-warn{color:var(--gold);}
-        .vd-fail{color:var(--red);}
+
         .val-table{width:100%;border-collapse:collapse;margin:24px 0;border-radius:4px;overflow:hidden;border:1px solid var(--rule);}
         .val-table th{background:var(--green);color:#fff;padding:11px 16px;text-align:left;font-size:.75rem;font-weight:700;}
         [data-theme="dark"] .val-table th{background:var(--green-l);}
@@ -79,22 +91,27 @@
         .val-table tr:last-child td{border-bottom:none;background:var(--paper-3);font-weight:700;color:var(--ink);}
         .val-table tr:nth-child(even) td{background:var(--paper-3);}
         .td-g{color:var(--green);font-weight:700;}[data-theme="dark"] .td-g{color:#4ADE80;}
+
         .verdict-box{border-radius:4px;padding:28px;margin:36px 0;border:2px solid var(--green);}
         [data-theme="dark"] .verdict-box{border-color:var(--gold);}
         .verdict-rating{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:var(--green);margin-bottom:8px;}
         [data-theme="dark"] .verdict-rating{color:var(--gold);}
         .verdict-target{font-size:1rem;font-weight:600;color:var(--ink-2);margin-bottom:16px;}
         .verdict-body{font-size:.95rem;color:var(--ink-2);line-height:1.65;}
+
         .hl{background:rgba(184,146,74,0.08);border-left:4px solid var(--gold);border-radius:0 4px 4px 0;padding:18px 24px;margin:24px 0;}
         .hl p{margin:0;font-weight:600;}
         .hl.green{background:rgba(27,58,45,0.08);border-left-color:var(--green);}
         [data-theme="dark"] .hl.green{background:rgba(74,140,106,0.1);}
+
         .pull{border-left:3px solid var(--gold);padding:12px 24px;margin:32px 0;font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-style:italic;color:var(--ink-2);line-height:1.4;}
+
         .cta-box{background:var(--green);border-radius:4px;padding:28px 32px;margin:44px 0;display:flex;justify-content:space-between;align-items:center;gap:20px;}
         .cta-text h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:6px;}
         .cta-text p{font-size:.85rem;color:rgba(255,255,255,.65);margin:0;}
         .cta-link{background:#fff;color:var(--green);padding:12px 24px;border-radius:3px;font-weight:700;font-size:.85rem;white-space:nowrap;transition:all .2s;flex-shrink:0;}
         .cta-link:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.2);}
+
         .related{margin-top:48px;padding-top:28px;border-top:2px solid var(--rule);}
         .related h3{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;margin-bottom:18px;}
         .rel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
@@ -104,6 +121,7 @@
         .rel-body{padding:12px;}
         .rel-kicker{font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);margin-bottom:5px;}
         .rel-title{font-family:'Cormorant Garamond',serif;font-size:.92rem;font-weight:700;line-height:1.3;color:var(--ink);}
+
         footer{background:#0D0D0D;border-top:3px solid var(--gold);margin-top:60px;padding:22px;text-align:center;}
         .foot-txt{font-size:.78rem;color:#444;}
         .foot-txt a{color:#555;transition:color .2s;}
@@ -117,198 +135,222 @@
     <div class="nav-inner">
         <a href="index.html" class="brand"><span class="brand-name">TimeToCompound</span><span class="brand-sub">Financial Intelligence</span></a>
         <div class="nav-right">
-            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Home</a>
+            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> <span class="lang-el">Αρχική</span><span class="lang-en">Home</span></a>
+            <button class="lang-toggle" onclick="toggleLang()"><span class="lang-el">🇬🇧 EN</span><span class="lang-en">🇬🇷 ΕΛ</span></button>
             <button class="ctrl" onclick="toggleTheme()"><i class="fas fa-moon" id="ti"></i></button>
         </div>
     </div>
 </nav>
 
 <div class="article-wrap">
-
     <img src="blockchain-large.jpg" alt="Meta Platforms META stock analysis 2026" class="article-hero">
 
     <div class="article-meta">
-        <span class="tag tag-analysis">Deep Dive</span>
+        <span class="tag tag-analysis"><span class="lang-el">Βαθιά Ανάλυση</span><span class="lang-en">Deep Dive</span></span>
         <span class="tag tag-new">New</span>
-        <span class="meta-date"><i class="fas fa-calendar-alt"></i> 19 May 2026</span>
-        <span class="meta-read"><i class="fas fa-clock"></i> 9 min read</span>
+        <span class="meta-info"><i class="fas fa-calendar-alt"></i> 19 May 2026</span>
+        <span class="meta-info"><i class="fas fa-clock"></i> 9 min read</span>
     </div>
 
-    <h1 class="art-title">Meta Platforms (META) Deep Dive: 7 Checks, Valuation & Our 12-Month Price Target</h1>
-    <p class="art-deck">META is down 23% from its all-time high of $796, trades at a P/E of 22x — cheaper than the S&P 500 — and just reported its fastest revenue growth since 2021. Ninety-six percent of covering analysts rate it a Buy. So why is it still at $620? We run 7 checks to find out whether this pullback is a gift or a warning.</p>
+    <h1 class="art-title">
+        <span class="lang-el">Meta Platforms (META) Σε Βάθος: 7 Έλεγχοι, Αποτίμηση & Τιμή Στόχος 12 Μηνών</span>
+        <span class="lang-en">Meta Platforms (META) Deep Dive: 7 Checks, Valuation & Our 12-Month Price Target</span>
+    </h1>
+    <p class="art-deck lang-el">Η META είναι κάτω 23% από το ATH της των $796, διαπραγματεύεται σε P/E 22x — φθηνότερη από τον S&P 500 — και μόλις ανέφερε την ταχύτερη ανάπτυξη εσόδων από το 2021. Το 96% των αναλυτών που την καλύπτουν τη βαθμολογούν Buy. Τρέχουμε 7 ελέγχους για να μάθουμε αν αυτή η πτώση είναι δώρο ή προειδοποίηση.</p>
+    <p class="art-deck lang-en">META is down 23% from its all-time high of $796, trades at a P/E of 22x — cheaper than the S&P 500 — and just reported its fastest revenue growth since 2021. Ninety-six percent of covering analysts rate it a Buy. We run 7 checks to find out whether this pullback is a gift or a warning.</p>
 
     <div class="art-body">
 
         <div class="snapshot">
-            <div class="snap-box"><div class="snap-num">$620</div><div class="snap-lbl">Price (May 19)</div></div>
+            <div class="snap-box"><div class="snap-num">$620</div><div class="snap-lbl"><span class="lang-el">Τιμή (19 Μαΐ)</span><span class="lang-en">Price (May 19)</span></div></div>
             <div class="snap-box"><div class="snap-num">22x</div><div class="snap-lbl">P/E Ratio (TTM)</div></div>
-            <div class="snap-box"><div class="snap-num g">+33%</div><div class="snap-lbl">Revenue Growth Q1</div></div>
-            <div class="snap-box"><div class="snap-num r">-23%</div><div class="snap-lbl">From 52-Week High</div></div>
+            <div class="snap-box"><div class="snap-num g">+33%</div><div class="snap-lbl"><span class="lang-el">Ανάπτυξη Εσόδων</span><span class="lang-en">Revenue Growth Q1</span></div></div>
+            <div class="snap-box"><div class="snap-num r">-23%</div><div class="snap-lbl"><span class="lang-el">Από 52-Εβδομαδιαίο Υψηλό</span><span class="lang-en">From 52-Week High</span></div></div>
         </div>
 
-        <h2>The Company in One Paragraph</h2>
-        <p>Meta Platforms operates the world's largest family of social media applications: Facebook, Instagram, WhatsApp, and Threads. It generates virtually all of its revenue — $56.3 billion in Q1 2026 — from digital advertising. Meta's 3.56 billion daily active people (DAP) is the largest addressable audience in the history of advertising. The company is in the midst of its largest-ever investment cycle, pouring $125-145 billion into AI infrastructure in 2026 alone, with the thesis that AI will make its advertising dramatically more efficient and eventually power new products like AI assistants and smart glasses.</p>
+        <h2><span class="lang-el">Η Εταιρεία σε Μία Παράγραφο</span><span class="lang-en">The Company in One Paragraph</span></h2>
+        <p class="lang-el">Η Meta Platforms λειτουργεί την μεγαλύτερη οικογένεια εφαρμογών κοινωνικής δικτύωσης στον κόσμο: Facebook, Instagram, WhatsApp και Threads. Παράγει σχεδόν το σύνολο των εσόδων της — $56,3 δισ. στο Q1 2026 — από ψηφιακή διαφήμιση. Τα 3,56 δισ. ημερήσια ενεργά άτομα (DAP) της Meta αποτελούν το μεγαλύτερο διαφημιστικό κοινό στην ιστορία. Η εταιρεία βρίσκεται στη μέση του μεγαλύτερου κύκλου επένδυσής της, ρίχνοντας $125-145 δισ. σε AI υποδομές μόνο το 2026.</p>
+        <p class="lang-en">Meta Platforms operates the world's largest family of social media applications: Facebook, Instagram, WhatsApp, and Threads. It generates virtually all of its revenue — $56.3 billion in Q1 2026 — from digital advertising. Meta's 3.56 billion daily active people (DAP) is the largest addressable audience in the history of advertising. The company is in the midst of its largest-ever investment cycle, pouring $125-145 billion into AI infrastructure in 2026 alone.</p>
 
-        <div class="pull">"Meta is the most unloved AI hyperscaler — and its stock looks like a true bargain."<br><span style="font-size:.85rem;font-style:normal;color:var(--ink-3);">— The Motley Fool, May 15, 2026</span></div>
+        <div class="pull">
+            <span class="lang-el">"Η Meta είναι ο πιο αγαπητός AI hyperscaler — και η μετοχή της μοιάζει με πραγματική ευκαιρία."</span>
+            <span class="lang-en">"Meta is the most unloved AI hyperscaler — and its stock looks like a true bargain."</span>
+            <br><span style="font-size:.85rem;font-style:normal;color:var(--ink-3);">— The Motley Fool, 15 Μαΐου 2026</span>
+        </div>
 
-        <h2>Check #1 — Revenue Growth</h2>
+        <h2><span class="lang-el">Έλεγχος #1 — Ανάπτυξη Εσόδων</span><span class="lang-en">Check #1 — Revenue Growth</span></h2>
         <div class="checks-grid">
             <div class="check-item">
                 <div class="check-icon ci-green"><i class="fas fa-chart-line"></i></div>
                 <div class="check-content">
-                    <div class="check-title">Q1 2026: Revenue +33% YoY to $56.31B — Fastest Growth Since 2021</div>
-                    <div class="check-desc">Meta's Q1 2026 revenue of $56.31 billion grew 33% year-over-year, beating analyst estimates of $55.45 billion. On a constant currency basis, growth was 29%. Ad impressions across the Family of Apps increased 19% year-over-year, while average price per ad increased 12%. Together, these drove the revenue acceleration. Q2 2026 guidance of $58-61 billion implies continued 26-32% growth. Full-year 2025 revenue was $200.97 billion (+22% YoY).</div>
-                    <div class="check-verdict vd-pass">✅ PASS — Fastest growth since 2021, with Q2 guidance also strong</div>
+                    <div class="check-title"><span class="lang-el">Q1 2026: Έσοδα +33% στα $56,31 δισ. — Ταχύτερη Ανάπτυξη από το 2021</span><span class="lang-en">Q1 2026: Revenue +33% YoY to $56.31B — Fastest Growth Since 2021</span></div>
+                    <p class="check-desc lang-el">Τα έσοδα Q1 2026 της Meta ύψους $56,31 δισ. αυξήθηκαν 33% σε ετήσια βάση, ξεπερνώντας τις εκτιμήσεις των αναλυτών. Οι διαφημιστικές εντυπώσεις αυξήθηκαν 19% σε ετήσια βάση, ενώ η μέση τιμή ανά διαφήμιση αυξήθηκε 12%. Η καθοδήγηση Q2 2026 ύψους $58-61 δισ. υποδηλώνει συνεχή ανάπτυξη 26-32%.</p>
+                    <p class="check-desc lang-en">Meta's Q1 2026 revenue of $56.31 billion grew 33% year-over-year, beating analyst estimates. Ad impressions increased 19% YoY, while average price per ad increased 12%. Q2 2026 guidance of $58-61 billion implies continued 26-32% growth.</p>
+                    <div class="check-verdict vd-pass">✅ PASS — <span class="lang-el">Ταχύτερη ανάπτυξη από το 2021, ισχυρή καθοδήγηση Q2</span><span class="lang-en">Fastest growth since 2021, with Q2 guidance also strong</span></div>
                 </div>
             </div>
         </div>
 
-        <h2>Check #2 — User Base & Engagement</h2>
+        <h2><span class="lang-el">Έλεγχος #2 — Βάση Χρηστών & Engagement</span><span class="lang-en">Check #2 — User Base & Engagement</span></h2>
         <div class="checks-grid">
             <div class="check-item">
                 <div class="check-icon ci-green"><i class="fas fa-users"></i></div>
                 <div class="check-content">
-                    <div class="check-title">3.56 Billion Daily Active People — +4% YoY</div>
-                    <div class="check-desc">Meta's Family daily active people (DAP) reached 3.56 billion in March 2026, up 4% year-over-year. This is an almost incomprehensible number — roughly 44% of humanity uses a Meta product every single day. User growth slowed slightly quarter-over-quarter due to internet disruptions in Iran and WhatsApp restrictions in Russia. The slight sequential dip is noise; the trend is still growth. Threads, Meta's Twitter competitor, continues to grow and is not yet significantly monetized — representing future upside.</div>
-                    <div class="check-verdict vd-pass">✅ PASS — 3.56B DAP is an unassailable competitive moat</div>
+                    <div class="check-title"><span class="lang-el">3,56 Δισ. Ημερήσια Ενεργά Άτομα — +4% Σε Ετήσια Βάση</span><span class="lang-en">3.56 Billion Daily Active People — +4% YoY</span></div>
+                    <p class="check-desc lang-el">Τα ημερήσια ενεργά άτομα (DAP) της οικογένειας Meta έφτασαν τα 3,56 δισ. τον Μάρτιο 2026, αυξημένα 4% σε ετήσια βάση. Αυτός είναι ένας σχεδόν ακατανόητος αριθμός — περίπου το 44% της ανθρωπότητας χρησιμοποιεί κάθε μέρα μια εφαρμογή Meta. Το Threads, ο ανταγωνιστής του Twitter, συνεχίζει να αναπτύσσεται και δεν έχει ακόμα σημαντικά μετατραπεί σε έσοδα — αντιπροσωπεύοντας μελλοντικό upside.</p>
+                    <p class="check-desc lang-en">Meta's Family daily active people (DAP) reached 3.56 billion in March 2026, up 4% year-over-year. This is an almost incomprehensible number — roughly 44% of humanity uses a Meta product every single day. Threads continues to grow and is not yet significantly monetized — representing future upside.</p>
+                    <div class="check-verdict vd-pass">✅ PASS — <span class="lang-el">3,56 δισ. DAP είναι αδιαμφισβήτητο ανταγωνιστικό πλεονέκτημα</span><span class="lang-en">3.56B DAP is an unassailable competitive moat</span></div>
                 </div>
             </div>
         </div>
 
-        <h2>Check #3 — Profitability & Operating Margin</h2>
+        <h2><span class="lang-el">Έλεγχος #3 — Κερδοφορία & Περιθώριο Λειτουργίας</span><span class="lang-en">Check #3 — Profitability & Operating Margin</span></h2>
         <div class="checks-grid">
             <div class="check-item">
                 <div class="check-icon ci-green"><i class="fas fa-percent"></i></div>
                 <div class="check-content">
-                    <div class="check-title">Operating Margin 41% — Operating Income +30% to $22.87B</div>
-                    <div class="check-desc">Meta's operating margin held at 41% in Q1 2026, unchanged from the prior year, despite dramatically increased AI infrastructure spending. Operating income grew 30% to $22.87 billion. Net income was $26.77 billion, boosted by an $8.03 billion discrete tax benefit. Excluding the tax benefit, diluted EPS would have been $7.31 — still above the $6.72 estimate. A 41% operating margin on $56 billion in quarterly revenue is exceptional. Few companies this size generate cash at this rate.</div>
-                    <div class="check-verdict vd-pass">✅ PASS — 41% margin maintained despite AI spending surge</div>
+                    <div class="check-title"><span class="lang-el">Περιθώριο Λειτουργίας 41% — Λειτουργικά Κέρδη +30% στα $22,87 δισ.</span><span class="lang-en">Operating Margin 41% — Operating Income +30% to $22.87B</span></div>
+                    <p class="check-desc lang-el">Το περιθώριο λειτουργίας της Meta παρέμεινε σταθερό στο 41% στο Q1 2026, παρά τις σημαντικά αυξημένες δαπάνες AI υποδομών. Τα λειτουργικά κέρδη αυξήθηκαν 30% στα $22,87 δισ. Τα καθαρά κέρδη ήταν $26,77 δισ., ενισχυμένα από φορολογικό όφελος $8,03 δισ. Ένα περιθώριο λειτουργίας 41% σε τριμηνιαία έσοδα $56 δισ. είναι εξαιρετικό — λίγες εταιρείες αυτού του μεγέθους παράγουν ρευστά σε αυτόν τον ρυθμό.</p>
+                    <p class="check-desc lang-en">Meta's operating margin held at 41% in Q1 2026, unchanged from the prior year, despite dramatically increased AI infrastructure spending. Operating income grew 30% to $22.87 billion. Net income was $26.77 billion, boosted by an $8.03 billion discrete tax benefit. A 41% operating margin on $56 billion in quarterly revenue is exceptional.</p>
+                    <div class="check-verdict vd-pass">✅ PASS — <span class="lang-el">Περιθώριο 41% διατηρήθηκε παρά την αύξηση δαπανών AI</span><span class="lang-en">41% margin maintained despite AI spending surge</span></div>
                 </div>
             </div>
         </div>
 
-        <h2>Check #4 — Valuation: The Key Argument for META</h2>
+        <h2><span class="lang-el">Έλεγχος #4 — Αποτίμηση: Το Κλειδί της Επιχειρηματολογίας για τη META</span><span class="lang-en">Check #4 — Valuation: The Key Argument for META</span></h2>
         <div class="checks-grid">
             <div class="check-item">
                 <div class="check-icon ci-green"><i class="fas fa-balance-scale"></i></div>
                 <div class="check-content">
-                    <div class="check-title">P/E 22x — 18% Below Historical Average — Cheaper Than S&P 500</div>
-                    <div class="check-desc">This is the most compelling argument for META. At $620, the stock trades at a trailing P/E of approximately 22x on TTM EPS of $27.95. This is 18% below Meta's own 5-year historical average P/E of 23.4x. The S&P 500 trades at approximately 30x earnings. Meta — growing revenue at 33% with a 41% operating margin and 3.56 billion daily users — trades at a discount to the broader market. This is the definition of undervaluation relative to quality.</div>
-                    <div class="check-verdict vd-pass">✅ PASS — Trading at a discount to history and to the market</div>
+                    <div class="check-title"><span class="lang-el">P/E 22x — 18% Κάτω από Ιστορικό Μέσο — Φθηνότερη από τον S&P 500</span><span class="lang-en">P/E 22x — 18% Below Historical Average — Cheaper Than S&P 500</span></div>
+                    <p class="check-desc lang-el">Αυτό είναι το πιο ισχυρό επιχείρημα για τη META. Στα $620, η μετοχή διαπραγματεύεται σε trailing P/E ~22x επί TTM EPS $27,95. Αυτό είναι 18% κάτω από τον ιστορικό μέσο P/E 5ετίας της Meta 23,4x. Ο S&P 500 διαπραγματεύεται σε ~30x κέρδη. Η Meta — με ανάπτυξη εσόδων 33%, περιθώριο λειτουργίας 41% και 3,56 δισ. ημερήσιους χρήστες — διαπραγματεύεται με discount έναντι της ευρύτερης αγοράς. Αυτός είναι ο ορισμός της υποτίμησης σχετικά με την ποιότητα.</p>
+                    <p class="check-desc lang-en">This is the most compelling argument for META. At $620, the stock trades at a trailing P/E of approximately 22x on TTM EPS of $27.95. This is 18% below Meta's own 5-year historical average P/E of 23.4x. The S&P 500 trades at approximately 30x earnings. Meta — growing revenue at 33% with a 41% operating margin and 3.56 billion daily users — trades at a discount to the broader market.</p>
+                    <div class="check-verdict vd-pass">✅ PASS — <span class="lang-el">Διαπραγματεύεται με discount έναντι ιστορικού και έναντι αγοράς</span><span class="lang-en">Trading at a discount to history and to the market</span></div>
                 </div>
             </div>
         </div>
 
-        <h2>Check #5 — The CapEx Problem: Why META Is Down 23%</h2>
+        <h2><span class="lang-el">Έλεγχος #5 — Το Πρόβλημα CapEx: Γιατί η META Είναι -23%</span><span class="lang-en">Check #5 — The CapEx Problem: Why META Is Down 23%</span></h2>
         <div class="checks-grid">
             <div class="check-item">
                 <div class="check-icon ci-yellow"><i class="fas fa-server"></i></div>
                 <div class="check-content">
-                    <div class="check-title">$125-145B CapEx in 2026 — Increased From Prior Guidance</div>
-                    <div class="check-desc">This is the reason META fell from $796 to $613. In Q1 2026, Meta raised its full-year 2026 capital expenditure guidance to $125-145 billion, up from the prior range of $115-135 billion. Investors who had hoped AI spending would peak were disappointed. The concern is legitimate: massive CapEx compresses near-term free cash flow and increases execution risk. However, the bull case is clear — Meta is building infrastructure that will power AI advertising tools, AI assistants, and augmented reality products over the next decade. The question is whether investors trust management to deploy this capital effectively. CEO Zuckerberg's track record — the Reels pivot, the AI ad efficiency gains — suggests they should.</div>
-                    <div class="check-verdict vd-warn">⚠️ WARN — Legitimate near-term concern, but likely to be the entry point in retrospect</div>
+                    <div class="check-title"><span class="lang-el">$125-145 δισ. CapEx το 2026 — Αυξημένο από Προηγούμενη Καθοδήγηση</span><span class="lang-en">$125-145B CapEx in 2026 — Increased From Prior Guidance</span></div>
+                    <p class="check-desc lang-el">Αυτός είναι ο λόγος που η META έπεσε από $796 σε $613. Στο Q1 2026, η Meta αύξησε την καθοδήγηση CapEx πλήρους έτους 2026 σε $125-145 δισ., από το προηγούμενο εύρος $115-135 δισ. Επενδυτές που είχαν ελπίσει ότι οι δαπάνες AI θα κορυφωθούν απογοητεύτηκαν. Η ανησυχία είναι νόμιμη: το μαζικό CapEx συμπιέζει τις ελεύθερες ταμειακές ροές βραχυπρόθεσμα και αυξάνει τον κίνδυνο εκτέλεσης. Ωστόσο, το bull case είναι σαφές — η Meta χτίζει υποδομές που θα τροφοδοτούν εργαλεία AI διαφήμισης, AI assistants και προϊόντα επαυξημένης πραγματικότητας για την επόμενη δεκαετία.</p>
+                    <p class="check-desc lang-en">This is the reason META fell from $796 to $613. In Q1 2026, Meta raised its full-year 2026 capital expenditure guidance to $125-145 billion, up from the prior range of $115-135 billion. Investors who had hoped AI spending would peak were disappointed. The concern is legitimate: massive CapEx compresses near-term free cash flow and increases execution risk. However, the bull case is clear — Meta is building infrastructure for AI advertising tools, AI assistants, and augmented reality products over the next decade.</p>
+                    <div class="check-verdict vd-warn">⚠️ <span class="lang-el">ΠΡΟΣΟΧΗ — Νόμιμη βραχυπρόθεσμη ανησυχία, πιθανώς το καλύτερο σημείο εισόδου σε αναδρομή</span><span class="lang-en">WARN — Legitimate near-term concern, but likely the entry point in retrospect</span></div>
                 </div>
             </div>
         </div>
 
-        <h2>Check #6 — AI Integration & Competitive Moat</h2>
+        <h2><span class="lang-el">Έλεγχος #6 — Ενσωμάτωση AI & Ανταγωνιστικό Πλεονέκτημα</span><span class="lang-en">Check #6 — AI Integration & Competitive Moat</span></h2>
         <div class="checks-grid">
             <div class="check-item">
                 <div class="check-icon ci-green"><i class="fas fa-robot"></i></div>
                 <div class="check-content">
-                    <div class="check-title">Advantage+ AI Driving +12% Ad Price Growth — Llama AI Open Source</div>
-                    <div class="check-desc">Meta's AI investments are already generating measurable returns. The Advantage+ advertising suite uses AI to automatically optimize ad campaigns, reducing the cost per result for advertisers. This AI-driven efficiency improvement is the primary driver of the 12% year-over-year increase in average price per ad. More advertisers spending more per ad, powered by AI that actually works. Meta is also open-sourcing its Llama AI models, which drives adoption across developers and positions Meta as an AI ecosystem player. Reality Labs (Quest headsets, Ray-Ban Meta glasses) continues to lose money but the hardware ecosystem builds long-term platform loyalty.</div>
-                    <div class="check-verdict vd-pass">✅ PASS — AI is already monetized, not just promised</div>
+                    <div class="check-title"><span class="lang-el">Advantage+ AI Οδηγεί +12% Αύξηση Τιμής Διαφήμισης — Llama AI Open Source</span><span class="lang-en">Advantage+ AI Driving +12% Ad Price Growth — Llama AI Open Source</span></div>
+                    <p class="check-desc lang-el">Οι επενδύσεις AI της Meta ήδη παράγουν μετρήσιμες αποδόσεις. Η σουίτα διαφήμισης Advantage+ χρησιμοποιεί AI για να βελτιστοποιεί αυτόματα τις διαφημιστικές καμπάνιες. Αυτή η αποδοτικότητα AI είναι ο πρωταρχικός παράγοντας της αύξησης 12% ετησίως στη μέση τιμή ανά διαφήμιση. Η Meta ανοίγει επίσης τα μοντέλα AI Llama, κάτι που ενισχύει την υιοθέτηση από προγραμματιστές. Τα Reality Labs (Quest headsets, Ray-Ban Meta) συνεχίζουν να χάνουν χρήματα αλλά χτίζουν μακροπρόθεσμη πλατφόρμα.</p>
+                    <p class="check-desc lang-en">Meta's AI investments are already generating measurable returns. The Advantage+ advertising suite uses AI to automatically optimize ad campaigns. This AI-driven efficiency improvement is the primary driver of the 12% year-over-year increase in average price per ad. Meta is also open-sourcing its Llama AI models, driving developer adoption. Reality Labs continues to lose money but builds long-term platform loyalty.</p>
+                    <div class="check-verdict vd-pass">✅ PASS — <span class="lang-el">Η AI ήδη μετατράπηκε σε έσοδα, όχι απλώς υποσχέθηκε</span><span class="lang-en">AI is already monetized, not just promised</span></div>
                 </div>
             </div>
         </div>
 
-        <h2>Check #7 — Analyst Sentiment & Institutional Positioning</h2>
+        <h2><span class="lang-el">Έλεγχος #7 — Συναίνεση Αναλυτών & Θεσμικη Τοποθέτηση</span><span class="lang-en">Check #7 — Analyst Sentiment & Institutional Positioning</span></h2>
         <div class="checks-grid">
             <div class="check-item">
                 <div class="check-icon ci-green"><i class="fas fa-star"></i></div>
                 <div class="check-content">
-                    <div class="check-title">96% Buy Rate — 78 Analysts — Median Target $856 (+38% Upside)</div>
-                    <div class="check-desc">Among 78 Wall Street analysts covering META, 61 rate it a Buy, 6 rate it a Hold, and 0 rate it a Sell. The 96% buy rate is among the highest of any S&P 500 stock. The median price target is $856, implying 38% upside from $620. The highest target is $1,144. Even after the CapEx-driven target reductions, the consensus remains firmly bullish. Major funds including Viking Global and Glenview Capital recently increased their Meta stakes. Berkshire's new CEO is among those reshuffling positions. Institutional conviction remains high.</div>
-                    <div class="check-verdict vd-pass">✅ PASS — Near-unanimous Wall Street conviction at current prices</div>
+                    <div class="check-title"><span class="lang-el">96% Buy Rate — 78 Αναλυτές — Μέσος Στόχος $856 (+38% Upside)</span><span class="lang-en">96% Buy Rate — 78 Analysts — Median Target $856 (+38% Upside)</span></div>
+                    <p class="check-desc lang-el">Μεταξύ 78 αναλυτών της Wall Street που καλύπτουν τη META, 61 τη βαθμολογούν Buy, 6 Hold και 0 Sell. Το ποσοστό Buy 96% είναι από τα υψηλότερα οποιαδήποτε μετοχής S&P 500. Ο μέσος τιμής στόχος είναι $856, υπονοώντας 38% upside από $620. Ο υψηλότερος στόχος είναι $1.144. Μεγάλα funds έχουν πρόσφατα αυξήσει τις θέσεις τους στη Meta. Η θεσμική πεποίθηση παραμένει υψηλή.</p>
+                    <p class="check-desc lang-en">Among 78 Wall Street analysts covering META, 61 rate it a Buy, 6 rate it a Hold, and 0 rate it a Sell. The 96% buy rate is among the highest of any S&P 500 stock. The median price target is $856, implying 38% upside from $620. The highest target is $1,144. Major funds recently increased their Meta stakes. Institutional conviction remains high.</p>
+                    <div class="check-verdict vd-pass">✅ PASS — <span class="lang-el">Σχεδόν ομόφωνη πεποίθηση Wall Street στις τρέχουσες τιμές</span><span class="lang-en">Near-unanimous Wall Street conviction at current prices</span></div>
                 </div>
             </div>
         </div>
 
-        <h2>Valuation: What Is META Worth?</h2>
-        <p>We use three methods to triangulate fair value for META:</p>
+        <h2><span class="lang-el">Αποτίμηση: Πόσο Αξίζει η META;</span><span class="lang-en">Valuation: What Is META Worth?</span></h2>
+        <p class="lang-el">Χρησιμοποιούμε τρεις μεθόδους για τον προσδιορισμό εύλογης αξίας για τη META:</p>
+        <p class="lang-en">We use three methods to triangulate fair value for META:</p>
 
         <table class="val-table">
-            <thead><tr><th>Method</th><th>Assumption</th><th>Price Target</th></tr></thead>
+            <thead><tr>
+                <th><span class="lang-el">Μέθοδος</span><span class="lang-en">Method</span></th>
+                <th><span class="lang-el">Παραδοχή</span><span class="lang-en">Assumption</span></th>
+                <th><span class="lang-el">Τιμή Στόχος</span><span class="lang-en">Price Target</span></th>
+            </tr></thead>
             <tbody>
-                <tr><td>P/E Multiple (conservative)</td><td>FY2026E EPS ~$28 × 22x (current)</td><td class="td-g">$616</td></tr>
-                <tr><td>P/E Multiple (base case)</td><td>FY2026E EPS ~$28 × 27x (hist. avg)</td><td class="td-g">$756</td></tr>
-                <tr><td>P/E Multiple (bull case)</td><td>FY2026E EPS ~$30 × 30x (AI premium)</td><td class="td-g">$900</td></tr>
-                <tr><td>Analyst Consensus (78 analysts)</td><td>Median target — 12 months</td><td class="td-g">$856</td></tr>
-                <tr><td>TIKR DCF Model (2.6-year)</td><td>20% revenue CAGR, 33% margins, 18x P/E</td><td class="td-g">$881 (2028)</td></tr>
-                <tr><td><strong>Our 12-Month Target</strong></td><td>Base case re-rating to historical avg P/E</td><td class="td-g"><strong>$800</strong></td></tr>
+                <tr><td><span class="lang-el">P/E (συντηρητικό)</span><span class="lang-en">P/E (conservative)</span></td><td>FY2026E EPS ~$28 × 22x</td><td class="td-g">$616</td></tr>
+                <tr><td><span class="lang-el">P/E (βασικό σενάριο)</span><span class="lang-en">P/E (base case)</span></td><td>FY2026E EPS ~$28 × 27x</td><td class="td-g">$756</td></tr>
+                <tr><td><span class="lang-el">P/E (bull case)</span><span class="lang-en">P/E (bull case)</span></td><td>FY2026E EPS ~$30 × 30x</td><td class="td-g">$900</td></tr>
+                <tr><td><span class="lang-el">Συναίνεση Αναλυτών (78 αναλυτές)</span><span class="lang-en">Analyst Consensus (78 analysts)</span></td><td><span class="lang-el">Μέσος στόχος 12 μηνών</span><span class="lang-en">Median target — 12 months</span></td><td class="td-g">$856</td></tr>
+                <tr><td><span class="lang-el">Μοντέλο DCF (TIKR)</span><span class="lang-en">TIKR DCF Model</span></td><td>20% CAGR εσόδων, 33% περιθώρια, 18x P/E</td><td class="td-g">$881 (2028)</td></tr>
+                <tr><td><strong><span class="lang-el">Τιμή Στόχος 12 Μηνών</span><span class="lang-en">Our 12-Month Target</span></strong></td><td><span class="lang-el">Επαναβαθμολόγηση στο ιστορικό μέσο P/E</span><span class="lang-en">Base case re-rating to historical avg P/E</span></td><td class="td-g"><strong>$800</strong></td></tr>
             </tbody>
         </table>
 
         <div class="hl green">
-            <p>💡 At $800, META would trade at ~26x forward earnings — still below its historical average and well below the S&P 500's current P/E. This is a conservative target. The bull case to $900+ is achievable if AI monetization accelerates or CapEx guidance is reduced.</p>
+            <p class="lang-el">💡 Στα $800, η META θα διαπραγματευόταν σε ~26x forward earnings — ακόμα κάτω από τον ιστορικό μέσο της και πολύ κάτω από το τρέχον P/E του S&P 500. Αυτός είναι ένας συντηρητικός στόχος. Το bull case στα $900+ είναι εφικτό αν επιταχυνθεί η μετατροπή AI σε έσοδα.</p>
+            <p class="lang-en">💡 At $800, META would trade at ~26x forward earnings — still below its historical average and well below the S&P 500's current P/E. This is a conservative target. The bull case to $900+ is achievable if AI monetization accelerates.</p>
         </div>
 
-        <h2>The Scorecard</h2>
-
+        <h2><span class="lang-el">Το Αποτέλεσμα</span><span class="lang-en">The Scorecard</span></h2>
         <table class="val-table">
-            <thead><tr><th>Check</th><th>Result</th><th>Weight</th></tr></thead>
+            <thead><tr>
+                <th><span class="lang-el">Έλεγχος</span><span class="lang-en">Check</span></th>
+                <th><span class="lang-el">Αποτέλεσμα</span><span class="lang-en">Result</span></th>
+            </tr></thead>
             <tbody>
-                <tr><td>1. Revenue Growth (+33%, fastest since 2021)</td><td class="td-g">✅ Pass</td><td>Very High</td></tr>
-                <tr><td>2. User Base (3.56B DAP, +4% YoY)</td><td class="td-g">✅ Pass</td><td>High</td></tr>
-                <tr><td>3. Profitability (41% operating margin)</td><td class="td-g">✅ Pass</td><td>High</td></tr>
-                <tr><td>4. Valuation (P/E 22x vs 23x avg, below market)</td><td class="td-g">✅ Pass</td><td>Very High</td></tr>
-                <tr><td>5. CapEx ($125-145B, rising)</td><td style="color:var(--gold);">⚠️ Neutral</td><td>High</td></tr>
-                <tr><td>6. AI Integration (already monetized)</td><td class="td-g">✅ Pass</td><td>High</td></tr>
-                <tr><td>7. Analyst Consensus (96% Buy, target $856)</td><td class="td-g">✅ Pass</td><td>Medium</td></tr>
-                <tr><td><strong>Overall Score</strong></td><td class="td-g"><strong>6 Pass / 1 Neutral / 0 Fail</strong></td><td></td></tr>
+                <tr><td><span class="lang-el">1. Ανάπτυξη Εσόδων (+33%, ταχύτερη από 2021)</span><span class="lang-en">1. Revenue Growth (+33%, fastest since 2021)</span></td><td class="td-g">✅ Pass</td></tr>
+                <tr><td><span class="lang-el">2. Βάση Χρηστών (3,56 δισ. DAP, +4%)</span><span class="lang-en">2. User Base (3.56B DAP, +4% YoY)</span></td><td class="td-g">✅ Pass</td></tr>
+                <tr><td><span class="lang-el">3. Κερδοφορία (περιθώριο λειτουργίας 41%)</span><span class="lang-en">3. Profitability (41% operating margin)</span></td><td class="td-g">✅ Pass</td></tr>
+                <tr><td><span class="lang-el">4. Αποτίμηση (P/E 22x vs 23x μ.ο., κάτω από αγορά)</span><span class="lang-en">4. Valuation (P/E 22x vs 23x avg, below market)</span></td><td class="td-g">✅ Pass</td></tr>
+                <tr><td><span class="lang-el">5. CapEx ($125-145 δισ., αυξανόμενο)</span><span class="lang-en">5. CapEx ($125-145B, rising)</span></td><td style="color:var(--gold);">⚠️ <span class="lang-el">Ουδέτερο</span><span class="lang-en">Neutral</span></td></tr>
+                <tr><td><span class="lang-el">6. Ενσωμάτωση AI (ήδη μετατράπηκε σε έσοδα)</span><span class="lang-en">6. AI Integration (already monetized)</span></td><td class="td-g">✅ Pass</td></tr>
+                <tr><td><span class="lang-el">7. Συναίνεση Αναλυτών (96% Buy, στόχος $856)</span><span class="lang-en">7. Analyst Consensus (96% Buy, target $856)</span></td><td class="td-g">✅ Pass</td></tr>
+                <tr><td><strong><span class="lang-el">Συνολική Βαθμολογία</span><span class="lang-en">Overall Score</span></strong></td><td class="td-g"><strong>6 Pass / 1 Neutral / 0 Fail</strong></td></tr>
             </tbody>
         </table>
 
-        <!-- VERDICT -->
         <div class="verdict-box">
-            <div class="verdict-rating">STRONG BUY</div>
-            <div class="verdict-target">12-Month Price Target: <strong>$800</strong> | Current Price: ~$620 | Upside: ~29%</div>
+            <div class="verdict-rating"><span class="lang-el">ΙΣΧΥΡΗ ΑΓΟΡΑ</span><span class="lang-en">STRONG BUY</span></div>
+            <div class="verdict-target"><span class="lang-el">Τιμή Στόχος 12 Μηνών: <strong>$800</strong> | Τρέχουσα Τιμή: ~$620 | Upside: ~29%</span><span class="lang-en">12-Month Price Target: <strong>$800</strong> | Current Price: ~$620 | Upside: ~29%</span></div>
             <div class="verdict-body">
-                <p>META at $620 is one of the most straightforward value propositions in large-cap technology. The stock has fallen 23% from its high for a single reason: CapEx anxiety. The business itself — 33% revenue growth, 41% operating margins, 3.56 billion daily users, AI already monetized — is arguably the strongest it has ever been.</p>
-                <p style="margin-top:12px;">The 22x P/E is historically cheap for Meta and lower than the S&P 500 average. The 96% analyst buy rate and $856 consensus target reflect near-universal institutional conviction. Our conservative 12-month target of $800 requires only a re-rating to Meta's historical average P/E — no heroic growth assumptions required.</p>
-                <p style="margin-top:12px;">The main risk is that CapEx continues to rise and compresses earnings through 2026-2027, delaying the re-rating. Even in that scenario, the long-term thesis — AI-powered advertising + 3.56B users — remains intact.</p>
-                <p style="margin-top:12px;">For investors with a 12-24 month horizon, <strong>current levels represent an attractive entry point</strong>. The optimal strategy is to accumulate at $580-620 and hold through the CapEx cycle. By 2027-2028, when AI infrastructure spending begins to generate measurable returns, the market is likely to re-rate META significantly higher.</p>
-                <p style="margin-top:12px;font-size:.85rem;color:var(--ink-3);">⚠️ This is our analytical view, not financial advice. Always do your own research.</p>
+                <p class="lang-el">Η META στα $620 είναι μια από τις πιο κατανοητές αξίες στη μεγάλη τεχνολογία. Η μετοχή έχει πέσει 23% από τα υψηλά της για έναν μόνο λόγο: ανησυχία για το CapEx. Η ίδια η επιχείρηση — ανάπτυξη εσόδων 33%, περιθώρια λειτουργίας 41%, 3,56 δισ. ημερήσιοι χρήστες, AI ήδη μετατραπεί σε έσοδα — είναι ίσως στη δυνατότερη φάση της ιστορίας της.</p>
+                <p class="lang-en">META at $620 is one of the most straightforward value propositions in large-cap technology. The stock has fallen 23% from its high for a single reason: CapEx anxiety. The business itself — 33% revenue growth, 41% operating margins, 3.56 billion daily users, AI already monetized — is arguably the strongest it has ever been.</p>
+                <p class="lang-el" style="margin-top:12px;">Το P/E 22x είναι ιστορικά φθηνό για τη Meta και χαμηλότερο από τον μέσο S&P 500. Το ποσοστό Buy 96% και ο μέσος στόχος $856 αντικατοπτρίζουν σχεδόν ομόφωνη θεσμική πεποίθηση. Ο συντηρητικός μας στόχος $800 για 12 μήνες απαιτεί μόνο επαναβαθμολόγηση στον ιστορικό μέσο P/E της Meta — χωρίς ηρωικές υποθέσεις ανάπτυξης.</p>
+                <p class="lang-en" style="margin-top:12px;">The 22x P/E is historically cheap for Meta and lower than the S&P 500 average. The 96% analyst buy rate and $856 consensus target reflect near-universal institutional conviction. Our conservative 12-month target of $800 requires only a re-rating to Meta's historical average P/E — no heroic growth assumptions required.</p>
+                <p class="lang-el" style="margin-top:12px;">Για επενδυτές με ορίζοντα 12-24 μηνών, <strong>τα τρέχοντα επίπεδα αντιπροσωπεύουν ελκυστικό σημείο εισόδου</strong>. Η βέλτιστη στρατηγική είναι συσσώρευση στα $580-620 και διακράτηση μέσω του κύκλου CapEx.</p>
+                <p class="lang-en" style="margin-top:12px;">For investors with a 12-24 month horizon, <strong>current levels represent an attractive entry point</strong>. The optimal strategy is to accumulate at $580-620 and hold through the CapEx cycle. By 2027-2028, when AI infrastructure spending begins to generate measurable returns, the market is likely to re-rate META significantly higher.</p>
+                <p style="margin-top:12px;font-size:.85rem;color:var(--ink-3);">⚠️ <span class="lang-el">Αυτή είναι η αναλυτική μας άποψη, όχι χρηματοοικονομική συμβουλή. Κάντε πάντα τη δική σας έρευνα.</span><span class="lang-en">This is our analytical view, not financial advice. Always do your own research.</span></p>
             </div>
         </div>
 
         <div class="cta-box">
             <div class="cta-text">
-                <h3>Ready to buy META or other stocks?</h3>
-                <p>Freedom24 gives you access to US markets, including Meta Platforms, with competitive fees.</p>
+                <h3><span class="lang-el">Έτοιμος να αγοράσεις META;</span><span class="lang-en">Ready to buy META or other stocks?</span></h3>
+                <p><span class="lang-el">Η Freedom24 σου δίνει πρόσβαση στις αμερικανικές αγορές, συμπεριλαμβανομένης της Meta Platforms.</span><span class="lang-en">Freedom24 gives you access to US markets, including Meta Platforms, with competitive fees.</span></p>
             </div>
-            <a href="https://freedom24.com/invite_from/1767598" target="_blank" class="cta-link">Open an Account →</a>
+            <a href="https://freedom24.com/invite_from/1767598" target="_blank" class="cta-link"><span class="lang-el">Άνοιξε Λογαριασμό →</span><span class="lang-en">Open an Account →</span></a>
         </div>
 
         <div class="related">
-            <h3>📚 Related Analysis</h3>
+            <h3>📚 <span class="lang-el">Σχετικές Αναλύσεις</span><span class="lang-en">Related Analysis</span></h3>
             <div class="rel-grid">
                 <a href="article9.html" class="rel-card">
                     <img src="compound-large.jpg" alt="Google Analysis">
-                    <div class="rel-body"><div class="rel-kicker">Deep Dive</div><div class="rel-title">Alphabet (GOOGL) Deep Dive: 7 Checks & Price Target</div></div>
+                    <div class="rel-body"><div class="rel-kicker">Deep Dive</div><div class="rel-title lang-el">Alphabet (GOOGL) Σε Βάθος: 7 Έλεγχοι & Τιμή Στόχος</div><div class="rel-title lang-en">Alphabet (GOOGL) Deep Dive: 7 Checks & Price Target</div></div>
                 </a>
                 <a href="article8.html" class="rel-card">
                     <img src="fed-large.jpg" alt="Markets ATH">
-                    <div class="rel-body"><div class="rel-kicker">Macro</div><div class="rel-title">Markets at ATH While the World Burns: Great Disconnect</div></div>
+                    <div class="rel-body"><div class="rel-kicker">Macro</div><div class="rel-title lang-el">Αγορές σε ATH Ενώ ο Κόσμος Καίγεται</div><div class="rel-title lang-en">Markets Hit ATH While the World Burns</div></div>
                 </a>
                 <a href="article6.html" class="rel-card">
                     <img src="compound-large.jpg" alt="Investing">
-                    <div class="rel-body"><div class="rel-kicker">Beginner</div><div class="rel-title">How to Start Investing as a Complete Beginner</div></div>
+                    <div class="rel-body"><div class="rel-kicker">Beginner</div><div class="rel-title lang-el">Πώς να Ξεκινήσεις να Επενδύεις</div><div class="rel-title lang-en">How to Start Investing as a Beginner</div></div>
                 </a>
             </div>
         </div>
-
     </div>
 </div>
 
@@ -317,6 +359,7 @@
 </footer>
 
 <script>
+function toggleLang(){document.body.classList.toggle('en');}
 function toggleTheme(){const b=document.body,i=document.getElementById('ti');if(b.getAttribute('data-theme')==='dark'){b.removeAttribute('data-theme');i.className='fas fa-moon';}else{b.setAttribute('data-theme','dark');i.className='fas fa-sun';}}
 </script>
 </body>
