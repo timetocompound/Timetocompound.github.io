@@ -379,28 +379,12 @@
         <!-- FEATURED LATEST ARTICLE -->
         <div id="home-featured"></div>
 
-        <!-- ARTICLE GRID (4 articles, 2x2) -->
-        <div id="home-grid" class="home-grid"></div>
-
-        <!-- FREEDOM24 INLINE CTA -->
-        <a href="https://freedom24.com/invite_from/1767598" target="_blank" class="home-freedom" style="text-decoration:none;">
-            <div class="home-freedom-text">
-                <strong><span class="lang-el">Έτοιμος να επενδύσεις; Δοκίμασε το Freedom24</span><span class="lang-en">Ready to invest? Try Freedom24</span></strong>
-                <span class="lang-el">Χιλιάδες μετοχές, ETFs και ομόλογα σε μία πλατφόρμα. Trusted partner του TimeToCompound.</span>
-                <span class="lang-en">Thousands of stocks, ETFs and bonds on one platform. TimeToCompound's trusted partner.</span>
-            </div>
-            <div class="home-freedom-btn">
-                <span class="lang-el">Άνοιξε Λογαριασμό →</span>
-                <span class="lang-en">Open an Account →</span>
-            </div>
-        </a>
-
-        <!-- NEWSLETTER -->
+        <!-- NEWSLETTER — best position: after featured, user is engaged -->
         <div class="home-newsletter">
             <div class="home-nl-text">
-                <strong><span class="lang-el">📬 Μείνε ενημερωμένος</span><span class="lang-en">📬 Stay informed</span></strong>
-                <span class="lang-el">Νέες αναλύσεις και άρθρα απευθείας στο email σου — χωρίς spam.</span>
-                <span class="lang-en">New analysis and articles straight to your inbox — no spam.</span>
+                <strong><span class="lang-el">📬 Νέο άρθρο 3 φορές την εβδομάδα</span><span class="lang-en">📬 New article 3 times a week</span></strong>
+                <span class="lang-el">Εγγράψου για να το λαμβάνεις απευθείας στο email σου — χωρίς spam.</span>
+                <span class="lang-en">Subscribe to get it straight to your inbox — no spam.</span>
             </div>
             <form onsubmit="submitNewsletter(event)" class="home-nl-form">
                 <input type="email" name="EMAIL" class="home-nl-input" placeholder="your@email.com" required>
@@ -410,6 +394,9 @@
                 </button>
             </form>
         </div>
+
+        <!-- ARTICLE GRID (4 articles, 2x2) -->
+        <div id="home-grid" class="home-grid"></div>
 
     </div>
 
@@ -698,24 +685,11 @@
         </div>
         <div>
             <h5>Newsletter</h5>
-            <p class="foot-about"><span class="lang-el">Τα σημαντικότερα νέα της αγοράς απευθείας στο email σας.</span><span class="lang-en">The most important market news delivered to your inbox.</span></p>
-            <form id="nl-form" onsubmit="submitNewsletter(event)">
-                <input type="email" name="EMAIL" id="nl-email" class="nl-input" placeholder="your@email.com" required>
-                <div style="position:absolute;left:-5000px;" aria-hidden="true">
-                    <input type="text" name="b_e718b16a3b0cc8798bdcda989_edad42aae8" tabindex="-1" value="">
-                </div>
-                <button type="submit" class="nl-btn" id="nl-btn">
-                    <span class="lang-el">Εγγραφή</span><span class="lang-en">Subscribe</span>
-                </button>
-                <div id="nl-success" style="display:none;margin-top:10px;padding:10px 14px;background:rgba(110,231,183,.15);border:1px solid #6EE7B7;border-radius:3px;font-size:.82rem;color:#6EE7B7;">
-                    <span class="lang-el">✅ Εγγραφήκατε επιτυχώς! Σας ευχαριστούμε.</span>
-                    <span class="lang-en">✅ Subscribed successfully! Thank you.</span>
-                </div>
-                <div id="nl-error" style="display:none;margin-top:10px;padding:10px 14px;background:rgba(248,113,113,.1);border:1px solid #F87171;border-radius:3px;font-size:.82rem;color:#F87171;">
-                    <span class="lang-el">❌ Κάτι πήγε στραβά. Δοκιμάστε ξανά.</span>
-                    <span class="lang-en">❌ Something went wrong. Please try again.</span>
-                </div>
-            </form>
+            <p class="foot-about"><span class="lang-el">Εγγράψου στο newsletter μας για να λαμβάνεις νέα άρθρα και αναλύσεις 3 φορές την εβδομάδα.</span><span class="lang-en">Subscribe to our newsletter to receive new articles and analysis 3 times a week.</span></p>
+            <a href="#" onclick="go('home', document.querySelectorAll('.tab-btn')[0]); setTimeout(()=>document.querySelector('.home-nl-input').focus(),400);" style="display:inline-block;background:var(--gold);color:#0D0D0D;padding:10px 20px;border-radius:2px;font-weight:700;font-size:.85rem;transition:opacity .2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+                <span class="lang-el">Εγγραφή →</span>
+                <span class="lang-en">Subscribe →</span>
+            </a>
         </div>
     </div>
     <div class="foot-bottom">
