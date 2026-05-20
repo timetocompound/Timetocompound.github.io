@@ -1,5 +1,21 @@
 [
   {
+    "id": "article13",
+    "section": "my",
+    "date": "2026-05-21",
+    "tags": [
+      "macro",
+      "new"
+    ],
+    "title_el": "📊 Nvidia Q1 FY2027: $81.6 δισ., Ανάπτυξη 85% & Q2 Guidance $91 δισ.",
+    "title_en": "📊 Nvidia Q1 FY2027: $81.6B Revenue, 85% Growth & $91B Q2 Guidance",
+    "desc_el": "Η Nvidia κατέστρεψε κάθε εκτίμηση. Ρεκόρ εσόδων, Data Center +92%, μέρισμα 25x υψηλότερο και $80 δισ. buybacks — χωρίς ούτε ένα δολάριο από Κίνα.",
+    "desc_en": "Nvidia obliterated expectations. Record revenue, Data Center +92%, dividend raised 25x and $80B in buybacks — all without a single dollar from China.",
+    "image": "trading-screen-hero.jpg",
+    "readtime": "8",
+    "featured": true
+  },
+  {
     "id": "article12",
     "section": "my",
     "date": "2026-05-20",
