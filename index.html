@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y9DENNW7FP"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Y9DENNW7FP');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TimeToCompound | Financial Intelligence</title>
+    <meta name="description" content="TimeToCompound: Πρωτότυπες αναλύσεις αγορών, εκπαιδευτικό περιεχόμενο και live δεδομένα για τον σύγχρονο επενδυτή.">
+    <link rel="canonical" href="https://timetocompound.com/">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- TICKER -->
+<div class="ticker-bar">
+    <span class="ticker-label">Markets</span>
+    <div class="ticker-widget">
+        <div class="tradingview-widget-container">
+            <div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-ticker-tape.js" async>
+            {"symbols":[{"proName":"FOREXCOM:SPXUSD","title":"S&P 500"},{"proName":"BITSTAMP:BTCUSD","title":"Bitcoin"},{"description":"Nvidia","proName":"NASDAQ:NVDA"},{"description":"Tesla","proName":"NASDAQ:TSLA"},{"description":"Apple","proName":"NASDAQ:AAPL"},{"description":"Gold","proName":"FOREXCOM:XAUUSD"},{"description":"EUR/USD","proName":"FX:EURUSD"},{"description":"Brent","proName":"UKOIL"}],"showSymbolLogo":false,"colorTheme":"dark","isTransparent":true,"displayMode":"adaptive","locale":"en"}
+            </script>
+        </div>
+    </div>
+</div>
+
+<!-- NAV -->
+<nav>
+    <div class="nav-brand">
+        <div class="brand" onclick="location.reload()">
+            <span class="brand-name">TimeToCompound</span>
+            <span class="brand-sub">Financial Intelligence</span>
+        </div>
+        <div class="nav-controls">
+            <span class="nav-date" id="nav-date"></span>
+            <button class="lang-btn" onclick="toggleLang()" aria-label="Switch language between Greek and English"><span class="lang-el">🇬🇧</span><span class="lang-en">🇬🇷</span></button>
+            <button class="ctrl-btn" onclick="toggleTheme()" aria-label="Toggle dark mode" id="theme-btn"><i class="fas fa-moon" id="theme-icon"></i></button>
+        </div>
+    </div>
+    <div class="nav-tabs" role="tablist">
+        <button class="tab-btn active" onclick="go('home',this)" role="tab" aria-selected="true" aria-label="Home"><span class="lang-el">🏠 Αρχική</span><span class="lang-en">🏠 Home</span></button>
+        <button class="tab-btn" onclick="go('news',this)" role="tab" aria-selected="false" aria-label="News"><span class="lang-el">Ειδήσεις</span><span class="lang-en">News</span></button>
+        <button class="tab-btn" onclick="go('markets',this)" role="tab" aria-selected="false" aria-label="Markets"><span class="lang-el">Αγορές</span><span class="lang-en">Markets</span></button>
+        <button class="tab-btn" onclick="go('analysis',this)" role="tab" aria-selected="false" aria-label="Analysis"><span class="lang-el">Αναλύσεις</span><span class="lang-en">Analysis</span></button>
+        <button class="tab-btn" onclick="go('my',this)" role="tab" aria-selected="false" aria-label="My Analysis"><span class="lang-el">My Analysis ✍️</span><span class="lang-en">My Analysis ✍️</span></button>
+        <button class="tab-btn" onclick="go('academy',this)" role="tab" aria-selected="false" aria-label="Academy"><span class="lang-el">Ακαδημία 🎓</span><span class="lang-en">Academy 🎓</span></button>
+        <button class="tab-btn" onclick="go('about',this)" role="tab" aria-selected="false" aria-label="About Us"><span class="lang-el">Σχετικά</span><span class="lang-en">About Us</span></button>
+    </div>
+</nav>
+
+<!-- MAIN -->
+<div class="site-body">
+<main>
+
+    <!-- ── HOME ── -->
+    <div id="home" class="section active">
+
+        <!-- HERO -->
+        <div class="home-hero">
+            <div class="home-tag">📅 <span class="lang-el">3 νέα άρθρα κάθε εβδομάδα</span><span class="lang-en">3 new articles every week</span></div>
+            <h1 class="lang-el">Deep dives, αναλύσεις αγορών<br>και επενδυτική εκπαίδευση — <em>δωρεάν</em></h1>
+            <h1 class="lang-en">Market deep dives, analysis<br>and investor education — <em>free</em></h1>
+            <p class="lang-el">S&P 500, Magnificent 7, ETFs, μακροοικονομία και αρχές επένδυσης. Όλα εξηγημένα απλά, με αριθμούς και δεδομένα — στα ελληνικά και στα αγγλικά.</p>
+            <p class="lang-en">S&P 500, Magnificent 7, ETFs, macroeconomics and investing fundamentals. All explained simply, with data and numbers — in Greek and English.</p>
+            <div class="home-ctas">
+                <button class="home-cta-primary" onclick="go('my', document.querySelectorAll('.tab-btn')[4])">
+                    <span class="lang-el">📊 Τελευταίες Αναλύσεις</span>
+                    <span class="lang-en">📊 Latest Analysis</span>
+                </button>
+                <button class="home-cta-secondary" onclick="go('academy', document.querySelectorAll('.tab-btn')[5])">
+                    <span class="lang-el">🎓 Ξεκίνα να Μαθαίνεις</span>
+                    <span class="lang-en">🎓 Start Learning</span>
+                </button>
+            </div>
+            <div class="home-stats">
+                <div><div class="home-stat-num">Live</div><div class="home-stat-label"><span class="lang-el">Δεδομένα Αγορών</span><span class="lang-en">Market Data</span></div></div>
+                <div><div class="home-stat-num">100%</div><div class="home-stat-label"><span class="lang-el">Δωρεάν</span><span class="lang-en">Free</span></div></div>
+                <div><div class="home-stat-num">2</div><div class="home-stat-label"><span class="lang-el">Γλώσσες</span><span class="lang-en">Languages</span></div></div>
+                <div><div class="home-stat-num">3×</div><div class="home-stat-label"><span class="lang-el">Άρθρα/Εβδομάδα</span><span class="lang-en">Articles/Week</span></div></div>
+            </div>
+        </div>
+
+        <!-- SCHEDULE BADGE -->
+        <div class="home-schedule">
+            <div class="home-schedule-dot"></div>
+            <div class="home-schedule-text lang-el"><strong>Νέο περιεχόμενο 3 φορές την εβδομάδα</strong> — αναλύσεις αγορών, deep dives και εκπαιδευτικά άρθρα. Εγγράψου για να μην χάσεις τίποτα.</div>
+            <div class="home-schedule-text lang-en"><strong>New content 3 times a week</strong> — market analysis, deep dives and educational articles. Subscribe so you don't miss anything.</div>
+        </div>
+
+        <!-- FEATURED LATEST ARTICLE -->
+        <div id="home-featured"></div>
+
+        <!-- NEWSLETTER — best position: after featured, user is engaged -->
+        <div class="home-newsletter">
+            <div class="home-nl-text">
+                <strong><span class="lang-el">📬 Νέο άρθρο 3 φορές την εβδομάδα</span><span class="lang-en">📬 New article 3 times a week</span></strong>
+                <span class="lang-el">Εγγράψου για να το λαμβάνεις απευθείας στο email σου — χωρίς spam.</span>
+                <span class="lang-en">Subscribe to get it straight to your inbox — no spam.</span>
+            </div>
+            <form onsubmit="submitNewsletter(event)" class="home-nl-form">
+                <input type="email" name="EMAIL" class="home-nl-input" placeholder="your@email.com" required>
+                <button type="submit" class="home-nl-btn">
+                    <span class="lang-el">Εγγραφή →</span>
+                    <span class="lang-en">Subscribe →</span>
+                </button>
+            </form>
+        </div>
+
+        <!-- ARTICLE GRID (4 articles, 2x2) -->
+        <div id="home-grid" class="home-grid"></div>
+
+    </div>
+
+    <!-- ── NEWS ── -->
+    <div id="news" class="section">
+        <div id="hero"></div>
+        <div class="sec-head">
+            <span class="sec-kicker">Live Feed</span>
+            <span class="sec-title"><span class="lang-el">Τελευταίες Ειδήσεις</span><span class="lang-en">Latest Headlines</span></span>
+        </div>
+        <div id="feed" class="art-grid">
+            <div class="loading" style="grid-column:1/-1"><i class="fas fa-circle-notch fa-spin"></i><span class="lang-el">Φόρτωση...</span><span class="lang-en">Loading...</span></div>
+        </div>
+    </div>
+
+    <!-- ── MARKETS ── -->
+    <div id="markets" class="section">
+        <div class="sec-head"><span class="sec-kicker">Live Data</span><span class="sec-title"><span class="lang-el">Ταμπλό Αγορών</span><span class="lang-en">Market Dashboard</span></span></div>
+        <div class="sec-head" style="margin-top:0;border-top:none;padding-top:0;">
+            <span class="sec-kicker">Indices</span>
+            <span class="sec-title"><span class="lang-el">Κύριοι Δείκτες</span><span class="lang-en">Major Indices</span></span>
+        </div>
+        <div class="indices-row">
+            <div class="index-card">
+                <div class="index-card-head"><span class="index-name">S&P 500</span></div>
+                <div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                {"symbol":"FOREXCOM:SPXUSD","width":"100%","height":"180","locale":"en","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":false,"largeChartUrl":"","chartOnly":false,"noTimeScale":false}</script></div>
+            </div>
+            <div class="index-card">
+                <div class="index-card-head"><span class="index-name">Nasdaq 100</span></div>
+                <div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                {"symbol":"FOREXCOM:NSXUSD","width":"100%","height":"180","locale":"en","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":false,"largeChartUrl":"","chartOnly":false,"noTimeScale":false}</script></div>
+            </div>
+            <div class="index-card">
+                <div class="index-card-head"><span class="index-name">Dow Jones</span></div>
+                <div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+                <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+                {"symbol":"FOREXCOM:DJI","width":"100%","height":"180","locale":"en","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":false,"largeChartUrl":"","chartOnly":false,"noTimeScale":false}</script></div>
+            </div>
+        </div>
+
+        <div class="sec-head">
+            <span class="sec-kicker">Stocks & ETFs</span>
+            <span class="sec-title"><span class="lang-el">Magnificent 7 & Top ETFs</span><span class="lang-en">Magnificent 7 & Top ETFs</span></span>
+        </div>
+        <div class="stocks-grid">
+            <div class="stock-mini"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+            {"symbol":"NASDAQ:NVDA","width":"100%","height":"160","locale":"en","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":false,"chartOnly":false}</script></div></div>
+            <div class="stock-mini"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+            {"symbol":"NASDAQ:AAPL","width":"100%","height":"160","locale":"en","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":false,"chartOnly":false}</script></div></div>
+            <div class="stock-mini"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+            {"symbol":"NASDAQ:MSFT","width":"100%","height":"160","locale":"en","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":false,"chartOnly":false}</script></div></div>
+            <div class="stock-mini"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+            {"symbol":"NASDAQ:GOOGL","width":"100%","height":"160","locale":"en","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":false,"chartOnly":false}</script></div></div>
+            <div class="stock-mini"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+            {"symbol":"NASDAQ:AMZN","width":"100%","height":"160","locale":"en","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":false,"chartOnly":false}</script></div></div>
+            <div class="stock-mini"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+            {"symbol":"NASDAQ:META","width":"100%","height":"160","locale":"en","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":false,"chartOnly":false}</script></div></div>
+            <div class="stock-mini"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+            {"symbol":"NASDAQ:TSLA","width":"100%","height":"160","locale":"en","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":false,"chartOnly":false}</script></div></div>
+            <div class="stock-mini"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
+            {"symbol":"AMEX:SPY","width":"100%","height":"160","locale":"en","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":false,"chartOnly":false}</script></div></div>
+        </div>
+
+        <div class="sec-head">
+            <span class="sec-kicker">Search</span>
+            <span class="sec-title"><span class="lang-el">Αναζήτηση Μετοχής / ETF</span><span class="lang-en">Search Any Stock / ETF</span></span>
+        </div>
+        <div class="market-search">
+            <input type="text" id="stock-search-input" class="market-search-input"
+                placeholder="π.χ. AAPL, TSLA, BTC, VUAA, SPY..."
+                onkeydown="if(event.key==='Enter')searchStock()">
+            <button class="market-search-btn" onclick="searchStock()">
+                <i class="fas fa-search"></i>
+                <span class="lang-el">Αναζήτηση</span><span class="lang-en">Search</span>
+            </button>
+        </div>
+
+        <div class="chart-hot-grid">
+            <div>
+                <div class="sec-head" style="border-top:none;padding-top:0;margin-top:0;">
+                    <span class="sec-kicker">Chart</span>
+                    <span class="sec-title" id="chart-label"><span class="lang-el">Γράφημα</span><span class="lang-en">Chart</span></span>
+                </div>
+                <div id="tv-chart-container" style="height:500px;border:1px solid var(--rule);border-radius:3px;overflow:hidden;">
+                    <div class="tradingview-widget-container" style="height:100%;width:100%">
+                        <div class="tradingview-widget-container__widget" style="height:100%;width:100%"></div>
+                        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-advanced-chart.js" async>
+                        {"autosize":true,"symbol":"FOREXCOM:SPXUSD","interval":"D","timezone":"Etc/UTC","theme":"light","style":"1","locale":"en","enable_publishing":false,"allow_symbol_change":true,"support_host":"https://www.tradingview.com"}</script>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="sec-head" style="border-top:none;padding-top:0;margin-top:0;">
+                    <span class="sec-kicker">Hot</span>
+                    <span class="sec-title"><span class="lang-el">Hot Μετοχές</span><span class="lang-en">Hot Stocks</span></span>
+                </div>
+                <div style="border:1px solid var(--rule);border-radius:3px;overflow:hidden;">
+                    <div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+                    <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-hotlists.js" async>
+                    {"colorTheme":"light","dateRange":"1D","exchange":"US","showChart":false,"locale":"en","isTransparent":true,"showSymbolLogo":true,"width":"100%","height":"500"}</script></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="sec-head">
+            <span class="sec-kicker">Forex</span>
+            <span class="sec-title"><span class="lang-el">Συναλλαγματικές Ισοτιμίες</span><span class="lang-en">Forex Rates</span></span>
+        </div>
+        <div style="border:1px solid var(--rule);border-radius:3px;overflow:hidden;">
+            <div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+            <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-forex-cross-rates.js" async>
+            {"width":"100%","height":"300","currencies":["EUR","USD","JPY","GBP","CAD","AUD","NZD"],"isTransparent":true,"colorTheme":"light","locale":"en","showBorders":false,"showHeaders":false}</script></div>
+        </div>
+    </div>
+
+    <!-- ── ANALYSIS ── -->
+    <div id="analysis" class="section">
+        <div class="sec-head"><span class="sec-kicker">Investing.com</span><span class="sec-title"><span class="lang-el">Αναλύσεις Αγορών</span><span class="lang-en">Market Analysis</span></span></div>
+        <div id="art-feed" class="art-grid">
+            <div class="loading" style="grid-column:1/-1"><i class="fas fa-circle-notch fa-spin"></i></div>
+        </div>
+    </div>
+
+    <!-- ── MY ANALYSIS ── -->
+    <div id="my" class="section">
+        <div class="sec-head"><span class="sec-kicker">Original</span><span class="sec-title"><span class="lang-el">My Analysis — Πρωτότυπες Αναλύσεις</span><span class="lang-en">My Analysis — Original Insights</span></span></div>
+        <div id="my-list" class="analysis-list">
+            <div class="loading" style="grid-column:1/-1"><i class="fas fa-circle-notch fa-spin"></i></div>
+        </div>
+    </div>
+
+    <!-- ── ACADEMY ── -->
+    <div id="academy" class="section">
+        <div class="sec-head"><span class="sec-kicker">Learn</span><span class="sec-title"><span class="lang-el">Ακαδημία Trading</span><span class="lang-en">Trading Academy</span></span></div>
+        <div id="academy-list" class="analysis-list">
+            <div class="loading" style="grid-column:1/-1"><i class="fas fa-circle-notch fa-spin"></i></div>
+        </div>
+    </div>
+
+    <!-- ── ABOUT ── -->
+    <div id="about" class="section">
+        <div style="background:var(--green);border-radius:4px;padding:52px 40px;margin-bottom:32px;position:relative;overflow:hidden;">
+            <div style="position:absolute;top:-50px;right:-50px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.04);"></div>
+            <div style="font-size:.62rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:rgba(255,255,255,.5);margin-bottom:14px;"><span class="lang-el">Ποιοι είμαστε</span><span class="lang-en">Who we are</span></div>
+            <h1 style="font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:700;color:#fff;line-height:1.15;margin-bottom:16px;">
+                <span class="lang-el">Χτίζουμε το μέλλον της<br>χρηματοοικονομικής ενημέρωσης</span>
+                <span class="lang-en">Building the future of<br>financial intelligence</span>
+            </h1>
+            <p style="font-size:1rem;color:rgba(255,255,255,.7);line-height:1.7;max-width:560px;margin-bottom:32px;">
+                <span class="lang-el">Το TimeToCompound γεννήθηκε από μια απλή πεποίθηση: η πρόσβαση σε ποιοτική χρηματοοικονομική ανάλυση δεν πρέπει να είναι προνόμιο λίγων. Είμαστε εδώ για να αλλάξουμε αυτό.</span>
+                <span class="lang-en">TimeToCompound was born from a simple belief: access to quality financial analysis should not be a privilege of the few. We're here to change that.</span>
+            </p>
+            <div style="display:flex;gap:36px;flex-wrap:wrap;">
+                <div><div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:#6EE7B7;"><span class="lang-el">Νέα</span><span class="lang-en">Fresh</span></div><div style="font-size:.7rem;color:rgba(255,255,255,.5);margin-top:3px;"><span class="lang-el">Άρθρα Κάθε Εβδομάδα</span><span class="lang-en">Articles Every Week</span></div></div>
+                <div><div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:#6EE7B7;">Live</div><div style="font-size:.7rem;color:rgba(255,255,255,.5);margin-top:3px;"><span class="lang-el">Δεδομένα Αγορών</span><span class="lang-en">Market Data</span></div></div>
+                <div><div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:#6EE7B7;">100%</div><div style="font-size:.7rem;color:rgba(255,255,255,.5);margin-top:3px;"><span class="lang-el">Δωρεάν</span><span class="lang-en">Free</span></div></div>
+                <div><div style="font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:700;color:#6EE7B7;">2</div><div style="font-size:.7rem;color:rgba(255,255,255,.5);margin-top:3px;"><span class="lang-el">Γλώσσες</span><span class="lang-en">Languages</span></div></div>
+            </div>
+        </div>
+
+        <div class="sec-head"><span class="sec-kicker"><span class="lang-el">Αποστολή</span><span class="lang-en">Mission</span></span><span class="sec-title"><span class="lang-el">Τι μας καθοδηγεί</span><span class="lang-en">What drives us</span></span></div>
+        <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-bottom:36px;">
+            <div style="background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;padding:24px;border-top:3px solid var(--gold);">
+                <div style="font-size:1.5rem;margin-bottom:10px;">📰</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:8px;"><span class="lang-el">Άμεση Ενημέρωση</span><span class="lang-en">Real-Time News</span></div>
+                <p style="font-size:.85rem;color:var(--ink-2);line-height:1.6;margin:0;" class="lang-el">Ειδήσεις από τις κορυφαίες πηγές — Yahoo Finance, Investing.com, CoinTelegraph — σε πραγματικό χρόνο.</p>
+                <p style="font-size:.85rem;color:var(--ink-2);line-height:1.6;margin:0;" class="lang-en">News from top sources — Yahoo Finance, Investing.com, CoinTelegraph — aggregated in real time.</p>
+            </div>
+            <div style="background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;padding:24px;border-top:3px solid var(--gold);">
+                <div style="font-size:1.5rem;margin-bottom:10px;">🔍</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:8px;"><span class="lang-el">Πρωτότυπη Ανάλυση</span><span class="lang-en">Original Analysis</span></div>
+                <p style="font-size:.85rem;color:var(--ink-2);line-height:1.6;margin:0;" class="lang-el">Βαθιές αναλύσεις με αριθμούς, σενάρια και τιμές στόχους — όχι αναδημοσιεύσεις.</p>
+                <p style="font-size:.85rem;color:var(--ink-2);line-height:1.6;margin:0;" class="lang-en">Deep-dive analyses with numbers, scenarios and price targets — not republished content.</p>
+            </div>
+            <div style="background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;padding:24px;border-top:3px solid var(--gold);">
+                <div style="font-size:1.5rem;margin-bottom:10px;">🎓</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:8px;"><span class="lang-el">Εκπαίδευση Επενδυτών</span><span class="lang-en">Investor Education</span></div>
+                <p style="font-size:.85rem;color:var(--ink-2);line-height:1.6;margin:0;" class="lang-el">Η Ακαδημία εξηγεί τα βασικά της επένδυσης απλά: ανατοκισμός, ETFs, τεχνική ανάλυση.</p>
+                <p style="font-size:.85rem;color:var(--ink-2);line-height:1.6;margin:0;" class="lang-en">The Academy explains investing fundamentals simply: compound interest, ETFs, technical analysis.</p>
+            </div>
+        </div>
+
+        <div style="background:var(--green);border-radius:4px;padding:36px 40px;margin-bottom:36px;position:relative;overflow:hidden;">
+            <div style="position:absolute;top:-20px;left:20px;font-family:'Cormorant Garamond',serif;font-size:9rem;font-weight:700;color:rgba(255,255,255,.05);line-height:1;">"</div>
+            <p style="font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-style:italic;color:#fff;line-height:1.45;margin-bottom:14px;position:relative;z-index:1;">
+                <span class="lang-el">"Ο καλύτερος χρόνος για να ξεκινήσεις να επενδύεις ήταν χθες. Ο δεύτερος καλύτερος είναι σήμερα."</span>
+                <span class="lang-en">"The best time to start investing was yesterday. The second best time is today."</span>
+            </p>
+            <p style="font-size:.78rem;color:rgba(255,255,255,.5);position:relative;z-index:1;">— TimeToCompound</p>
+        </div>
+
+        <div class="sec-head"><span class="sec-kicker"><span class="lang-el">Αρχές</span><span class="lang-en">Principles</span></span><span class="sec-title"><span class="lang-el">Τι μας ξεχωρίζει</span><span class="lang-en">What sets us apart</span></span></div>
+        <div style="border:1px solid var(--rule);border-radius:4px;overflow:hidden;margin-bottom:36px;">
+            <div style="display:flex;background:var(--paper-2);border-bottom:1px solid var(--rule);">
+                <div style="width:56px;flex-shrink:0;background:var(--green);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:rgba(255,255,255,.3);">01</div>
+                <div style="padding:16px 20px;"><div style="font-weight:700;font-size:.9rem;margin-bottom:3px;"><span class="lang-el">Ακρίβεια Πάνω Από Όλα</span><span class="lang-en">Accuracy Above All</span></div><p style="font-size:.84rem;color:var(--ink-2);line-height:1.55;margin:0;" class="lang-el">Κάθε αριθμός επαληθεύεται. Κάθε τιμή στόχος στηρίζεται σε συγκεκριμένο μοντέλο αποτίμησης.</p><p style="font-size:.84rem;color:var(--ink-2);line-height:1.55;margin:0;" class="lang-en">Every number is verified. Every price target is grounded in a specific valuation model.</p></div>
+            </div>
+            <div style="display:flex;background:var(--paper-2);border-bottom:1px solid var(--rule);">
+                <div style="width:56px;flex-shrink:0;background:var(--green);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:rgba(255,255,255,.3);">02</div>
+                <div style="padding:16px 20px;"><div style="font-weight:700;font-size:.9rem;margin-bottom:3px;"><span class="lang-el">Ανεξαρτησία</span><span class="lang-en">Independence</span></div><p style="font-size:.84rem;color:var(--ink-2);line-height:1.55;margin:0;" class="lang-el">Δεν λαμβάνουμε πληρωμή για να προωθήσουμε επενδύσεις. Τα affiliate links μας είναι πλήρως διαφανή.</p><p style="font-size:.84rem;color:var(--ink-2);line-height:1.55;margin:0;" class="lang-en">We are not paid to promote investments. Our affiliate links are fully transparent.</p></div>
+            </div>
+            <div style="display:flex;background:var(--paper-2);border-bottom:1px solid var(--rule);">
+                <div style="width:56px;flex-shrink:0;background:var(--green);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:rgba(255,255,255,.3);">03</div>
+                <div style="padding:16px 20px;"><div style="font-weight:700;font-size:.9rem;margin-bottom:3px;"><span class="lang-el">Δωρεάν για Πάντα</span><span class="lang-en">Free Forever</span></div><p style="font-size:.84rem;color:var(--ink-2);line-height:1.55;margin:0;" class="lang-el">Κάθε άρθρο, κάθε ανάλυση, κάθε εργαλείο — δωρεάν. Η οικονομική εκπαίδευση ανήκει σε όλους.</p><p style="font-size:.84rem;color:var(--ink-2);line-height:1.55;margin:0;" class="lang-en">Every article, every analysis, every tool — free. Financial education belongs to everyone.</p></div>
+            </div>
+            <div style="display:flex;background:var(--paper-2);">
+                <div style="width:56px;flex-shrink:0;background:var(--green);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:700;color:rgba(255,255,255,.3);">04</div>
+                <div style="padding:16px 20px;"><div style="font-weight:700;font-size:.9rem;margin-bottom:3px;"><span class="lang-el">Απλότητα Χωρίς Απλοποίηση</span><span class="lang-en">Simplicity Without Oversimplification</span></div><p style="font-size:.84rem;color:var(--ink-2);line-height:1.55;margin:0;" class="lang-el">Εξηγούμε σύνθετες έννοιες με απλά λόγια — χωρίς να θυσιάζουμε την ακρίβεια.</p><p style="font-size:.84rem;color:var(--ink-2);line-height:1.55;margin:0;" class="lang-en">We explain complex concepts in simple language — without sacrificing accuracy.</p></div>
+            </div>
+        </div>
+
+        <div style="background:var(--paper-3);border:1px solid var(--rule);border-radius:4px;padding:20px 24px;">
+            <div style="font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px;">⚠️ <span class="lang-el">Αποποίηση Ευθύνης</span><span class="lang-en">Disclaimer</span></div>
+            <p style="font-size:.82rem;color:var(--ink-3);line-height:1.65;margin:0;" class="lang-el">Το περιεχόμενο του TimeToCompound παρέχεται αποκλειστικά για εκπαιδευτικούς σκοπούς. Δεν αποτελεί χρηματοοικονομική συμβουλή. Κάθε επενδυτική απόφαση πρέπει να λαμβάνεται αφού συμβουλευθείτε αδειοδοτημένο χρηματοοικονομικό σύμβουλο.</p>
+            <p style="font-size:.82rem;color:var(--ink-3);line-height:1.65;margin:0;" class="lang-en">The content of TimeToCompound is provided solely for educational purposes. It does not constitute financial advice. Any investment decision should be made after consulting a licensed financial advisor. Past performance does not guarantee future results.</p>
+        </div>
+    </div>
+
+</main>
+
+<!-- SIDEBAR -->
+<aside class="sidebar">
+    <div class="freedom-w">
+        <div class="freedom-badge"><i class="fas fa-shield-alt"></i> Trusted Partner</div>
+        <div class="freedom-name">Invest with Freedom24</div>
+        <div class="freedom-copy">
+            <span class="lang-el">Πρόσβαση σε χιλιάδες μετοχές, ETFs και ομόλογα από US, EU & Asian αγορές. Όλα σε μια πλατφόρμα.</span>
+            <span class="lang-en">Access thousands of stocks, ETFs and bonds across US, EU & Asian markets. All from one platform.</span>
+        </div>
+        <a href="https://freedom24.com/invite_from/1767598" target="_blank" class="freedom-cta">
+            <span class="lang-el">Άνοιξε Λογαριασμό →</span>
+            <span class="lang-en">Open an Account →</span>
+        </a>
+    </div>
+
+    <div class="widget">
+        <div class="whead"><span class="wlabel"><span class="lang-el">Επισκόπηση Αγορών</span><span class="lang-en">Market Overview</span></span></div>
+        <div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-market-overview.js" async>
+        {"colorTheme":"light","dateRange":"12M","showChart":false,"locale":"en","isTransparent":true,"showSymbolLogo":true,"width":"100%","height":"560","tabs":[{"title":"Indices","symbols":[{"s":"FOREXCOM:SPXUSD","d":"S&P 500"},{"s":"FOREXCOM:NSXUSD","d":"Nasdaq 100"},{"s":"FOREXCOM:DJI","d":"Dow 30"},{"s":"INDEX:NKY","d":"Nikkei 225"},{"s":"INDEX:DEU40","d":"DAX 40"},{"s":"FOREXCOM:UK100","d":"FTSE 100"},{"s":"INDEX:CAC40","d":"CAC 40"},{"s":"FOREXCOM:EU50","d":"Euro Stoxx 50"}]},{"title":"Crypto","symbols":[{"s":"BITSTAMP:BTCUSD","d":"Bitcoin"},{"s":"BITSTAMP:ETHUSD","d":"Ethereum"},{"s":"BINANCE:SOLUSDT","d":"Solana"},{"s":"BINANCE:XRPUSDT","d":"XRP"},{"s":"BINANCE:BNBUSDT","d":"BNB"},{"s":"BINANCE:DOGEUSDT","d":"Dogecoin"}]}]}</script></div>
+    </div>
+
+    <div class="widget">
+        <div class="whead"><span class="wlabel"><span class="lang-el">Οικονομικό Ημερολόγιο</span><span class="lang-en">Economic Calendar</span></span></div>
+        <div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-events.js" async>
+        {"colorTheme":"light","isTransparent":true,"width":"100%","height":"360","locale":"en","importanceFilter":"0,1"}</script></div>
+    </div>
+</aside>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <div class="foot-grid">
+        <div>
+            <div class="foot-name">TimeToCompound</div>
+            <p class="foot-about"><span class="lang-el">Πρωτότυπες αναλύσεις, εκπαιδευτικό περιεχόμενο και live δεδομένα αγορών για τον σύγχρονο επενδυτή.</span><span class="lang-en">Original analysis, educational content and live market data for the modern investor.</span></p>
+            <div class="social-row">
+                <a href="https://x.com/TimeToCompound" target="_blank" class="soc" title="Follow on X"><i class="fab fa-x-twitter"></i></a>
+            </div>
+        </div>
+        <div>
+            <h5><span class="lang-el">Πλοήγηση</span><span class="lang-en">Navigation</span></h5>
+            <ul class="foot-links">
+                <li><a href="about.html"><span class="lang-el">Σχετικά με εμάς</span><span class="lang-en">About Us</span></a></li>
+                <li><a href="https://freedom24.com/invite_from/1767598" target="_blank"><span class="lang-el">Επενδύστε με Freedom24</span><span class="lang-en">Invest with Freedom24</span></a></li>
+                <li><a href="https://x.com/TimeToCompound" target="_blank"><span class="lang-el">Ακολούθησέ μας στο X</span><span class="lang-en">Follow us on X</span></a></li>
+            </ul>
+        </div>
+        <div>
+            <h5>Newsletter</h5>
+            <p class="foot-about"><span class="lang-el">Εγγράψου για να λαμβάνεις νέα άρθρα 3 φορές την εβδομάδα.</span><span class="lang-en">Subscribe to receive new articles 3 times a week.</span></p>
+            <a href="#" onclick="go('home', document.querySelectorAll('.tab-btn')[0]); setTimeout(()=>document.querySelector('.home-nl-input').focus(),400);" style="display:inline-block;background:var(--gold);color:#0D0D0D;padding:10px 20px;border-radius:2px;font-weight:700;font-size:.85rem;transition:opacity .2s;" onmouseover="this.style.opacity='.85'" onmouseout="this.style.opacity='1'">
+                <span class="lang-el">Εγγραφή →</span>
+                <span class="lang-en">Subscribe →</span>
+            </a>
+        </div>
+    </div>
+    <div class="foot-bottom">
+        <span>&copy; 2026 TimeToCompound. All rights reserved.</span>
+        <span><a href="https://x.com/TimeToCompound" target="_blank">𝕏 @TimeToCompound</a></span>
+    </div>
+    <div style="border-top:1px solid #1A1A1A;max-width:1300px;margin:0 auto;padding:14px 28px;text-align:center;font-size:.72rem;color:#3A3A3A;line-height:1.6;">
+        <span class="lang-el">⚠️ Το περιεχόμενο του TimeToCompound παρέχεται αποκλειστικά για εκπαιδευτικούς σκοπούς και δεν αποτελεί επενδυτική ή χρηματοοικονομική συμβουλή. Οι αποδόσεις του παρελθόντος δεν εγγυώνται μελλοντικά αποτελέσματα. Συμβουλευθείτε αδειοδοτημένο χρηματοοικονομικό σύμβουλο πριν λάβετε οποιαδήποτε επενδυτική απόφαση.</span>
+        <span class="lang-en">⚠️ The content on TimeToCompound is provided for educational purposes only and does not constitute investment or financial advice. Past performance does not guarantee future results. Please consult a licensed financial advisor before making any investment decisions.</span>
+    </div>
+</footer>
+
+<script src="scripts.js"></script>
+</body>
+</html>
