@@ -104,7 +104,7 @@
         .art-desc{font-size:.825rem;color:var(--ink-2);line-height:1.55;display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden;}
         .art-date{font-size:.7rem;color:var(--ink-3);margin-top:auto;padding-top:10px;border-top:1px solid var(--rule);}
 
-        /* ─── ANALYSIS LIST (My Analysis / Academy) ─── */
+        /* ─── ANALYSIS LIST ─── */
         .analysis-list{display:flex;flex-direction:column;gap:0;}
         .analysis-item{display:grid;grid-template-columns:160px 1fr;gap:0;border:1px solid var(--rule);border-bottom:none;background:var(--paper-2);cursor:pointer;transition:background .2s;}
         .analysis-item:last-child{border-bottom:1px solid var(--rule);}
@@ -141,8 +141,6 @@
         .freedom-badge{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.12);color:rgba(255,255,255,.85);font-size:.6rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 10px;border-radius:2px;margin-bottom:14px;}
         .freedom-name{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:8px;line-height:1.2;}
         .freedom-copy{font-size:.82rem;color:rgba(255,255,255,.65);line-height:1.5;margin-bottom:20px;}
-        .freedom-num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:700;color:#6EE7B7;line-height:1;margin-bottom:2px;}
-        .freedom-numlabel{font-size:.7rem;color:rgba(255,255,255,.45);margin-bottom:18px;}
         .freedom-cta{display:block;background:#fff;color:var(--green);text-align:center;padding:12px;border-radius:2px;font-weight:700;font-size:.875rem;transition:all .2s;letter-spacing:.3px;}
         .freedom-cta:hover{background:#F0FDF4;transform:translateY(-1px);}
 
@@ -197,18 +195,15 @@
         .site-body.markets-wide{grid-template-columns:1fr;}
         .site-body.markets-wide .sidebar{display:none;}
 
-        /* INDICES ROW */
         .indices-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:28px;}
         .index-card{border:1px solid var(--rule);border-radius:3px;overflow:hidden;background:var(--paper-2);}
         .index-card-head{padding:12px 16px;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;}
         .index-name{font-size:.7rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--gold);}
 
-        /* MAG7 GRID */
         .stocks-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:28px;}
         .stock-mini{border:1px solid var(--rule);border-radius:3px;overflow:hidden;background:var(--paper-2);transition:border-color .2s;}
         .stock-mini:hover{border-color:var(--gold);}
 
-        /* SEARCH BAR */
         .market-search{display:flex;gap:10px;margin-bottom:28px;}
         .market-search-input{flex:1;padding:12px 16px;border:1px solid var(--rule);border-radius:3px;background:var(--paper-2);color:var(--ink);font-family:'Outfit',sans-serif;font-size:.95rem;outline:none;transition:border-color .2s;}
         .market-search-input:focus{border-color:var(--gold);}
@@ -217,7 +212,6 @@
         .market-search-btn:hover{background:var(--green-light);}
         [data-theme="dark"] .market-search-btn{background:var(--gold);color:#0D0D0D;}
 
-        /* CHART + HOTLISTS */
         .chart-hot-grid{display:grid;grid-template-columns:2fr 1fr;gap:20px;margin-bottom:28px;}
 
         @media(max-width:768px){
@@ -284,8 +278,6 @@
     <!-- ── MARKETS ── -->
     <div id="markets" class="section">
         <div class="sec-head"><span class="sec-kicker">Live Data</span><span class="sec-title"><span class="lang-el">Ταμπλό Αγορών</span><span class="lang-en">Market Dashboard</span></span></div>
-
-        <!-- MAJOR INDICES -->
         <div class="sec-head" style="margin-top:0;border-top:none;padding-top:0;">
             <span class="sec-kicker">Indices</span>
             <span class="sec-title"><span class="lang-el">Κύριοι Δείκτες</span><span class="lang-en">Major Indices</span></span>
@@ -311,7 +303,6 @@
             </div>
         </div>
 
-        <!-- MAGNIFICENT 7 + SPY -->
         <div class="sec-head">
             <span class="sec-kicker">Stocks & ETFs</span>
             <span class="sec-title"><span class="lang-el">Magnificent 7 & Top ETFs</span><span class="lang-en">Magnificent 7 & Top ETFs</span></span>
@@ -320,37 +311,29 @@
             <div class="stock-mini"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
             {"symbol":"NASDAQ:NVDA","width":"100%","height":"160","locale":"en","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":false,"chartOnly":false}</script></div></div>
-
             <div class="stock-mini"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
             {"symbol":"NASDAQ:AAPL","width":"100%","height":"160","locale":"en","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":false,"chartOnly":false}</script></div></div>
-
             <div class="stock-mini"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
             {"symbol":"NASDAQ:MSFT","width":"100%","height":"160","locale":"en","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":false,"chartOnly":false}</script></div></div>
-
             <div class="stock-mini"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
             {"symbol":"NASDAQ:GOOGL","width":"100%","height":"160","locale":"en","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":false,"chartOnly":false}</script></div></div>
-
             <div class="stock-mini"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
             {"symbol":"NASDAQ:AMZN","width":"100%","height":"160","locale":"en","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":false,"chartOnly":false}</script></div></div>
-
             <div class="stock-mini"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
             {"symbol":"NASDAQ:META","width":"100%","height":"160","locale":"en","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":false,"chartOnly":false}</script></div></div>
-
             <div class="stock-mini"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
             {"symbol":"NASDAQ:TSLA","width":"100%","height":"160","locale":"en","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":false,"chartOnly":false}</script></div></div>
-
             <div class="stock-mini"><div class="tradingview-widget-container"><div class="tradingview-widget-container__widget"></div>
             <script type="text/javascript" src="https://s3.tradingview.com/external-embedding/embed-widget-mini-symbol-overview.js" async>
             {"symbol":"AMEX:SPY","width":"100%","height":"160","locale":"en","dateRange":"3M","colorTheme":"light","isTransparent":true,"autosize":false,"chartOnly":false}</script></div></div>
         </div>
 
-        <!-- STOCK SEARCH -->
         <div class="sec-head">
             <span class="sec-kicker">Search</span>
             <span class="sec-title"><span class="lang-el">Αναζήτηση Μετοχής / ETF</span><span class="lang-en">Search Any Stock / ETF</span></span>
@@ -365,7 +348,6 @@
             </button>
         </div>
 
-        <!-- ADVANCED CHART + HOTLISTS -->
         <div class="chart-hot-grid">
             <div>
                 <div class="sec-head" style="border-top:none;padding-top:0;margin-top:0;">
@@ -393,7 +375,6 @@
             </div>
         </div>
 
-        <!-- FOREX -->
         <div class="sec-head">
             <span class="sec-kicker">Forex</span>
             <span class="sec-title"><span class="lang-el">Συναλλαγματικές Ισοτιμίες</span><span class="lang-en">Forex Rates</span></span>
@@ -438,7 +419,7 @@
             <a href="article8.html" class="analysis-item">
                 <img src="fed-large.jpg" alt="Markets ATH Iran War">
                 <div class="analysis-body">
-                    <div class="analysis-tags"><span class="tag tag-macro">Macro</span><span class="tag tag-new">New</span></div>
+                    <div class="analysis-tags"><span class="tag tag-macro">Macro</span></div>
                     <div class="lang-el"><h3 class="analysis-title">🔥 Αγορές σε ATH ενώ ο κόσμος καίγεται — The Great Disconnect of 2026</h3><p class="analysis-desc">S&P 500 στις 7.466, Brent στα $110, Στενό Hormuz κλειστό. Γιατί οι αγορές αγνοούν τη μεγαλύτερη ενεργειακή κρίση των τελευταίων δεκαετιών.</p></div>
                     <div class="lang-en"><h3 class="analysis-title">🔥 Markets Hit ATH While the World Burns: The Great Disconnect of 2026</h3><p class="analysis-desc">S&P 500 at 7,466, Brent at $110, Hormuz blockaded. Why markets are ignoring the biggest energy crisis in decades — and the 3 scenarios for what comes next.</p></div>
                     <div class="analysis-meta">19 May 2026 · 8 min read</div>
@@ -468,6 +449,8 @@
     <div id="academy" class="section">
         <div class="sec-head"><span class="sec-kicker">Learn</span><span class="sec-title"><span class="lang-el">Ακαδημία Trading</span><span class="lang-en">Trading Academy</span></span></div>
         <div class="analysis-list">
+
+            <!-- CALCULATOR (pinned tool) -->
             <a href="calculator.html" class="analysis-item" style="border-left:3px solid var(--gold);">
                 <img src="compound-large.jpg" alt="Compound Calculator">
                 <div class="analysis-body">
@@ -477,15 +460,30 @@
                     <div class="analysis-meta"><span class="lang-el">Δωρεάν εργαλείο · Αποτελέσματα σε πραγματικό χρόνο</span><span class="lang-en">Free tool · Real-time results</span></div>
                 </div>
             </a>
+
+            <!-- ★ NEW: ARTICLE 11 ★ -->
+            <a href="article11.html" class="analysis-item" style="border-left:3px solid var(--gold);">
+                <img src="compound-large.jpg" alt="Time in Market S&P 500">
+                <div class="analysis-body">
+                    <div class="analysis-tags"><span class="tag tag-investing">Investing</span><span class="tag tag-new">New</span></div>
+                    <div class="lang-el"><h3 class="analysis-title">📈 Time in the Market vs Timing the Market: 125 Χρόνια S&P 500</h3><p class="analysis-desc">Τα δεδομένα μιλούν καθαρά: αν χάσεις μόνο τις 10 καλύτερες μέρες, χάνεις το μισό πλούτο σου. Γιατί ο χρόνος στην αγορά κερδίζει πάντα — με γράφημα και αριθμούς.</p></div>
+                    <div class="lang-en"><h3 class="analysis-title">📈 Time in the Market Beats Timing the Market: 125 Years of S&P 500 Data</h3><p class="analysis-desc">The data is clear: miss just 10 days and you lose half your wealth. Why staying invested always wins — backed by 125 years of history, charts and hard numbers.</p></div>
+                    <div class="analysis-meta">20 May 2026 · 7 min read</div>
+                </div>
+            </a>
+
+            <!-- ARTICLE 6 -->
             <a href="article6.html" class="analysis-item">
                 <img src="compound-large.jpg" alt="Investing Beginners">
                 <div class="analysis-body">
-                    <div class="analysis-tags"><span class="tag tag-beginner">Beginner</span><span class="tag tag-new">New</span></div>
+                    <div class="analysis-tags"><span class="tag tag-beginner">Beginner</span></div>
                     <div class="lang-el"><h3 class="analysis-title">Πώς να ξεκινήσεις να επενδύεις από το μηδέν (2026)</h3><p class="analysis-desc">Ο πλήρης οδηγός βήμα-βήμα για αρχάριους. Χωρίς ορολογία, με πρακτικές συμβουλές.</p></div>
                     <div class="lang-en"><h3 class="analysis-title">How to Start Investing as a Complete Beginner (2026)</h3><p class="analysis-desc">The complete step-by-step guide. No jargon. Start investing from $50/month.</p></div>
                     <div class="analysis-meta">17 May 2026 · 6 min read</div>
                 </div>
             </a>
+
+            <!-- ARTICLE 5 -->
             <a href="article5.html" class="analysis-item">
                 <img src="etf-guide1.jpg" alt="ETF Guide">
                 <div class="analysis-body">
@@ -494,6 +492,8 @@
                     <div class="lang-en"><h3 class="analysis-title">ETF Guide: Accumulating vs Distributing</h3><p class="analysis-desc">Which one to choose? The complete analysis.</p></div>
                 </div>
             </a>
+
+            <!-- ARTICLE 3 -->
             <a href="article3.html" class="analysis-item">
                 <img src="compound-large.jpg" alt="Compound Interest">
                 <div class="analysis-body">
@@ -502,6 +502,8 @@
                     <div class="lang-en"><h3 class="analysis-title">Compound Interest: The 8th Wonder of the World</h3><p class="analysis-desc">Why compounding is the long-term investor's most powerful tool.</p></div>
                 </div>
             </a>
+
+            <!-- ARTICLE 2 -->
             <a href="article2.html" class="analysis-item">
                 <img src="blockchain-large.jpg" alt="Blockchain">
                 <div class="analysis-body">
@@ -510,6 +512,8 @@
                     <div class="lang-en"><h3 class="analysis-title">Blockchain: How it Works in Simple Terms</h3><p class="analysis-desc">The technology behind Bitcoin explained clearly and simply.</p></div>
                 </div>
             </a>
+
+            <!-- ARTICLE 1 -->
             <a href="article1.html" class="analysis-item">
                 <img src="prices-move-large.jpg" alt="Prices Move">
                 <div class="analysis-body">
@@ -518,6 +522,7 @@
                     <div class="lang-en"><h3 class="analysis-title">Why Prices Move: The Truth Beyond the Charts</h3><p class="analysis-desc">How Supply and Demand drive everything and how candlesticks tell that story.</p></div>
                 </div>
             </a>
+
         </div>
     </div>
 
@@ -595,7 +600,7 @@
 
         <div style="background:var(--paper-3);border:1px solid var(--rule);border-radius:4px;padding:20px 24px;">
             <div style="font-size:.65rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px;">⚠️ <span class="lang-el">Αποποίηση Ευθύνης</span><span class="lang-en">Disclaimer</span></div>
-            <p style="font-size:.82rem;color:var(--ink-3);line-height:1.65;margin:0;" class="lang-el">Το περιεχόμενο του TimeToCompound παρέχεται αποκλειστικά για εκπαιδευτικούς σκοπούς. Δεν αποτελεί χρηματοοικονομική συμβουλή. Κάθε επενδυτική απόφαση πρέπει να λαμβάνεται αφού συμβουλευθείτε αδειοδοτημένο χρηματοοικονομικό σύμβουλο. Οι αποδόσεις του παρελθόντος δεν εγγυώνται μελλοντικά αποτελέσματα.</p>
+            <p style="font-size:.82rem;color:var(--ink-3);line-height:1.65;margin:0;" class="lang-el">Το περιεχόμενο του TimeToCompound παρέχεται αποκλειστικά για εκπαιδευτικούς σκοπούς. Δεν αποτελεί χρηματοοικονομική συμβουλή. Κάθε επενδυτική απόφαση πρέπει να λαμβάνεται αφού συμβουλευθείτε αδειοδοτημένο χρηματοοικονομικό σύμβουλο.</p>
             <p style="font-size:.82rem;color:var(--ink-3);line-height:1.65;margin:0;" class="lang-en">The content of TimeToCompound is provided solely for educational purposes. It does not constitute financial advice. Any investment decision should be made after consulting a licensed financial advisor. Past performance does not guarantee future results.</p>
         </div>
     </div>
@@ -662,7 +667,6 @@
             <p class="foot-about"><span class="lang-el">Τα σημαντικότερα νέα της αγοράς απευθείας στο email σας.</span><span class="lang-en">The most important market news delivered to your inbox.</span></p>
             <form id="nl-form" onsubmit="submitNewsletter(event)">
                 <input type="email" name="EMAIL" id="nl-email" class="nl-input" placeholder="your@email.com" required>
-                <!-- Mailchimp honeypot anti-bot -->
                 <div style="position:absolute;left:-5000px;" aria-hidden="true">
                     <input type="text" name="b_e718b16a3b0cc8798bdcda989_edad42aae8" tabindex="-1" value="">
                 </div>
@@ -694,7 +698,6 @@ function go(id,btn){
     document.getElementById(id).classList.add('active');
     document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
     if(btn)btn.classList.add('active');
-    // Full width for markets
     const body=document.querySelector('.site-body');
     if(id==='markets'){body.classList.add('markets-wide');}
     else{body.classList.remove('markets-wide');}
@@ -715,15 +718,12 @@ function submitNewsletter(e){
     const error=document.getElementById('nl-error');
     btn.disabled=true; btn.style.opacity='.6';
     success.style.display='none'; error.style.display='none';
-
-    // Mailchimp JSONP submit — stays on page, no redirect
     const url='https://timetocompound.us13.list-manage.com/subscribe/post-json?u=e718b16a3b0cc8798bdcda989&id=edad42aae8&f_id=00b700e9f0&EMAIL='+encodeURIComponent(email)+'&c=mcCallback';
     window.mcCallback=function(data){
         if(data.result==='success'){
             success.style.display='block';
             document.getElementById('nl-email').value='';
         } else {
-            // Already subscribed is still a "success" for UX
             if(data.msg && data.msg.indexOf('already subscribed')>-1){
                 success.style.display='block';
             } else {
@@ -731,7 +731,6 @@ function submitNewsletter(e){
             }
         }
         btn.disabled=false; btn.style.opacity='1';
-        // Cleanup script tag
         const s=document.getElementById('mc-jsonp');
         if(s) s.remove();
     };
@@ -739,10 +738,7 @@ function submitNewsletter(e){
     script.id='mc-jsonp';
     script.src=url;
     document.body.appendChild(script);
-    // Fallback timeout
-    setTimeout(()=>{
-        if(btn.disabled){btn.disabled=false;btn.style.opacity='1';}
-    },5000);
+    setTimeout(()=>{if(btn.disabled){btn.disabled=false;btn.style.opacity='1';}},5000);
 }
 
 function toggleLang(){document.body.classList.toggle('en');}
@@ -770,7 +766,6 @@ async function loadNews(){
         .then(r=>r.json()).then(d=>d.status==='ok'?d.items.map(i=>({...i,src:f.src})):[]).catch(()=>[])
     ));
     let items=results.flat().sort((a,b)=>new Date(b.pubDate)-new Date(a.pubDate));
-
     if(items.length>0){
         const h=items[0];
         document.getElementById('hero').innerHTML=`
@@ -785,7 +780,6 @@ async function loadNews(){
         </div>`;
         items.shift();
     }
-
     container.innerHTML='';
     items.forEach(item=>{
         let desc=item.description.replace(/<[^>]*>?/gm,'').substring(0,110)+'...';
