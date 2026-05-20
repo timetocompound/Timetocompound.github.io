@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Y9DENNW7FP"></script>
+  <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Y9DENNW7FP');</script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time in the Market vs Timing the Market: 125 Years of S&P 500 Data | TimeToCompound</title>
+  <meta name="description" content="125 years of S&P 500 data prove one thing: time in the market beats timing the market. Missing just the 10 best days cuts your returns in half. Here's the evidence.">
+  <link rel="canonical" href="https://timetocompound.com/article8.html">
+  <meta property="og:title" content="Time in the Market vs Timing the Market: 125 Years of S&P 500 Data">
+  <meta property="og:description" content="125 years of data prove it: missing just 10 days halves your returns. The investors who won stayed in — especially when it was scary.">
+  <meta property="og:url" content="https://timetocompound.com/article8.html">
+  <meta property="og:type" content="article">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "Time in the Market vs Timing the Market: 125 Years of S&P 500 Data",
+    "author": {"@type": "Organization", "name": "TimeToCompound"},
+    "publisher": {"@type": "Organization", "name": "TimeToCompound"},
+    "datePublished": "2026-05-20",
+    "dateModified": "2026-05-20",
+    "description": "125 years of S&P 500 data prove that time in the market beats timing the market every single time."
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+  <style>
+    :root {
+      --green: #1B3A2D;
+      --gold: #B8924A;
+      --gold-light: #d4a96a;
+      --cream: #FAF7F2;
+      --text: #1a1a1a;
+      --text-muted: #666;
+      --border: #e8e0d4;
+      --red: #c0392b;
+    }
+    [data-theme="dark"] {
+      --cream: #0f1e17;
+      --text: #e8e4dc;
+      --text-muted: #a0a090;
+      --border: #2a3d30;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { background: var(--cream); color: var(--text); font-family: 'Outfit', sans-serif; transition: background 0.3s, color 0.3s; }
+
+    /* NAV */
+    nav {
+      background: var(--green);
+      padding: 0 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 64px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+    }
+    .nav-logo { color: var(--gold); font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 700; text-decoration: none; }
+    .nav-links { display: flex; gap: 1.5rem; align-items: center; }
+    .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-transform: uppercase; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--gold); }
+    .theme-btn { background: none; border: 1px solid rgba(255,255,255,0.2); color: white; width: 34px; height: 34px; border-radius: 50%; cursor: pointer; font-size: 0.8rem; transition: all 0.2s; }
+    .theme-btn:hover { border-color: var(--gold); color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      background: var(--green);
+      padding: 4rem 2rem 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse at center, rgba(184,146,74,0.08) 0%, transparent 70%);
+    }
+    .article-tag {
+      display: inline-block;
+      background: var(--gold);
+      color: white;
+      font-size: 0.7rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 0.3rem 0.9rem;
+      border-radius: 2px;
+      margin-bottom: 1.5rem;
+    }
+    .hero h1 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 700;
+      color: white;
+      line-height: 1.2;
+      max-width: 820px;
+      margin: 0 auto 1rem;
+    }
+    .hero h1 em { color: var(--gold); font-style: italic; }
+    .hero-sub {
+      color: rgba(255,255,255,0.65);
+      font-size: 1.05rem;
+      font-weight: 300;
+      max-width: 600px;
+      margin: 0 auto 2rem;
+      line-height: 1.6;
+    }
+    .hero-meta {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      color: rgba(255,255,255,0.5);
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+    .hero-meta span { display: flex; align-items: center; gap: 0.4rem; }
+
+    /* LANG TOGGLE */
+    .lang-toggle {
+      display: flex;
+      justify-content: center;
+      gap: 0;
+      margin: 2rem auto 0;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.15);
+      border-radius: 4px;
+      width: fit-content;
+      overflow: hidden;
+    }
+    .lang-btn {
+      background: none;
+      border: none;
+      color: rgba(255,255,255,0.5);
+      padding: 0.5rem 1.2rem;
+      cursor: pointer;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      transition: all 0.2s;
+      font-family: 'Outfit', sans-serif;
+    }
+    .lang-btn.active { background: var(--gold); color: white; }
+
+    /* LAYOUT */
+    .container { max-width: 820px; margin: 0 auto; padding: 3rem 2rem; }
+
+    /* STAT CARDS */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 1rem;
+      margin: 2.5rem 0;
+    }
+    .stat-card {
+      background: var(--green);
+      color: white;
+      border-radius: 6px;
+      padding: 1.4rem 1.2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    .stat-card::before {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 3px;
+      background: var(--gold);
+    }
+    .stat-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.4rem;
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+    .stat-label { font-size: 0.78rem; color: rgba(255,255,255,0.65); font-weight: 400; line-height: 1.3; }
+
+    /* CHART */
+    .chart-wrapper {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      padding: 1.5rem;
+      margin: 2.5rem 0;
+    }
+    [data-theme="dark"] .chart-wrapper { background: #162a1f; }
+    .chart-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.15rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: var(--text);
+    }
+    .chart-sub { font-size: 0.8rem; color: var(--text-muted); margin-bottom: 1.2rem; }
+    canvas { max-height: 380px; }
+
+    /* BODY TEXT */
+    .article-body h2 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.75rem;
+      font-weight: 700;
+      color: var(--green);
+      margin: 2.5rem 0 1rem;
+      line-height: 1.3;
+    }
+    [data-theme="dark"] .article-body h2 { color: var(--gold-light); }
+    .article-body h3 {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin: 1.8rem 0 0.7rem;
+      color: var(--text);
+    }
+    .article-body p {
+      font-size: 1rem;
+      line-height: 1.85;
+      color: var(--text);
+      margin-bottom: 1.2rem;
+    }
+    .article-body strong { color: var(--green); font-weight: 600; }
+    [data-theme="dark"] .article-body strong { color: var(--gold-light); }
+
+    /* CALLOUT */
+    .callout {
+      border-left: 4px solid var(--gold);
+      background: rgba(184,146,74,0.07);
+      padding: 1.2rem 1.5rem;
+      border-radius: 0 6px 6px 0;
+      margin: 2rem 0;
+    }
+    .callout p { margin: 0; font-size: 1.05rem; font-style: italic; color: var(--text); }
+    .callout strong { color: var(--gold); }
+
+    /* COMPARISON TABLE */
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 2rem 0;
+      font-size: 0.9rem;
+    }
+    .comparison-table th {
+      background: var(--green);
+      color: white;
+      padding: 0.8rem 1rem;
+      text-align: left;
+      font-weight: 500;
+      font-size: 0.8rem;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+    }
+    .comparison-table td {
+      padding: 0.75rem 1rem;
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+    .comparison-table tr:nth-child(even) td { background: rgba(0,0,0,0.02); }
+    [data-theme="dark"] .comparison-table tr:nth-child(even) td { background: rgba(255,255,255,0.03); }
+    .highlight-row td { color: var(--gold) !important; font-weight: 600; }
+    .bad-row td:last-child { color: var(--red); font-weight: 600; }
+
+    /* CRISIS TIMELINE */
+    .crisis-list { list-style: none; margin: 1.5rem 0; }
+    .crisis-item {
+      display: flex;
+      gap: 1rem;
+      padding: 1rem 0;
+      border-bottom: 1px solid var(--border);
+      align-items: flex-start;
+    }
+    .crisis-year {
+      background: var(--green);
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1rem;
+      font-weight: 700;
+      padding: 0.3rem 0.7rem;
+      border-radius: 3px;
+      min-width: 60px;
+      text-align: center;
+      flex-shrink: 0;
+    }
+    .crisis-text { font-size: 0.9rem; line-height: 1.5; color: var(--text); }
+    .crisis-text strong { display: block; margin-bottom: 0.2rem; }
+    .crisis-recovery { color: #2e7d32; font-size: 0.82rem; font-weight: 500; margin-top: 0.2rem; }
+
+    /* CTA */
+    .cta-box {
+      background: var(--green);
+      border-radius: 8px;
+      padding: 2rem;
+      text-align: center;
+      margin: 3rem 0;
+    }
+    .cta-box h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: white; margin-bottom: 0.8rem; }
+    .cta-box p { color: rgba(255,255,255,0.7); font-size: 0.9rem; margin-bottom: 1.2rem; }
+    .cta-btn {
+      display: inline-block;
+      background: var(--gold);
+      color: white;
+      padding: 0.7rem 1.8rem;
+      border-radius: 3px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      transition: background 0.2s;
+    }
+    .cta-btn:hover { background: var(--gold-light); }
+
+    /* RELATED */
+    .related { border-top: 1px solid var(--border); padding-top: 2.5rem; margin-top: 3rem; }
+    .related h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 1.2rem; color: var(--text); }
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1rem; }
+    .related-card {
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 1.2rem;
+      text-decoration: none;
+      color: var(--text);
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .related-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .related-card span { display: block; font-size: 0.7rem; color: var(--gold); font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 0.4rem; }
+    .related-card strong { font-size: 0.9rem; font-family: 'Cormorant Garamond', serif; font-weight: 600; }
+
+    footer {
+      background: var(--green);
+      color: rgba(255,255,255,0.5);
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.8rem;
+      margin-top: 4rem;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+
+    /* LANG CONTENT */
+    .lang-el { display: none; }
+    .lang-en { display: block; }
+    body.el .lang-el { display: block; }
+    body.el .lang-en { display: none; }
+
+    @media (max-width: 600px) {
+      .hero { padding: 3rem 1.2rem 2rem; }
+      .container { padding: 2rem 1.2rem; }
+      .hero-meta { flex-direction: column; gap: 0.5rem; align-items: center; }
+      .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo">TimeToCompound</a>
+  <div class="nav-links">
+    <a href="index.html">Home</a>
+    <a href="index.html#academy">Academy</a>
+    <a href="calculator.html">Calculator</a>
+    <button class="theme-btn" onclick="toggleTheme()" id="ti"><i class="fas fa-moon"></i></button>
+  </div>
+</nav>
+
+<!-- STICKY LANG BAR -->
+<div style="background:var(--green);border-top:1px solid rgba(255,255,255,0.08);display:flex;justify-content:center;padding:0.5rem;gap:0;">
+  <div class="lang-toggle" style="margin:0;">
+    <button class="lang-btn active" onclick="setLang('en')" id="btn-en">🇬🇧 EN</button>
+    <button class="lang-btn" onclick="setLang('el')" id="btn-el">🇬🇷 ΕΛ</button>
+  </div>
+</div>
+
+<div class="hero">
+  <div class="article-tag">Academy · Investing Strategy</div>
+  <h1 class="lang-en">Time in the Market<br><em>Beats Timing the Market</em></h1>
+  <h1 class="lang-el">Ο Χρόνος στην Αγορά<br><em>Κερδίζει την Πρόβλεψη της Αγοράς</em></h1>
+  <p class="hero-sub lang-en">125 years of S&P 500 data prove it. The investors who won didn't predict crashes — they ignored them.</p>
+  <p class="hero-sub lang-el">125 χρόνια δεδομένων S&P 500 το αποδεικνύουν. Οι επενδυτές που κέρδισαν δεν πρόβλεψαν τις κρίσεις — τις αγνόησαν.</p>
+  <div class="hero-meta">
+    <span><i class="fas fa-calendar-alt"></i> May 20, 2026</span>
+    <span><i class="fas fa-clock"></i> 7 min read</span>
+    <span><i class="fas fa-chart-line"></i> S&P 500 · Long-Term Investing</span>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- STATS -->
+  <div class="stats-grid">
+    <div class="stat-card">
+      <div class="stat-number">~10.2%</div>
+      <div class="stat-label lang-en">Avg. annual return since 1926</div>
+      <div class="stat-label lang-el">Μέση ετήσια απόδοση από το 1926</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">0</div>
+      <div class="stat-label lang-en">20-year periods with negative returns</div>
+      <div class="stat-label lang-el">20ετείς περίοδοι με αρνητική απόδοση</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">−50%</div>
+      <div class="stat-label lang-en">Returns lost by missing just 10 days</div>
+      <div class="stat-label lang-el">Απώλεια αν χάσεις μόνο 10 μέρες</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">76%</div>
+      <div class="stat-label lang-en">Best days happen during bear markets</div>
+      <div class="stat-label lang-el">Οι καλύτερες μέρες γίνονται σε bear markets</div>
+    </div>
+  </div>
+
+  <!-- MAIN CHART: S&P 500 1900-2026 -->
+  <div class="chart-wrapper">
+    <div class="chart-title lang-en">S&P 500 Index — 125 Years of History (1900–2026)</div>
+    <div class="chart-title lang-el">S&P 500 — 125 Χρόνια Ιστορίας (1900–2026)</div>
+    <div class="chart-sub lang-en">Every crisis visible. Every crisis overcome. Log scale to show true proportional growth.</div>
+    <div class="chart-sub lang-el">Κάθε κρίση φαίνεται. Κάθε κρίση ξεπεράστηκε. Λογαριθμική κλίμακα.</div>
+    <canvas id="spxChart"></canvas>
+  </div>
+
+  <div class="article-body">
+
+    <!-- EN VERSION -->
+    <div class="lang-en">
+      <h2>The Question Every Investor Asks</h2>
+      <p>"Should I wait for a pullback before investing?" It seems logical. Buy low, right? But 125 years of market history reveals an uncomfortable truth: <strong>the investors who waited almost always lost.</strong></p>
+      <p>Not because markets don't pull back — they do, constantly. But because the biggest gains happen so fast, so unexpectedly, that no one is ever perfectly positioned to catch them. The moment you step out, you've already lost.</p>
+
+      <div class="callout">
+        <p>"<strong>More money has been lost by investors preparing for corrections, or trying to anticipate corrections, than has been lost in corrections themselves.</strong>"<br>— Peter Lynch</p>
+      </div>
+
+      <h2>The Math That Should Scare Every Market Timer</h2>
+      <p>Here is the most powerful data point in all of investing. According to J.P. Morgan Asset Management, if you invested <strong>$10,000 in the S&P 500 in 2004</strong> and left it untouched for 20 years, you'd have over <strong>$70,000</strong>.</p>
+      <p>Now imagine you tried to time the market and simply missed the <strong>10 best trading days</strong> over those 20 years. That's 10 days out of 5,000+. Your $70,000 becomes <strong>under $35,000</strong>. Half your wealth, gone.</p>
+      <p>Miss the best 30 days? Your returns collapse by <strong>84%</strong>. Miss the best 50? You lose money — despite the index being up massively.</p>
+    </div>
+
+    <!-- EL VERSION -->
+    <div class="lang-el">
+      <h2>Η Ερώτηση που Κάνει Κάθε Επενδυτής</h2>
+      <p>"Να περιμένω πτώση πριν επενδύσω;" Φαίνεται λογικό. Αγορά στο χαμηλό, σωστά; Αλλά 125 χρόνια ιστορίας αποκαλύπτουν μια άβολη αλήθεια: <strong>οι επενδυτές που περίμεναν σχεδόν πάντα έχασαν.</strong></p>
+      <p>Όχι γιατί οι αγορές δεν πέφτουν — πέφτουν, συνέχεια. Αλλά γιατί τα μεγαλύτερα κέρδη γίνονται τόσο γρήγορα, τόσο απρόσμενα, που κανείς δεν είναι ποτέ σωστά τοποθετημένος να τα πιάσει.</p>
+
+      <div class="callout">
+        <p>"<strong>Περισσότερα χρήματα έχουν χαθεί από επενδυτές που προετοιμάζονταν για διορθώσεις, παρά από τις ίδιες τις διορθώσεις.</strong>"<br>— Peter Lynch</p>
+      </div>
+
+      <h2>Τα Νούμερα που Πρέπει να Τρομάξουν κάθε Market Timer</h2>
+      <p>Σύμφωνα με την J.P. Morgan Asset Management, αν επένδυσες <strong>$10.000 στον S&P 500 το 2004</strong> και δεν άγγιζες τίποτα για 20 χρόνια, θα είχες πάνω από <strong>$70.000</strong>.</p>
+      <p>Τώρα φαντάσου ότι προσπάθησες να πιάσεις τις σωστές στιγμές και έχασες μόνο τις <strong>10 καλύτερες μέρες συναλλαγών</strong> — 10 μέρες από 5.000+. Τα $70.000 γίνονται <strong>κάτω από $35.000</strong>. Μισός ο πλούτος σου, εξαφανίστηκε.</p>
+      <p>Χάσεις τις καλύτερες 30 μέρες; Η απόδοσή σου καταρρέει κατά <strong>84%</strong>. Τις 50 καλύτερες; Χάνεις χρήματα — παρόλο που ο δείκτης ανέβηκε τεράστια.</p>
+    </div>
+
+    <!-- COMPARISON TABLE -->
+    <table class="comparison-table">
+      <thead>
+        <tr>
+          <th class="lang-en">Strategy (2004–2024)</th>
+          <th class="lang-el">Στρατηγική (2004–2024)</th>
+          <th class="lang-en">Annual Return</th>
+          <th class="lang-el">Ετήσια Απόδοση</th>
+          <th class="lang-en">$10,000 → ?</th>
+          <th class="lang-el">$10.000 → ?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row">
+          <td class="lang-en">Fully invested (buy & hold)</td>
+          <td class="lang-el">Πλήρως επενδεδυμένος</td>
+          <td>10.5%</td>
+          <td>$72,000+</td>
+        </tr>
+        <tr>
+          <td class="lang-en">Missed best 10 days</td>
+          <td class="lang-el">Έχασε τις 10 καλύτερες μέρες</td>
+          <td>6.2%</td>
+          <td>$34,000</td>
+        </tr>
+        <tr>
+          <td class="lang-en">Missed best 20 days</td>
+          <td class="lang-el">Έχασε τις 20 καλύτερες μέρες</td>
+          <td>3.6%</td>
+          <td>$20,000</td>
+        </tr>
+        <tr>
+          <td class="lang-en">Missed best 30 days</td>
+          <td class="lang-el">Έχασε τις 30 καλύτερες μέρες</td>
+          <td>1.4%</td>
+          <td>$13,000</td>
+        </tr>
+        <tr class="bad-row">
+          <td class="lang-en">Missed best 50 days</td>
+          <td class="lang-el">Έχασε τις 50 καλύτερες μέρες</td>
+          <td>−0.6%</td>
+          <td>$8,800</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- SECOND CHART: Missing Days Impact -->
+    <div class="chart-wrapper">
+      <div class="chart-title lang-en">$10,000 Investment: The Cost of Missing the Market's Best Days (2004–2024)</div>
+      <div class="chart-title lang-el">$10.000 Επένδυση: Το Κόστος του να Χάσεις τις Καλύτερες Μέρες (2004–2024)</div>
+      <div class="chart-sub lang-en">Source: J.P. Morgan Asset Management. Based on S&P 500 Total Return Index.</div>
+      <div class="chart-sub lang-el">Πηγή: J.P. Morgan Asset Management. Βάση: S&P 500 Total Return Index.</div>
+      <canvas id="missedDaysChart"></canvas>
+    </div>
+
+    <!-- EN VERSION continued -->
+    <div class="lang-en">
+      <h2>The Cruel Irony: Best Days Follow Worst Days</h2>
+      <p>Here's why market timing is essentially impossible in practice: <strong>7 of the 10 best days in the past 20 years occurred within 15 days of the 10 worst days.</strong></p>
+      <p>Think about that. When markets are crashing and every headline screams panic — that's precisely when the biggest recoveries happen. If you sold during the crash to "protect yourself," you were almost certainly out of the market when it bounced back hardest.</p>
+      <p>Even more striking: <strong>76% of the market's best days have occurred during a bear market</strong> or in the first two months of recovery. The investors who panicked and sold during the bear market missed exactly those days — the days that create the most wealth.</p>
+
+      <h2>Every Crisis in History. One Outcome.</h2>
+      <p>Let's look at what actually happened to long-term investors during the worst crises in modern history:</p>
+    </div>
+
+    <div class="lang-el">
+      <h2>Η Σκληρή Ειρωνεία: Οι Καλύτερες Μέρες Ακολουθούν τις Χειρότερες</h2>
+      <p>Εδώ είναι γιατί το market timing είναι ουσιαστικά αδύνατο: <strong>7 από τις 10 καλύτερες μέρες των τελευταίων 20 χρόνων έγιναν εντός 15 ημερών από τις 10 χειρότερες μέρες.</strong></p>
+      <p>Σκέψου το αυτό. Όταν οι αγορές καταρρέουν και κάθε τίτλος φωνάζει πανικό — ακριβώς τότε γίνονται οι μεγαλύτερες ανακάμψεις. Αν πούλησες κατά τη διάρκεια της κρίσης για να "προστατευτείς", ήσουν σχεδόν σίγουρα εκτός αγοράς όταν ανέκαμψε πιο δυναμικά.</p>
+      <p><strong>Το 76% των καλύτερων ημερών της αγοράς έχουν γίνει κατά τη διάρκεια bear market</strong> ή στους πρώτους δύο μήνες ανάκαμψης. Οι επενδυτές που πάνικαρισαν και πούλησαν έχασαν ακριβώς αυτές τις μέρες.</p>
+
+      <h2>Κάθε Κρίση στην Ιστορία. Ένα Αποτέλεσμα.</h2>
+      <p>Ας δούμε τι πραγματικά συνέβη στους μακροπρόθεσμους επενδυτές κατά τις χειρότερες κρίσεις:</p>
+    </div>
+
+    <!-- CRISIS TIMELINE -->
+    <ul class="crisis-list">
+      <li class="crisis-item">
+        <div class="crisis-year">1929</div>
+        <div class="crisis-text">
+          <strong class="lang-en">The Great Depression — S&P fell ~86%</strong>
+          <strong class="lang-el">Μεγάλη Ύφεση — S&P έπεσε ~86%</strong>
+          <span class="lang-en">The worst crash in history. Wall Street collapsed. Banks failed. Yet by 1954, the market had fully recovered — and those who stayed invested and kept buying accumulated enormous wealth in the following decades.</span>
+          <span class="lang-el">Το χειρότερο κραχ στην ιστορία. Ωστόσο μέχρι το 1954 η αγορά είχε πλήρως ανακάμψει. Όσοι έμειναν επενδεδυμένοι και συνέχισαν να αγοράζουν συσσώρευσαν τεράστιο πλούτο.</span>
+          <div class="crisis-recovery lang-en">↑ Full recovery achieved. Long-term holders rewarded.</div>
+          <div class="crisis-recovery lang-el">↑ Πλήρης ανάκαμψη. Οι μακροπρόθεσμοι επενδυτές ανταμείφθηκαν.</div>
+        </div>
+      </li>
+      <li class="crisis-item">
+        <div class="crisis-year">2000</div>
+        <div class="crisis-text">
+          <strong class="lang-en">Dot-com Crash — S&P fell ~49%</strong>
+          <strong class="lang-el">Dot-com Κραχ — S&P έπεσε ~49%</strong>
+          <span class="lang-en">Tech stocks collapsed. The "new economy" narrative imploded. Those who stayed diversified and patient recovered fully within 7 years — and went on to capture the 2003–2007 bull run.</span>
+          <span class="lang-el">Οι μετοχές τεχνολογίας κατέρρευσαν. Όσοι έμειναν επενδεδυμένοι ανέκαμψαν πλήρως εντός 7 ετών και κέρδισαν την bull αγορά 2003–2007.</span>
+          <div class="crisis-recovery lang-en">↑ Recovery: ~7 years. Then the best bull market in decades followed.</div>
+          <div class="crisis-recovery lang-el">↑ Ανάκαμψη: ~7 χρόνια. Μετά ακολούθησε η καλύτερη bull αγορά δεκαετιών.</div>
+        </div>
+      </li>
+      <li class="crisis-item">
+        <div class="crisis-year">2008</div>
+        <div class="crisis-text">
+          <strong class="lang-en">Financial Crisis — S&P fell ~57%</strong>
+          <strong class="lang-el">Χρηματοπιστωτική Κρίση — S&P έπεσε ~57%</strong>
+          <span class="lang-en">Lehman collapsed. Banks were nationalized. Global panic. Yet October 13, 2008 — at the heart of the crisis — recorded the S&P's single best daily gain ever: +11.58%. The investors who fled missed it entirely.</span>
+          <span class="lang-el">Κατάρρευση Lehman. Παγκόσμιος πανικός. Ωστόσο στις 13 Οκτωβρίου 2008 — στο κέντρο της κρίσης — ο S&P κατέγραψε τη μεγαλύτερη ημερήσια άνοδο: +11,58%. Όσοι έφυγαν την έχασαν τελείως.</span>
+          <div class="crisis-recovery lang-en">↑ Recovery: ~4 years. Then the longest bull market in history: 2009–2020.</div>
+          <div class="crisis-recovery lang-el">↑ Ανάκαμψη: ~4 χρόνια. Μετά η μεγαλύτερη bull αγορά στην ιστορία: 2009–2020.</div>
+        </div>
+      </li>
+      <li class="crisis-item">
+        <div class="crisis-year">2020</div>
+        <div class="crisis-text">
+          <strong class="lang-en">COVID-19 Crash — S&P fell ~34% in 33 days</strong>
+          <strong class="lang-el">COVID-19 — S&P έπεσε ~34% σε 33 μέρες</strong>
+          <span class="lang-en">The fastest crash in history. The fastest recovery too: by August 2020, the S&P had hit new all-time highs. Investors who sold in March locked in losses. Those who stayed — or bought more — were at new highs within months.</span>
+          <span class="lang-el">Το ταχύτερο κραχ στην ιστορία. Και η ταχύτερη ανάκαμψη: τον Αύγουστο του 2020 νέα ιστορικά υψηλά. Όσοι αγόρασαν κατά τη διάρκεια της πτώσης ήταν σε νέα highs μέσα σε μήνες.</span>
+          <div class="crisis-recovery lang-en">↑ Recovery: 5 months — fastest in S&P 500 history.</div>
+          <div class="crisis-recovery lang-el">↑ Ανάκαμψη: 5 μήνες — η ταχύτερη στην ιστορία του S&P 500.</div>
+        </div>
+      </li>
+      <li class="crisis-item">
+        <div class="crisis-year">2022</div>
+        <div class="crisis-text">
+          <strong class="lang-en">Rate Hike Bear Market — S&P fell ~27%</strong>
+          <strong class="lang-el">Bear Market επιτοκίων — S&P έπεσε ~27%</strong>
+          <span class="lang-en">Inflation surged, the Fed hiked aggressively, and portfolios were crushed. By early 2024, the S&P 500 had not only recovered but hit new all-time highs. By April 2026, it crossed 7,000 for the first time ever.</span>
+          <span class="lang-el">Ο πληθωρισμός εκτινάχθηκε, η Fed ανέβασε επιτόκια επιθετικά. Μέχρι τις αρχές 2024 ο S&P ανέκαμψε και έφτασε σε νέα ιστορικά υψηλά. Τον Απρίλιο 2026 ξεπέρασε τις 7.000 μονάδες.</span>
+          <div class="crisis-recovery lang-en">↑ Recovery: ~15 months. Then S&P crossed 7,000 in April 2026.</div>
+          <div class="crisis-recovery lang-el">↑ Ανάκαμψη: ~15 μήνες. Μετά ο S&P πέρασε τις 7.000 μονάδες τον Απρίλιο 2026.</div>
+        </div>
+      </li>
+    </ul>
+
+    <div class="lang-en">
+      <h2>The Only Rule That Has Never Failed</h2>
+      <p>Here is the single most important fact in all of investing, backed by over a century of data: <strong>over every 20-year period in the S&P 500's history, the index has produced a positive return. Not once has a 20-year investor lost money.</strong></p>
+      <p>1-year returns are unpredictable. 5-year returns are uncertain. But 20-year returns? Zero failures. Ever.</p>
+      <p>The strategy isn't complicated. It requires no special knowledge, no Bloomberg terminal, no ability to predict the future. It requires only one thing: <strong>the discipline to stay invested when everything around you screams "sell."</strong></p>
+
+      <div class="callout">
+        <p>"<strong>The stock market is a device for transferring money from the impatient to the patient.</strong>"<br>— Warren Buffett</p>
+      </div>
+
+      <h2>Crises Are Not the Enemy — They're the Opportunity</h2>
+      <p>Reframe how you think about market crashes. A crash doesn't destroy wealth — it temporarily reprices assets. <strong>The wealth was always going to be there for whoever stayed.</strong></p>
+      <p>In fact, for the long-term investor with steady income, a bear market is the greatest gift the market can offer. It's the sale you've been waiting for. The investors who built the most wealth in history — the Buffetts, the Bogle disciples, the pension funds — didn't succeed by avoiding crashes. They succeeded by buying through them.</p>
+      <p>The next crash will come. We don't know when. We don't know how deep. But we know, with 125 years of certainty, that it will recover — and those who stayed invested will be rewarded.</p>
+      <p><strong>Time in the market. Always.</strong></p>
+    </div>
+
+    <div class="lang-el">
+      <h2>Ο Μοναδικός Κανόνας που Δεν Απέτυχε Ποτέ</h2>
+      <p>Εδώ είναι το πιο σημαντικό γεγονός σε όλες τις επενδύσεις: <strong>σε κάθε 20ετή περίοδο στην ιστορία του S&P 500, ο δείκτης έχει παράγει θετική απόδοση. Ούτε μια φορά ένας 20ετής επενδυτής δεν έχασε χρήματα.</strong></p>
+      <p>Οι ετήσιες αποδόσεις είναι απρόβλεπτες. Οι 5ετείς είναι αβέβαιες. Αλλά οι 20ετείς; Μηδέν αποτυχίες. Ποτέ.</p>
+      <p>Η στρατηγική δεν είναι περίπλοκη. Απαιτεί μόνο ένα πράγμα: <strong>την πειθαρχία να μείνεις επενδεδυμένος όταν όλα γύρω σου φωνάζουν "πούλα".</strong></p>
+
+      <div class="callout">
+        <p>"<strong>Η χρηματιστηριακή αγορά είναι μια συσκευή για τη μεταφορά χρημάτων από τους ανυπόμονους στους υπομονετικούς.</strong>"<br>— Warren Buffett</p>
+      </div>
+
+      <h2>Οι Κρίσεις Δεν Είναι ο Εχθρός — Είναι η Ευκαιρία</h2>
+      <p>Αλλάξε τον τρόπο που σκέφτεσαι για τα κραχ. Ένα κραχ δεν καταστρέφει πλούτο — επαναπροσδιορίζει προσωρινά τις τιμές. <strong>Ο πλούτος ήταν πάντα εκεί για όποιον έμενε.</strong></p>
+      <p>Για τον μακροπρόθεσμο επενδυτή με σταθερό εισόδημα, μια bear market είναι το μεγαλύτερο δώρο που μπορεί να προσφέρει η αγορά. Είναι η έκπτωση που περίμενες. Οι επενδυτές που έχτισαν τον μεγαλύτερο πλούτο δεν πέτυχαν αποφεύγοντας τα κραχ. Πέτυχαν αγοράζοντας κατά τη διάρκειά τους.</p>
+      <p>Το επόμενο κραχ θα έρθει. Δεν ξέρουμε πότε. Δεν ξέρουμε πόσο βαθύ. Αλλά ξέρουμε, με 125 χρόνια βεβαιότητας, ότι θα ανακάμψει — και αυτοί που έμειναν επενδεδυμένοι θα ανταμειφθούν.</p>
+      <p><strong>Χρόνος στην αγορά. Πάντα.</strong></p>
+    </div>
+
+  </div><!-- end article-body -->
+
+  <!-- CTA -->
+  <div class="cta-box">
+    <h3 class="lang-en">See Your Own Compound Growth</h3>
+    <h3 class="lang-el">Δες τη Δική σου Ανάπτυξη</h3>
+    <p class="lang-en">Use our free Compound Interest Calculator to model what staying invested looks like for your portfolio.</p>
+    <p class="lang-el">Χρησιμοποίησε τον δωρεάν Υπολογιστή Ανατοκισμού για να δεις πώς η μακροπρόθεσμη επένδυση επηρεάζει το δικό σου χαρτοφυλάκιο.</p>
+    <a href="calculator.html" class="cta-btn lang-en">Open Calculator →</a>
+    <a href="calculator.html" class="cta-btn lang-el">Άνοιξε τον Υπολογιστή →</a>
+  </div>
+
+  <!-- RELATED -->
+  <div class="related">
+    <h3 class="lang-en">Keep Reading</h3>
+    <h3 class="lang-el">Συνέχισε να Διαβάζεις</h3>
+    <div class="related-grid">
+      <a href="article5.html" class="related-card">
+        <span>Academy</span>
+        <strong class="lang-en">The Complete ETF Guide for Beginners</strong>
+        <strong class="lang-el">Οδηγός ETF για Αρχάριους</strong>
+      </a>
+      <a href="article3.html" class="related-card">
+        <span>Academy</span>
+        <strong class="lang-en">Compound Interest: The 8th Wonder</strong>
+        <strong class="lang-el">Ανατοκισμός: Το 8ο Θαύμα</strong>
+      </a>
+      <a href="article6.html" class="related-card">
+        <span>Academy</span>
+        <strong class="lang-en">How to Start Investing — Step by Step</strong>
+        <strong class="lang-el">Πώς να Ξεκινήσεις να Επενδύεις</strong>
+      </a>
+    </div>
+  </div>
+
+</div><!-- end container -->
+
+<footer>
+  <p>© 2026 TimeToCompound. All rights reserved. | <a href="index.html">Home</a> · <a href="calculator.html">Calculator</a> · <a href="about.html">About</a></p>
+  <p style="margin-top:0.5rem;font-size:0.75rem;">This content is for educational purposes only and does not constitute financial advice.</p>
+</footer>
+
+<script>
+// LANG TOGGLE
+function setLang(lang) {
+  if (lang === 'el') {
+    document.body.classList.add('el');
+    document.getElementById('btn-el').classList.add('active');
+    document.getElementById('btn-en').classList.remove('active');
+  } else {
+    document.body.classList.remove('el');
+    document.getElementById('btn-en').classList.add('active');
+    document.getElementById('btn-el').classList.remove('active');
+  }
+}
+
+// THEME
+function toggleTheme() {
+  const b = document.body, i = document.getElementById('ti');
+  if (b.getAttribute('data-theme') === 'dark') {
+    b.removeAttribute('data-theme');
+    i.className = 'fas fa-moon';
+  } else {
+    b.setAttribute('data-theme', 'dark');
+    i.className = 'fas fa-sun';
+  }
+  renderCharts();
+}
+
+// CHARTS
+function getChartColors() {
+  const dark = document.body.getAttribute('data-theme') === 'dark';
+  return {
+    grid: dark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)',
+    text: dark ? '#a0a090' : '#888',
+    bg: dark ? '#162a1f' : 'white'
+  };
+}
+
+let spxChartInst = null, missedChartInst = null;
+
+function renderCharts() {
+  const c = getChartColors();
+
+  // S&P 500 / US Stock Market Index — dense historical data (yearly, key peaks & troughs)
+  // Pre-1957: S&P 90/Composite predecessor; 1957+: S&P 500
+  const spxPoints = [
+    {y:1900, v:6.2},  {y:1901, v:7.0},  {y:1902, v:7.2},  {y:1903, v:6.0},
+    {y:1904, v:7.5},  {y:1906, v:10.2}, {y:1907, v:6.3},  {y:1909, v:10.1},
+    {y:1910, v:9.0},  {y:1911, v:9.2},  {y:1912, v:9.8},  {y:1914, v:7.1},
+    {y:1916, v:10.5}, {y:1917, v:7.2},  {y:1919, v:9.5},  {y:1921, v:6.8},
+    {y:1922, v:9.2},  {y:1924, v:10.8}, {y:1926, v:13.5}, {y:1927, v:16.4},
+    {y:1928, v:22.0}, {y:1929, v:31.7}, {y:1930, v:22.0}, {y:1931, v:11.0},
+    {y:1932, v:4.4},  {y:1933, v:10.2}, {y:1935, v:13.0}, {y:1937, v:18.1},
+    {y:1938, v:11.5}, {y:1939, v:13.2}, {y:1940, v:11.0}, {y:1942, v:8.5},
+    {y:1943, v:11.5}, {y:1945, v:16.0}, {y:1946, v:17.1}, {y:1947, v:15.8},
+    {y:1949, v:16.7}, {y:1950, v:20.4}, {y:1952, v:26.6}, {y:1954, v:32.0},
+    {y:1955, v:40.5}, {y:1956, v:46.6}, {y:1957, v:44.4}, {y:1958, v:55.4},
+    {y:1959, v:59.9}, {y:1960, v:57.5}, {y:1961, v:72.6}, {y:1962, v:63.1},
+    {y:1963, v:75.0}, {y:1964, v:84.8}, {y:1965, v:92.4}, {y:1966, v:80.3},
+    {y:1967, v:96.5}, {y:1968, v:103.9},{y:1969, v:92.1}, {y:1970, v:92.2},
+    {y:1971, v:102.1},{y:1972, v:118.1},{y:1973, v:97.6}, {y:1974, v:63.5},
+    {y:1975, v:90.2}, {y:1976, v:107.5},{y:1977, v:95.1}, {y:1978, v:96.1},
+    {y:1979, v:107.9},{y:1980, v:135.8},{y:1981, v:122.6},{y:1982, v:141.0},
+    {y:1983, v:164.9},{y:1984, v:167.2},{y:1985, v:211.3},{y:1986, v:242.2},
+    {y:1987, v:247.1},{y:1988, v:277.7},{y:1989, v:353.4},{y:1990, v:330.2},
+    {y:1991, v:417.1},{y:1992, v:435.7},{y:1993, v:466.5},{y:1994, v:459.3},
+    {y:1995, v:615.9},{y:1996, v:740.7},{y:1997, v:970.4},{y:1998, v:1229.2},
+    {y:1999, v:1469.2},{y:2000, v:1320.3},{y:2001, v:1148.1},{y:2002, v:879.8},
+    {y:2003, v:1111.9},{y:2004, v:1211.9},{y:2005, v:1248.3},{y:2006, v:1418.3},
+    {y:2007, v:1468.4},{y:2008, v:903.3}, {y:2009, v:1115.1},{y:2010, v:1257.6},
+    {y:2011, v:1257.6},{y:2012, v:1426.2},{y:2013, v:1848.4},{y:2014, v:2058.9},
+    {y:2015, v:2043.9},{y:2016, v:2238.8},{y:2017, v:2673.6},{y:2018, v:2506.9},
+    {y:2019, v:3230.8},{y:2020, v:3756.1},{y:2021, v:4766.2},{y:2022, v:3839.5},
+    {y:2023, v:4769.8},{y:2024, v:5881.6},{y:2026, v:7400.0}
+  ];
+  const spxLabels = spxPoints.map(p => p.y);
+  const spxData   = spxPoints.map(p => p.v);
+
+  // Colour: red for known trough years, gold otherwise
+  const troughYears = new Set([1903,1907,1914,1917,1921,1932,1938,1942,1962,1966,1970,1974,1982,1987,1990,2002,2008,2011,2018,2020,2022]);
+  const pointColors = spxPoints.map(p => troughYears.has(p.y) ? '#c0392b' : 'transparent');
+  const pointRadius = spxPoints.map(p => troughYears.has(p.y) ? 4 : 0);
+
+  if (spxChartInst) spxChartInst.destroy();
+  const ctx1 = document.getElementById('spxChart').getContext('2d');
+
+  spxChartInst = new Chart(ctx1, {
+    type: 'line',
+    data: {
+      labels: spxLabels,
+      datasets: [{
+        data: spxData,
+        borderColor: '#B8924A',
+        borderWidth: 2,
+        fill: true,
+        backgroundColor: 'rgba(184,146,74,0.07)',
+        pointBackgroundColor: pointColors,
+        pointRadius: pointRadius,
+        pointHoverRadius: 5,
+        tension: 0.2
+      }]
+    },
+    options: {
+      responsive: true,
+      interaction: { mode: 'index', intersect: false },
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => `S&P 500: ${ctx.raw >= 1000 ? (ctx.raw/1000).toFixed(2)+'k' : ctx.raw} pts`
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { color: c.grid },
+          ticks: {
+            color: c.text,
+            font: { size: 10 },
+            maxTicksLimit: 14,
+            maxRotation: 0
+          }
+        },
+        y: {
+          type: 'logarithmic',
+          grid: { color: c.grid },
+          min: 4,
+          ticks: {
+            color: c.text,
+            font: { size: 11 },
+            // Show only clean human-readable values
+            callback: function(v) {
+              const nice = [5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000];
+              return nice.includes(v) ? (v >= 1000 ? (v/1000)+'k' : v) : null;
+            }
+          }
+        }
+      }
+    }
+  });
+
+  // Missed Days Chart
+  if (missedChartInst) missedChartInst.destroy();
+  const ctx2 = document.getElementById('missedDaysChart').getContext('2d');
+  const missedLabels = ['Fully Invested', 'Missed 10 Days', 'Missed 20 Days', 'Missed 30 Days', 'Missed 40 Days', 'Missed 50 Days'];
+  const missedValues = [72000, 34000, 20000, 13000, 10500, 8800];
+  const barColors = missedValues.map((v, i) => i === 0 ? '#1B3A2D' : i === missedValues.length-1 ? '#c0392b' : `rgba(184,146,74,${1 - i*0.15})`);
+
+  missedChartInst = new Chart(ctx2, {
+    type: 'bar',
+    data: {
+      labels: missedLabels,
+      datasets: [{
+        data: missedValues,
+        backgroundColor: barColors,
+        borderRadius: 4,
+        borderSkipped: false
+      }]
+    },
+    options: {
+      responsive: true,
+      plugins: {
+        legend: { display: false },
+        tooltip: {
+          callbacks: {
+            label: ctx => `$${ctx.raw.toLocaleString()}`
+          }
+        }
+      },
+      scales: {
+        x: {
+          grid: { display: false },
+          ticks: { color: c.text, font: { size: 11 } }
+        },
+        y: {
+          grid: { color: c.grid },
+          ticks: {
+            color: c.text,
+            font: { size: 11 },
+            callback: v => '$' + (v/1000).toFixed(0) + 'k'
+          }
+        }
+      }
+    }
+  });
+}
+
+document.addEventListener('DOMContentLoaded', renderCharts);
+</script>
+</body>
+</html>
