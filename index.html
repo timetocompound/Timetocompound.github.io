@@ -322,11 +322,34 @@
                 </button>
             </div>
             <div class="home-stats">
-                <div><div class="home-stat-num" id="home-article-count">11</div><div class="home-stat-label"><span class="lang-el">Άρθρα</span><span class="lang-en">Articles</span></div></div>
                 <div><div class="home-stat-num">Live</div><div class="home-stat-label"><span class="lang-el">Δεδομένα Αγορών</span><span class="lang-en">Market Data</span></div></div>
                 <div><div class="home-stat-num">100%</div><div class="home-stat-label"><span class="lang-el">Δωρεάν</span><span class="lang-en">Free</span></div></div>
                 <div><div class="home-stat-num">2</div><div class="home-stat-label"><span class="lang-el">Γλώσσες</span><span class="lang-en">Languages</span></div></div>
             </div>
+        </div>
+
+        <!-- NEWSLETTER BANNER -->
+        <div style="background:var(--green);border-radius:4px;padding:28px 32px;margin-bottom:28px;display:flex;align-items:center;justify-content:space-between;gap:24px;flex-wrap:wrap;">
+            <div>
+                <div style="font-size:.6rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--gold-light);margin-bottom:6px;">Newsletter</div>
+                <div style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:#fff;margin-bottom:4px;">
+                    <span class="lang-el">Μείνε ενημερωμένος</span>
+                    <span class="lang-en">Stay informed</span>
+                </div>
+                <div style="font-size:.82rem;color:rgba(255,255,255,.6);">
+                    <span class="lang-el">Νέες αναλύσεις και άρθρα απευθείας στο email σου.</span>
+                    <span class="lang-en">New analysis and articles straight to your inbox.</span>
+                </div>
+            </div>
+            <form onsubmit="submitNewsletter(event)" style="display:flex;gap:8px;flex-shrink:0;flex-wrap:wrap;">
+                <input type="email" name="EMAIL" id="nl-email-home" class="nl-input"
+                    placeholder="your@email.com" required
+                    style="background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);color:#fff;padding:10px 16px;border-radius:3px;font-family:'Outfit',sans-serif;font-size:.875rem;width:220px;outline:none;">
+                <button type="submit" style="background:var(--gold);color:#fff;border:none;padding:10px 20px;border-radius:3px;font-family:'Outfit',sans-serif;font-weight:700;font-size:.85rem;cursor:pointer;white-space:nowrap;">
+                    <span class="lang-el">Εγγραφή →</span>
+                    <span class="lang-en">Subscribe →</span>
+                </button>
+            </form>
         </div>
 
         <!-- LATEST ARTICLES GRID -->
@@ -699,22 +722,19 @@ function searchStock(){
 
 function submitNewsletter(e){
     e.preventDefault();
-    const email=document.getElementById('nl-email').value;
-    const btn=document.getElementById('nl-btn');
-    const success=document.getElementById('nl-success');
-    const error=document.getElementById('nl-error');
+    const emailEl = document.getElementById('nl-email') || document.getElementById('nl-email-home');
+    const email = e.target.querySelector('input[type="email"]').value;
+    const btn = e.target.querySelector('button[type="submit"]');
     btn.disabled=true; btn.style.opacity='.6';
-    success.style.display='none'; error.style.display='none';
     const url='https://timetocompound.us13.list-manage.com/subscribe/post-json?u=e718b16a3b0cc8798bdcda989&id=edad42aae8&f_id=00b700e9f0&EMAIL='+encodeURIComponent(email)+'&c=mcCallback';
     window.mcCallback=function(data){
         if(data.result==='success'){
-            success.style.display='block';
-            document.getElementById('nl-email').value='';
+            btn.textContent='✅ Done!';
         } else {
             if(data.msg && data.msg.indexOf('already subscribed')>-1){
-                success.style.display='block';
+                btn.textContent='✅ Done!';
             } else {
-                error.style.display='block';
+                btn.textContent='❌ Try again';
             }
         }
         btn.disabled=false; btn.style.opacity='1';
@@ -836,10 +856,6 @@ async function loadArticles() {
   try {
     const res = await fetch('articles.json?t=' + Date.now());
     const articles = await res.json();
-
-    // Update article count in hero
-    const total = articles.filter(a => a.id !== 'calculator').length;
-    document.getElementById('home-article-count').textContent = total;
 
     // ── HOME: latest 3 from each section ──
     const homeMyEl = document.getElementById('home-my');
