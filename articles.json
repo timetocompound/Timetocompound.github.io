@@ -1,9 +1,28 @@
 [
   {
+    "id": "article12",
+    "section": "my",
+    "date": "2026-05-20",
+    "tags": [
+      "macro",
+      "new"
+    ],
+    "title_el": "📊 Nvidia Q1 FY2027 Earnings: Το Πιο Σημαντικό Report του 2026",
+    "title_en": "📊 Nvidia Q1 FY2027 Earnings: The Most Important Report of 2026",
+    "desc_el": "$78 δισ. αναμενόμενα έσοδα, China wildcard, $6 τρισ. market cap στον ορίζοντα. Τα 3 πράγματα που θα κινήσουν τη μετοχή και τα 3 σενάρια για απόψε.",
+    "desc_en": "$78B revenue expected, China wildcard, $6T market cap in sight. The 3 things that will move the stock and the 3 scenarios for tonight.",
+    "image": "images/trading-screen-hero.jpg",
+    "readtime": "8",
+    "featured": true
+  },
+  {
     "id": "article9",
     "section": "my",
     "date": "2026-05-19",
-    "tags": ["macro", "new"],
+    "tags": [
+      "macro",
+      "new"
+    ],
     "title_el": "📊 Alphabet (GOOGL): 7 Checks, Αποτίμηση & Τιμή Στόχος 2026",
     "title_en": "📊 Alphabet (GOOGL): 7 Checks, Valuation & 12-Month Price Target",
     "desc_el": "Cloud +63%, έσοδα +22%, P/E 30x. Αξίζει να αγοράσεις Google στα $400; Πλήρης θεμελιώδης ανάλυση με τιμή στόχο 12 μηνών.",
@@ -16,7 +35,10 @@
     "id": "article10",
     "section": "my",
     "date": "2026-05-19",
-    "tags": ["macro", "new"],
+    "tags": [
+      "macro",
+      "new"
+    ],
     "title_el": "📊 Meta Platforms (META): 7 Checks, Αποτίμηση & Τιμή Στόχος 2026",
     "title_en": "📊 Meta Platforms (META): 7 Checks, Valuation & 12-Month Price Target",
     "desc_el": "Revenue +33%, P/E 22x, -23% από ATH. 96% των αναλυτών λένε Buy. Αξίζει να αγοράσεις META στα $620; Πλήρης ανάλυση.",
@@ -29,7 +51,9 @@
     "id": "article8",
     "section": "my",
     "date": "2026-05-19",
-    "tags": ["macro"],
+    "tags": [
+      "macro"
+    ],
     "title_el": "🔥 Αγορές σε ATH ενώ ο κόσμος καίγεται — The Great Disconnect of 2026",
     "title_en": "🔥 Markets Hit ATH While the World Burns: The Great Disconnect of 2026",
     "desc_el": "S&P 500 στις 7.466, Brent στα $110, Στενό Hormuz κλειστό. Γιατί οι αγορές αγνοούν τη μεγαλύτερη ενεργειακή κρίση.",
@@ -41,7 +65,9 @@
     "id": "article7",
     "section": "my",
     "date": "2026-05-17",
-    "tags": ["macro"],
+    "tags": [
+      "macro"
+    ],
     "title_el": "🛢️ Πετρέλαιο $110 & ATH: Τι σημαίνει για τις Midterms 2026",
     "title_en": "🛢️ Oil at $110 & Stock ATH: What They Mean for the 2026 Midterms",
     "desc_el": "Δύο αντικρουόμενα οικονομικά σήματα και μία κρίσιμη εκλογική αναμέτρηση.",
@@ -53,7 +79,9 @@
     "id": "article4",
     "section": "my",
     "date": "2026-04-01",
-    "tags": ["macro"],
+    "tags": [
+      "macro"
+    ],
     "title_el": "🔥 FED: Προ-Ανάλυση της Απόφασης Επιτοκίων",
     "title_en": "🔥 FED Pre-Analysis: Rate Decision Scenarios",
     "desc_el": "Τα 3 σενάρια, ο \"οδικός χάρτης\" του Powell και οι επιπτώσεις σε S&P 500 και Bitcoin.",
@@ -65,7 +93,10 @@
     "id": "calculator",
     "section": "academy",
     "date": "2026-01-01",
-    "tags": ["guide", "new"],
+    "tags": [
+      "guide",
+      "new"
+    ],
     "title_el": "🧮 Υπολογιστής Ανατοκισμού — Compound Calculator",
     "title_en": "🧮 Compound Interest Calculator",
     "desc_el": "Δες πόσο μπορεί να φτάσει η επένδυσή σου. Διαδραστικοί sliders, γράφημα εξέλιξης και ανάλυση ανά 5 χρόνια.",
@@ -80,7 +111,10 @@
     "id": "article11",
     "section": "academy",
     "date": "2026-05-20",
-    "tags": ["investing", "new"],
+    "tags": [
+      "investing",
+      "new"
+    ],
     "title_el": "📈 Time in the Market vs Timing the Market: 125 Χρόνια S&P 500",
     "title_en": "📈 Time in the Market Beats Timing the Market: 125 Years of S&P 500 Data",
     "desc_el": "Τα δεδομένα μιλούν καθαρά: αν χάσεις μόνο τις 10 καλύτερες μέρες, χάνεις το μισό πλούτο σου.",
@@ -92,7 +126,9 @@
     "id": "article6",
     "section": "academy",
     "date": "2026-05-17",
-    "tags": ["beginner"],
+    "tags": [
+      "beginner"
+    ],
     "title_el": "Πώς να ξεκινήσεις να επενδύεις από το μηδέν (2026)",
     "title_en": "How to Start Investing as a Complete Beginner (2026)",
     "desc_el": "Ο πλήρης οδηγός βήμα-βήμα για αρχάριους. Χωρίς ορολογία, με πρακτικές συμβουλές.",
@@ -104,7 +140,9 @@
     "id": "article5",
     "section": "academy",
     "date": "2026-04-01",
-    "tags": ["guide"],
+    "tags": [
+      "guide"
+    ],
     "title_el": "Οδηγός ETFs: Accumulating vs Distributing",
     "title_en": "ETF Guide: Accumulating vs Distributing",
     "desc_el": "Ποιο να διαλέξω; Η πλήρης ανάλυση για τον Έλληνα επενδυτή.",
@@ -116,7 +154,9 @@
     "id": "article3",
     "section": "academy",
     "date": "2026-03-01",
-    "tags": ["investing"],
+    "tags": [
+      "investing"
+    ],
     "title_el": "Compound Interest: Το 8ο θαύμα του κόσμου",
     "title_en": "Compound Interest: The 8th Wonder of the World",
     "desc_el": "Γιατί ο ανατοκισμός είναι ο καλύτερος φίλος του μακροπρόθεσμου επενδυτή.",
@@ -128,7 +168,9 @@
     "id": "article2",
     "section": "academy",
     "date": "2026-02-01",
-    "tags": ["crypto"],
+    "tags": [
+      "crypto"
+    ],
     "title_el": "Blockchain: Πώς λειτουργεί με απλά λόγια",
     "title_en": "Blockchain: How it Works in Simple Terms",
     "desc_el": "Η τεχνολογία πίσω από το Bitcoin εξηγημένη απλά και κατανοητά.",
@@ -140,7 +182,9 @@
     "id": "article1",
     "section": "academy",
     "date": "2026-01-15",
-    "tags": ["beginner"],
+    "tags": [
+      "beginner"
+    ],
     "title_el": "Γιατί κινούνται οι τιμές; Η αλήθεια για την αγορά",
     "title_en": "Why Prices Move: The Truth Beyond the Charts",
     "desc_el": "Πώς η Προσφορά και η Ζήτηση κινούν τα πάντα — και πώς τα κεριά λένε αυτή την ιστορία.",
