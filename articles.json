@@ -1,5 +1,21 @@
 [
   {
+    "id": "article14",
+    "section": "my",
+    "date": "2026-05-21",
+    "tags": [
+      "macro",
+      "new"
+    ],
+    "title_el": "📈 Το AI Chip Supercycle: Intel +50%, SOX +65% — Η Ιστορία Πίσω από τους Αριθμούς",
+    "title_en": "📈 The AI Chip Supercycle: Intel +50%, SOX +65% — The Story Behind the Numbers",
+    "desc_el": "Όλοι μιλούν για τη Nvidia. Αλλά ολόκληρος ο κλάδος ημιαγωγών εκτοξεύεται το 2026. Intel +50% σε έναν μήνα, AMD +38%, TSMC, Micron, ASML — ποιος κάνει τι και γιατί.",
+    "desc_en": "Everyone talks about Nvidia. But the entire semiconductor supply chain is on fire in 2026. Intel +50% in one month, AMD +38%, TSMC, Micron, ASML — who does what and why.",
+    "image": "trading-screen-hero.jpg",
+    "readtime": "9",
+    "featured": true
+  },
+  {
     "id": "article13",
     "section": "my",
     "date": "2026-05-21",
