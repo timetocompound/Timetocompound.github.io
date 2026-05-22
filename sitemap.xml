@@ -1,27 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
-  ╔══════════════════════════════════════════════════╗
-  ║  Για να ενημερώσεις: πρόσθεσε νέο άρθρο μόνο   ║
-  ║  στο articles.json — ΜΗΝ αγγίζεις αυτό το αρχείο ║
-  ║  Τρέξε: node generate-sitemap.js                ║
-  ╚══════════════════════════════════════════════════╝
--->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://timetocompound.com/</loc><lastmod>2026-05-20</lastmod><changefreq>weekly</changefreq><priority>1.0</priority></url>
-  <url><loc>https://timetocompound.com/calculator.html</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timetocompound.com/about.html</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://timetocompound.com/</loc><lastmod>2026-05-22</lastmod><changefreq>daily</changefreq><priority>1.0</priority></url>
+  <url><loc>https://timetocompound.com/article15.html</loc><lastmod>2026-05-22</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://timetocompound.com/article14.html</loc><lastmod>2026-05-21</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://timetocompound.com/article13.html</loc><lastmod>2026-05-21</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
-  <url><loc>https://timetocompound.com/article12.html</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timetocompound.com/article12.html</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://timetocompound.com/article11.html</loc><lastmod>2026-05-20</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://timetocompound.com/article10.html</loc><lastmod>2026-05-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://timetocompound.com/article9.html</loc><lastmod>2026-05-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://timetocompound.com/article10.html</loc><lastmod>2026-05-19</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://timetocompound.com/article9.html</loc><lastmod>2026-05-19</lastmod><changefreq>monthly</changefreq><priority>0.9</priority></url>
   <url><loc>https://timetocompound.com/article8.html</loc><lastmod>2026-05-19</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://timetocompound.com/article7.html</loc><lastmod>2026-05-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
   <url><loc>https://timetocompound.com/article6.html</loc><lastmod>2026-05-17</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://timetocompound.com/article5.html</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://timetocompound.com/article4.html</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://timetocompound.com/article3.html</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://timetocompound.com/article2.html</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
-  <url><loc>https://timetocompound.com/article1.html</loc><lastmod>2026-05-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://timetocompound.com/article5.html</loc><lastmod>2026-01-15</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://timetocompound.com/article4.html</loc><lastmod>2026-01-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://timetocompound.com/article3.html</loc><lastmod>2025-12-20</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://timetocompound.com/article2.html</loc><lastmod>2025-12-10</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://timetocompound.com/article1.html</loc><lastmod>2025-12-01</lastmod><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://timetocompound.com/calculator.html</loc><lastmod>2026-01-01</lastmod><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://timetocompound.com/about.html</loc><lastmod>2026-01-01</lastmod><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>
