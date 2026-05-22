@@ -8,7 +8,7 @@
     "title_en": "Google I/O 2026: The Future Is Agentic — And the Stock Dropped",
     "desc_el": "Γυαλιά που παραγγέλνουν καφέ, AI που δουλεύει 24/7 στο παρασκήνιο, η μεγαλύτερη αναβάθμιση του Search σε 30 χρόνια — και μια μετοχή που αδιαφόρησε.",
     "desc_en": "Glasses that order your coffee, AI working 24/7 in the background, the biggest Search upgrade in 30 years — and a stock that shrugged.",
-    "image": "compound-large.jpg",
+    "image": "analysis-hero.jpg",
     "readtime": "6",
     "featured": true
   },
@@ -19,9 +19,9 @@
     "tags": ["macro", "new"],
     "title_el": "📈 Το AI Chip Supercycle: Intel +50%, SOX +65% — Η Ιστορία Πίσω από τους Αριθμούς",
     "title_en": "📈 The AI Chip Supercycle: Intel +50%, SOX +65% — The Story Behind the Numbers",
-    "desc_el": "Όλοι μιλούν για τη Nvidia. Αλλά ολόκληρος ο κλάδος ημιαγωγών εκτοξεύεται το 2026. Intel +50% σε έναν μήνα, AMD +38%, TSMC, Micron, ASML — ποιος κάνει τι και γιατί.",
-    "desc_en": "Everyone talks about Nvidia. But the entire semiconductor supply chain is on fire in 2026. Intel +50% in one month, AMD +38%, TSMC, Micron, ASML — who does what and why.",
-    "image": "compound-large.jpg",
+    "desc_el": "Όλοι μιλούν για τη Nvidia. Αλλά ολόκληρος ο κλάδος ημιαγωγών εκτοξεύεται το 2026. Intel +50%, AMD +38%, TSMC, Micron, ASML — ποιος κάνει τι και γιατί.",
+    "desc_en": "Everyone talks about Nvidia. But the entire semiconductor supply chain is on fire in 2026. Intel +50%, AMD +38%, TSMC, Micron, ASML — who does what and why.",
+    "image": "macro-hero.jpg",
     "readtime": "9",
     "featured": true
   },
@@ -34,7 +34,7 @@
     "title_en": "📊 Nvidia Q1 FY2027: $81.6B Revenue, 85% Growth & $91B Q2 Guidance",
     "desc_el": "Η Nvidia κατέστρεψε κάθε εκτίμηση. Ρεκόρ εσόδων, Data Center +92%, μέρισμα 25x υψηλότερο και $80 δισ. buybacks — χωρίς ούτε ένα δολάριο από Κίνα.",
     "desc_en": "Nvidia obliterated expectations. Record revenue, Data Center +92%, dividend raised 25x and $80B in buybacks — all without a single dollar from China.",
-    "image": "compound-large.jpg",
+    "image": "analysis-hero.jpg",
     "readtime": "8"
   },
   {
@@ -46,7 +46,7 @@
     "title_en": "🔴 LIVE: Nvidia Results Tonight — $78B Expected, China Wildcard",
     "desc_el": "Αναμενόμενα έσοδα $78 δισ., China wildcard, market cap $6 τρισ. στον ορίζοντα. Τα 3 πράγματα που θα κινήσουν τη μετοχή και τα 3 σενάρια για απόψε.",
     "desc_en": "$78B revenue expected, China wildcard, $6T market cap in sight. The 3 things that will move the stock and the 3 scenarios for tonight.",
-    "image": "compound-large.jpg",
+    "image": "macro-hero.jpg",
     "readtime": "8"
   },
   {
@@ -58,7 +58,7 @@
     "title_en": "📈 Time in the Market Beats Timing the Market: 125 Years of S&P 500 Data",
     "desc_el": "Ποιο είναι το μυστικό των επιτυχημένων επενδυτών; Όχι το timing. 125 χρόνια δεδομένων αποδεικνύουν ότι ο χρόνος στην αγορά κερδίζει πάντα.",
     "desc_en": "What's the secret of successful investors? Not timing. 125 years of data prove that time in the market always wins.",
-    "image": "compound-large.jpg",
+    "image": "academy-hero.jpg",
     "readtime": "7"
   },
   {
@@ -70,7 +70,7 @@
     "title_en": "📊 Meta Platforms (META): 7 Checks, Valuation & 12-Month Price Target 2026",
     "desc_el": "Αξίζει η META στα $620; -23% από ATH, P/E 22x, 96% Buy από αναλυτές. Πλήρης ανάλυση με 7 ελέγχους, αποτίμηση και τιμή στόχος 12 μηνών.",
     "desc_en": "Is META worth buying at $620? -23% from ATH, P/E 22x, 96% Buy rating. Full analysis with 7 checks, valuation and 12-month price target.",
-    "image": "compound-large.jpg",
+    "image": "analysis-hero.jpg",
     "readtime": "9"
   },
   {
@@ -82,7 +82,7 @@
     "title_en": "📊 Alphabet (GOOGL): 7 Checks, Valuation & 12-Month Price Target 2026",
     "desc_el": "Αξίζει η GOOGL στα $400; Cloud +63%, έσοδα +22%, P/E 30x. Πλήρης θεμελιώδης ανάλυση με 7 ελέγχους και τιμή στόχος 12 μηνών.",
     "desc_en": "Is GOOGL worth buying at $400? Cloud +63%, revenues +22%, P/E 30x. Full fundamental analysis with 7 checks and 12-month price target.",
-    "image": "compound-large.jpg",
+    "image": "macro-hero.jpg",
     "readtime": "9"
   },
   {
@@ -92,9 +92,9 @@
     "tags": ["macro"],
     "title_el": "🔥 Οι Αγορές σε ATH ενώ ο Κόσμος Φλέγεται: Το Μεγάλο Χάσμα του 2026",
     "title_en": "🔥 Markets Hit ATH While the World Burns: The Great Disconnect of 2026",
-    "desc_el": "Γεωπολιτική αναταραχή, εμπορικοί δασμοί, πληθωρισμός — και οι αγορές σε ιστορικά υψηλά. Πώς εξηγείται αυτό το παράδοξο και τι σημαίνει για τον επενδυτή;",
+    "desc_el": "Γεωπολιτική αναταραχή, εμπορικοί δασμοί, πληθωρισμός — και οι αγορές σε ιστορικά υψηλά. Πώς εξηγείται αυτό το παράδοξο;",
     "desc_en": "Geopolitical turmoil, trade tariffs, inflation — and markets at all-time highs. How to explain this paradox and what it means for investors.",
-    "image": "compound-large.jpg",
+    "image": "macro-hero.jpg",
     "readtime": "8"
   },
   {
@@ -104,7 +104,7 @@
     "tags": ["macro"],
     "title_el": "Πετρέλαιο $110 & Αμερικανικά Ενδιάμεσα 2026: Τι Σημαίνει για τις Αγορές",
     "title_en": "Oil $110 & US Midterms 2026: What It Means for Markets",
-    "desc_el": "Το πετρέλαιο αγγίζει τα $110 εν μέσω εκλογικής αβεβαιότητας. Ανάλυση του συνδυασμού ενεργειακής κρίσης και πολιτικού ρίσκου για τις αγορές.",
+    "desc_el": "Το πετρέλαιο αγγίζει τα $110 εν μέσω εκλογικής αβεβαιότητας. Ανάλυση του συνδυασμού ενεργειακής κρίσης και πολιτικού ρίσκου.",
     "desc_en": "Oil touches $110 amid electoral uncertainty. Analysis of the combination of energy crisis and political risk for markets.",
     "image": "fed-large.jpg",
     "readtime": "7"
@@ -118,7 +118,7 @@
     "title_en": "How to Start Investing as a Complete Beginner (2026)",
     "desc_el": "Βήμα-βήμα οδηγός για τον αρχάριο επενδυτή. Από το πρώτο λογαριασμό μέχρι την πρώτη αγορά — χωρίς χρηματοοικονομικό υπόβαθρο.",
     "desc_en": "Step-by-step guide for the beginner investor. From the first account to the first purchase — no financial background needed.",
-    "image": "compound-large.jpg",
+    "image": "academy-hero.jpg",
     "readtime": "6"
   },
   {
@@ -128,7 +128,7 @@
     "tags": ["investing"],
     "title_el": "Οδηγός ETF: Τι Είναι, Πώς Λειτουργούν και Γιατί τα Αγαπούν οι Επενδυτές",
     "title_en": "ETF Guide: What They Are, How They Work and Why Investors Love Them",
-    "desc_el": "Ο πληρέστερος οδηγός για ETF στα ελληνικά. Τύποι, διαφορές με μετοχές και αμοιβαία κεφάλαια, φορολογία και πώς να επιλέξεις το σωστό για σένα.",
+    "desc_el": "Ο πληρέστερος οδηγός για ETF στα ελληνικά. Τύποι, διαφορές με μετοχές, φορολογία και πώς να επιλέξεις το σωστό για σένα.",
     "desc_en": "The most complete ETF guide. Types, differences with stocks and mutual funds, taxation and how to choose the right one for you.",
     "image": "etf-guide1.jpg",
     "readtime": "8"
@@ -140,7 +140,7 @@
     "tags": ["macro"],
     "title_el": "Fed Analysis: Τι Σημαίνουν οι Αποφάσεις της Κεντρικής Τράπεζας για τις Αγορές",
     "title_en": "Fed Analysis: What Central Bank Decisions Mean for Markets",
-    "desc_el": "Πώς οι αποφάσεις της Fed για τα επιτόκια επηρεάζουν μετοχές, ομόλογα και ακίνητα. Όλα όσα χρειάζεσαι να ξέρεις για την πιο σημαντική τράπεζα στον κόσμο.",
+    "desc_el": "Πώς οι αποφάσεις της Fed για τα επιτόκια επηρεάζουν μετοχές, ομόλογα και ακίνητα. Όλα όσα χρειάζεσαι να ξέρεις.",
     "desc_en": "How Fed interest rate decisions affect stocks, bonds and real estate. Everything you need to know about the most important bank in the world.",
     "image": "fed-large.jpg",
     "readtime": "7"
@@ -152,8 +152,8 @@
     "tags": ["beginner"],
     "title_el": "Ανατοκισμός: Η 8η Θαύμα του Κόσμου — Πώς Δουλεύει στην Πράξη",
     "title_en": "Compound Interest: The 8th Wonder of the World — How It Works in Practice",
-    "desc_el": "Ο Albert Einstein το αποκάλεσε 8ο θαύμα του κόσμου. Ο ανατοκισμός είναι η πιο ισχυρή δύναμη στις επενδύσεις — και πολύ λίγοι τον εκμεταλλεύονται σωστά.",
-    "desc_en": "Albert Einstein called it the 8th wonder of the world. Compound interest is the most powerful force in investing — and very few exploit it correctly.",
+    "desc_el": "Ο Albert Einstein το αποκάλεσε 8ο θαύμα του κόσμου. Ο ανατοκισμός είναι η πιο ισχυρή δύναμη στις επενδύσεις.",
+    "desc_en": "Albert Einstein called it the 8th wonder of the world. Compound interest is the most powerful force in investing.",
     "image": "compound-large.jpg",
     "readtime": "6"
   },
@@ -176,8 +176,8 @@
     "tags": ["beginner"],
     "title_el": "Γιατί Κινούνται οι Τιμές; Η Θεμελιώδης Αρχή των Αγορών",
     "title_en": "Why Do Prices Move? The Fundamental Principle of Markets",
-    "desc_el": "Κάθε κίνηση τιμής σε κάθε αγορά του κόσμου εξηγείται από ένα μόνο πράγμα. Μάθε τη θεμελιώδη αρχή που κινεί μετοχές, ομόλογα, εμπορεύματα και crypto.",
-    "desc_en": "Every price movement in every market in the world is explained by one thing. Learn the fundamental principle that moves stocks, bonds, commodities and crypto.",
+    "desc_el": "Κάθε κίνηση τιμής σε κάθε αγορά του κόσμου εξηγείται από ένα μόνο πράγμα. Μάθε τη θεμελιώδη αρχή που κινεί μετοχές, ομόλογα και crypto.",
+    "desc_en": "Every price movement in every market in the world is explained by one thing. Learn the fundamental principle that moves stocks, bonds and crypto.",
     "image": "prices-move-large.jpg",
     "readtime": "5"
   },
@@ -190,7 +190,7 @@
     "title_en": "🧮 Compound Interest Calculator",
     "desc_el": "Υπολόγισε πόσο θα αξίζει η επένδυσή σου με ανατοκισμό. Διαδραστικό εργαλείο με γράφημα και sliders.",
     "desc_en": "Calculate how much your investment will be worth with compound interest. Interactive tool with chart and sliders.",
-    "image": "compound-large.jpg",
+    "image": "academy-hero.jpg",
     "readtime": "1",
     "url": "calculator.html"
   }
