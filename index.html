@@ -8,6 +8,38 @@
     <title>TimeToCompound | Financial Intelligence</title>
     <meta name="description" content="TimeToCompound: Πρωτότυπες αναλύσεις αγορών, εκπαιδευτικό περιεχόμενο και live δεδομένα για τον σύγχρονο επενδυτή.">
     <link rel="canonical" href="https://timetocompound.com/">
+
+    <!-- OPEN GRAPH -->
+    <meta property="og:title" content="TimeToCompound | Financial Intelligence">
+    <meta property="og:description" content="Πρωτότυπες αναλύσεις αγορών, εκπαιδευτικό περιεχόμενο και live δεδομένα — δωρεάν, πάντα.">
+    <meta property="og:image" content="https://timetocompound.com/compound-large.jpg">
+    <meta property="og:url" content="https://timetocompound.com/">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TimeToCompound">
+
+    <!-- TWITTER CARD -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@TimeToCompound">
+    <meta name="twitter:title" content="TimeToCompound | Financial Intelligence">
+    <meta name="twitter:description" content="Original market analysis, investor education and live data — free, forever.">
+    <meta name="twitter:image" content="https://timetocompound.com/compound-large.jpg">
+
+    <!-- SCHEMA.ORG WEBSITE -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "TimeToCompound",
+      "url": "https://timetocompound.com",
+      "description": "Original market analysis, investor education and live market data for the modern investor.",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://timetocompound.com/?q={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
+
     <link rel="icon" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
@@ -94,20 +126,32 @@
         <!-- FEATURED LATEST ARTICLE -->
         <div id="home-featured"></div>
 
-        <!-- NEWSLETTER — best position: after featured, user is engaged -->
+        <!-- NEWSLETTER -->
         <div class="home-newsletter">
             <div class="home-nl-text">
                 <strong><span class="lang-el">📬 Νέο άρθρο 5+ φορές την εβδομάδα</span><span class="lang-en">📬 New article 5+ times a week</span></strong>
                 <span class="lang-el">Εγγράψου για να το λαμβάνεις απευθείας στο email σου — χωρίς spam.</span>
                 <span class="lang-en">Subscribe to get it straight to your inbox — no spam.</span>
             </div>
-            <form onsubmit="submitNewsletter(event)" class="home-nl-form">
-                <input type="email" name="EMAIL" class="home-nl-input" placeholder="your@email.com" required>
-                <button type="submit" class="home-nl-btn">
+            <form id="nl-form" onsubmit="submitNewsletter(event)" class="home-nl-form">
+                <input type="email" name="EMAIL" id="nl-email" class="home-nl-input" placeholder="your@email.com" required>
+                <!-- Mailchimp honeypot anti-bot -->
+                <div style="position:absolute;left:-5000px;" aria-hidden="true">
+                    <input type="text" name="b_e718b16a3b0cc8798bdcda989_edad42aae8" tabindex="-1" value="">
+                </div>
+                <button type="submit" class="home-nl-btn" id="nl-btn">
                     <span class="lang-el">Εγγραφή →</span>
                     <span class="lang-en">Subscribe →</span>
                 </button>
             </form>
+            <div id="nl-success" style="display:none;margin-top:10px;padding:10px 14px;background:rgba(110,231,183,.15);border:1px solid #6EE7B7;border-radius:3px;font-size:.82rem;color:#6EE7B7;">
+                <span class="lang-el">✅ Εγγραφήκατε επιτυχώς! Σας ευχαριστούμε.</span>
+                <span class="lang-en">✅ Subscribed successfully! Thank you.</span>
+            </div>
+            <div id="nl-error" style="display:none;margin-top:10px;padding:10px 14px;background:rgba(248,113,113,.1);border:1px solid #F87171;border-radius:3px;font-size:.82rem;color:#F87171;">
+                <span class="lang-el">❌ Κάτι πήγε στραβά. Δοκιμάστε ξανά.</span>
+                <span class="lang-en">❌ Something went wrong. Please try again.</span>
+            </div>
         </div>
 
         <!-- ARTICLE GRID (4 articles, 2x2) -->
