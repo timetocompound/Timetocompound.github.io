@@ -5,168 +5,150 @@
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-Y9DENNW7FP');</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Compound Interest Calculator | TimeToCompound</title>
-    <meta name="description" content="Υπολόγισε πόσο θα αυξηθεί η επένδυσή σου με τον ανατοκισμό. Δωρεάν compound interest calculator με γράφημα.">
-    <meta name="keywords" content="compound interest calculator, ανατοκισμός υπολογιστής, επένδυση calculator, compound calculator Greece">
+    <title>Υπολογιστής Ανατοκισμού | Compound Interest Calculator | TimeToCompound</title>
+    <meta name="description" content="Δωρεάν υπολογιστής ανατοκισμού. Δες πόσο μπορεί να φτάσει η επένδυσή σου — με γράφημα, πίνακα και σύγκριση με τράπεζα.">
+    <meta name="keywords" content="υπολογιστής ανατοκισμού, compound interest calculator, επένδυση calculator, ανατοκισμός Ελλάδα">
     <link rel="canonical" href="https://timetocompound.com/calculator.html">
-    <meta property="og:title" content="Compound Interest Calculator | TimeToCompound">
-    <meta property="og:description" content="Δες πόσο μπορεί να φτάσει η επένδυσή σου με τον ανατοκισμό — δωρεάν, διαδραστικό εργαλείο.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>📈</text></svg>">
+    <meta property="og:title" content="Υπολογιστής Ανατοκισμού | TimeToCompound">
+    <meta property="og:description" content="Δες πόσο μπορεί να φτάσει η επένδυσή σου με τη δύναμη του ανατοκισμού — δωρεάν εργαλείο.">
+    <meta property="og:image" content="https://timetocompound.com/compound-large.jpg">
+    <meta property="og:url" content="https://timetocompound.com/calculator.html">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@TimeToCompound">
+    <meta name="twitter:image" content="https://timetocompound.com/compound-large.jpg">
+    <link rel="icon" href="favicon.png">
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.0/chart.umd.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
-        :root {
-            --ink:#0D0D0D; --ink-2:#3D3D3D; --ink-3:#787878;
-            --paper:#F4F1EB; --paper-2:#FFFFFF; --paper-3:#EAE7E0;
-            --green:#1B3A2D; --green-l:#2C5A47;
-            --gold:#B8924A; --gold-l:#D4A85A;
-            --rule:#D4CEC4;
-            --shadow:0 2px 16px rgba(13,13,13,0.09);
-        }
-        [data-theme="dark"]{
-            --ink:#F0EBE0; --ink-2:#B8B0A0; --ink-3:#706860;
-            --paper:#0C1209; --paper-2:#111A0E; --paper-3:#162012;
-            --green:#4A8C6A; --green-l:#5AA880;
-            --gold:#D4A85A; --gold-l:#E8C07A;
-            --rule:#1E2E1A;
-            --shadow:0 2px 16px rgba(0,0,0,0.4);
-        }
+        :root{--ink:#0D0D0D;--ink-2:#3D3D3D;--ink-3:#787878;--paper:#F4F1EB;--paper-2:#FFFFFF;--paper-3:#EAE7E0;--green:#1B3A2D;--green-l:#2C5A47;--gold:#B8924A;--gold-l:#D4A85A;--rule:#D4CEC4;--shadow:0 2px 20px rgba(13,13,13,0.1);}
+        [data-theme="dark"]{--ink:#F0EBE0;--ink-2:#B8B0A0;--ink-3:#706860;--paper:#0C1209;--paper-2:#111A0E;--paper-3:#162012;--green:#4A8C6A;--green-l:#5AA880;--gold:#D4A85A;--rule:#1E2E1A;--shadow:0 2px 20px rgba(0,0,0,0.4);}
         *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
-        body{font-family:'Outfit',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;display:flex;flex-direction:column;transition:background .3s,color .3s;}
+        body{font-family:'Outfit',sans-serif;background:var(--paper);color:var(--ink);min-height:100vh;transition:background .3s,color .3s;}
         a{text-decoration:none;color:inherit;}
+        .lang-en{display:none;}
+        body.en .lang-el{display:none!important;}
+        body.en .lang-en{display:block!important;}
+        span.lang-en{display:none;}
+        body.en span.lang-en{display:inline!important;}
 
         /* NAV */
         .top-bar{height:3px;background:var(--gold);width:100%;position:fixed;top:0;left:0;z-index:1001;}
-        nav{background:var(--paper-2);border-bottom:1px solid var(--rule);position:sticky;top:3px;z-index:999;}
-        .nav-inner{max-width:1100px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;height:70px;}
+        nav{background:var(--paper-2);border-bottom:1px solid var(--rule);position:sticky;top:3px;z-index:999;box-shadow:var(--shadow);}
+        .nav-inner{max-width:980px;margin:0 auto;padding:0 24px;display:flex;justify-content:space-between;align-items:center;height:64px;}
         .brand{display:flex;flex-direction:column;cursor:pointer;}
-        .brand-name{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:700;color:var(--ink);letter-spacing:-1px;line-height:1;}
-        .brand-sub{font-size:.6rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--ink-3);margin-top:3px;}
-        .nav-right{display:flex;align-items:center;gap:12px;}
-        .back-btn{display:flex;align-items:center;gap:7px;font-size:.8rem;font-weight:600;color:var(--ink-2);border:1px solid var(--rule);padding:7px 14px;border-radius:3px;transition:all .2s;}
-        .back-btn:hover{border-color:var(--gold);color:var(--gold);}
-        .ctrl{width:34px;height:34px;border-radius:3px;border:1px solid var(--rule);background:transparent;color:var(--ink-3);cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:.82rem;transition:all .2s;font-family:'Outfit',sans-serif;}
-        .ctrl:hover{border-color:var(--gold);color:var(--gold);}
+        .brand-name{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--ink);letter-spacing:-.5px;line-height:1;}
+        .brand-sub{font-size:.55rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--gold);}
+        .nav-right{display:flex;gap:8px;align-items:center;}
+        .nav-back{font-size:.75rem;font-weight:600;color:var(--ink-3);padding:6px 14px;border:1px solid var(--rule);border-radius:6px;transition:all .2s;}
+        .nav-back:hover{background:var(--green);color:#fff;border-color:var(--green);}
+        .nav-icon{background:none;border:none;color:var(--ink-3);font-size:1rem;cursor:pointer;padding:6px;transition:color .2s;}
+        .nav-icon:hover{color:var(--gold);}
 
-        /* PAGE */
-        .page{max-width:1100px;margin:48px auto;padding:0 24px;flex:1;}
+        /* HERO */
+        .hero{background:var(--green);padding:52px 24px 44px;margin-top:3px;}
+        .hero-inner{max-width:980px;margin:0 auto;}
+        .hero-kicker{font-size:.65rem;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
+        .hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;color:#fff;line-height:1.15;margin-bottom:12px;}
+        .hero-sub{font-size:.95rem;color:rgba(255,255,255,.65);max-width:500px;line-height:1.6;}
 
-        .page-header{text-align:center;margin-bottom:48px;}
-        .page-kicker{font-size:.65rem;font-weight:700;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:12px;}
-        .page-title{font-family:'Cormorant Garamond',serif;font-size:2.8rem;font-weight:700;color:var(--ink);line-height:1.15;margin-bottom:14px;}
-        .page-sub{font-size:1rem;color:var(--ink-2);max-width:520px;margin:0 auto;line-height:1.65;}
+        /* MODE TABS */
+        .mode-tabs{max-width:980px;margin:0 auto;padding:0 24px;display:flex;gap:8px;margin-top:-20px;position:relative;z-index:2;}
+        .mode-tab{padding:10px 20px;border-radius:8px 8px 0 0;font-size:.8rem;font-weight:700;letter-spacing:.5px;cursor:pointer;border:none;transition:all .2s;}
+        .mode-tab.active{background:var(--paper-2);color:var(--green);box-shadow:var(--shadow);}
+        .mode-tab.inactive{background:rgba(255,255,255,.15);color:rgba(255,255,255,.7);}
+        .mode-tab.inactive:hover{background:rgba(255,255,255,.25);}
 
-        /* MAIN GRID */
-        .calc-grid{display:grid;grid-template-columns:400px 1fr;gap:32px;align-items:start;}
+        /* MAIN LAYOUT */
+        .calc-wrap{max-width:980px;margin:0 auto;padding:0 24px 60px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
+        @media(max-width:700px){.calc-wrap{grid-template-columns:1fr;}}
 
-        /* INPUTS PANEL */
-        .inputs-panel{background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;padding:32px;box-shadow:var(--shadow);}
-        .panel-title{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:var(--ink);margin-bottom:28px;padding-bottom:14px;border-bottom:1px solid var(--rule);}
+        .panel{background:var(--paper-2);border:1px solid var(--rule);border-radius:0 12px 12px 12px;padding:28px;box-shadow:var(--shadow);}
+        .panel-title{font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:700;color:var(--green);margin-bottom:24px;padding-bottom:12px;border-bottom:1px solid var(--rule);}
 
-        .field{margin-bottom:26px;}
-        .field-top{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:10px;}
-        .field-label{font-size:.8rem;font-weight:600;color:var(--ink-2);text-transform:uppercase;letter-spacing:.8px;}
+        /* SLIDERS */
+        .field{margin-bottom:22px;}
+        .field-head{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:8px;}
+        .field-label{font-size:.72rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-3);}
         .field-value{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--green);}
-        [data-theme="dark"] .field-value{color:var(--gold);}
+        input[type=range]{width:100%;-webkit-appearance:none;height:4px;border-radius:2px;background:linear-gradient(to right,var(--green) var(--pct,50%),var(--rule) var(--pct,50%));outline:none;cursor:pointer;}
+        input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--green);border:3px solid var(--paper-2);box-shadow:0 0 0 2px var(--green);cursor:pointer;transition:transform .15s;}
+        input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.2);}
+        .range-labels{display:flex;justify-content:space-between;font-size:.65rem;color:var(--ink-3);margin-top:4px;}
 
-        input[type=range]{-webkit-appearance:none;width:100%;height:4px;border-radius:2px;background:var(--rule);outline:none;cursor:pointer;transition:background .2s;}
-        input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:18px;height:18px;border-radius:50%;background:var(--green);border:2px solid var(--paper-2);box-shadow:0 1px 4px rgba(0,0,0,0.2);cursor:pointer;transition:background .2s;}
-        [data-theme="dark"] input[type=range]::-webkit-slider-thumb{background:var(--gold);}
-        input[type=range]::-webkit-slider-runnable-track{height:4px;border-radius:2px;}
+        /* FREQ BUTTONS */
+        .freq-group{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px;}
+        .freq-btn{padding:6px 12px;border-radius:6px;font-size:.72rem;font-weight:600;cursor:pointer;border:1px solid var(--rule);background:var(--paper-3);color:var(--ink-2);transition:all .2s;}
+        .freq-btn.active{background:var(--green);color:#fff;border-color:var(--green);}
 
-        .range-labels{display:flex;justify-content:space-between;margin-top:6px;}
-        .range-labels span{font-size:.68rem;color:var(--ink-3);}
+        /* RESULTS */
+        .results-panel{background:var(--paper-2);border:1px solid var(--rule);border-radius:12px;padding:28px;box-shadow:var(--shadow);}
+        .stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:24px;}
+        .stat-card{background:var(--paper-3);border-radius:10px;padding:16px;text-align:center;position:relative;overflow:hidden;}
+        .stat-card.highlight{background:var(--green);color:#fff;}
+        .stat-card.highlight .stat-label{color:rgba(255,255,255,.6);}
+        .stat-num{font-family:'Cormorant Garamond',serif;font-size:1.7rem;font-weight:700;color:var(--green);line-height:1.1;transition:all .3s;}
+        .stat-card.highlight .stat-num{color:#fff;}
+        .stat-sub{font-size:.72rem;color:var(--gold);font-weight:600;margin-top:2px;}
+        .stat-card.highlight .stat-sub{color:var(--gold-l);}
+        .stat-label{font-size:.65rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--ink-3);margin-top:6px;}
 
-        .freq-row{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:4px;}
-        .freq-btn{padding:9px;border:1px solid var(--rule);background:transparent;border-radius:3px;font-family:'Outfit',sans-serif;font-size:.8rem;font-weight:600;color:var(--ink-2);cursor:pointer;transition:all .2s;text-align:center;}
-        .freq-btn.active{background:var(--green);border-color:var(--green);color:#fff;}
-        [data-theme="dark"] .freq-btn.active{background:var(--gold);border-color:var(--gold);color:#0D0D0D;}
+        /* BANK COMPARISON */
+        .bank-box{background:var(--paper-3);border-radius:10px;padding:14px 16px;margin-bottom:20px;display:flex;justify-content:space-between;align-items:center;gap:12px;}
+        .bank-label{font-size:.78rem;color:var(--ink-3);line-height:1.4;}
+        .bank-label strong{color:var(--ink);display:block;font-size:.82rem;}
+        .bank-diff{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:var(--gold);white-space:nowrap;text-align:right;}
+        .bank-diff-label{font-size:.65rem;color:var(--ink-3);text-align:right;}
 
-        .calc-btn{width:100%;padding:15px;background:var(--green);color:#fff;border:none;border-radius:3px;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:700;cursor:pointer;letter-spacing:.5px;transition:all .2s;margin-top:8px;}
-        .calc-btn:hover{background:var(--green-l);transform:translateY(-1px);}
-        [data-theme="dark"] .calc-btn{background:var(--gold);color:#0D0D0D;}
-        [data-theme="dark"] .calc-btn:hover{background:var(--gold-l);}
+        /* CHART */
+        .chart-wrap{position:relative;height:200px;margin-bottom:20px;}
 
-        /* RESULTS PANEL */
-        .results-panel{display:flex;flex-direction:column;gap:24px;}
-
-        .stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;}
-        .stat-card{background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;padding:20px 22px;box-shadow:var(--shadow);transition:transform .2s;}
-        .stat-card:hover{transform:translateY(-2px);}
-        .stat-label{font-size:.65rem;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--ink-3);margin-bottom:8px;}
-        .stat-value{font-family:'Cormorant Garamond',serif;font-size:1.9rem;font-weight:700;line-height:1;color:var(--ink);}
-        .stat-value.highlight{color:var(--green);}
-        [data-theme="dark"] .stat-value.highlight{color:var(--gold);}
-        .stat-sub{font-size:.72rem;color:var(--ink-3);margin-top:5px;}
-
-        .chart-card{background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;padding:28px;box-shadow:var(--shadow);}
-        .chart-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:24px;padding-bottom:14px;border-bottom:1px solid var(--rule);}
-        .chart-title{font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-weight:700;color:var(--ink);}
-        .chart-legend{display:flex;gap:16px;}
-        .legend-item{display:flex;align-items:center;gap:6px;font-size:.72rem;color:var(--ink-2);}
-        .legend-dot{width:10px;height:10px;border-radius:50%;}
-        .chart-wrap{position:relative;height:300px;}
-
-        /* BREAKDOWN TABLE */
-        .breakdown-card{background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;overflow:hidden;box-shadow:var(--shadow);}
-        .breakdown-header{padding:18px 22px;border-bottom:1px solid var(--rule);display:flex;justify-content:space-between;align-items:center;}
-        .breakdown-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--ink);}
-        table{width:100%;border-collapse:collapse;}
-        thead th{padding:10px 16px;font-size:.68rem;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--ink-3);text-align:right;border-bottom:1px solid var(--rule);background:var(--paper-3);}
+        /* TABLE */
+        .tbl-wrap{overflow-x:auto;}
+        table{width:100%;border-collapse:collapse;font-size:.8rem;}
+        thead th{background:var(--green);color:#fff;padding:8px 12px;text-align:right;font-weight:600;letter-spacing:.5px;font-size:.7rem;}
         thead th:first-child{text-align:left;}
-        tbody td{padding:11px 16px;font-size:.875rem;text-align:right;border-bottom:1px solid var(--rule);color:var(--ink-2);}
+        tbody tr:nth-child(even){background:var(--paper-3);}
+        tbody td{padding:8px 12px;text-align:right;color:var(--ink-2);}
         tbody td:first-child{text-align:left;font-weight:600;color:var(--ink);}
-        tbody tr:last-child td{border-bottom:none;}
-        tbody tr:hover td{background:var(--paper-3);}
-        .td-green{color:var(--green);font-weight:700;}
-        [data-theme="dark"] .td-green{color:var(--gold);}
+        tbody tr:last-child td{font-weight:700;color:var(--green);background:rgba(27,58,45,.07);}
 
-        /* INFO SECTION */
-        .info-section{margin-top:48px;display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
-        .info-card{background:var(--paper-2);border:1px solid var(--rule);border-radius:4px;padding:24px;border-top:3px solid var(--gold);}
-        .info-icon{font-size:1.4rem;margin-bottom:12px;color:var(--gold);}
-        .info-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;font-weight:700;color:var(--ink);margin-bottom:8px;}
-        .info-text{font-size:.85rem;color:var(--ink-2);line-height:1.65;}
+        /* REVERSE MODE */
+        .reverse-panel{background:var(--paper-2);border:1px solid var(--rule);border-radius:0 12px 12px 12px;padding:28px;box-shadow:var(--shadow);grid-column:1/-1;}
+        .rev-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-top:20px;}
+        .rev-field{background:var(--paper-3);border-radius:10px;padding:16px;}
+        .rev-field label{font-size:.7rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;color:var(--ink-3);display:block;margin-bottom:6px;}
+        .rev-input{width:100%;background:var(--paper-2);border:1px solid var(--rule);border-radius:6px;padding:10px 12px;font-family:'Outfit',sans-serif;font-size:1rem;font-weight:600;color:var(--ink);outline:none;transition:border .2s;}
+        .rev-input:focus{border-color:var(--green);}
+        .rev-result{background:var(--green);border-radius:12px;padding:24px;text-align:center;margin-top:20px;}
+        .rev-result-num{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:700;color:#fff;line-height:1;}
+        .rev-result-label{font-size:.75rem;color:rgba(255,255,255,.65);margin-top:6px;letter-spacing:1px;text-transform:uppercase;}
+        .rev-result-sub{font-size:.82rem;color:var(--gold-l);margin-top:8px;}
 
-        /* CTA */
-        .cta-bar{background:var(--green);border-radius:4px;padding:32px 36px;display:flex;justify-content:space-between;align-items:center;margin-top:32px;}
-        [data-theme="dark"] .cta-bar{background:#162012;border:1px solid var(--rule);}
-        .cta-text h3{font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:700;color:#fff;margin-bottom:6px;}
-        .cta-text p{font-size:.875rem;color:rgba(255,255,255,.7);}
-        .cta-link{background:#fff;color:var(--green);padding:13px 28px;border-radius:3px;font-weight:700;font-size:.875rem;white-space:nowrap;transition:all .2s;}
-        .cta-link:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.2);}
+        /* INFO CARDS */
+        .info-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;max-width:980px;margin:0 auto;padding:0 24px 40px;}
+        @media(max-width:600px){.info-grid{grid-template-columns:1fr;}}
+        .info-card{background:var(--paper-2);border:1px solid var(--rule);border-radius:12px;padding:20px;border-top:3px solid var(--gold);}
+        .info-icon{font-size:1.5rem;margin-bottom:10px;}
+        .info-title{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:700;color:var(--ink);margin-bottom:6px;}
+        .info-text{font-size:.82rem;color:var(--ink-3);line-height:1.6;}
+
+        /* AFFILIATE */
+        .aff-box{max-width:980px;margin:0 auto 40px;padding:0 24px;}
+        .aff-inner{background:var(--green);border-radius:12px;padding:28px 32px;display:flex;justify-content:space-between;align-items:center;gap:20px;flex-wrap:wrap;}
+        .aff-inner h3{font-family:'Cormorant Garamond',serif;font-size:1.3rem;font-weight:700;color:#fff;margin-bottom:6px;}
+        .aff-inner p{font-size:.85rem;color:rgba(255,255,255,.7);max-width:460px;}
+        .aff-btn{background:var(--gold);color:#fff;padding:11px 24px;border-radius:7px;font-weight:700;font-size:.85rem;white-space:nowrap;transition:opacity .2s;flex-shrink:0;}
+        .aff-btn:hover{opacity:.88;}
 
         /* FOOTER */
-        footer{background:#0D0D0D;border-top:3px solid var(--gold);margin-top:60px;padding:24px;text-align:center;}
-        .foot-txt{font-size:.8rem;color:#444;}
-        .foot-txt a{color:#666;transition:color .2s;}
-        .foot-txt a:hover{color:var(--gold);}
-
-        /* LANG */
-        .lang-en{display:none;}
-        body.en .lang-el{display:none!important;}
-        body.en .lang-en{display:inline!important;}
-        .block-en{display:none;}
-        body.en .block-el{display:none!important;}
-        body.en .block-en{display:block!important;}
-
-        @media(max-width:900px){
-            .calc-grid{grid-template-columns:1fr;}
-            .stats-row{grid-template-columns:1fr 1fr;}
-            .info-section{grid-template-columns:1fr;}
-            .cta-bar{flex-direction:column;gap:20px;text-align:center;}
-            .page-title{font-size:2rem;}
-        }
-        @media(max-width:540px){
-            .stats-row{grid-template-columns:1fr;}
-        }
+        footer{background:var(--paper-2);border-top:1px solid var(--rule);padding:20px 24px;text-align:center;font-size:.75rem;color:var(--ink-3);}
+        footer a{color:var(--gold);}
     </style>
 </head>
 <body>
-
 <div class="top-bar"></div>
-
 <nav>
     <div class="nav-inner">
         <a href="index.html" class="brand">
@@ -174,309 +156,423 @@
             <span class="brand-sub">Financial Intelligence</span>
         </a>
         <div class="nav-right">
-            <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> <span class="lang-el">Αρχική</span><span class="lang-en">Home</span></a>
-            <button class="ctrl" onclick="toggleLang()" title="Language"><span class="lang-el">🇬🇧</span><span class="lang-en">🇬🇷</span></button>
-            <button class="ctrl" onclick="toggleTheme()"><i class="fas fa-moon" id="ti"></i></button>
+            <a href="index.html" class="nav-back">
+                <span class="lang-el">← Αρχική</span>
+                <span class="lang-en">← Home</span>
+            </a>
+            <button class="nav-icon" onclick="toggleLang()">🌐</button>
+            <button class="nav-icon" onclick="toggleTheme()" id="ti"><i class="fas fa-moon"></i></button>
         </div>
     </div>
 </nav>
 
-<div class="page">
-
-    <div class="page-header">
-        <div class="page-kicker"><span class="lang-el">Εργαλεία</span><span class="lang-en">Tools</span></div>
-        <h1 class="page-title block-el">Υπολογιστής<br>Ανατοκισμού</h1>
-        <h1 class="page-title block-en">Compound Interest<br>Calculator</h1>
-        <p class="page-sub block-el">Δες πόσο μπορεί να φτάσει η επένδυσή σου με τη δύναμη του ανατοκισμού. Μετακίνησε τους sliders και δες τα αποτελέσματα σε πραγματικό χρόνο.</p>
-        <p class="page-sub block-en">See how your investment grows with the power of compounding. Move the sliders and watch your results update in real time.</p>
+<div class="hero">
+    <div class="hero-inner">
+        <div class="hero-kicker lang-el">🧮 ΕΡΓΑΛΕΙΑ ΕΠΕΝΔΥΣΗΣ</div>
+        <div class="hero-kicker lang-en">🧮 INVESTMENT TOOLS</div>
+        <h1 class="hero-title lang-el">Υπολογιστής Ανατοκισμού</h1>
+        <h1 class="hero-title lang-en">Compound Interest Calculator</h1>
+        <p class="hero-sub lang-el">Δες πόσο μπορεί να φτάσει η επένδυσή σου — και τι χάνεις αν αφήσεις τα χρήματά σου στην τράπεζα.</p>
+        <p class="hero-sub lang-en">See how much your investment can grow — and what you lose by leaving money in a savings account.</p>
     </div>
+</div>
 
-    <div class="calc-grid">
+<div class="mode-tabs">
+    <button class="mode-tab active" id="tab-normal" onclick="switchMode('normal')">
+        <span class="lang-el">📈 Υπολογιστής</span><span class="lang-en">📈 Calculator</span>
+    </button>
+    <button class="mode-tab inactive" id="tab-reverse" onclick="switchMode('reverse')">
+        <span class="lang-el">🎯 Στόχος</span><span class="lang-en">🎯 Goal Planner</span>
+    </button>
+</div>
 
-        <!-- INPUTS -->
-        <div class="inputs-panel">
-            <div class="panel-title"><span class="lang-el">Στοιχεία Επένδυσης</span><span class="lang-en">Investment Details</span></div>
+<!-- NORMAL MODE -->
+<div id="mode-normal">
+<div class="calc-wrap" style="padding-top:20px;">
 
-            <div class="field">
-                <div class="field-top">
-                    <span class="field-label"><span class="lang-el">Αρχικό Κεφάλαιο</span><span class="lang-en">Initial Investment</span></span>
-                    <span class="field-value" id="v-initial">€1,000</span>
-                </div>
-                <input type="range" id="s-initial" min="0" max="100000" step="500" value="1000" oninput="onSlide()">
-                <div class="range-labels"><span>€0</span><span>€100,000</span></div>
+    <!-- INPUTS -->
+    <div class="panel">
+        <div class="panel-title lang-el">Στοιχεία Επένδυσης</div>
+        <div class="panel-title lang-en">Investment Details</div>
+
+        <div class="field">
+            <div class="field-head">
+                <span class="field-label lang-el">Αρχικό Κεφάλαιο</span>
+                <span class="field-label lang-en">Initial Capital</span>
+                <span class="field-value" id="v-init">1.000 €</span>
             </div>
-
-            <div class="field">
-                <div class="field-top">
-                    <span class="field-label"><span class="lang-el">Μηνιαία Επένδυση</span><span class="lang-en">Monthly Contribution</span></span>
-                    <span class="field-value" id="v-monthly">€100</span>
-                </div>
-                <input type="range" id="s-monthly" min="0" max="5000" step="50" value="100" oninput="onSlide()">
-                <div class="range-labels"><span>€0</span><span>€5,000</span></div>
-            </div>
-
-            <div class="field">
-                <div class="field-top">
-                    <span class="field-label"><span class="lang-el">Ετήσια Απόδοση</span><span class="lang-en">Annual Return</span></span>
-                    <span class="field-value" id="v-rate">7%</span>
-                </div>
-                <input type="range" id="s-rate" min="1" max="20" step="0.5" value="7" oninput="onSlide()">
-                <div class="range-labels"><span>1%</span><span>20%</span></div>
-            </div>
-
-            <div class="field">
-                <div class="field-top">
-                    <span class="field-label"><span class="lang-el">Χρόνια Επένδυσης</span><span class="lang-en">Investment Period</span></span>
-                    <span class="field-value" id="v-years"><span class="lang-el">20 χρόνια</span><span class="lang-en">20 years</span></span>
-                </div>
-                <input type="range" id="s-years" min="1" max="50" step="1" value="20" oninput="onSlide()">
-                <div class="range-labels"><span>1 <span class="lang-el">έτος</span><span class="lang-en">yr</span></span><span>50 <span class="lang-el">έτη</span><span class="lang-en">yrs</span></span></div>
-            </div>
-
-            <div class="field">
-                <div class="field-top" style="margin-bottom:12px;">
-                    <span class="field-label"><span class="lang-el">Συχνότητα Ανατοκισμού</span><span class="lang-en">Compound Frequency</span></span>
-                </div>
-                <div class="freq-row">
-                    <button class="freq-btn active" onclick="setFreq(12,this)"><span class="lang-el">Μηνιαία</span><span class="lang-en">Monthly</span></button>
-                    <button class="freq-btn" onclick="setFreq(4,this)"><span class="lang-el">Τριμηνιαία</span><span class="lang-en">Quarterly</span></button>
-                    <button class="freq-btn" onclick="setFreq(2,this)"><span class="lang-el">Εξαμηνιαία</span><span class="lang-en">Semi-Annual</span></button>
-                    <button class="freq-btn" onclick="setFreq(1,this)"><span class="lang-el">Ετήσια</span><span class="lang-en">Yearly</span></button>
-                </div>
-            </div>
-
-            <button class="calc-btn" onclick="calculate()">
-                <i class="fas fa-calculator" style="margin-right:8px;"></i>
-                <span class="lang-el">Υπολόγισε</span><span class="lang-en">Calculate</span>
-            </button>
+            <input type="range" id="r-init" min="0" max="100000" step="500" value="1000" oninput="update()">
+            <div class="range-labels"><span>€0</span><span>€100k</span></div>
         </div>
 
-        <!-- RESULTS -->
-        <div class="results-panel">
-
-            <div class="stats-row">
-                <div class="stat-card">
-                    <div class="stat-label"><span class="lang-el">Τελική Αξία</span><span class="lang-en">Final Value</span></div>
-                    <div class="stat-value highlight" id="r-total">€0</div>
-                    <div class="stat-sub" id="r-total-sub"></div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-label"><span class="lang-el">Συνολικές Καταθέσεις</span><span class="lang-en">Total Invested</span></div>
-                    <div class="stat-value" id="r-invested">€0</div>
-                    <div class="stat-sub"><span class="lang-el">δικά σου χρήματα</span><span class="lang-en">your own money</span></div>
-                </div>
-                <div class="stat-card">
-                    <div class="stat-label"><span class="lang-el">Κέρδος Ανατοκισμού</span><span class="lang-en">Interest Earned</span></div>
-                    <div class="stat-value highlight" id="r-interest">€0</div>
-                    <div class="stat-sub" id="r-interest-sub"></div>
-                </div>
+        <div class="field">
+            <div class="field-head">
+                <span class="field-label lang-el">Μηνιαία Επένδυση</span>
+                <span class="field-label lang-en">Monthly Investment</span>
+                <span class="field-value" id="v-monthly">100 €</span>
             </div>
+            <input type="range" id="r-monthly" min="0" max="5000" step="50" value="100" oninput="update()">
+            <div class="range-labels"><span>€0</span><span>€5k</span></div>
+        </div>
 
-            <div class="chart-card">
-                <div class="chart-header">
-                    <span class="chart-title"><span class="lang-el">Εξέλιξη Επένδυσης</span><span class="lang-en">Investment Growth</span></span>
-                    <div class="chart-legend">
-                        <div class="legend-item"><div class="legend-dot" style="background:#1B3A2D;"></div><span class="lang-el">Κεφάλαιο</span><span class="lang-en">Capital</span></div>
-                        <div class="legend-item"><div class="legend-dot" style="background:#B8924A;"></div><span class="lang-el">Κέρδος</span><span class="lang-en">Interest</span></div>
-                    </div>
-                </div>
-                <div class="chart-wrap"><canvas id="chart"></canvas></div>
+        <div class="field">
+            <div class="field-head">
+                <span class="field-label lang-el">Ετήσια Απόδοση</span>
+                <span class="field-label lang-en">Annual Return</span>
+                <span class="field-value" id="v-rate">7%</span>
             </div>
+            <input type="range" id="r-rate" min="1" max="20" step="0.5" value="7" oninput="update()">
+            <div class="range-labels"><span>1%</span><span>20%</span></div>
+        </div>
 
-            <div class="breakdown-card">
-                <div class="breakdown-header">
-                    <span class="breakdown-title"><span class="lang-el">Ανάλυση ανά 5 Χρόνια</span><span class="lang-en">5-Year Breakdown</span></span>
-                </div>
-                <div style="overflow-x:auto;">
-                    <table>
-                        <thead>
-                            <tr>
-                                <th><span class="lang-el">Έτος</span><span class="lang-en">Year</span></th>
-                                <th><span class="lang-el">Καταθέσεις</span><span class="lang-en">Invested</span></th>
-                                <th><span class="lang-el">Κέρδος</span><span class="lang-en">Interest</span></th>
-                                <th><span class="lang-el">Συνολική Αξία</span><span class="lang-en">Total Value</span></th>
-                            </tr>
-                        </thead>
-                        <tbody id="breakdown-body"></tbody>
-                    </table>
-                </div>
+        <div class="field">
+            <div class="field-head">
+                <span class="field-label lang-el">Χρόνια Επένδυσης</span>
+                <span class="field-label lang-en">Investment Period</span>
+                <span class="field-value" id="v-years"><span class="lang-el">20 χρόνια</span><span class="lang-en">20 years</span></span>
             </div>
+            <input type="range" id="r-years" min="1" max="50" step="1" value="20" oninput="update()">
+            <div class="range-labels"><span><span class="lang-el">1 έτος</span><span class="lang-en">1 yr</span></span><span><span class="lang-el">50 έτη</span><span class="lang-en">50 yrs</span></span></div>
+        </div>
 
+        <div class="field">
+            <div class="field-head" style="margin-bottom:6px;">
+                <span class="field-label lang-el">Συχνότητα Ανατοκισμού</span>
+                <span class="field-label lang-en">Compounding Frequency</span>
+            </div>
+            <div class="freq-group">
+                <button class="freq-btn active" data-f="12" onclick="setFreq(this)"><span class="lang-el">Μηνιαία</span><span class="lang-en">Monthly</span></button>
+                <button class="freq-btn" data-f="4" onclick="setFreq(this)"><span class="lang-el">Τριμηνιαία</span><span class="lang-en">Quarterly</span></button>
+                <button class="freq-btn" data-f="2" onclick="setFreq(this)"><span class="lang-el">Εξαμηνιαία</span><span class="lang-en">Semi-annual</span></button>
+                <button class="freq-btn" data-f="1" onclick="setFreq(this)"><span class="lang-el">Ετήσια</span><span class="lang-en">Annual</span></button>
+            </div>
         </div>
     </div>
 
-    <!-- INFO CARDS -->
-    <div class="info-section">
-        <div class="info-card">
-            <div class="info-icon"><i class="fas fa-snowball"></i>❄️</div>
-            <div class="info-title block-el">Το Εφέ Χιονόμπαλας</div>
-            <div class="info-title block-en">The Snowball Effect</div>
-            <p class="info-text block-el">Ο ανατοκισμός λειτουργεί σαν χιονόμπαλα — τα κέρδη σου παράγουν νέα κέρδη. Όσο περισσότερο χρόνο δίνεις στα χρήματά σου, τόσο πιο γρήγορα μεγαλώνουν.</p>
-            <p class="info-text block-en">Compounding works like a snowball — your returns generate new returns. The longer you give your money to grow, the faster it accelerates.</p>
+    <!-- RESULTS -->
+    <div class="results-panel">
+        <div class="stat-grid">
+            <div class="stat-card highlight" style="grid-column:1/-1;">
+                <div class="stat-num" id="r-final">55.545 €</div>
+                <div class="stat-sub" id="r-mult">×2.2 <span class="lang-el">το αρχικό κεφάλαιο</span><span class="lang-en">initial capital</span></div>
+                <div class="stat-label lang-el">Τελική Αξία</div>
+                <div class="stat-label lang-en">Final Value</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" id="r-deposits">25.000 €</div>
+                <div class="stat-label lang-el">Συνολικές Καταθέσεις</div>
+                <div class="stat-label lang-en">Total Deposited</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-num" id="r-gain" style="color:var(--gold);">30.545 €</div>
+                <div class="stat-sub" id="r-pct">+122%</div>
+                <div class="stat-label lang-el">Κέρδος Ανατοκισμού</div>
+                <div class="stat-label lang-en">Compound Gain</div>
+            </div>
         </div>
-        <div class="info-card">
-            <div class="info-icon">⏰</div>
-            <div class="info-title block-el">Ο Χρόνος Είναι το Παν</div>
-            <div class="info-title block-en">Time Is Everything</div>
-            <p class="info-text block-el">Το να ξεκινήσεις 10 χρόνια νωρίτερα μπορεί να διπλασιάσει το τελικό σου κεφάλαιο. Η καλύτερη στιγμή να επενδύσεις ήταν χθες — η δεύτερη καλύτερη είναι σήμερα.</p>
-            <p class="info-text block-en">Starting 10 years earlier can double your final portfolio. The best time to invest was yesterday — the second best time is today.</p>
+
+        <!-- BANK COMPARISON -->
+        <div class="bank-box">
+            <div class="bank-label">
+                <strong class="lang-el">Αν άφηνες στην τράπεζα (2%)</strong>
+                <strong class="lang-en">If left in bank savings (2%)</strong>
+                <span class="lang-el">Αντί να επενδύεις, θα είχες:</span>
+                <span class="lang-en">Instead of investing, you'd have:</span>
+                <span id="bank-val" style="font-weight:700;color:var(--ink);"> 27.234 €</span>
+            </div>
+            <div>
+                <div class="bank-diff" id="bank-diff">+28.311 €</div>
+                <div class="bank-diff-label lang-el">επιπλέον με επένδυση</div>
+                <div class="bank-diff-label lang-en">more by investing</div>
+            </div>
         </div>
-        <div class="info-card">
-            <div class="info-icon">📊</div>
-            <div class="info-title block-el">Ιστορική Απόδοση S&P 500</div>
-            <div class="info-title block-en">S&P 500 Historical Return</div>
-            <p class="info-text block-el">Ο δείκτης S&P 500 έχει αποδώσει κατά μέσο όρο ~10% ετησίως τα τελευταία 100 χρόνια. Ένα ETF που τον παρακολουθεί είναι η απλούστερη επένδυση για αρχάριους.</p>
-            <p class="info-text block-en">The S&P 500 index has returned ~10% annually on average over the past 100 years. An ETF tracking it is the simplest investment for beginners.</p>
+
+        <div class="chart-wrap">
+            <canvas id="myChart"></canvas>
+        </div>
+
+        <div class="tbl-wrap">
+            <table id="breakdown-table">
+                <thead>
+                    <tr>
+                        <th style="text-align:left;"><span class="lang-el">Έτος</span><span class="lang-en">Year</span></th>
+                        <th><span class="lang-el">Καταθέσεις</span><span class="lang-en">Deposits</span></th>
+                        <th><span class="lang-el">Κέρδος</span><span class="lang-en">Gain</span></th>
+                        <th><span class="lang-el">Σύνολο</span><span class="lang-en">Total</span></th>
+                    </tr>
+                </thead>
+                <tbody id="tbl-body"></tbody>
+            </table>
         </div>
     </div>
+</div>
+</div>
 
-    <div class="cta-bar">
-        <div class="cta-text">
-            <h3><span class="lang-el">Έτοιμος να ξεκινήσεις;</span><span class="lang-en">Ready to start investing?</span></h3>
-            <p><span class="lang-el">Άνοιξε λογαριασμό στο Freedom24 και αρχές να επενδύεις από σήμερα.</span><span class="lang-en">Open an account with Freedom24 and start investing today.</span></p>
+<!-- REVERSE / GOAL MODE -->
+<div id="mode-reverse" style="display:none;">
+<div class="calc-wrap" style="padding-top:20px;">
+<div class="reverse-panel">
+    <div class="panel-title lang-el">🎯 Πόσο πρέπει να αποταμιεύω για να φτάσω τον στόχο μου;</div>
+    <div class="panel-title lang-en">🎯 How much do I need to save monthly to reach my goal?</div>
+    <div class="rev-grid">
+        <div class="rev-field">
+            <label class="lang-el">Στόχος (€)</label>
+            <label class="lang-en">Target Amount (€)</label>
+            <input type="number" class="rev-input" id="rev-target" value="100000" oninput="updateReverse()">
         </div>
-        <a href="https://freedom24.com/invite_from/1767598" target="_blank" class="cta-link">Freedom24 →</a>
+        <div class="rev-field">
+            <label class="lang-el">Αρχικό Κεφάλαιο (€)</label>
+            <label class="lang-en">Initial Capital (€)</label>
+            <input type="number" class="rev-input" id="rev-init" value="1000" oninput="updateReverse()">
+        </div>
+        <div class="rev-field">
+            <label class="lang-el">Ετήσια Απόδοση (%)</label>
+            <label class="lang-en">Annual Return (%)</label>
+            <input type="number" class="rev-input" id="rev-rate" value="7" step="0.5" oninput="updateReverse()">
+        </div>
+        <div class="rev-field">
+            <label class="lang-el">Χρόνια Επένδυσης</label>
+            <label class="lang-en">Years</label>
+            <input type="number" class="rev-input" id="rev-years" value="20" oninput="updateReverse()">
+        </div>
     </div>
+    <div class="rev-result">
+        <div class="rev-result-num" id="rev-monthly-result">384 €</div>
+        <div class="rev-result-label lang-el">μηνιαία επένδυση που χρειάζεσαι</div>
+        <div class="rev-result-label lang-en">monthly investment needed</div>
+        <div class="rev-result-sub" id="rev-sub">Σύνολο καταθέσεων: 93.160 € — Κέρδος: 6.840 €</div>
+    </div>
+</div>
+</div>
+</div>
 
+<!-- INFO CARDS -->
+<div class="info-grid">
+    <div class="info-card">
+        <div class="info-icon">❄️</div>
+        <div class="info-title lang-el">Το Εφέ Χιονόμπαλας</div>
+        <div class="info-title lang-en">The Snowball Effect</div>
+        <p class="info-text lang-el">Ο ανατοκισμός λειτουργεί σαν χιονόμπαλα — τα κέρδη σου παράγουν νέα κέρδη. Όσο περισσότερο χρόνο δίνεις, τόσο πιο γρήγορα μεγαλώνουν.</p>
+        <p class="info-text lang-en">Compounding works like a snowball — your gains generate new gains. The more time you give, the faster they grow.</p>
+    </div>
+    <div class="info-card">
+        <div class="info-icon">⏰</div>
+        <div class="info-title lang-el">Ο Χρόνος Είναι το Παν</div>
+        <div class="info-title lang-en">Time Is Everything</div>
+        <p class="info-text lang-el">Να ξεκινήσεις 10 χρόνια νωρίτερα μπορεί να διπλασιάσει το τελικό σου κεφάλαιο. Η καλύτερη στιγμή ήταν χθες — η δεύτερη καλύτερη είναι σήμερα.</p>
+        <p class="info-text lang-en">Starting 10 years earlier can double your final capital. The best time was yesterday — the second best is today.</p>
+    </div>
+    <div class="info-card">
+        <div class="info-icon">📊</div>
+        <div class="info-title lang-el">Ιστορική Απόδοση S&P 500</div>
+        <div class="info-title lang-en">S&P 500 Historical Return</div>
+        <p class="info-text lang-el">Ο S&P 500 έχει αποδώσει ~10% ετησίως τα τελευταία 100 χρόνια. Ένα ETF που τον παρακολουθεί είναι η απλούστερη επένδυση για αρχάριους.</p>
+        <p class="info-text lang-en">The S&P 500 has returned ~10% annually over the last 100 years. An ETF tracking it is the simplest investment for beginners.</p>
+    </div>
+</div>
+
+<!-- AFFILIATE -->
+<div class="aff-box">
+    <div class="aff-inner">
+        <div>
+            <h3 class="lang-el">Έτοιμος να ξεκινήσεις;</h3>
+            <h3 class="lang-en">Ready to start investing?</h3>
+            <p class="lang-el">Άνοιξε λογαριασμό στο Freedom24 και αρχές να επενδύεις από σήμερα — χιλιάδες μετοχές και ETF σε μία πλατφόρμα.</p>
+            <p class="lang-en">Open an account with Freedom24 and start investing today — thousands of stocks and ETFs on one platform.</p>
+        </div>
+        <a href="https://freedom24.com/invite_from/1767598" target="_blank" class="aff-btn lang-el">Freedom24 →</a>
+        <a href="https://freedom24.com/invite_from/1767598" target="_blank" class="aff-btn lang-en">Freedom24 →</a>
+    </div>
 </div>
 
 <footer>
-    <p class="foot-txt">&copy; 2026 TimeToCompound. <a href="index.html"><span class="lang-el">Αρχική</span><span class="lang-en">Home</span></a> · <a href="article6.html"><span class="lang-el">Οδηγός για αρχάριους</span><span class="lang-en">Beginner's Guide</span></a></p>
+    <p>© 2026 TimeToCompound. <a href="index.html"><span class="lang-el">Αρχική</span><span class="lang-en">Home</span></a> · <a href="article6.html"><span class="lang-el">Οδηγός για αρχάριους</span><span class="lang-en">Beginner's Guide</span></a></p>
 </footer>
 
 <script>
-let freq=12;
-let myChart=null;
+let freq = 12;
+let chart;
 
-function fmt(n){return new Intl.NumberFormat('el-GR',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(n);}
-function fmtPct(n){return '+'+n.toFixed(1)+'%';}
+function fmt(n){return n.toLocaleString('el-GR',{maximumFractionDigits:0})+'&thinsp;€';}
+function fmtPct(n){return(n>=0?'+':'')+n.toFixed(1)+'%';}
 
-function setFreq(f,btn){
-    freq=f;
+function setFreq(btn){
     document.querySelectorAll('.freq-btn').forEach(b=>b.classList.remove('active'));
     btn.classList.add('active');
-    calculate();
+    freq=parseInt(btn.dataset.f);
+    update();
 }
 
-function onSlide(){
-    const init=+document.getElementById('s-initial').value;
-    const monthly=+document.getElementById('s-monthly').value;
-    const rate=+document.getElementById('s-rate').value;
-    const years=+document.getElementById('s-years').value;
-    document.getElementById('v-initial').textContent=fmt(init);
-    document.getElementById('v-monthly').textContent=fmt(monthly);
-    document.getElementById('v-rate').textContent=rate+'%';
+function calcCompound(P,pmt,r,years,f){
+    const rPer=r/100/f;
+    const pmtPer=pmt*(12/f);
+    let val=P;
+    for(let i=0;i<years*f;i++){val=val*(1+rPer)+pmtPer;}
+    return val;
+}
+
+function updateSlider(el){
+    const min=parseFloat(el.min),max=parseFloat(el.max),val=parseFloat(el.value);
+    const pct=((val-min)/(max-min))*100;
+    el.style.setProperty('--pct',pct+'%');
+}
+
+function update(){
+    const P=parseFloat(document.getElementById('r-init').value)||0;
+    const pmt=parseFloat(document.getElementById('r-monthly').value)||0;
+    const r=parseFloat(document.getElementById('r-rate').value)||0;
+    const years=parseInt(document.getElementById('r-years').value)||1;
+
+    document.querySelectorAll('input[type=range]').forEach(updateSlider);
+
     const isEl=!document.body.classList.contains('en');
-    document.getElementById('v-years').innerHTML=isEl?`${years} χρόνια`:`${years} year${years>1?'s':''}`;
-    calculate();
+    document.getElementById('v-init').textContent=fmt(P);
+    document.getElementById('v-monthly').textContent=fmt(pmt);
+    document.getElementById('v-rate').textContent=r+'%';
+    document.getElementById('v-years').innerHTML=years+(isEl?' χρόνια':' years');
+
+    const final=calcCompound(P,pmt,r,years,freq);
+    const deposits=P+pmt*12*years;
+    const gain=final-deposits;
+    const pct=deposits>0?(gain/deposits)*100:0;
+    const mult=deposits>0?(final/P):0;
+
+    // bank (2% annual, monthly)
+    const bank=calcCompound(P,pmt,2,years,12);
+    const bankDiff=final-bank;
+
+    animateValue('r-final',final,true);
+    animateValue('r-deposits',deposits,true);
+    animateValue('r-gain',gain,true);
+    document.getElementById('r-pct').textContent=fmtPct(pct);
+    document.getElementById('r-mult').innerHTML='×'+mult.toFixed(1)+' <span class="lang-'+(isEl?'el':'en')+'">'+(isEl?'το αρχικό κεφάλαιο':'initial capital')+'</span>';
+
+    document.getElementById('bank-val').textContent=' '+fmt(bank);
+    document.getElementById('bank-diff').textContent='+'+fmt(bankDiff);
+
+    buildChart(P,pmt,r,years);
+    buildTable(P,pmt,r,years);
 }
 
-function calculate(){
-    const P=+document.getElementById('s-initial').value;
-    const m=+document.getElementById('s-monthly').value;
-    const r=+document.getElementById('s-rate').value/100;
-    const years=+document.getElementById('s-years').value;
-    const n=freq;
-
-    let labels=[],dataTotal=[],dataInvested=[],breakdown=[];
-    let balance=P;
-    let totalInvested=P;
-
-    for(let yr=1;yr<=years;yr++){
-        for(let period=0;period<n;period++){
-            balance=balance*(1+r/n)+m*(12/n);
-        }
-        totalInvested=P+m*12*yr;
-        labels.push("'"+String(yr).padStart(2,'0'));
-        dataTotal.push(Math.round(balance));
-        dataInvested.push(Math.round(totalInvested));
-        if(yr%5===0||yr===years){
-            breakdown.push({yr,invested:Math.round(totalInvested),interest:Math.round(balance-totalInvested),total:Math.round(balance)});
-        }
+function animateValue(id,target,isMoney){
+    const el=document.getElementById(id);
+    const start=parseFloat((el.textContent||'0').replace(/[^0-9.-]/g,''))||0;
+    const duration=300;
+    const startTime=performance.now();
+    function step(now){
+        const t=Math.min((now-startTime)/duration,1);
+        const current=start+(target-start)*t;
+        el.innerHTML=isMoney?fmt(current):current.toFixed(1);
+        if(t<1)requestAnimationFrame(step);
     }
+    requestAnimationFrame(step);
+}
 
-    const finalTotal=dataTotal[dataTotal.length-1];
-    const finalInvested=dataInvested[dataInvested.length-1];
-    const finalInterest=finalTotal-finalInvested;
-    const multiplier=(finalTotal/finalInvested).toFixed(1);
-
-    document.getElementById('r-total').textContent=fmt(finalTotal);
-    document.getElementById('r-invested').textContent=fmt(finalInvested);
-    document.getElementById('r-interest').textContent=fmt(finalInterest);
-
-    const isEl=!document.body.classList.contains('en');
-    document.getElementById('r-total-sub').textContent=isEl?`×${multiplier} το αρχικό κεφάλαιο`:`×${multiplier} your investment`;
-    document.getElementById('r-interest-sub').textContent=isEl?`${((finalInterest/finalInvested)*100).toFixed(0)}% απόδοση`:`${((finalInterest/finalInvested)*100).toFixed(0)}% return`;
-
-    // Chart
+function buildChart(P,pmt,r,years){
+    const labels=[],deposits=[],totals=[];
+    for(let y=1;y<=years;y++){
+        labels.push("'"+String(y).padStart(2,'0'));
+        const dep=P+pmt*12*y;
+        const tot=calcCompound(P,pmt,r,y,freq);
+        deposits.push(dep);
+        totals.push(tot);
+    }
     const isDark=document.body.getAttribute('data-theme')==='dark';
-    const gridColor=isDark?'rgba(255,255,255,0.05)':'rgba(0,0,0,0.05)';
-    const textColor=isDark?'#B8B0A0':'#787878';
+    const gridColor=isDark?'rgba(255,255,255,0.06)':'rgba(0,0,0,0.06)';
+    const textColor=isDark?'#706860':'#787878';
 
-    if(myChart){myChart.destroy();}
-    const ctx=document.getElementById('chart').getContext('2d');
+    if(chart)chart.destroy();
+    const ctx=document.getElementById('myChart').getContext('2d');
+    const gradInvest=ctx.createLinearGradient(0,0,0,200);
+    gradInvest.addColorStop(0,'rgba(27,58,45,0.5)');
+    gradInvest.addColorStop(1,'rgba(27,58,45,0.02)');
+    const gradDeposit=ctx.createLinearGradient(0,0,0,200);
+    gradDeposit.addColorStop(0,'rgba(184,146,74,0.3)');
+    gradDeposit.addColorStop(1,'rgba(184,146,74,0.02)');
 
-    const greenColor=isDark?'#4A8C6A':'#1B3A2D';
-    const goldColor=isDark?'#D4A85A':'#B8924A';
-
-    myChart=new Chart(ctx,{
+    chart=new Chart(ctx,{
         type:'line',
         data:{
-            labels:labels,
+            labels,
             datasets:[
-                {label:isEl?'Καταθέσεις':'Invested',data:dataInvested,fill:true,backgroundColor:isDark?'rgba(74,140,106,0.15)':'rgba(27,58,45,0.1)',borderColor:greenColor,borderWidth:2,pointRadius:0,tension:0.4},
-                {label:isEl?'Συνολική Αξία':'Total Value',data:dataTotal,fill:true,backgroundColor:isDark?'rgba(212,168,90,0.2)':'rgba(184,146,74,0.15)',borderColor:goldColor,borderWidth:2.5,pointRadius:0,tension:0.4}
+                {label:'Total',data:totals,borderColor:'#1B3A2D',backgroundColor:gradInvest,borderWidth:2.5,pointRadius:0,fill:true,tension:0.4},
+                {label:'Deposits',data:deposits,borderColor:'#B8924A',backgroundColor:gradDeposit,borderWidth:1.5,pointRadius:0,fill:true,tension:0.4,borderDash:[4,4]}
             ]
         },
         options:{
             responsive:true,maintainAspectRatio:false,
-            interaction:{intersect:false,mode:'index'},
-            plugins:{
-                legend:{display:false},
-                tooltip:{
-                    backgroundColor:isDark?'#111A0E':'#fff',
-                    titleColor:isDark?'#F0EBE0':'#0D0D0D',
-                    bodyColor:isDark?'#B8B0A0':'#787878',
-                    borderColor:isDark?'#1E2E1A':'#D4CEC4',
-                    borderWidth:1,
-                    padding:12,
-                    callbacks:{label:ctx=>`${ctx.dataset.label}: ${fmt(ctx.raw)}`}
-                }
-            },
+            plugins:{legend:{display:false},tooltip:{mode:'index',intersect:false,callbacks:{label:function(c){return ' '+fmt(c.raw);}}}},
             scales:{
-                x:{grid:{color:gridColor},ticks:{color:textColor,font:{family:'Outfit',size:11},maxTicksLimit:10}},
-                y:{grid:{color:gridColor},ticks:{color:textColor,font:{family:'Outfit',size:11},callback:v=>v>=1000?'€'+(v/1000).toFixed(0)+'K':'€'+v}}
+                x:{grid:{color:gridColor},ticks:{color:textColor,maxTicksLimit:8,font:{size:10}}},
+                y:{grid:{color:gridColor},ticks:{color:textColor,callback:v=>fmt(v),font:{size:10}}}
             }
         }
     });
+}
 
-    // Breakdown table
-    const tbody=document.getElementById('breakdown-body');
+function buildTable(P,pmt,r,years){
+    const step=years<=10?1:years<=20?5:10;
+    const milestones=[];
+    for(let y=step;y<=years;y+=step)milestones.push(y);
+    if(milestones[milestones.length-1]!==years)milestones.push(years);
+
+    const tbody=document.getElementById('tbl-body');
     tbody.innerHTML='';
-    breakdown.forEach(row=>{
-        tbody.innerHTML+=`<tr>
-            <td>${isEl?'Έτος':'Year'} ${row.yr}</td>
-            <td>${fmt(row.invested)}</td>
-            <td class="td-green">${fmt(row.interest)}</td>
-            <td><strong>${fmt(row.total)}</strong></td>
-        </tr>`;
+    milestones.forEach(y=>{
+        const dep=P+pmt*12*y;
+        const tot=calcCompound(P,pmt,r,y,freq);
+        const gain=tot-dep;
+        const isEl=!document.body.classList.contains('en');
+        const tr=document.createElement('tr');
+        tr.innerHTML=`<td>${isEl?'Έτος':'Year'} ${y}</td><td>${fmt(dep)}</td><td>${fmt(gain)}</td><td>${fmt(tot)}</td>`;
+        tbody.appendChild(tr);
     });
 }
 
-function toggleLang(){
-    document.body.classList.toggle('en');
-    onSlide();
+// REVERSE MODE
+function updateReverse(){
+    const target=parseFloat(document.getElementById('rev-target').value)||0;
+    const P=parseFloat(document.getElementById('rev-init').value)||0;
+    const r=parseFloat(document.getElementById('rev-rate').value)||0;
+    const years=parseInt(document.getElementById('rev-years').value)||1;
+
+    // Binary search for monthly payment
+    let lo=0,hi=50000,mid=0;
+    for(let i=0;i<60;i++){
+        mid=(lo+hi)/2;
+        const result=calcCompound(P,mid,r,years,12);
+        if(result<target)lo=mid;else hi=mid;
+    }
+    const monthly=Math.max(0,mid);
+    const deposits=P+monthly*12*years;
+    const gain=target-deposits;
+    const isEl=!document.body.classList.contains('en');
+
+    document.getElementById('rev-monthly-result').textContent=fmt(monthly);
+    document.getElementById('rev-sub').textContent=
+        (isEl?'Σύνολο καταθέσεων: ':'Total deposits: ')+fmt(deposits)+
+        (isEl?' — Κέρδος: ':' — Gain: ')+fmt(gain);
 }
 
+function switchMode(mode){
+    document.getElementById('mode-normal').style.display=mode==='normal'?'block':'none';
+    document.getElementById('mode-reverse').style.display=mode==='reverse'?'block':'none';
+    document.getElementById('tab-normal').className='mode-tab '+(mode==='normal'?'active':'inactive');
+    document.getElementById('tab-reverse').className='mode-tab '+(mode==='reverse'?'active':'inactive');
+    if(mode==='reverse')updateReverse();
+}
+
+function toggleLang(){document.body.classList.toggle('en');update();updateReverse();}
 function toggleTheme(){
     const b=document.body,i=document.getElementById('ti');
     if(b.getAttribute('data-theme')==='dark'){b.removeAttribute('data-theme');i.className='fas fa-moon';}
     else{b.setAttribute('data-theme','dark');i.className='fas fa-sun';}
-    calculate();
+    update();
 }
 
-// Init
-window.addEventListener('DOMContentLoaded',()=>{onSlide();});
+document.querySelectorAll('input[type=range]').forEach(updateSlider);
+update();
+updateReverse();
 </script>
 </body>
 </html>
