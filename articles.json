@@ -8,7 +8,7 @@
     "title_en": "Google I/O 2026: The Future Is Agentic — And the Stock Dropped",
     "desc_el": "Γυαλιά που παραγγέλνουν καφέ, AI που δουλεύει 24/7 στο παρασκήνιο, η μεγαλύτερη αναβάθμιση του Search σε 30 χρόνια — και μια μετοχή που αδιαφόρησε.",
     "desc_en": "Glasses that order your coffee, AI working 24/7 in the background, the biggest Search upgrade in 30 years — and a stock that shrugged.",
-    "image": "analysis-hero.jpg",
+    "image": "trading-screen-hero.jpg",
     "readtime": "6",
     "featured": true
   },
@@ -46,7 +46,7 @@
     "title_en": "🔴 LIVE: Nvidia Results Tonight — $78B Expected, China Wildcard",
     "desc_el": "Αναμενόμενα έσοδα $78 δισ., China wildcard, market cap $6 τρισ. στον ορίζοντα. Τα 3 πράγματα που θα κινήσουν τη μετοχή και τα 3 σενάρια για απόψε.",
     "desc_en": "$78B revenue expected, China wildcard, $6T market cap in sight. The 3 things that will move the stock and the 3 scenarios for tonight.",
-    "image": "macro-hero.jpg",
+    "image": "trading-screen-hero.jpg",
     "readtime": "8"
   },
   {
@@ -58,7 +58,7 @@
     "title_en": "📈 Time in the Market Beats Timing the Market: 125 Years of S&P 500 Data",
     "desc_el": "Ποιο είναι το μυστικό των επιτυχημένων επενδυτών; Όχι το timing. 125 χρόνια δεδομένων αποδεικνύουν ότι ο χρόνος στην αγορά κερδίζει πάντα.",
     "desc_en": "What's the secret of successful investors? Not timing. 125 years of data prove that time in the market always wins.",
-    "image": "academy-hero.jpg",
+    "image": "gold-bars-hero.jpg",
     "readtime": "7"
   },
   {
@@ -82,7 +82,7 @@
     "title_en": "📊 Alphabet (GOOGL): 7 Checks, Valuation & 12-Month Price Target 2026",
     "desc_el": "Αξίζει η GOOGL στα $400; Cloud +63%, έσοδα +22%, P/E 30x. Πλήρης θεμελιώδης ανάλυση με 7 ελέγχους και τιμή στόχος 12 μηνών.",
     "desc_en": "Is GOOGL worth buying at $400? Cloud +63%, revenues +22%, P/E 30x. Full fundamental analysis with 7 checks and 12-month price target.",
-    "image": "macro-hero.jpg",
+    "image": "desk-newspaper-hero.jpg",
     "readtime": "9"
   },
   {
@@ -142,7 +142,7 @@
     "title_en": "Fed Analysis: What Central Bank Decisions Mean for Markets",
     "desc_el": "Πώς οι αποφάσεις της Fed για τα επιτόκια επηρεάζουν μετοχές, ομόλογα και ακίνητα. Όλα όσα χρειάζεσαι να ξέρεις.",
     "desc_en": "How Fed interest rate decisions affect stocks, bonds and real estate. Everything you need to know about the most important bank in the world.",
-    "image": "fed-large.jpg",
+    "image": "stock-certificate-hero.jpg",
     "readtime": "7"
   },
   {
@@ -190,7 +190,7 @@
     "title_en": "🧮 Compound Interest Calculator",
     "desc_el": "Υπολόγισε πόσο θα αξίζει η επένδυσή σου με ανατοκισμό. Διαδραστικό εργαλείο με γράφημα και sliders.",
     "desc_en": "Calculate how much your investment will be worth with compound interest. Interactive tool with chart and sliders.",
-    "image": "academy-hero.jpg",
+    "image": "gold-bars-hero.jpg",
     "readtime": "1",
     "url": "calculator.html"
   }
