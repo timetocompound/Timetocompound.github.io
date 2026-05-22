@@ -54,11 +54,12 @@
         .hero-sub{font-size:.95rem;color:rgba(255,255,255,.65);max-width:500px;line-height:1.6;}
 
         /* MODE TABS */
-        .mode-tabs{max-width:980px;margin:0 auto;padding:0 24px;display:flex;gap:8px;margin-top:-20px;position:relative;z-index:2;}
-        .mode-tab{padding:10px 20px;border-radius:8px 8px 0 0;font-size:.8rem;font-weight:700;letter-spacing:.5px;cursor:pointer;border:none;transition:all .2s;}
-        .mode-tab.active{background:var(--paper-2);color:var(--green);box-shadow:var(--shadow);}
-        .mode-tab.inactive{background:rgba(255,255,255,.15);color:rgba(255,255,255,.7);}
-        .mode-tab.inactive:hover{background:rgba(255,255,255,.25);}
+        .mode-tabs{background:var(--paper-2);border-bottom:2px solid var(--rule);display:flex;gap:0;max-width:100%;}
+        .mode-tabs-inner{max-width:980px;margin:0 auto;padding:0 24px;display:flex;gap:0;}
+        .mode-tab{padding:14px 28px;font-size:.82rem;font-weight:700;letter-spacing:.5px;cursor:pointer;border:none;background:none;color:var(--ink-3);border-bottom:3px solid transparent;margin-bottom:-2px;transition:all .2s;}
+        .mode-tab:hover{color:var(--ink);background:var(--paper-3);}
+        .mode-tab.active{color:var(--green);border-bottom:3px solid var(--green);background:none;}
+        .mode-tab.inactive{color:var(--ink-3);}
 
         /* MAIN LAYOUT */
         .calc-wrap{max-width:980px;margin:0 auto;padding:0 24px 60px;display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:start;}
@@ -178,12 +179,14 @@
 </div>
 
 <div class="mode-tabs">
+<div class="mode-tabs-inner">
     <button class="mode-tab active" id="tab-normal" onclick="switchMode('normal')">
         <span class="lang-el">📈 Υπολογιστής</span><span class="lang-en">📈 Calculator</span>
     </button>
     <button class="mode-tab inactive" id="tab-reverse" onclick="switchMode('reverse')">
         <span class="lang-el">🎯 Στόχος</span><span class="lang-en">🎯 Goal Planner</span>
     </button>
+</div>
 </div>
 
 <!-- NORMAL MODE -->
@@ -393,7 +396,7 @@
 let freq = 12;
 let chart;
 
-function fmt(n){return n.toLocaleString('el-GR',{maximumFractionDigits:0})+'&thinsp;€';}
+function fmt(n){return n.toLocaleString('el-GR',{maximumFractionDigits:0})+' €';}
 function fmtPct(n){return(n>=0?'+':'')+n.toFixed(1)+'%';}
 
 function setFreq(btn){
