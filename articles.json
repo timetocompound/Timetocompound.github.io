@@ -1,5 +1,18 @@
 [
   {
+    "id": "article16",
+    "section": "my",
+    "date": "2026-05-23",
+    "tags": ["macro", "new"],
+    "title_el": "Kevin Warsh: Ο Νέος Πρόεδρος της Fed που Θα Αποφασίσει την Τύχη των Αγορών",
+    "title_en": "Kevin Warsh: The New Fed Chair Who Will Decide the Fate of Markets",
+    "desc_el": "Ορκίστηκε χθες. Τον Ιούνιο η πρώτη FOMC. Ενδιάμεσα: πληθωρισμός 3.8%, πίεση Trump, πόλεμος στη Μέση Ανατολή. Ποια στρατηγική φέρνει και τι σημαίνει για τις αγορές.",
+    "desc_en": "Sworn in yesterday. First FOMC in June. In between: 3.8% inflation, Trump pressure, Middle East war. What strategy he brings and what it means for markets.",
+    "image": "fed-large.jpg",
+    "readtime": "8",
+    "featured": true
+  },
+  {
     "id": "article15",
     "section": "my",
     "date": "2026-05-22",
@@ -16,7 +29,7 @@
     "id": "article14",
     "section": "my",
     "date": "2026-05-21",
-    "tags": ["macro", "new"],
+    "tags": ["macro"],
     "title_el": "📈 Το AI Chip Supercycle: Intel +50%, SOX +65% — Η Ιστορία Πίσω από τους Αριθμούς",
     "title_en": "📈 The AI Chip Supercycle: Intel +50%, SOX +65% — The Story Behind the Numbers",
     "desc_el": "Όλοι μιλούν για τη Nvidia. Αλλά ολόκληρος ο κλάδος ημιαγωγών εκτοξεύεται το 2026. Intel +50%, AMD +38%, TSMC, Micron, ASML — ποιος κάνει τι και γιατί.",
