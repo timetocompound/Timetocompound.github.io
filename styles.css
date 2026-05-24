@@ -175,6 +175,10 @@ body.en span.lang-en{display:inline!important;}
 .nav-date{display:none;}
 .foot-grid{grid-template-columns:1fr;gap:28px;}
 .foot-bottom{flex-direction:column;gap:8px;text-align:center;}
+/* ── NAV TABS MOBILE FIX ── */
+.nav-tabs{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding:0 16px;}
+.nav-tabs::-webkit-scrollbar{display:none;}
+.tab-btn{white-space:nowrap;flex-shrink:0;padding:0 12px;}
 }
 
 /* ─── HOME SECTION ─── */
@@ -281,3 +285,4 @@ body.en span.lang-en{display:inline!important;}
 .indices-row{grid-template-columns:1fr;}
 .stocks-grid{grid-template-columns:repeat(2,1fr);}
 .chart-hot-grid{grid-template-columns:1fr;}
+}
