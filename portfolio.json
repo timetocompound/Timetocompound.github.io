@@ -1,11 +1,11 @@
 {
   "holdings": [
     {
-      "ticker": "VUAA.AS",
-      "display_ticker": "VUAA",
+      "ticker": "VUAA",
       "name": "Vanguard S&P 500 UCITS ETF",
       "shares": 103,
       "avg_buy_price": 105.00,
+      "current_price": 144.52,
       "currency": "EUR"
     }
   ],
@@ -13,5 +13,6 @@
     "eur": 0.40,
     "usd": 15.27,
     "usd_rate": 1.16
-  }
+  },
+  "last_price_update": "25/05/2026"
 }
