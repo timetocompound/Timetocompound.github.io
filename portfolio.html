@@ -25,13 +25,11 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body { font-family: 'Outfit', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; }
 
-    /* NAV */
     nav { background: var(--green); padding: 0 2rem; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 100; }
     .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--gold); text-decoration: none; }
     .nav-back  { font-size: .85rem; color: rgba(255,255,255,.6); text-decoration: none; transition: color .2s; }
     .nav-back:hover { color: var(--gold); }
 
-    /* HERO */
     .hero { background: var(--green); padding: 2.8rem 2rem 4rem; text-align: center; position: relative; overflow: hidden; }
     .hero::after { content: ''; position: absolute; bottom: -1px; left: 0; right: 0; height: 40px; background: var(--paper); clip-path: ellipse(55% 100% at 50% 100%); }
     .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(1.8rem,4vw,2.6rem); color: #fff; font-weight: 400; margin-bottom: .35rem; }
@@ -40,67 +38,48 @@
 
     main { max-width: 700px; margin: 0 auto; padding: 1.8rem 1.2rem 4rem; }
 
-    /* BANNER */
     .banner {
       background: var(--green); border-radius: 12px; padding: 1.6rem 1.8rem;
       margin-bottom: 1.4rem; box-shadow: var(--shadow);
       display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 1rem;
     }
-    .bn-item { }
     .bn-label { font-size: .65rem; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.45); margin-bottom: .3rem; }
-    .bn-val { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 600; color: #fff; line-height: 1.05; }
+    .bn-val   { font-family: 'Cormorant Garamond', serif; font-size: 1.9rem; font-weight: 600; color: #fff; line-height: 1.05; }
     .bn-val.gain { color: #6EE7B7; }
     .bn-val.loss { color: #FCA5A5; }
-    .bn-sub { font-size: .72rem; margin-top: .2rem; }
+    .bn-sub      { font-size: .72rem; margin-top: .2rem; }
     .bn-sub.gain { color: rgba(110,231,183,.7); }
     .bn-sub.loss { color: rgba(252,165,165,.7); }
 
-    /* SECTION */
     .sec { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-weight: 600; color: var(--green); margin-bottom: .8rem; display: flex; align-items: center; gap: .5rem; }
     .sec::after { content: ''; flex: 1; height: 1px; background: var(--border); }
 
-    /* HOLDING CARD */
     .hcard { background: var(--card); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 1.2rem; overflow: hidden; }
-
     .hcard-top { padding: 1.2rem 1.4rem; display: grid; grid-template-columns: 1fr auto; gap: .4rem; }
-    .h-left {}
-    .h-ticker { font-weight: 700; font-size: 1rem; color: var(--green); letter-spacing: .04em; }
-    .h-name   { font-size: .75rem; color: var(--muted); margin-top: 1px; }
-    .h-shares { font-size: .7rem; color: var(--muted); margin-top: 6px; }
-    .h-right  { text-align: right; }
+    .h-ticker  { font-weight: 700; font-size: 1rem; color: var(--green); letter-spacing: .04em; }
+    .h-name    { font-size: .75rem; color: var(--muted); margin-top: 1px; }
+    .h-shares  { font-size: .7rem; color: var(--muted); margin-top: 6px; }
+    .h-right   { text-align: right; }
     .h-current { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 600; color: var(--ink); line-height: 1; }
     .h-buy     { font-size: .7rem; color: var(--muted); margin-top: 3px; }
 
-    .hcard-bottom {
-      border-top: 1px solid var(--border);
-      padding: .9rem 1.4rem;
-      display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .5rem;
-      background: rgba(27,58,45,.02);
-    }
-    .stat { }
+    .hcard-bottom { border-top: 1px solid var(--border); padding: .9rem 1.4rem; display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .5rem; background: rgba(27,58,45,.02); }
     .stat-label { font-size: .62rem; text-transform: uppercase; letter-spacing: .08em; color: var(--muted); margin-bottom: 3px; }
     .stat-val   { font-size: .95rem; font-weight: 600; color: var(--ink); }
     .stat-val.gain { color: var(--gain); }
     .stat-val.loss { color: var(--loss); }
 
-    /* CASH */
     .cash-card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; box-shadow: var(--shadow); margin-bottom: 1.2rem; overflow: hidden; }
-    .cash-row { display: flex; align-items: center; justify-content: space-between; padding: .9rem 1.4rem; border-bottom: 1px solid var(--border); }
+    .cash-row  { display: flex; align-items: center; justify-content: space-between; padding: .9rem 1.4rem; border-bottom: 1px solid var(--border); }
     .cash-row:last-child { border-bottom: none; }
     .cash-left { display: flex; align-items: center; gap: .7rem; }
     .cash-icon { width: 30px; height: 30px; border-radius: 50%; background: var(--green); display: flex; align-items: center; justify-content: center; font-size: .8rem; font-weight: 700; color: var(--gold); }
     .cash-ccy  { font-weight: 500; font-size: .88rem; }
     .cash-sub  { font-size: .68rem; color: var(--muted); }
     .cash-amt  { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; font-weight: 600; color: var(--ink); }
-    .cash-eur  { font-size: .7rem; color: var(--muted); }
+    .cash-note { font-size: .7rem; color: var(--muted); }
 
-    /* UPDATE NOTE */
-    .update-note {
-      display: flex; align-items: center; justify-content: space-between;
-      font-size: .72rem; color: var(--muted); margin-bottom: 1.2rem;
-      padding: .6rem .9rem; background: rgba(184,146,74,.06);
-      border: 1px solid rgba(184,146,74,.2); border-radius: 6px;
-    }
+    .update-note { display: flex; align-items: center; justify-content: space-between; font-size: .72rem; color: var(--muted); margin-bottom: 1.2rem; padding: .6rem .9rem; background: rgba(184,146,74,.06); border: 1px solid rgba(184,146,74,.2); border-radius: 6px; }
     .update-note span { color: var(--gold); font-weight: 500; }
 
     .disclaimer { font-size: .73rem; color: var(--muted); line-height: 1.65; padding: 1rem 1.2rem; background: rgba(27,58,45,.03); border-left: 3px solid var(--gold); border-radius: 0 6px 6px 0; margin-top: .4rem; }
@@ -110,7 +89,7 @@
 
     @media(max-width:500px) {
       .banner { grid-template-columns: 1fr 1fr; }
-      .banner .bn-item:last-child { grid-column: 1/-1; }
+      .banner > div:last-child { grid-column: 1/-1; }
       .hcard-bottom { grid-template-columns: 1fr 1fr; }
     }
   </style>
@@ -136,8 +115,10 @@
 </footer>
 
 <script>
-function fmt2(n)  { return n.toLocaleString('el-GR', {minimumFractionDigits:2, maximumFractionDigits:2}); }
-function fmt0(n)  { return n.toLocaleString('el-GR', {minimumFractionDigits:0,  maximumFractionDigits:0}); }
+const fmt2 = n => n.toLocaleString('el-GR', {minimumFractionDigits:2, maximumFractionDigits:2});
+const fmt0 = n => n.toLocaleString('el-GR', {minimumFractionDigits:0,  maximumFractionDigits:0});
+const usd  = n => '$' + fmt2(n);
+const eur  = n => '€' + fmt2(n);
 
 async function render() {
   const app = document.getElementById('app');
@@ -146,7 +127,7 @@ async function render() {
     const r = await fetch('portfolio.json?v=' + Date.now());
     cfg = await r.json();
   } catch(e) {
-    app.innerHTML = '<p style="color:var(--loss);text-align:center">❌ Σφάλμα φόρτωσης portfolio.json</p>';
+    app.innerHTML = '<p style="color:var(--loss);text-align:center;padding:2rem">❌ Σφάλμα φόρτωσης portfolio.json</p>';
     return;
   }
 
@@ -156,35 +137,35 @@ async function render() {
   let totalInvested = 0, totalCurrent = 0;
 
   const hData = holdings.map(h => {
-    const invested    = h.shares * h.avg_buy_price;
-    const currentVal  = h.shares * h.current_price;
-    const pnlAbs      = currentVal - invested;
-    const pnlPct      = (pnlAbs / invested) * 100;
-    totalInvested    += invested;
-    totalCurrent     += currentVal;
-    return { ...h, invested, currentVal, pnlAbs, pnlPct };
+    const sym        = h.currency === 'USD' ? '$' : '€';
+    const invested   = h.shares * h.avg_buy_price;
+    const currentVal = h.shares * h.current_price;
+    const pnlAbs     = currentVal - invested;
+    const pnlPct     = (pnlAbs / invested) * 100;
+    totalInvested   += invested;
+    totalCurrent    += currentVal;
+    return { ...h, sym, invested, currentVal, pnlAbs, pnlPct };
   });
 
-  const cashEur      = cash.eur + (cash.usd / cash.usd_rate);
-  const grandTotal   = totalCurrent + cashEur;
-  const totalPnlAbs  = totalCurrent - totalInvested;
-  const totalPnlPct  = (totalPnlAbs / totalInvested) * 100;
+  const totalPnlAbs = totalCurrent - totalInvested;
+  const totalPnlPct = (totalPnlAbs / totalInvested) * 100;
   const gc = totalPnlPct >= 0 ? 'gain' : 'loss';
+  const sym0 = hData[0]?.sym ?? '$';
 
   // ── Banner ─────────────────────────────────────────────────
   const bannerHTML = `
     <div class="banner">
-      <div class="bn-item">
+      <div>
         <div class="bn-label">Επενδεδυμένο</div>
-        <div class="bn-val">€${fmt0(totalInvested)}</div>
+        <div class="bn-val">${sym0}${fmt0(totalInvested)}</div>
       </div>
-      <div class="bn-item">
+      <div>
         <div class="bn-label">Τρέχουσα Αξία</div>
-        <div class="bn-val">€${fmt0(totalCurrent)}</div>
+        <div class="bn-val">${sym0}${fmt0(totalCurrent)}</div>
       </div>
-      <div class="bn-item">
+      <div>
         <div class="bn-label">Κέρδος / Ζημία</div>
-        <div class="bn-val ${gc}">${totalPnlAbs>=0?'+':''}€${fmt0(totalPnlAbs)}</div>
+        <div class="bn-val ${gc}">${totalPnlAbs>=0?'+':''}${sym0}${fmt0(Math.abs(totalPnlAbs))}</div>
         <div class="bn-sub ${gc}">${totalPnlPct>=0?'▲':'▼'} ${Math.abs(totalPnlPct).toFixed(2)}%</div>
       </div>
     </div>`;
@@ -193,7 +174,7 @@ async function render() {
   const noteHTML = `
     <div class="update-note">
       <span>📅 Τιμές από: ${cfg.last_price_update ?? '—'}</span>
-      <span>Ενημέρωσε το portfolio.json για νέες τιμές</span>
+      <span>Ενημέρωσε current_price στο portfolio.json</span>
     </div>`;
 
   // ── Holdings ────────────────────────────────────────────────
@@ -203,28 +184,28 @@ async function render() {
     return `
     <div class="hcard">
       <div class="hcard-top">
-        <div class="h-left">
+        <div>
           <div class="h-ticker">${h.ticker}</div>
           <div class="h-name">${h.name}</div>
           <div class="h-shares">${h.shares} τεμάχια</div>
         </div>
         <div class="h-right">
-          <div class="h-current">€${fmt2(h.current_price)}</div>
-          <div class="h-buy">Αγορά: €${fmt2(h.avg_buy_price)}</div>
+          <div class="h-current">${h.sym}${fmt2(h.current_price)}</div>
+          <div class="h-buy">Αγορά: ${h.sym}${fmt2(h.avg_buy_price)}</div>
         </div>
       </div>
       <div class="hcard-bottom">
-        <div class="stat">
+        <div>
           <div class="stat-label">Κόστος</div>
-          <div class="stat-val">€${fmt0(h.invested)}</div>
+          <div class="stat-val">${h.sym}${fmt0(h.invested)}</div>
         </div>
-        <div class="stat">
+        <div>
           <div class="stat-label">Αξία σήμερα</div>
-          <div class="stat-val">€${fmt0(h.currentVal)}</div>
+          <div class="stat-val">${h.sym}${fmt0(h.currentVal)}</div>
         </div>
-        <div class="stat">
+        <div>
           <div class="stat-label">P&amp;L</div>
-          <div class="stat-val ${c}">${arrow} ${Math.abs(h.pnlPct).toFixed(2)}% · ${h.pnlAbs>=0?'+':''}€${fmt0(h.pnlAbs)}</div>
+          <div class="stat-val ${c}">${arrow} ${Math.abs(h.pnlPct).toFixed(2)}%<br>${h.pnlAbs>=0?'+':'−'}${h.sym}${fmt0(Math.abs(h.pnlAbs))}</div>
         </div>
       </div>
     </div>`;
@@ -238,16 +219,16 @@ async function render() {
           <div class="cash-icon">€</div>
           <div><div class="cash-ccy">Euro</div><div class="cash-sub">EUR</div></div>
         </div>
-        <div class="cash-amt">€${fmt2(cash.eur)}</div>
+        <div class="cash-amt">${eur(cash.eur)}</div>
       </div>
       <div class="cash-row">
         <div class="cash-left">
           <div class="cash-icon">$</div>
-          <div><div class="cash-ccy">US Dollar</div><div class="cash-sub">USD · rate ${cash.usd_rate}</div></div>
+          <div><div class="cash-ccy">US Dollar</div><div class="cash-sub">USD</div></div>
         </div>
         <div>
-          <div class="cash-amt">$${fmt2(cash.usd)}</div>
-          <div class="cash-eur">≈ €${fmt2(cash.usd / cash.usd_rate)}</div>
+          <div class="cash-amt">${usd(cash.usd)}</div>
+          <div class="cash-note">≈ ${eur(cash.usd / cash.usd_rate)}</div>
         </div>
       </div>
     </div>`;
