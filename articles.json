@@ -1,29 +1,40 @@
 [
   {
+    "id": "article17",
+    "section": "my",
+    "date": "2026-05-25",
+    "tags": ["macro", "new"],
+    "title_el": "S&P 500: 8 Εβδομάδες Σερί — Τι Λέει η Ιστορία 100 Χρόνων",
+    "title_en": "S&P 500: 8-Week Streak — What 100 Years of History Tell Us",
+    "desc_el": "Από το -83% του 1929 μέχρι τις 8 εβδομάδες σερί του 2026. Τα μεγαλύτερα crashes, τα ιστορικά σερί, και ο ένας αριθμός που αλλάζει τον τρόπο που σκέφτεσαι για επένδυση.",
+    "desc_en": "From -83% in 1929 to 8 straight weekly gains in 2026. The biggest crashes, historic streaks, and the one number that changes how you think about investing.",
+    "image": "stock-certificate-hero.jpg",
+    "readtime": "6",
+    "featured": true
+  },
+  {
     "id": "article16",
     "section": "my",
     "date": "2026-05-23",
-    "tags": ["macro", "new"],
+    "tags": ["macro"],
     "title_el": "Kevin Warsh: Ο Νέος Πρόεδρος της Fed — Επιτόκια, Πληθωρισμός & Αγορές 2026",
     "title_en": "Kevin Warsh: New Fed Chair — Interest Rates, Inflation & Markets 2026",
     "desc_el": "Ορκίστηκε χθες. Τον Ιούνιο η πρώτη FOMC. Ενδιάμεσα: πληθωρισμός 3.8%, πίεση Trump, πόλεμος στη Μέση Ανατολή. Ποια στρατηγική φέρνει και τι σημαίνει για τις αγορές.",
     "desc_en": "Sworn in yesterday. First FOMC in June. In between: 3.8% inflation, Trump pressure for rate cuts, Middle East war. What strategy he brings and what it means for markets.",
     "image": "fed-large.jpg",
-    "readtime": "8",
-    "featured": true
+    "readtime": "8"
   },
   {
     "id": "article15",
     "section": "my",
     "date": "2026-05-22",
-    "tags": ["macro", "new"],
+    "tags": ["macro"],
     "title_el": "Google I/O 2026: Το Μέλλον Είναι Agentic — Και η Μετοχή Έπεσε",
     "title_en": "Google I/O 2026: The Future Is Agentic — And the Stock Dropped",
     "desc_el": "Γυαλιά που παραγγέλνουν καφέ, AI που δουλεύει 24/7 στο παρασκήνιο, η μεγαλύτερη αναβάθμιση του Search σε 30 χρόνια — και μια μετοχή που αδιαφόρησε.",
     "desc_en": "Glasses that order your coffee, AI working 24/7 in the background, the biggest Search upgrade in 30 years — and a stock that shrugged.",
     "image": "trading-screen-hero.jpg",
-    "readtime": "6",
-    "featured": true
+    "readtime": "6"
   },
   {
     "id": "article14",
@@ -35,8 +46,7 @@
     "desc_el": "Όλοι μιλούν για τη Nvidia. Αλλά ολόκληρος ο κλάδος ημιαγωγών εκτοξεύεται το 2026. Intel +50%, AMD +38%, TSMC, Micron, ASML — ποιος κάνει τι και γιατί.",
     "desc_en": "Everyone talks about Nvidia. But the entire semiconductor supply chain is on fire in 2026. Intel +50%, AMD +38%, TSMC, Micron, ASML — who does what and why.",
     "image": "macro-hero.jpg",
-    "readtime": "9",
-    "featured": true
+    "readtime": "9"
   },
   {
     "id": "article13",
