@@ -170,12 +170,7 @@ async function render() {
       </div>
     </div>`;
 
-  // ── Update note ─────────────────────────────────────────────
-  const noteHTML = `
-    <div class="update-note">
-      <span>📅 Τιμές από: ${cfg.last_price_update ?? '—'}</span>
-      <span>Ενημέρωσε current_price στο portfolio.json</span>
-    </div>`;
+  const noteHTML = '';
 
   // ── Holdings ────────────────────────────────────────────────
   const holdingsHTML = hData.map(h => {
@@ -204,7 +199,7 @@ async function render() {
           <div class="stat-val">${h.sym}${fmt0(h.currentVal)}</div>
         </div>
         <div>
-          <div class="stat-label">P&amp;L</div>
+          <div class="stat-label">Κέρδος / Ζημία</div>
           <div class="stat-val ${c}">${arrow} ${Math.abs(h.pnlPct).toFixed(2)}%<br>${h.pnlAbs>=0?'+':'−'}${h.sym}${fmt0(Math.abs(h.pnlAbs))}</div>
         </div>
       </div>
