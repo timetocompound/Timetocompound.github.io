@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Χαρτοφυλάκιο | TimeToCompound</title>
+  <meta name="description" content="Το προσωπικό μου χαρτοφυλάκιο — VUAA, μετρητά, P&L σε πραγματικό χρόνο." />
+  <link rel="icon" href="favicon.png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --green:   #1B3A2D;
+      --gold:    #B8924A;
+      --paper:   #F4F1EB;
+      --ink:     #1a1a1a;
+      --muted:   #7a7a7a;
+      --border:  rgba(27,58,45,0.13);
+      --gain:    #2e7d52;
+      --loss:    #b03030;
+      --gain-bg: rgba(46,125,82,0.08);
+      --loss-bg: rgba(176,48,48,0.08);
+      --shadow:  0 2px 18px rgba(27,58,45,0.08);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Outfit', sans-serif; background: var(--paper); color: var(--ink); min-height: 100vh; }
+
+    /* NAV */
+    nav {
+      background: var(--green); padding: 0 2rem;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 60px; position: sticky; top: 0; z-index: 100;
+    }
+    .nav-logo { font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; color: var(--gold); text-decoration: none; }
+    .nav-back  { font-size: 0.85rem; color: rgba(255,255,255,0.65); text-decoration: none; transition: color .2s; }
+    .nav-back:hover { color: var(--gold); }
+
+    /* HERO */
+    .hero {
+      background: var(--green); padding: 3rem 2rem 4.5rem;
+      text-align: center; position: relative; overflow: hidden;
+    }
+    .hero::after {
+      content: ''; position: absolute; bottom: -1px; left: 0; right: 0;
+      height: 40px; background: var(--paper);
+      clip-path: ellipse(55% 100% at 50% 100%);
+    }
+    .hero h1 { font-family: 'Cormorant Garamond', serif; font-size: clamp(2rem,5vw,2.8rem); color: #fff; font-weight: 400; margin-bottom: .4rem; }
+    .hero h1 span { color: var(--gold); font-style: italic; }
+    .hero p { color: rgba(255,255,255,.55); font-size: .8rem; letter-spacing: .08em; }
+
+    /* MAIN */
+    main { max-width: 720px; margin: 0 auto; padding: 2rem 1.5rem 4rem; }
+
+    /* TOTAL BANNER */
+    .total-banner {
+      background: var(--green); border-radius: 14px;
+      padding: 1.8rem 2rem; margin-bottom: 1.5rem;
+      display: flex; align-items: center; justify-content: space-between;
+      flex-wrap: wrap; gap: 1rem;
+      box-shadow: var(--shadow);
+    }
+    .total-banner .t-label { font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; color: rgba(255,255,255,.5); margin-bottom: .3rem; }
+    .total-banner .t-val   { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: #fff; line-height: 1; }
+    .total-banner .pnl-wrap { text-align: right; }
+    .pnl-big {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 1.1rem; font-weight: 600; padding: 6px 14px;
+      border-radius: 6px;
+    }
+    .pnl-big.gain { background: var(--gain-bg); color: #5ecf90; }
+    .pnl-big.loss { background: var(--loss-bg); color: #e07070; }
+    .pnl-abs-big { font-size: .82rem; color: rgba(255,255,255,.55); margin-top: 5px; text-align: right; }
+
+    /* SECTION TITLE */
+    .section-title {
+      font-family: 'Cormorant Garamond', serif; font-size: 1.25rem;
+      font-weight: 600; color: var(--green); margin-bottom: .9rem;
+      display: flex; align-items: center; gap: .6rem;
+    }
+    .section-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+
+    /* CARD */
+    .card {
+      background: #fff; border: 1px solid var(--border);
+      border-radius: 12px; overflow: hidden;
+      box-shadow: var(--shadow); margin-bottom: 1.5rem;
+    }
+
+    /* HOLDING ROW */
+    .holding {
+      padding: 1.4rem 1.6rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      grid-template-rows: auto auto;
+      gap: .2rem .8rem;
+      align-items: start;
+    }
+    .holding-name { display: flex; flex-direction: column; gap: 2px; }
+    .h-ticker { font-weight: 700; font-size: 1.05rem; color: var(--green); letter-spacing: .03em; }
+    .h-fullname { font-size: .75rem; color: var(--muted); }
+    .h-shares { font-size: .72rem; color: var(--muted); margin-top: 4px; }
+
+    .holding-price { text-align: right; }
+    .current-price { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; font-weight: 600; color: var(--ink); }
+    .buy-price-row { font-size: .72rem; color: var(--muted); margin-top: 1px; }
+
+    .holding-pnl {
+      grid-column: 1 / -1;
+      display: flex; align-items: center; gap: 10px;
+      padding-top: .8rem; border-top: 1px solid var(--border);
+      margin-top: .6rem; flex-wrap: wrap;
+    }
+    .pnl-chip {
+      display: inline-flex; align-items: center; gap: 4px;
+      font-size: .88rem; font-weight: 600;
+      padding: 4px 12px; border-radius: 5px;
+    }
+    .pnl-chip.gain { background: var(--gain-bg); color: var(--gain); }
+    .pnl-chip.loss { background: var(--loss-bg); color: var(--loss); }
+    .pnl-abs { font-size: .82rem; color: var(--muted); }
+    .pnl-val-detail { font-size: .78rem; color: var(--muted); margin-left: auto; }
+
+    /* CASH CARD */
+    .cash-row {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1rem 1.6rem; border-bottom: 1px solid var(--border);
+    }
+    .cash-row:last-child { border-bottom: none; }
+    .cash-currency { display: flex; align-items: center; gap: .7rem; }
+    .cash-flag {
+      width: 32px; height: 32px; border-radius: 50%;
+      background: var(--green); display: flex; align-items: center;
+      justify-content: center; font-size: .9rem;
+    }
+    .cash-name { font-weight: 500; font-size: .9rem; }
+    .cash-sub  { font-size: .7rem; color: var(--muted); }
+    .cash-amount { font-family: 'Cormorant Garamond', serif; font-size: 1.25rem; font-weight: 600; color: var(--ink); }
+
+    /* SKELETON */
+    @keyframes shimmer { 0%{background-position:-300px 0} 100%{background-position:300px 0} }
+    .sk {
+      display: inline-block; border-radius: 4px; height: 1em; vertical-align: middle;
+      background: linear-gradient(90deg,#e8e4dc 25%,#f0ece4 50%,#e8e4dc 75%);
+      background-size: 300px 100%; animation: shimmer 1.1s infinite;
+    }
+
+    /* DISCLAIMER */
+    .disclaimer {
+      font-size: .75rem; color: var(--muted); line-height: 1.6;
+      padding: 1rem 1.2rem; background: rgba(27,58,45,.04);
+      border-left: 3px solid var(--gold); border-radius: 0 6px 6px 0;
+    }
+    .disclaimer strong { color: var(--ink); }
+    .last-updated { text-align: right; font-size: .7rem; color: var(--muted); margin-top: .6rem; font-style: italic; }
+
+    /* FOOTER */
+    footer { background: var(--green); text-align: center; padding: 1.6rem; font-size: .78rem; color: rgba(255,255,255,.4); }
+    footer a { color: var(--gold); text-decoration: none; }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a class="nav-logo" href="index.html">TimeToCompound</a>
+  <a class="nav-back" href="index.html">← Αρχική</a>
+</nav>
+
+<div class="hero">
+  <h1>Το <span>Χαρτοφυλάκιό</span> μου</h1>
+  <p>ΠΡΑΓΜΑΤΙΚΕΣ ΘΕΣΕΙΣ · LIVE ΤΙΜΕΣ · ΔΙΑΦΑΝΕΙΑ</p>
+</div>
+
+<main>
+
+  <!-- TOTAL BANNER -->
+  <div class="total-banner">
+    <div>
+      <div class="t-label">Συνολική Αξία</div>
+      <div class="t-val" id="totalVal"><span class="sk" style="width:120px"></span></div>
+    </div>
+    <div class="pnl-wrap">
+      <div class="t-label" style="text-align:right">Απόδοση</div>
+      <div id="totalPnlChip"><span class="sk" style="width:90px;height:1.1rem"></span></div>
+      <div class="pnl-abs-big" id="totalPnlAbs"></div>
+    </div>
+  </div>
+
+  <!-- HOLDINGS -->
+  <div class="section-title">Μετοχές</div>
+  <div class="card" id="holdingsCard">
+    <div style="padding:1.5rem;text-align:center;color:var(--muted);font-style:italic">Φόρτωση…</div>
+  </div>
+
+  <!-- CASH -->
+  <div class="section-title">Μετρητά</div>
+  <div class="card" id="cashCard">
+    <div style="padding:1.5rem;text-align:center;color:var(--muted);font-style:italic">Φόρτωση…</div>
+  </div>
+
+  <p class="last-updated" id="lastUpdated"></p>
+
+  <div class="disclaimer">
+    <strong>Disclaimer:</strong> Αυτό το χαρτοφυλάκιο αποτυπώνει πραγματικές μου θέσεις και δεν αποτελεί επενδυτική σύσταση. Κάθε επενδυτής φέρει την αποκλειστική ευθύνη των αποφάσεών του.
+  </div>
+</main>
+
+<footer>
+  © 2025 TimeToCompound.com · <a href="https://twitter.com/TimeToCompound" target="_blank">@TimeToCompound</a>
+</footer>
+
+<script>
+const PROXY   = 'https://corsproxy.io/?';
+const YF_BASE = 'https://query1.finance.yahoo.com/v8/finance/chart/';
+
+async function fetchPrice(ticker) {
+  try {
+    const url = PROXY + encodeURIComponent(YF_BASE + ticker + '?interval=1d&range=1d');
+    const res  = await fetch(url);
+    const data = await res.json();
+    const meta = data?.chart?.result?.[0]?.meta;
+    return meta?.regularMarketPrice ?? meta?.previousClose ?? null;
+  } catch { return null; }
+}
+
+const fmtEur = (n, dec=2) =>
+  '€' + Math.abs(n).toLocaleString('el-GR', {minimumFractionDigits:dec, maximumFractionDigits:dec});
+
+async function render() {
+  let cfg;
+  try {
+    const r = await fetch('portfolio.json?v=' + Date.now());
+    cfg = await r.json();
+  } catch {
+    document.getElementById('holdingsCard').innerHTML =
+      '<div style="padding:1.5rem;color:var(--loss);text-align:center">Σφάλμα φόρτωσης portfolio.json</div>';
+    return;
+  }
+
+  const { holdings, cash } = cfg;
+
+  // ── HOLDINGS ──────────────────────────────────────────────
+  const holdingsCard = document.getElementById('holdingsCard');
+  holdingsCard.innerHTML = holdings.map(h => `
+    <div class="holding" id="h-${h.ticker}">
+      <div class="holding-name">
+        <span class="h-ticker">${h.display_ticker ?? h.ticker}</span>
+        <span class="h-fullname">${h.name}</span>
+        <span class="h-shares">${h.shares} τεμάχια · avg ${h.currency === 'EUR' ? '€' : '$'}${h.avg_buy_price.toFixed(2)}</span>
+      </div>
+      <div class="holding-price">
+        <div class="current-price" id="cp-${h.ticker}"><span class="sk" style="width:70px"></span></div>
+        <div class="buy-price-row">Αγορά: ${h.currency === 'EUR' ? '€' : '$'}${h.avg_buy_price.toFixed(2)}</div>
+      </div>
+      <div class="holding-pnl" id="pnl-${h.ticker}">
+        <span class="sk" style="width:80px;height:1rem"></span>
+      </div>
+    </div>
+  `).join('');
+
+  // ── CASH ──────────────────────────────────────────────────
+  const cashCard = document.getElementById('cashCard');
+  const totalUsdInEur = (cash.usd / cash.usd_rate).toFixed(2);
+  cashCard.innerHTML = `
+    <div class="cash-row">
+      <div class="cash-currency">
+        <div class="cash-flag">€</div>
+        <div><div class="cash-name">Euro</div><div class="cash-sub">EUR</div></div>
+      </div>
+      <div class="cash-amount">€${cash.eur.toFixed(2)}</div>
+    </div>
+    <div class="cash-row">
+      <div class="cash-currency">
+        <div class="cash-flag">$</div>
+        <div><div class="cash-name">US Dollar</div><div class="cash-sub">USD (rate ${cash.usd_rate})</div></div>
+      </div>
+      <div class="cash-amount">$${cash.usd.toFixed(2)} <span style="font-size:.75rem;color:var(--muted)">≈ €${totalUsdInEur}</span></div>
+    </div>
+  `;
+
+  // ── FETCH PRICES & UPDATE ─────────────────────────────────
+  const prices = await Promise.all(holdings.map(h => fetchPrice(h.ticker)));
+  let totalCurrent = cash.eur + (cash.usd / cash.usd_rate);
+  let totalInvested = 0;
+
+  holdings.forEach((h, i) => {
+    const price = prices[i];
+    const invested = h.shares * h.avg_buy_price;
+    totalInvested += invested;
+
+    const cpEl  = document.getElementById(`cp-${h.ticker}`);
+    const pnlEl = document.getElementById(`pnl-${h.ticker}`);
+
+    if (price == null) {
+      cpEl.textContent  = 'N/A';
+      pnlEl.innerHTML   = '<span style="color:var(--muted);font-size:.8rem">Δεν βρέθηκε τιμή</span>';
+      totalCurrent += invested; // fallback: use cost basis
+      return;
+    }
+
+    const currentVal = h.shares * price;
+    totalCurrent += currentVal;
+
+    const pnlAbs = currentVal - invested;
+    const pnlPct = (pnlAbs / invested) * 100;
+    const cls    = pnlPct >= 0 ? 'gain' : 'loss';
+    const arrow  = pnlPct >= 0 ? '▲' : '▼';
+    const sign   = pnlAbs >= 0 ? '+' : '−';
+    const sym    = h.currency === 'EUR' ? '€' : '$';
+
+    cpEl.textContent = sym + price.toFixed(2);
+    pnlEl.innerHTML  = `
+      <span class="pnl-chip ${cls}">${arrow} ${Math.abs(pnlPct).toFixed(2)}%</span>
+      <span class="pnl-abs">${sign}${sym}${Math.abs(pnlAbs).toFixed(0)}</span>
+      <span class="pnl-val-detail">Αξία: ${sym}${currentVal.toFixed(2)}</span>
+    `;
+  });
+
+  // ── TOTAL BANNER ──────────────────────────────────────────
+  const totalPnlAbs = totalCurrent - totalInvested - cash.eur - (cash.usd / cash.usd_rate);
+  const totalPnlPct = totalInvested > 0 ? (totalPnlAbs / totalInvested) * 100 : 0;
+  const tc = totalPnlPct >= 0 ? 'gain' : 'loss';
+  const ta = totalPnlAbs >= 0 ? '+' : '−';
+
+  document.getElementById('totalVal').textContent = '€' + totalCurrent.toFixed(2);
+  document.getElementById('totalPnlChip').innerHTML =
+    `<div class="pnl-big ${tc}">${totalPnlPct >= 0 ? '▲' : '▼'} ${Math.abs(totalPnlPct).toFixed(2)}%</div>`;
+  document.getElementById('totalPnlAbs').textContent =
+    `${ta}€${Math.abs(totalPnlAbs).toFixed(2)}`;
+
+  const now = new Date();
+  document.getElementById('lastUpdated').textContent =
+    'Τελευταία ενημέρωση: ' + now.toLocaleDateString('el-GR') + ' ' +
+    now.toLocaleTimeString('el-GR', {hour:'2-digit', minute:'2-digit'});
+}
+
+render();
+</script>
+</body>
+</html>
