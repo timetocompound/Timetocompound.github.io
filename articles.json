@@ -1,5 +1,18 @@
 [
   {
+    "id": "article18",
+    "section": "academy",
+    "date": "2026-05-26",
+    "tags": ["broker", "review", "freedom24", "investing"],
+    "title_el": "Freedom24 Αξιολόγηση 2026: Ο Καλύτερος Broker για Έλληνες Επενδυτές;",
+    "title_en": "Freedom24 Review 2026: The Best Broker for Greek Investors?",
+    "desc_el": "Πλήρης αξιολόγηση της Freedom24: χρεώσεις, ασφάλεια, IPOs, ελληνόφωνο προσωπικό και γραφεία στην Αθήνα. Αξίζει να ανοίξεις λογαριασμό το 2026;",
+    "desc_en": "Full Freedom24 review: fees, safety, IPO access, Greek-speaking staff and offices in Athens. Is it worth opening an account in 2026?",
+    "image": "trading-screen-hero.jpg",
+    "readtime": "6",
+    "featured": true
+  },
+  {
     "id": "article17",
     "section": "my",
     "date": "2026-05-25",
